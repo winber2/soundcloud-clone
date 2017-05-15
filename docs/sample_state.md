@@ -5,16 +5,28 @@
   session: {
     currentUser: {
       id: 1,
-      username: "app-academy"
+      username: "saitama"
     },
     errors: []
   },
+  user: {
+    id: 2,
+    username: "genos",
+    profile_image_url: "imageurl.how",
+    followers: {
+      1: {
+        id: 1,
+        username: "saitama"
+      }
+    }
+  }
   songs: {
     1: {
       title: "Still Echoes",
       artist: "Lamb of God",
       author_id: 1,
       genre: "Metal",
+      image_url: 'google.com/pictures',
       Album: "VII: Sturm und Drang",
       favorites: {
         1: {
