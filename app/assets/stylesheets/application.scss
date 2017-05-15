@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+div.homepage {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.homepage-modal {
+  width: 300px;
+  height: 300px;
+  background: white;
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+.homepage-modal:focus { outline: 0 }
+
+.homepage-description {
+  display: flex;
+  height: 280px;
+  align-items: center;
+  justify-content: space-around;
+
+  span {
+    color: white;
+    font-size: 25px;
+  }
+}
+
+main {
+  background-image: asset-url('homepage.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 360px;
+}
+
+// div.homepage-overlay {
+//   position: absolute;
+//   background: orange;
+//   opacity: 0.5;
+//   height: 360px;
+//   z-index: 1;
+// }
+
+button {
+  -webkit-appearance: none;
+  color: white;
+  background: transparent;
+  border: none;
+  border-spacing: 0;
+  font-family: Lato;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+button.login {
+  transition: border 0.3s;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-weight: 100;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: box-shadow 0.3s, text-shadow 0.3s;
+}
+
+button.login:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px white, 0 0 5px white inset;
+  border-radius: 5px;
+  text-shadow: 0 0 2px white;
+}
+
+button.signup {
+  background: rgb(247, 95, 30);
+  border-radius: 5px;
+  font-weight: 100;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: text-shadow 0.3s;
+}
+
+button.signup:hover {
+  cursor: pointer;
+  text-shadow: 0 0 2px white;
+}
+
+button:focus { outline:0 }
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    padding: 5px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+}

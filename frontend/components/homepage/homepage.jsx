@@ -43,20 +43,22 @@ class HomePage extends React.Component {
     }
     return (
       <div className='homepage'>
-        <Modal isOpen={this.state.isOpen} contentLabel="Modal">
+        <Modal className='homepage-modal' isOpen={this.state.isOpen} contentLabel="Modal">
           {authRoute}
           <button onClick={this.closeModal}>Back</button>
         </Modal>
         <main className='homepage-info'>
+          <div className='homepage-overlay'>
+          </div>
           <header>
+            <p>Logo</p>
             <ul>
-            <li>
-              <p>Logo</p>
-            </li>
-            <li>
-              <button onClick={this.openSignIn}>Sign in</button>
-              <button onClick={this.openSignUp}>Create Account</button>
-            </li>
+              <li>
+                <button onClick={this.openSignIn} className='login'>Sign in</button>
+              </li>
+              <li>
+                <button onClick={this.openSignUp} className='signup'>Create Account</button>
+              </li>
             </ul>
           </header>
           <div className='homepage-description'>
