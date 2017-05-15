@@ -15,6 +15,7 @@ class LoggedHome extends React.Component {
             <li>Search</li>
             <li>Upload</li>
             <li>Settings</li>
+            <li>{this.props.currentUser.username}</li>
           </ul>
         </header>
         <main className='loggedhome-body'>

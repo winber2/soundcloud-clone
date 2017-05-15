@@ -2,7 +2,9 @@ import React from 'react';
 
 class Signin extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = { username: '', password: '' };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -11,7 +13,8 @@ class Signin extends React.Component {
       username: this.state.username,
       password: this.state.password
     };
-    this.props.signup(user);
+    this.props.signin(user);
+    window.location.hash = 'stream';
   }
 
   update(prop) {
@@ -24,11 +27,10 @@ class Signin extends React.Component {
         <h1>Sign in!</h1>
         <input onChange={this.update('username')} placeholder='username'></input>
         <input onChange={this.update('password')} type='password' placeholder='password'></input>
-        <button onClick={this.handleSubmit}>Sign Up!</button>
-
-        <br />
-        <button onClick={this.closeModal}>Back</button>
+        <button onClick={this.handleSubmit}>Sign in!</button>
       </div>
     );
   }
 }
+
+export default Signin;

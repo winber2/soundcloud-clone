@@ -1,54 +1,50 @@
 import React from 'react';
 import Modal from 'react-modal';
+import Signin from './signin';
+import Signup from './signup';
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpen: false, username: '', password: '' };
-    this.openModal = this.openModal.bind(this);
+    this.state = { isOpen: false, authRoute: '' };
+    this.openSignUp = this.openSignUp.bind(this);
+    this.openSignIn = this.openSignIn.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    let user = {
-      username: this.state.username,
-      password: this.state.password
-    };
-    this.props.signup(user);
-  }
-
-  update(prop) {
-    return e => this.setState({ prop });
   }
 
   componentWillMount() {
     Modal.setAppElement('body');
   }
 
-  openModal(e) {
+  openSignIn(e) {
     e.preventDefault();
 
-    this.setState({ isOpen: true });
+    this.setState({ isOpen: true, authRoute: 'signin' });
+  }
+
+  openSignUp(e) {
+    e.preventDefault();
+
+    this.setState({ isOpen: true, authRoute: 'signup' });
   }
 
   closeModal(e) {
     e.preventDefault();
 
-    this.setState({ isOpen: false });
+    this.setState({ isOpen: false, authRoute: '' });
   }
 
   render() {
+    let authRoute;
+    if (this.state.authRoute === 'signin') {
+      authRoute = <Signin signin={this.props.signin}/>;
+    } else {
+      authRoute = <Signup signup={this.props.signup}/>;
+    }
     return (
       <div className='homepage'>
         <Modal isOpen={this.state.isOpen} contentLabel="Modal">
-          <h1>Sign in</h1>
-          <input onChange={this.update('username')} placeholder='username'></input>
-          <input onChange={this.update('password')} type='password' placeholder='password'></input>
-          <button onClick={this.handleSubmit}>Sign Up!</button>
-
-          <br />
+          {authRoute}
           <button onClick={this.closeModal}>Back</button>
         </Modal>
         <main className='homepage-info'>
@@ -58,8 +54,8 @@ class HomePage extends React.Component {
               <p>Logo</p>
             </li>
             <li>
-              <button onClick={this.openModal}>Sign in</button>
-              <button>Create Account</button>
+              <button onClick={this.openSignIn}>Sign in</button>
+              <button onClick={this.openSignUp}>Create Account</button>
             </li>
             </ul>
           </header>

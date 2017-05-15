@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import HomePage from './homepage/homepage.jsx';
-import LoggedHome from './logged_home/logged_home.jsx';
+import HomePageContainer from './homepage/homepage_container';
+import LoggedHomeContainer from './logged_home/logged_home_container';
 
 const App = () => (
   <div>
     <Switch>
-      <Route exact path="/" component={HomePage} />
-      <ProtectedRoute path="/" component={LoggedHome} />
+      <Route exact path="/" component={HomePageContainer} />
+      <ProtectedRoute path="/" component={LoggedHomeContainer} />
     </Switch>
   </div>
 );
