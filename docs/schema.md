@@ -41,6 +41,7 @@ playlist_id | integer   | not null, foreign key (references playlists), indexed
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+author_id   | integer   | not null, foreign key (references users), indexed
 song_id     | integer   | not null, foreign key (references songs), indexed, unique [song_id, playlist_id]
 body        | string    | not null
 
