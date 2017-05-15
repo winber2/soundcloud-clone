@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import Signin from './signin';
+import Login from './login';
 import Signup from './signup';
 
 class HomePage extends React.Component {
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
   render() {
     let authRoute;
     if (this.state.authRoute === 'signin') {
-      authRoute = <Signin signin={this.props.signin}/>;
+      authRoute = <Login login={this.props.login}/>;
     } else {
       authRoute = <Signup signup={this.props.signup}/>;
     }

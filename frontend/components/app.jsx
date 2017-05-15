@@ -7,8 +7,10 @@ import LoggedHomeContainer from './logged_home/logged_home_container';
 const App = () => (
   <div>
     <Switch>
-      <Route exact path="/" component={HomePageContainer} />
-      <ProtectedRoute path="/" component={LoggedHomeContainer} />
+
+      <ProtectedRoute exact path="/stream" component={LoggedHomeContainer} />
+      <AuthRoute exact path="/" component={HomePageContainer} />
+      <Route path="/" component={() => <h1>ERROR</h1>} />
     </Switch>
   </div>
 );

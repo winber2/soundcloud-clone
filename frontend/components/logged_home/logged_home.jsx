@@ -3,6 +3,14 @@ import React from 'react';
 class LoggedHome extends React.Component {
   constructor(props) {
     super(props);
+    this.logout = this.logout.bind(this);
+  }
+
+  logout(e) {
+    e.preventDefault();
+
+    this.props.logout();
+    window.location.hash = '';
   }
 
   render() {
@@ -16,6 +24,9 @@ class LoggedHome extends React.Component {
             <li>Upload</li>
             <li>Settings</li>
             <li>{this.props.currentUser.username}</li>
+            <li>
+              <button onClick={this.logout}>Log out</button>
+            </li>
           </ul>
         </header>
         <main className='loggedhome-body'>

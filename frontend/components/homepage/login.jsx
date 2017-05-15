@@ -1,10 +1,11 @@
 import React from 'react';
 
-class Signin extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
@@ -13,12 +14,12 @@ class Signin extends React.Component {
       username: this.state.username,
       password: this.state.password
     };
-    this.props.signin(user);
+    this.props.login(user);
     window.location.hash = 'stream';
   }
 
   update(prop) {
-    return e => this.setState({ prop });
+    return e => this.setState({ [prop]: e.target.value });
   }
 
   render() {
@@ -33,4 +34,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin;
+export default Login;

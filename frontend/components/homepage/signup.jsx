@@ -5,6 +5,7 @@ class Signup extends React.Component {
     super(props);
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
