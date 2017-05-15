@@ -24,12 +24,20 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Sign in!</h1>
-        <input onChange={this.update('username')} placeholder='username'></input>
-        <input onChange={this.update('password')} type='password' placeholder='password'></input>
-        <button onClick={this.handleSubmit}>Sign in!</button>
-      </div>
+      <ul className='homepage-auth'>
+        <li>
+          <h1>Log in!</h1>
+        </li>
+        <li>
+          <input onChange={this.update('username')} placeholder='username'></input>
+        </li>
+        <li>
+          <input onChange={this.update('password')} type='password' placeholder='password'></input>
+        </li>
+        <li>
+          <button onClick={this.handleSubmit}>Log in!</button>
+        </li>
+      </ul>
     );
   }
 }

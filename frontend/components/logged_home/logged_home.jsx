@@ -16,18 +16,22 @@ class LoggedHome extends React.Component {
   render() {
     return (
       <div className='loggedhome'>
-        <header className='navigation'>
-          <ul>
-            <li>Logo</li>
-            <li>Home</li>
-            <li>Search</li>
-            <li>Upload</li>
-            <li>Settings</li>
-            <li>{this.props.currentUser.username}</li>
-            <li>
-              <button onClick={this.logout}>Log out</button>
-            </li>
-          </ul>
+        <header className='loggedhome-header'>
+          <nav className='navigation'>
+            <ul>
+              <li>Logo</li>
+              <li>Home</li>
+            </ul>
+            <input className='home-search'></input>
+            <ul>
+              <li>Upload</li>
+              <li>Settings</li>
+              <li>{this.props.currentUser.username}</li>
+              <li>
+                <button onClick={this.logout}>Log out</button>
+              </li>
+            </ul>
+          </nav>
         </header>
         <main className='loggedhome-body'>
           <p>songs</p>

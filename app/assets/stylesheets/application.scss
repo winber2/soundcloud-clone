@@ -27,6 +27,30 @@ div.homepage {
   margin-top: 20px;
   border: 2px solid gray;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .homepage-auth {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    input {
+      width: 200px;
+      border-radius: 5px;
+      box-shadow: none;
+    }
+  }
 }
 
 .homepage-modal:focus { outline: 0 }
@@ -43,7 +67,8 @@ div.homepage {
   }
 }
 
-main {
+
+main.homepage-info {
   background-image: asset-url('homepage.jpg');
   background-size: cover;
   background-position: center;
@@ -60,7 +85,6 @@ main {
 
 button {
   -webkit-appearance: none;
-  color: white;
   background: transparent;
   border: none;
   border-spacing: 0;
@@ -69,8 +93,12 @@ button {
   text-decoration: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 button.login {
-  transition: border 0.3s;
+  color: white;
   border: 1px solid white;
   border-radius: 5px;
   font-weight: 100;
@@ -80,7 +108,6 @@ button.login {
 }
 
 button.login:hover {
-  cursor: pointer;
   box-shadow: 0 0 5px white, 0 0 5px white inset;
   border-radius: 5px;
   text-shadow: 0 0 2px white;
@@ -88,6 +115,7 @@ button.login:hover {
 
 button.signup {
   background: rgb(247, 95, 30);
+  color: white;
   border-radius: 5px;
   font-weight: 100;
   padding: 5px 15px 6px 15px;
@@ -96,7 +124,6 @@ button.signup {
 }
 
 button.signup:hover {
-  cursor: pointer;
   text-shadow: 0 0 2px white;
 }
 

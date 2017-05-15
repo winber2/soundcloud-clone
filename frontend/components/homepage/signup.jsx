@@ -24,12 +24,20 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Sign up!</h1>
-        <input onChange={this.update('username')} placeholder='username'></input>
-        <input onChange={this.update('password')} type='password' placeholder='password'></input>
-        <button onClick={this.handleSubmit}>Sign up!</button>
-      </div>
+      <ul className='homepage-auth'>
+        <li>
+          <h1>Sign up!</h1>
+        </li>
+        <li>
+          <input onChange={this.update('username')} placeholder='username'></input>
+        </li>
+        <li>
+          <input onChange={this.update('password')} type='password' placeholder='password'></input>
+        </li>
+        <li>
+          <button onClick={this.handleSubmit}>Sign up!</button>
+        </li>
+      </ul>
     );
   }
 }
