@@ -9,14 +9,16 @@
     },
     errors: []
   },
-  user: {
-    id: 2,
-    username: "genos",
-    profile_image_url: "imageurl.how",
-    followers: {
-      1: {
-        id: 1,
-        username: "saitama"
+  users: {
+    2: {
+      id: 2,
+      username: "genos",
+      profile_image_url: "imageurl.how",
+      followers: {
+        1: {
+          id: 1,
+          username: "saitama"
+        }
       }
     }
   }
