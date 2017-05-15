@@ -29,6 +29,7 @@
       author_id: 1,
       genre: "Metal",
       image_url: 'google.com/pictures',
+      track_urlL: 'soundcloud.com/song',
       Album: "VII: Sturm und Drang",
       favorites: {
         1: {
@@ -50,6 +51,8 @@
           author_id: 3,
           genre: "J-Pop",
           Album: "Eromanga-sensei",
+          image_url: 'google.com/pictures',
+          track_urlL: 'soundcloud.com/song',
           favorites: {}
         },
         3: {
@@ -58,6 +61,8 @@
           author_id: 2,
           genre: "Electronic",
           Album: "SANDSTORMING",
+          image_url: 'google.com/pictures',
+          track_urlL: 'soundcloud.com/song',
           favorites: {
             5: {
               id: 2,
