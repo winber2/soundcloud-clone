@@ -5,7 +5,6 @@ column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
 username         | string    | not null, indexed, unique
-email            | string    | not null, indexed, unique
 password_digest  | string    | not null
 session_token    | string    | not null, indexed, unique
 profile_image_url| string    |
@@ -17,7 +16,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 release_date| date      | not null
 genre       | string    | not null
-album       | string    | 
+album       | string    |
 image_url   | string    | not null
 track_url   | string    | not null
 author_id   | integer   | not null, foreign key (referenes users), indexed
