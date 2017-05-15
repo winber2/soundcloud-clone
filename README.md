@@ -4,8 +4,8 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
-[trello]: https://trello.com/b/ALgfuX0Q/freshernote
+[heroku]: https://vibemusic.herokuapp.com/
+[trello]: https://trello.com/b/Ha0Lyhab/soundcloud-fullstack-project
 
 ## Minimum Viable Product
 
