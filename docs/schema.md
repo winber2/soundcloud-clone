@@ -17,7 +17,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 release_date| date      | not null
 genre       | string    | not null
-album       | string    | not null
+album       | string    | 
 image_url   | string    | not null
 track_url   | string    | not null
 author_id   | integer   | not null, foreign key (referenes users), indexed
