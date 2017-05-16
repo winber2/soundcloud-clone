@@ -19,13 +19,3 @@ const SongReducer = (state = {}, action) => {
 };
 
 export default SongReducer;
-
-const song = {
-    title: 'username song',
-    author_id: '1',
-    genre: 'Future Funk',
-    album: 'album',
-    release_date: '05/14/2017',
-    image_url: 'http://res.cloudinary.com/winber1/image/upload/v1494889520/ditto_fag_qjnfcv.jpg',
-    track_url: 'http://res.cloudinary.com/winber1/video/upload/v1494889475/05_-_Love_Ya_ei2alj.mp3'
-};

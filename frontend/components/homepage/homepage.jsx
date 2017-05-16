@@ -52,7 +52,7 @@ class HomePage extends React.Component {
           <div className='homepage-overlay'>
           </div>
           <header>
-            <p>Logo</p>
+            <div className='homepage-logo'></div>
             <ul>
               <li>
                 <button onClick={this.openSignIn} className='login'>Sign in</button>

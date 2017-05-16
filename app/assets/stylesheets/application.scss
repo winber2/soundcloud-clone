@@ -19,6 +19,16 @@ div.homepage {
   margin: 0 auto;
 }
 
+div.homepage-logo {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  background-image: asset-url('vibe.png');
+  background-size: contain;
+  height: 45px;
+  width: 170px;
+}
+
 .homepage-modal {
   width: 300px;
   height: 300px;

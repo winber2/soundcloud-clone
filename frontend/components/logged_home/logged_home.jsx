@@ -1,17 +1,10 @@
 import React from 'react';
 import { values } from 'lodash';
+import Navigation from './navigation';
 
 class LoggedHome extends React.Component {
   constructor(props) {
     super(props);
-    this.logout = this.logout.bind(this);
-  }
-
-  logout(e) {
-    e.preventDefault();
-
-    this.props.logout();
-    window.location.hash = '';
   }
 
   componentDidMount() {
@@ -27,21 +20,7 @@ class LoggedHome extends React.Component {
     return (
       <div className='loggedhome'>
         <header className='loggedhome-header'>
-          <nav className='navigation'>
-            <ul>
-              <li>Logo</li>
-              <li>Home</li>
-            </ul>
-            <input className='home-search'></input>
-            <ul>
-              <li>Upload</li>
-              <li>Settings</li>
-              <li>{this.props.currentUser.username}</li>
-              <li>
-                <button onClick={this.logout}>Log out</button>
-              </li>
-            </ul>
-          </nav>
+          <Navigation logout={this.props.logout} currentUser={this.props.currentUser}/>
         </header>
         <main className='loggedhome-body'>
           <ul className='loggedhome-songs'>
