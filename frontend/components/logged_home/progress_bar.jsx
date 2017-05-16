@@ -7,8 +7,9 @@ class ProgressBar extends React.Component {
 
   render() {
     return (
-      <div id="music-player">
+      <footer id="music-player">
         <div className="inner">
+
 
           <div className="controls">
             <a className="previous"></a>
@@ -41,7 +42,7 @@ class ProgressBar extends React.Component {
 
           </div>
         </div>
-      </div>
+      </footer>
     );
   }
 }

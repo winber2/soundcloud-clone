@@ -7,6 +7,7 @@ import ProgressBar from './progress_bar.jsx';
 class LoggedHome extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { audio: '' };
   }
 
   componentDidMount() {
@@ -33,9 +34,7 @@ class LoggedHome extends React.Component {
             </ul>
           </aside>
         </main>
-        <foooter>
           <ProgressBar />
-        </foooter>
       </div>
     );
   }

@@ -11,12 +11,17 @@ class Song extends React.Component {
       <li className='song-container'>
         <img src={song.image_url}></img>
         <ul className='song-info'>
-          <li>
-            <span>{song.user.username}</span>
-          </li>
-          <li>
-            <h3>{song.title}</h3>
-          </li>
+          <ul className='song-play-info'>
+            <img src="assets/play-icon.png" />
+            <ul>
+              <li>
+                <span>{song.user.username}</span>
+              </li>
+              <li>
+                <h3>{song.title}</h3>
+              </li>
+            </ul>
+          </ul>
           <li>
             <span>waveform</span>
           </li>
@@ -41,7 +46,7 @@ class Song extends React.Component {
             </ul>
           </li>
 
-          
+
         </ul>
       </li>
     );
