@@ -25,11 +25,7 @@ export const createSong = (song) => dispatch => (
 
 export const fetchSongs = () => dispatch => (
   APIUtil.fetchSongs()
-    .then(songs => {
-      debugger;
-      return dispatch(receiveSongs(songs));
-    }
-  )
+    .then(songs => dispatch(receiveSongs(songs)))
 );
 
 window.createSong = createSong;

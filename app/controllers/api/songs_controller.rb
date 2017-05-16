@@ -11,7 +11,7 @@ class Api::SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    
+
     if @song.save
       render :show
     else

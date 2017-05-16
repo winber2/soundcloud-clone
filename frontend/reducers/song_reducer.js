@@ -11,7 +11,6 @@ const SongReducer = (state = {}, action) => {
       return newState;
 
     case RECEIVE_SONGS:
-      debugger;
       return action.songs;
 
     default:

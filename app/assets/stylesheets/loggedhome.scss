@@ -29,3 +29,17 @@ input.home-search {
 input.home-search:focus {
     width: 50%;
 }
+
+main.loggedhome-body {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+
+  ul.loggedhome-songs {
+    flex: 2
+  }
+
+  aside.loggedhome-sidebar {
+    flex: 1
+  }
+}

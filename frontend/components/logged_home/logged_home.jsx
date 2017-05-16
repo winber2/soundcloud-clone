@@ -24,7 +24,6 @@ class LoggedHome extends React.Component {
         <img src={song.image_url}></img>
       </li>
     ));
-    debugger;
     return (
       <div className='loggedhome'>
         <header className='loggedhome-header'>
@@ -48,6 +47,11 @@ class LoggedHome extends React.Component {
           <ul className='loggedhome-songs'>
             {songs}
           </ul>
+          <aside className='loggedhome-sidebar'>
+            <ul>
+              hello
+            </ul>
+          </aside>
         </main>
       </div>
     );
