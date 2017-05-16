@@ -42,14 +42,14 @@ div.homepage-logo {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(256, 256, 256, 0.8);
+  background: rgba(230, 230, 230, 0.8);
   width: 100%;
   height: 100%;
   transition: background 0.5s;
 
   .homepage-modal {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 400px;
     background: white;
     margin: auto;
     margin-top: 20px;
@@ -67,18 +67,46 @@ div.homepage-logo {
       align-items: center;
       flex-direction: column;
 
+      li:last-child {
+        width: 100%;
+      }
+
       h1 {
+        margin-top: 30px;
         margin-bottom: 20px;
+        font-weight: 300;
       }
 
       button {
         margin-top: 20px;
+        width: 100%;
+        background: rgb(247, 95, 30);
+        color: white;
+        border-radius: 5px;
+        font-weight: 300;
+        padding: 7px 15px 8px 15px;
+        font-size: 14px;
+        transition: text-shadow 0.3s;
+      }
+
+      button:hover {
+        text-shadow: 0 0 3px white;
       }
 
       input {
-        width: 200px;
-        border-radius: 5px;
+        margin-top: 10px;
+        width: 280px;
+        height: 20px;
+        font-size: 20px;
+        border: 1px solid lightgray;
+        padding: 6px;
+        border-radius: 3px;
         box-shadow: none;
+      }
+
+      input::-webkit-input-placeholder {
+        color: lightgray;
+        font-weight: 300;
       }
     }
   }
@@ -105,14 +133,6 @@ main.homepage-info {
   background-position: center;
   height: 360px;
 }
-
-// div.homepage-overlay {
-//   position: absolute;
-//   background: orange;
-//   opacity: 0.5;
-//   height: 360px;
-//   z-index: 1;
-// }
 
 button {
   -webkit-appearance: none;
@@ -181,7 +201,6 @@ header {
 }
 
 p {
-  align-self: center;
-  font-size: 10px;
+  font-size: 14px;
   color: red;
 }

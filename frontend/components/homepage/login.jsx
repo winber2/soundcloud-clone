@@ -26,17 +26,17 @@ class Login extends React.Component {
     return (
       <ul className='homepage-auth'>
         <li>
-          <h1>Log in!</h1>
+          <h1>Sign in</h1>
         </li>
         <li>
           <p>{errors}</p>
-          <input onChange={this.update('username')} placeholder='username'></input>
+          <input onChange={this.update('username')} placeholder='Username'></input>
         </li>
         <li>
-          <input onChange={this.update('password')} type='password' placeholder='password'></input>
+          <input onChange={this.update('password')} type='password' placeholder='Password'></input>
         </li>
         <li>
-          <button onClick={this.handleSubmit}>Log in!</button>
+          <button onClick={this.handleSubmit}>Continue</button>
         </li>
       </ul>
     );

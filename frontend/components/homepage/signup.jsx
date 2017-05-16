@@ -22,19 +22,21 @@ class Signup extends React.Component {
   }
 
   render() {
+    let errors = this.props.errors.map( (error, idx) => <p key={idx}>{error}</p>);
     return (
       <ul className='homepage-auth'>
         <li>
-          <h1>Sign up!</h1>
+          <h1>Sign up for Vibe</h1>
         </li>
         <li>
-          <input onChange={this.update('username')} placeholder='username'></input>
+          {errors}
+          <input onChange={this.update('username')} placeholder='Username'></input>
         </li>
         <li>
-          <input onChange={this.update('password')} type='password' placeholder='password'></input>
+          <input onChange={this.update('password')} type='password' placeholder='Password'></input>
         </li>
         <li>
-          <button onClick={this.handleSubmit}>Sign up!</button>
+          <button onClick={this.handleSubmit}>Register</button>
         </li>
       </ul>
     );

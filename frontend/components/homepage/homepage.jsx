@@ -30,7 +30,7 @@ class HomePage extends React.Component {
 
   closeModal(e) {
     e.preventDefault();
-
+    this.props.clearErrors();
     this.setState({ isOpen: false, authRoute: '' });
   }
 
@@ -43,10 +43,13 @@ class HomePage extends React.Component {
     }
     return (
       <div className='homepage'>
-        <Modal overlayClassName="homepage-modal-overlay" className='homepage-modal' isOpen={this.state.isOpen} contentLabel="Modal">
-          {authRoute}
-          <br />
-          <button onClick={this.closeModal}>Back</button>
+        <Modal overlayClassName="homepage-modal-overlay"
+          className='homepage-modal'
+          isOpen={this.state.isOpen}
+          contentLabel="Modal">
+            {authRoute}
+            <br />
+            <button onClick={this.closeModal}>Back</button>
         </Modal>
         <main className='homepage-info'>
           <div className='homepage-overlay'>
