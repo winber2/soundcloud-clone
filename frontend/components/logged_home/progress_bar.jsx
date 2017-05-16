@@ -3,6 +3,25 @@ import React from 'react';
 class ProgressBar extends React.Component {
   constructor(props) {
     super(props);
+    this.togglePlay = this.togglePlay.bind(this);
+  }
+
+  static togglePlay() {
+    this.togglePlay();
+  }
+
+  togglePlay() {
+    let $img = $('img.play-pause');
+    let attr = $img.attr('src');
+    let $audio = $('audio.player');
+
+    if (attr === 'assets/play-button.png') {
+      $img.attr('src', 'assets/pause-button.png');
+      $audio[0].play();
+    } else {
+      $img.attr('src', 'assets/play-button.png');
+      $audio[0].pause();
+    }
   }
 
   render() {
@@ -12,16 +31,17 @@ class ProgressBar extends React.Component {
           <audio className="player" />
 
           <div className="controls">
-            <a className="previous"></a>
-            <a className="play"></a>
-            <a className="pause"></a>
-            <a className="next"></a>
+            <img className="previous" src="assets/back-button.png"></img>
+            <img onClick={this.togglePlay} className="play-pause" src="assets/play-button.png"></img>
+            <img className="next" src="assets/skip-button.png"></img>
           </div>
 
           <div className="play-bar">
             <span id="time">0:00</span>
-              <div className="bar-bg">
-                <div className="progress"></div>
+              <div className="bar-box">
+                <div className="bar-bg">
+                  <div className="progress"></div>
+                </div>
               </div>
             <span id="total-time">0:00</span>
           </div>

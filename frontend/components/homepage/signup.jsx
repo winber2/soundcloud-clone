@@ -15,7 +15,6 @@ class Signup extends React.Component {
       password: this.state.password
     };
     this.props.signup(user);
-    window.location.hash = 'stream';
   }
 
   update(prop) {

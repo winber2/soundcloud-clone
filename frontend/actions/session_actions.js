@@ -5,7 +5,10 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const login = user => dispatch => (
   APIUtil.login(user)
-    .then((currentUser) => dispatch(receiveCurrentUser(currentUser)))
+    .then(
+      (currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (error) => dispatch(receiveErrors(error.responseJSON))
+    )
 );
 
 export const receiveCurrentUser = user => ({
@@ -20,7 +23,10 @@ export const logout = () => dispatch => (
 
 export const signup = (user) => dispatch => (
   APIUtil.signup(user)
-    .then((currentUser) => dispatch(receiveCurrentUser(currentUser)) )
+    .then(
+      (currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (error) => dispatch(receiveErrors(error.responseJSON))
+    )
 );
 
 export const receiveErrors = (errors) => ({

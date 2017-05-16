@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressBar from '../logged_home/progress_bar';
 
 class SongPlay extends React.Component {
   constructor(props) {
@@ -7,13 +8,21 @@ class SongPlay extends React.Component {
   }
 
   playAudio(e) {
-    e.preventDefault();
-
     let $audio = $('audio.player');
     let trackUrl = this.props.song.track_url;
 
     $audio.attr('src', trackUrl);
-    $audio[0].play();
+
+    let $img = $('img.play-pause');
+    let attr = $img.attr('src');
+
+    if (attr === 'assets/play-button.png') {
+      $img.attr('src', 'assets/pause-button.png');
+      $audio[0].play();
+    } else {
+      $img.attr('src', 'assets/play-button.png');
+      $audio[0].pause();
+    }
   }
 
   render() {

@@ -37,13 +37,13 @@ class HomePage extends React.Component {
   render() {
     let authRoute;
     if (this.state.authRoute === 'signin') {
-      authRoute = <Login login={this.props.login}/>;
+      authRoute = <Login errors={this.props.errors} login={this.props.login}/>;
     } else {
-      authRoute = <Signup signup={this.props.signup}/>;
+      authRoute = <Signup errors={this.props.errors} signup={this.props.signup}/>;
     }
     return (
       <div className='homepage'>
-        <Modal className='homepage-modal' isOpen={this.state.isOpen} contentLabel="Modal">
+        <Modal overlayClassName="homepage-modal-overlay" className='homepage-modal' isOpen={this.state.isOpen} contentLabel="Modal">
           {authRoute}
           <br />
           <button onClick={this.closeModal}>Back</button>

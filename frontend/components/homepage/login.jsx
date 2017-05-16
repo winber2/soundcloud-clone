@@ -15,7 +15,6 @@ class Login extends React.Component {
       password: this.state.password
     };
     this.props.login(user);
-    window.location.hash = 'stream';
   }
 
   update(prop) {
@@ -23,12 +22,14 @@ class Login extends React.Component {
   }
 
   render() {
+    let errors = this.props.errors.join('');
     return (
       <ul className='homepage-auth'>
         <li>
           <h1>Log in!</h1>
         </li>
         <li>
+          <p>{errors}</p>
           <input onChange={this.update('username')} placeholder='username'></input>
         </li>
         <li>

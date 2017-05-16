@@ -16,10 +16,10 @@ const SessionReducer = (state = _nullUser, action) => {
       return newState;
 
     case RECEIVE_ERRORS:
-      newState = _nullUser;
+      newState = merge(newState, _nullUser);
       newState.errors = action.errors;
       return newState;
-      
+
     default:
       return state;
   }

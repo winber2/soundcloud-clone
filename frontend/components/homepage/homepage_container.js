@@ -3,6 +3,7 @@ import { login, logout, signup } from '../../actions/session_actions';
 import HomePage from './homepage';
 
 const mapStateToProps = (state) => ({
+  errors: state.session.errors
 });
 
 const mapDispatchToProps = dispatch => ({
