@@ -30,6 +30,7 @@ class LoggedHome extends React.Component {
           <aside className='loggedhome-sidebar'>
             <ul>
               hello
+              <i className="fa fa-heart" aria-hidden="true"></i>
             </ul>
           </aside>
         </main>

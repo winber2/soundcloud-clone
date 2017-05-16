@@ -1,5 +1,6 @@
 import React from 'react';
 import SongPlay from './song_play';
+import SongDetail from './song_detail';
 
 class Song extends React.Component {
   constructor(props) {
@@ -16,28 +17,7 @@ class Song extends React.Component {
           <li>
             <span>waveform</span>
           </li>
-
-
-          <li className='song-detail'>
-            <ul>
-                <li>
-                  heart
-                </li>
-                <li>
-                  rep
-                </li>
-            </ul>
-            <ul>
-                <li>
-                  plays
-                </li>
-                <li>
-                  coms
-                </li>
-            </ul>
-          </li>
-
-
+          <SongDetail />
         </ul>
       </li>
     );
