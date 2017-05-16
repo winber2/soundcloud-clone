@@ -1,13 +1,12 @@
 import React from 'react';
 import { values } from 'lodash';
 import Navigation from './navigation';
-import SongContainer from './song_container';
+import SongContainer from '../song/song_container';
 import ProgressBar from './progress_bar.jsx';
 
 class LoggedHome extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { audio: '' };
   }
 
   componentDidMount() {

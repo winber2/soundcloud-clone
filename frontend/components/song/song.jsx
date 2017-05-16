@@ -1,4 +1,5 @@
 import React from 'react';
+import SongPlay from './song_play';
 
 class Song extends React.Component {
   constructor(props) {
@@ -11,17 +12,7 @@ class Song extends React.Component {
       <li className='song-container'>
         <img src={song.image_url}></img>
         <ul className='song-info'>
-          <ul className='song-play-info'>
-            <img src="assets/play-icon.png" />
-            <ul>
-              <li>
-                <span>{song.user.username}</span>
-              </li>
-              <li>
-                <h3>{song.title}</h3>
-              </li>
-            </ul>
-          </ul>
+          <SongPlay song={this.props.song} />
           <li>
             <span>waveform</span>
           </li>

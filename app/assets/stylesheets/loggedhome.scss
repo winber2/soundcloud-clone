@@ -69,7 +69,13 @@ ul.song-info {
     img {
       height: 50px;
       width: 50px;
+
     }
+
+    img:hover {
+      cursor: pointer;
+    }
+
   }
 }
 
