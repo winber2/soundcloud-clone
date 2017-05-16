@@ -1,4 +1,5 @@
 import React from 'react';
+import { values } from 'lodash';
 
 class LoggedHome extends React.Component {
   constructor(props) {
@@ -13,7 +14,17 @@ class LoggedHome extends React.Component {
     window.location.hash = '';
   }
 
+  componentDidMount() {
+    this.props.fetchSongs();
+  }
+
   render() {
+    let songs = values(this.props.songs).map( (song,idx) => (
+      <li key={song.id}>
+        <img src={song.image_url}></img>
+      </li>
+    ));
+    debugger;
     return (
       <div className='loggedhome'>
         <header className='loggedhome-header'>
@@ -34,7 +45,9 @@ class LoggedHome extends React.Component {
           </nav>
         </header>
         <main className='loggedhome-body'>
-          <p>songs</p>
+          <ul className='loggedhome-songs'>
+            {songs}
+          </ul>
         </main>
       </div>
     );

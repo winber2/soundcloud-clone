@@ -1,4 +1,4 @@
-json.array! @songs do |song|
+json.songs @songs do |song|
   json.set! song.id do
     json.id song.id
     json.author_id song.author_id
