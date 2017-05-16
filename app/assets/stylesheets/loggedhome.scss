@@ -1,6 +1,16 @@
+div.loggedhome {
+  position: relative;
+}
+
 header.loggedhome-header {
+  height: 45px;
+  width: 100%;
   background: rgb(54, 54, 54);
   color: white;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 
   nav.navigation {
     width: 1000px;
@@ -9,6 +19,12 @@ header.loggedhome-header {
     display: flex;
     justify-content: space-between;
   }
+}
+
+div.nav-space {
+  height: 45px;
+  width: 100%;
+  background: transparent;
 }
 
 input.home-search {
@@ -41,5 +57,30 @@ main.loggedhome-body {
 
   aside.loggedhome-sidebar {
     flex: 1
+  }
+}
+
+ul.song-info {
+  flex-grow: 1;
+}
+
+li.song-container {
+  display: flex;
+  height: 150px;
+  margin: 10px;
+
+  img {
+    width: 150px;
+    margin-right: 10px;
+    background-size: cover;
+  }
+}
+
+li.song-detail {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
   }
 }

@@ -1,0 +1,175 @@
+@import "colors";
+
+#music-player {
+  background-color: rgb(230, 230, 230);
+  border-top: 1px solid gray;
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+
+  .inner {
+    display: flex;
+    position: relative;
+    max-width: 1000px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  // .previous, .next {
+  //   display: none; //Hide things we don't need
+  // }
+  //
+  // .song-content { //Move song information to the left
+  //   width: auto;
+  //   float: left;
+  // }
+  //
+  // .controls { //Move controls to the right
+  //   width: auto;
+  //   position: absolute;
+  //   right: 10px;
+  // }
+  //
+  // .play-bar { //Move the player bar to the top
+  //   position: absolute;
+  //   left: 0;
+  //   top: -16px;
+  //   z-index: 999;
+  //   width: 100%;
+  //   display: block;
+  //   height: 7px;
+  //
+  //   .bar-bg {
+  //     margin: 0;
+  //     border-radius: 0;
+  //   }
+  //
+  //   span {
+  //     display: none; //Hide the time stamps
+  //   }
+  // }
+}
+
+.controls {
+  width: 130px;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  top: -5px;
+}
+
+.play-bar {
+  height: 35px;
+  float: left;
+  margin-right: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.song-content {
+  width: 220px;
+  height: 45px;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.controls {
+  vertical-align: top;
+
+  img {
+    vertical-align: middle;
+  }
+
+  a {
+    align-self: center;
+    width: 25px;
+    height: 25px;
+  }
+
+  a.previous {
+    background-image: url('back-button.png');
+    background-size: contain;
+  }
+
+  a.play {
+    background-image: url('play-button.png');
+    background-size: contain;
+  }
+
+  a.next {
+    background-image: url('skip-button.png');
+    background-size: contain;
+  }
+
+  a.pause {
+    background-image: url('pause-button.png');
+    background-size: contain;
+  }
+
+}
+
+.play-bar {
+
+  span { //Text properties of the numbers
+    color: gray;
+    font-size: .8em;
+    align-self: center;
+  }
+
+  .bar-bg { //Background of the progress bar
+    background-color: silver;
+    width: 100%;
+    height: 1px;
+    align-self: center;
+    margin: 0 5px;
+
+    .progress { //Actual progress bar
+      background-color: $music-player-hl;
+      height: 6px;
+      border-radius: 10px;
+      width: 0%;
+    }
+  }
+
+}
+
+.song-content {
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+
+    .img-wrapper { //Song cover image
+      width: 30px;
+      margin-right: 12px;
+    }
+
+    .song-info { //Song information text
+      padding: 0;
+      align-self: center;
+      margin-top: -10px;
+      text-align: left;
+
+      .artist {
+        display: inline-block;
+        color: $music-player-hl;
+        font-size: .8em;
+        line-height: 1.2em;
+        display: block;
+      }
+
+      .song {
+        color: $music-player-fg;
+        font-size: .8em;
+        line-height: 1.2em;
+        display: block;
+      }
+
+    }
+  }
+}
