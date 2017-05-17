@@ -18,7 +18,39 @@ header.loggedhome-header {
     align-items: center;
     display: flex;
     justify-content: space-between;
+
+    font-weight: 300;
+
+    li {
+      margin-left: 9px;
+      margin-right: 9px;
+      padding-top: 6px;
+    }
+
+    li:hover {
+      text-shadow: 0 0 3px white;
+      cursor: pointer;
+    }
+
+    li.loggedhome-logo {
+      height: 35px;
+      width: 55px;
+      padding: 5px 20px;
+      background-image: url('vibe-logo.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 9px 0 0;
+      background-color: rgb(247, 95, 30);
+    }
+
+    ul.searchbar {
+      display: flex;
+      flex-grow: 1;
+      margin-left: 9px
+    }
   }
+
 }
 
 div.nav-space {
@@ -43,7 +75,7 @@ input.home-search {
 }
 
 input.home-search:focus {
-    width: 50%;
+    width: 100%;
 }
 
 main.loggedhome-body {
@@ -95,7 +127,6 @@ li.song-container {
 
   span {
     font-size: 16px;
-    line-height: 0;
     color: gray;
   }
 
@@ -135,5 +166,14 @@ li.song-detail {
     margin: 0;
     display: flex;
     color: gray;
+    align-items: center;
+
+    span {
+      font-size: 13px;
+    }
+
+    img {
+      margin-right: 0;
+    }
   }
 }

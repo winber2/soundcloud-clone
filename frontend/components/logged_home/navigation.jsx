@@ -17,10 +17,12 @@ class Navigation extends React.Component {
     return (
       <nav className='navigation'>
         <ul>
-          <li>Logo</li>
+          <li className='loggedhome-logo'></li>
           <li>Home</li>
         </ul>
-        <input className='home-search'></input>
+        <ul className='searchbar'>
+          <input className='home-search'></input>
+        </ul>
         <ul>
           <li>Upload</li>
           <li>Settings</li>
