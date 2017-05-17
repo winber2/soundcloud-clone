@@ -12,31 +12,20 @@ class Stream extends React.Component {
       <SongContainer key={idx} song={song} />
     ));
     return (
-      <main className='loggedhome-body'>
+      <div className='main-index'>
+        <nav className='content-nav'>
+          <ul>
+            <li>Stream</li>
+            <li>Charts</li>
+            <li>Discover</li>
+          </ul>
+        </nav>
+        <div className='nav-border' />
+        <p>Hear the latest posts from the people you're following</p>
         <ul className='loggedhome-songs'>
           {songs}
         </ul>
-        <aside className='loggedhome-sidebar'>
-          <ul>
-            <li className='artist-suggestion'>
-              <span>Who to follow</span>
-              <ul>
-                <li>asdf</li>
-                <li>asdf</li>
-                <li>asdf</li>
-              </ul>
-            </li>
-            <li className='song-suggestion'>
-              <span>Song Suggestions</span>
-              <ul>
-                <li>asdf</li>
-                <li>asdf</li>
-                <li>asdf</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </main>
+      </div>
     );
   }
 }

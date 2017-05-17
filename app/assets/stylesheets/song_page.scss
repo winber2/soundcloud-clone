@@ -6,7 +6,7 @@ main.song-page {
 
   margin: 0 auto;
   display: flex;
-  height: 400px;
+  height: 380px;
   width: 1000px;
   background: beige;
 }
@@ -14,7 +14,7 @@ main.song-page {
 section.song-content {
   display: flex;
   width: 100%;
-  height: 400px;
+  height: 380px;
 
   background: #f2a965; /* Old browsers */
   background: -webkit-linear-gradient(left, #f2a965 0%,#ef4d13 100%); /* Chrome10-25,Safari5.1-6 */
@@ -23,11 +23,11 @@ section.song-content {
 
 section.song-content > ul {
   display: flex;
-  height: 400px;
+  height: 380px;
   width: 100%;
 
   li.song-page-info {
-    flex: 1.55;
+    flex: 1.7;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,23 +36,56 @@ section.song-content > ul {
     ul.song-header {
       display: flex;
 
+      > li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       div.play-image {
-        height: 70px;
-        width: 70px;
+        height: 65px;
+        width: 65px;
         border-radius: 50%;
         background: $orange;
+        background-image: url('white-play.ico');
+        background-size: contain;
+      }
+
+      div.play-image:hover {
+        background: $dark-orange;
+        background-image: url('white-play.ico');
+        background-size: contain;
+        cursor: pointer
       }
 
       ul.song-title {
         margin-left: 10px;
+        display: flex;
+        flex-direction: column;
 
         li {
-          font-size: 30px;
+          display: inline;
+          color: white;
+          margin: 5px;
+
+          span {
+            display: inline;
+            padding: 2px 8px;
+            background: $dark-gray;
+
+          }
+        }
+
+        li:last-child {
+          font-size: 24px;
+          line-height: 0.6;
+          margin: 10px 5px;
+          padding-top: 4px;
         }
 
         li:first-child {
           font-weight: 300;
-          font-size: 20px;
+          font-size: 17px;
         }
       }
     }
