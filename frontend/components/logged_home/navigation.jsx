@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this);
+    this.toHome = this.toHome.bind(this);
+  }
+
+  toHome() {
+    window.location.hash = '/stream';
   }
 
   logout(e) {
@@ -18,7 +24,7 @@ class Navigation extends React.Component {
       <nav className='navigation'>
         <ul>
           <li className='loggedhome-logo'></li>
-          <li>Home</li>
+          <li onClick={this.toHome} >Home</li>
         </ul>
         <ul className='searchbar'>
           <input className='home-search'></input>

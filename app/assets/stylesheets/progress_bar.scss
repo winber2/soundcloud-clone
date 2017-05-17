@@ -118,14 +118,14 @@
 
       .artist {
         display: inline-block;
-        color: $music-player-hl;
+        color: gray;
         font-size: .8em;
         line-height: 1.2em;
         display: block;
       }
 
       .song {
-        color: $music-player-fg;
+        color: lightgray;
         font-size: .8em;
         line-height: 1.2em;
         display: block;

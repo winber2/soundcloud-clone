@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import 'colors';
+
 img {
   max-width: 100%;
   height: auto;
@@ -80,7 +82,7 @@ div.homepage-logo {
       button {
         margin-top: 20px;
         width: 100%;
-        background: rgb(247, 95, 30);
+        background: $orange;
         color: white;
         border-radius: 5px;
         font-weight: 300;
@@ -165,7 +167,7 @@ button.login:hover {
 }
 
 button.signup {
-  background: rgb(247, 95, 30);
+  background: $orange;
   color: white;
   border-radius: 5px;
   font-weight: 300;

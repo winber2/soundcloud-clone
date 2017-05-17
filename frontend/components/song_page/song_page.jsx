@@ -18,7 +18,7 @@ class SongPage extends React.Component {
           <ul>
             <li className='song-page-info'>
               <ul className='song-header'>
-                <li><img src="assets/play-icon.png" /></li>
+                <li><div className='play-image'></div></li>
                 <li>
                   <ul className='song-title'>
                     <li>
@@ -39,7 +39,7 @@ class SongPage extends React.Component {
 
         </section>
         <div className='comments'>
-          
+
         </div>
       </main>
     );
