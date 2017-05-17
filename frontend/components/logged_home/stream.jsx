@@ -1,6 +1,7 @@
 import React from 'react';
 import { values } from 'lodash';
 import SongContainer from '../song/song_container';
+import SideBar from './sidebar';
 
 class Stream extends React.Component {
   constructor(props) {
@@ -12,20 +13,23 @@ class Stream extends React.Component {
       <SongContainer key={idx} song={song} />
     ));
     return (
-      <div className='main-index'>
-        <nav className='content-nav'>
-          <ul>
-            <li>Stream</li>
-            <li>Charts</li>
-            <li>Discover</li>
+      <main className='loggedhome-body'>
+        <div className='main-index'>
+          <nav className='content-nav'>
+            <ul>
+              <li>Stream</li>
+              <li>Charts</li>
+              <li>Discover</li>
+            </ul>
+          </nav>
+          <div className='nav-border' />
+          <p>Hear the latest posts from the people you're following</p>
+          <ul className='loggedhome-songs'>
+            {songs}
           </ul>
-        </nav>
-        <div className='nav-border' />
-        <p>Hear the latest posts from the people you're following</p>
-        <ul className='loggedhome-songs'>
-          {songs}
-        </ul>
-      </div>
+        </div>
+        <SideBar />
+      </main>
     );
   }
 }

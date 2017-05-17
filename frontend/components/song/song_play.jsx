@@ -8,6 +8,8 @@ class SongPlay extends React.Component {
   }
 
   playAudio(e) {
+    this.props.receiveAudio(this.props.song);
+    
     let $audio = $('audio.player');
     let trackUrl = this.props.song.track_url;
 

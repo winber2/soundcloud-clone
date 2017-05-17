@@ -5,7 +5,6 @@ import Navigation from './navigation';
 import ProgressBar from './progress_bar.jsx';
 import Stream from './stream';
 import SongPageContainer from '../song_page/song_page_container';
-import SideBar from './sidebar';
 
 class LoggedHome extends React.Component {
   constructor(props) {
@@ -25,16 +24,12 @@ class LoggedHome extends React.Component {
 
         <div className='nav-space' />
 
-        <main className='loggedhome-body'>
-          <Switch>
-            <Route exact path="/stream" render={(props) => <Stream songs={this.props.songs} {...props} /> } />
-            <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer songs={this.props.songs} {...props} /> } />
-          </Switch>
+        <Switch>
+          <Route exact path="/stream" render={(props) => <Stream songs={this.props.songs} {...props} /> } />
+          <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />
+        </Switch>
 
-          <SideBar />
-        </main>
-
-        <ProgressBar />
+        <ProgressBar audio={this.props.audio} />
       </div>
     );
   }
