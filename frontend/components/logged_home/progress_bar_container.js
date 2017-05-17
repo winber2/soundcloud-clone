@@ -4,13 +4,12 @@ import ProgressBar from './progress_bar';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
-  songs: state.songs,
   audio: state.audio
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveAudio: song => dispatch(receiveAudio(song)),
-  recivePlayer: player => dispatch(receivePlayer(player))
+  receiveAudio: audio => dispatch(receiveAudio(audio)),
+  receivePlayer: audio => dispatch(receivePlayer(audio))
 });
 
 export default connect(

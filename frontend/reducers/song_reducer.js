@@ -1,6 +1,10 @@
 import { RECEIVE_SONGS, RECEIVE_SONG, RECEIVE_AUDIO } from "../actions/song_actions";
 import merge from 'lodash/merge';
 
+const _defaultState = {
+  id: undefined,
+  track_url: ''
+};
 
 const SongReducer = (state = {}, action) => {
   Object.freeze(state);

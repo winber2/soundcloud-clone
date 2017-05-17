@@ -47,13 +47,13 @@ section.song-content > ul {
         width: 65px;
         border-radius: 50%;
         background: $orange;
-        background-image: url('white-play.ico');
+        background-image: asset-url('white-play.ico');
         background-size: contain;
       }
 
       div.play-image:hover {
         background: $dark-orange;
-        background-image: url('white-play.ico');
+        background-image: asset-url('white-play.ico');
         background-size: contain;
         cursor: pointer
       }

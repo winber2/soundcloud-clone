@@ -2,7 +2,8 @@ import { RECEIVE_AUDIO, RECEIVE_PLAYER } from "../actions/audio_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {
-  track_url: '',
+  song: { track_url: undefined, id: undefined },
+  player: null,
   isPlaying: false
 };
 
@@ -11,13 +12,14 @@ const AudioReducer = (state = _defaultState, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_AUDIO:
-      return merge(newState, action.audio);
+      return merge({}, action.audio);
 
     case RECEIVE_PLAYER:
-      return merge(newState, action.audio);
+      newState.player = action.audio.player;
+      return newState;
 
     default:
-      return state;
+      return newState;
   }
 };
 
