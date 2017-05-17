@@ -2,7 +2,7 @@ import React from 'react';
 import { values } from 'lodash';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './navigation';
-import ProgressBar from './progress_bar.jsx';
+import ProgressBarContainer from './progress_bar_container';
 import Stream from './stream';
 import SongPageContainer from '../song_page/song_page_container';
 
@@ -16,6 +16,7 @@ class LoggedHome extends React.Component {
   }
 
   render() {
+
     return (
       <div className='loggedhome'>
         <header className='loggedhome-header'>
@@ -29,7 +30,7 @@ class LoggedHome extends React.Component {
           <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />
         </Switch>
 
-        <ProgressBar audio={this.props.audio} />
+        <ProgressBarContainer />
       </div>
     );
   }

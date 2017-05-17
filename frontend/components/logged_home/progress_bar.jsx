@@ -28,7 +28,7 @@ class ProgressBar extends React.Component {
     return (
       <footer id="music-player">
         <div className="inner">
-          <audio className="player" />
+          <audio className="player" src={this.props.audio.track_url} autoPlay/>
 
           <div className="controls">
             <img className="previous" src="assets/back-button.png"></img>

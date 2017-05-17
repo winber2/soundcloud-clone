@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { login, logout, signup } from '../../actions/session_actions';
 import { fetchSongs } from '../../actions/song_actions';
-import { receiveAudio } from '../../ations/audio_actions';
+import { receiveAudio } from '../../actions/audio_actions';
 import LoggedHome from './logged_home';
 
 const mapStateToProps = (state) => ({

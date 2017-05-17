@@ -20,7 +20,7 @@ class Song extends React.Component {
       <li className='song-container'>
         <img onClick={this.showSong} src={song.image_url}></img>
         <ul className='song-info'>
-          <SongPlay song={this.props.song} />
+          <SongPlay audio={this.props.audio} receiveAudio={this.props.receiveAudio} song={this.props.song} />
           <li>
             <span>waveform</span>
           </li>
