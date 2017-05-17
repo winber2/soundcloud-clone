@@ -1,0 +1,12 @@
+aside.loggedhome-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid lightgray;
+  margin: 10px;
+  padding: 0 20px;
+
+  li.artist-suggestion, li.song-suggestion {
+    display: flex;
+    flex-direction: column;
+  }
+}
