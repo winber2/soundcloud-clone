@@ -12,10 +12,10 @@ class ProgressBar extends React.Component {
     console.log('help');
     if (this.props.audio.isPlaying) {
       audio.player.play();
-      this.setState({ icon: 'assets/pause-button.png'});
+      this.setState({ icon: 'assets/pause-button.png' });
     } else {
       audio.player.pause();
-      this.setState({ icon: 'assets/play-button.png')});
+      this.setState({ icon: 'assets/play-button.png' });
     }
   }
 
@@ -42,11 +42,11 @@ class ProgressBar extends React.Component {
     if (audio.isPlaying) {
       audio.isPlaying = false;
       // player.pause();
-      this.setState({ icon: 'assets/play-button.png'});
+      this.setState({ icon: 'assets/play-button.png' });
     } else {
       audio.isPlaying = true;
       // player.play();
-      this.setState({ icon: 'assets/pause-button.png'});
+      this.setState({ icon: 'assets/pause-button.png' });
     }
 
     this.props.receiveAudio(audio);
