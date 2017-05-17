@@ -6,11 +6,12 @@ class SongPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSongs();
+    let songId = this.props.match.params.songId;
+    this.props.fetchSingleSong(songId);
   }
 
   render() {
-    let song = this.props.song;
+    let song = this.props.song || { user: { username: '' }, title: '', image_url: '' };
     return (
       <main className='song-page'>
         <section className='song-content'>

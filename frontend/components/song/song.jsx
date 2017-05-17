@@ -5,6 +5,7 @@ import SongDetail from './song_detail';
 class Song extends React.Component {
   constructor(props) {
     super(props);
+    this.showSong = this.showSong.bind(this);
   }
 
   showSong() {
