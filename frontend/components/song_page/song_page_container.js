@@ -7,7 +7,7 @@ import SongPage from './song_page';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   songs: state.songs,
-  song: state.songs[ownProps.match.params.id]
+  song: state.songs[ownProps.match.params.songId]
 });
 
 const mapDispatchToProps = dispatch => ({

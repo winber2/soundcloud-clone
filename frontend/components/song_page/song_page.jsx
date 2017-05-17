@@ -38,6 +38,9 @@ class SongPage extends React.Component {
           </ul>
 
         </section>
+        <div className='comments'>
+          
+        </div>
       </main>
     );
   }
