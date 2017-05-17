@@ -7,11 +7,17 @@ class Song extends React.Component {
     super(props);
   }
 
+  showSong() {
+    let song = this.props.song;
+    let user = song.user.username;
+    window.location.hash = `/${user}/songs/${song.id}`;
+  }
+
   render() {
     let song = this.props.song;
     return (
       <li className='song-container'>
-        <img src={song.image_url}></img>
+        <img onClick={this.showSong} src={song.image_url}></img>
         <ul className='song-info'>
           <SongPlay song={this.props.song} />
           <li>

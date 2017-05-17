@@ -13,14 +13,17 @@ class SongPlay extends React.Component {
 
     $audio.attr('src', trackUrl);
 
+    let $playIcon = $('img.song-play');
     let $img = $('img.play-pause');
     let attr = $img.attr('src');
 
     if (attr === 'assets/play-button.png') {
       $img.attr('src', 'assets/pause-button.png');
+      $playIcon.attr('src', 'assets/pause-icon.png');
       $audio[0].play();
     } else {
       $img.attr('src', 'assets/play-button.png');
+      $playIcon.attr('src', 'assets/play-icon.png');
       $audio[0].pause();
     }
   }
