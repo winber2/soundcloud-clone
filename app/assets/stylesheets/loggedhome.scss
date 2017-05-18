@@ -43,6 +43,8 @@ header.loggedhome-header {
         margin: 0;
         border: none;
         padding: 15px 25px;
+
+        &.nav-user { padding: 0 }
       }
     }
 
@@ -72,6 +74,58 @@ header.loggedhome-header {
     }
   }
 
+}
+
+li.nav-user {
+  position: relative;
+
+  p {
+    position: relative;
+    z-index: 1000;
+    color: white;
+    padding: 14px 25px;
+  }
+
+  &.active ul#user-settings{ display: flex }
+  &.active {
+    background: $almost-black;
+    padding: 0
+  }
+
+  ul#user-settings {
+    position: absolute;
+    z-index: -1;
+    top: -250px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 245px;
+    justify-content: flex-end;
+    background: $almost-black;
+    display: hidden;
+
+    transition: transform 0.3s;
+
+    &.active {
+      display: flex;
+      transform: translateY(252px);
+    }
+
+    li {
+      padding: 12px 15px 12px 10px;
+      background: $almost-black;
+      text-shadow: 0 0 0;
+      font-size: 13px;
+      height: 10px;
+    }
+
+    li:hover {
+      background: gray;
+    }
+
+  }
 }
 
 div.nav-space {

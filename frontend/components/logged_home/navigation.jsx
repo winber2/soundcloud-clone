@@ -6,6 +6,8 @@ class Navigation extends React.Component {
     super(props);
     this.logout = this.logout.bind(this);
     this.toHome = this.toHome.bind(this);
+    this.toggleSettings = this.toggleSettings.bind(this);
+    this.state = { isActive: '' }
   }
 
   toHome() {
@@ -17,6 +19,14 @@ class Navigation extends React.Component {
 
     this.props.logout();
     window.location.hash = '';
+  }
+
+  toggleSettings() {
+    if (this.state.isActive === '') {
+      this.setState({ isActive: 'active' });
+    } else {
+      this.setState({ isActive: '' });
+    }
   }
 
   render() {
@@ -32,9 +42,16 @@ class Navigation extends React.Component {
         <ul>
           <li>Upload</li>
           <li>Settings</li>
-          <li>{this.props.currentUser.username}</li>
-          <li>
-            <button onClick={this.logout}>Log out</button>
+          <li className={`nav-user ${this.state.isActive}`}>
+            <p onClick={this.toggleSettings}>{this.props.currentUser.username}</p>
+            <ul id='user-settings' className={this.state.isActive}>
+              <li>Profile</li>
+              <li>Likes</li>
+              <li>Playlists</li>
+              <li>Following</li>
+              <li>Tracks</li>
+              <li id='signout' onClick={this.logout}>Sign out</li>
+            </ul>
           </li>
         </ul>
       </nav>
