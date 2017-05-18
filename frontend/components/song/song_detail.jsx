@@ -10,15 +10,15 @@ class SongDetail extends React.Component {
       <li className="song-detail">
         <ul>
             <li>
-              <img src="assets/heart.png" />
+              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/heart_zzt9wm.png" />
             </li>
             <li>
-              <img src="assets/repost.png" />
+              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/repost_yyafrh.png" />
             </li>
         </ul>
         <ul>
             <li>
-              <img src="assets/comment.png" />
+              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/comment_lqle6o.png" />
               <span>17</span>
             </li>
         </ul>

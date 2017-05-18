@@ -162,6 +162,18 @@ ul.song-info {
   ul.song-play-info {
     display: flex;
 
+    div.song-play-icon {
+      background: $orange;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      margin-right: 5px;
+    }
+
+    div.song-play-icon:hover {
+      background: $dark-orange;
+    }
+
     img {
       height: 45px;
       width: 45px;

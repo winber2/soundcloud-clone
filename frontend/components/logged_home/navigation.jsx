@@ -23,7 +23,7 @@ class Navigation extends React.Component {
     return (
       <nav className='navigation'>
         <ul>
-          <li className='loggedhome-logo'><img src='assets/vibe-logo.png'/></li>
+          <li className='loggedhome-logo'><img src='http://res.cloudinary.com/winber1/image/upload/v1495075515/vibe-logo_frzgev.png'/></li>
           <li onClick={this.toHome} >Home</li>
         </ul>
         <ul className='searchbar'>

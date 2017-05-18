@@ -3,7 +3,7 @@ import React from 'react';
 class ProgressBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { icon: 'assets/play-button.png' };
+    this.state = { icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075515/play-button_fp3mtc.png' };
     this.togglePlay = this.togglePlay.bind(this);
   }
 
@@ -11,10 +11,10 @@ class ProgressBar extends React.Component {
     let audio = this.props.audio;
     if (this.props.audio.isPlaying) {
       audio.player.play();
-      this.setState({ icon: 'assets/pause-button.png' });
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075515/pause-button_c63tuy.png' });
     } else {
       audio.player.pause();
-      this.setState({ icon: 'assets/play-button.png' });
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075515/play-button_fp3mtc.png' });
     }
   }
 
@@ -31,10 +31,10 @@ class ProgressBar extends React.Component {
 
     if (audio.isPlaying) {
       audio.isPlaying = false;
-      this.setState({ icon: 'assets/pause-button.png' });
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075515/pause-button_c63tuy.png' });
     } else {
       audio.isPlaying = true;
-      this.setState({ icon: 'assets/play-button.png' });
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075515/play-button_fp3mtc.png' });
     }
 
     this.props.receiveAudio(audio);
@@ -48,9 +48,9 @@ class ProgressBar extends React.Component {
           <audio ref='audioPlayer' className="player" src={song.track_url} autoPlay/>
 
           <div className="controls">
-            <img className="previous" src="assets/back-button.png"></img>
+            <img className="previous" src="http://res.cloudinary.com/winber1/image/upload/v1495075514/back-button_aibqnf.png"></img>
             <img onClick={this.togglePlay} className="play-pause" src={this.state.icon}></img>
-            <img className="next" src="assets/skip-button.png"></img>
+            <img className="next" src="http://res.cloudinary.com/winber1/image/upload/v1495075515/skip-button_fy0rmx.png"></img>
           </div>
 
           <div className="play-bar">

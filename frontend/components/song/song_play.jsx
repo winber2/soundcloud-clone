@@ -4,25 +4,25 @@ import ProgressBar from '../logged_home/progress_bar';
 class SongPlay extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { icon: 'assets/play-icon.png' };
+    this.state = { icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico' };
     this.playAudio = this.playAudio.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     let songId = this.props.audio.song.id;
     if (this.props.audio.isPlaying && songId === this.props.song.id) {
-      this.setState({ icon: 'assets/pause-icon.png'});
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png'});
     } else {
-      this.setState({ icon: 'assets/play-icon.png'});
+      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico'});
     }
   }
 
   changeIcon() {
     let songId = this.props.audio.song.id;
     if (this.props.audio.isPlaying && this.props.audio.song) {
-      this.state = { icon: 'assets/pause-icon.png'};
+      this.state = { icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png'};
     } else {
-      this.state = { icon: 'assets/play-icon.png'};
+      this.state = { icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico'};
     }
   }
 
@@ -51,13 +51,15 @@ class SongPlay extends React.Component {
     let audio = this.props.audio;
     let icon;
     if (audio.isPlaying && audio.song.id === this.props.song.id) {
-      icon = 'assets/pause-icon.png';
+      icon = 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png';
     } else {
-      icon = 'assets/play-icon.png';
+      icon = 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico';
     }
     return (
       <ul className='song-play-info'>
-        <img onClick={this.playAudio} src={this.state.icon} className='song-play'></img>
+        <div className='song-play-icon'>
+          <img onClick={this.playAudio} src={this.state.icon} className='song-play'></img>
+        </div>
         <ul>
           <li>
             <span>{song.user.username}</span>
