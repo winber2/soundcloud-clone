@@ -2,4 +2,5 @@ json.extract! @song, :id, :title, :genre, :album, :image_url, :track_url, :relea
 json.user do
   json.author_id @song.user.id
   json.username @song.user.username
+  json.profile_image_url @song.user.profile_image_url
 end

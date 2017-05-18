@@ -2,6 +2,7 @@ import React from 'react';
 import Comment from '../comments/comment';
 import { values } from 'lodash';
 import SongPlayButtonContainer from '../song/song_play_button_container';
+import CommentCreationContainer from '../comments/comment_creation_container';
 
 window.values = values;
 
@@ -51,10 +52,7 @@ class SongPage extends React.Component {
         </section>
         <section className='song-page-bottom'>
           <ul className='song-page-bottom-main'>
-            <div className='comment-creation'>
-              <input className='comment-input'></input>
-
-            </div>
+            <CommentCreationContainer song={this.props.song} />
             <ul className='song-page-bottom-info'>
               <ul className='artist-info'>
                 <li><img src={song.user.profile_image_url} /></li>

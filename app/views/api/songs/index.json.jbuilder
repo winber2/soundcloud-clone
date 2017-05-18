@@ -10,6 +10,7 @@
     json.user do
       json.username song.user.username
       json.author_id song.user.id
+      json.profile_image_url song.user.profile_image_url
     end
   end
 end
