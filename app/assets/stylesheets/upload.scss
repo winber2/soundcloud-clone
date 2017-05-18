@@ -1,6 +1,8 @@
+@import 'colors';
+
 section.upload-main {
-  position: relative;
-  z-index: -2;
+  // position: relative;
+  // z-index: -2;
 
   width: 1100px;
   height: 800px;
@@ -8,17 +10,17 @@ section.upload-main {
   background-size: cover;
   background-position: center;
   margin: 0 auto;
-
-  div.upload-tint {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: indigo;
-    opacity: 0.5;
-    height: 100%;
-    width: 100%;
-  }
+  //
+  // div.upload-tint {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: -1;
+  //   background: indigo;
+  //   opacity: 0.5;
+  //   height: 100%;
+  //   width: 100%;
+  // }
 
   div.upload-info {
     width: 700px;
@@ -29,9 +31,39 @@ section.upload-main {
 
   div.upload-box {
     width: 750px;
-    height: 550px;
+    height: 350px;
     margin: 0 auto;
     border-radius: 5px;
     background: white;
+    border: 1px solid lavender;
+
+    ul {
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin: 0 5px;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 400;
+
+        &:hover { text-shadow: none; }
+      }
+
+      button.login {
+        border: 1px solid lightgray;
+        color: $dark-gray;
+      }
+    }
+
+    h1 {
+      padding: 30px 0 90px 0;
+      font-weight: 400;
+      font-size: 30px;
+    }
   }
+
+}
+
+dropzone {
 }

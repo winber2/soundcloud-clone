@@ -22,4 +22,16 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  private
+
+  def cloudinary_auth
+    {
+      cloud_name: 'winber1',
+      api_key: '557186838289654',
+      api_secret: '1aFTYTNMCn2Ixj04Ao3FySPIupI',
+      enhance_image_tag: true,
+      static_image_support: true
+    }
+  end
+
 end
