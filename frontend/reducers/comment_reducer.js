@@ -1,6 +1,10 @@
 import { RECEIVE_COMMENTS, RECEIVE_COMMENT } from "../actions/comment_actions";
 import merge from 'lodash/merge';
 
+const _defaultState = {
+  user: {}
+};
+
 const CommentReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);

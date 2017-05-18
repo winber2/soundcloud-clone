@@ -1,5 +1,8 @@
 import React from 'react';
 import Comment from '../comments/comment';
+import { values } from 'lodash';
+
+window.values = values;
 
 class SongPage extends React.Component {
   constructor(props) {
@@ -14,9 +17,12 @@ class SongPage extends React.Component {
 
   render() {
     let song = this.props.song || { user: { username: '' }, title: '', image_url: '' };
-    let comments = this.props.comments.map( (comment) => (
-      <Comment comment={comment} />
-    ));
+    let comments;
+    if (this.props.comments !== {} ) {
+      comments = values(this.props.comments).map( (comment) => (
+        <Comment comment={comment} key={comment.id} />
+      ));
+    }
     return (
       <main className='song-page'>
         <section className='song-content'>
@@ -41,11 +47,12 @@ class SongPage extends React.Component {
               <img src={song.image_url} />
             </li>
           </ul>
-          <ul>
+        </section>
+        <section className='song-page-bottom'>
+          <ul className='comments'>
             {comments}
           </ul>
         </section>
-        <Comment />
       </main>
     );
   }

@@ -6,4 +6,5 @@ class Song < ApplicationRecord
     foreign_key: :author_id,
     primary_key: :id
 
+  has_many :comments
 end

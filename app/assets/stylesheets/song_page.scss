@@ -5,10 +5,13 @@ main.song-page {
   flex-direction: column;
 
   margin: 0 auto;
-  display: flex;
-  height: 380px;
+  height: 100%;
   width: 1000px;
-  background: beige;
+
+  section.song-page-bottom {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 section.song-content {

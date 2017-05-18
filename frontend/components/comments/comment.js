@@ -6,7 +6,7 @@ class Comment extends React.Component {
   }
 
   render() {
-    let comment = this.props.comment;
+    let comment = this.props.comment || { user: {} };
     return (
       <li>
         <img src={comment.user.profile_image_url} />
