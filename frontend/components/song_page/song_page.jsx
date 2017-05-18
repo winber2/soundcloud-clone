@@ -14,6 +14,9 @@ class SongPage extends React.Component {
 
   render() {
     let song = this.props.song || { user: { username: '' }, title: '', image_url: '' };
+    let comments = this.props.comments.map( (comment) => (
+      <Comment comment={comment} />
+    ));
     return (
       <main className='song-page'>
         <section className='song-content'>
@@ -38,7 +41,9 @@ class SongPage extends React.Component {
               <img src={song.image_url} />
             </li>
           </ul>
-
+          <ul>
+            {comments}
+          </ul>
         </section>
         <Comment />
       </main>

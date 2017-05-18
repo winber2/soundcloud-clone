@@ -6,14 +6,20 @@ class Comment extends React.Component {
   }
 
   render() {
-    let comments = this.props.
+    let comment = this.props.comment;
     return (
-      <ul className='comments'>
-        <li>
-          {comments}
-          
-        </li>
-      </ul>
+      <li>
+        <img src={comment.user.profile_image_url} />
+        <ul>
+          <li className='comment-user'>
+            <p>{comment.user.username}</p>
+            <p>{comment.created_at}</p>
+          </li>
+          <li>{comment.body}</li>
+        </ul>
+      </li>
     );
   }
 }
+
+export default Comment;
