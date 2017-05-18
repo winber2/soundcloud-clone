@@ -49,8 +49,29 @@ class SongPage extends React.Component {
           </ul>
         </section>
         <section className='song-page-bottom'>
-          <ul className='comments'>
-            {comments}
+          <ul className='song-page-bottom-main'>
+            <div className='comment-creation'>
+              <input className='comment-input'></input>
+
+            </div>
+            <ul className='song-page-bottom-info'>
+              <ul className='artist-info'>
+                <li><img src={song.user.profile_image_url} /></li>
+                <li><p>{song.user.username}</p></li>
+                <li><p>Follow</p></li>
+              </ul>
+              <ul className='comments'>
+                {comments}
+              </ul>
+            </ul>
+          </ul>
+          <ul className='song-page-bottom-side'>
+            <li>
+
+            </li>
+            <li>
+              
+            </li>
           </ul>
         </section>
       </main>

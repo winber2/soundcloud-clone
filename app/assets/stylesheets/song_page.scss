@@ -10,7 +10,41 @@ main.song-page {
 
   section.song-page-bottom {
     display: flex;
-    flex-direction: column;
+    background: white;
+
+    ul.song-page-bottom-main {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ul.song-page-bottom-side {
+      flex: 1;
+      margin: 20px 0;
+      padding: 0 20px;
+      border-left: 1px solid lavender;
+    }
+
+    div.comment-creation {
+      flex-grow: 1;
+      margin: 20px;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+ul.song-page-bottom-info {
+  display: flex;
+
+  ul.artist-info {
+    flex: 1;
+  }
+
+  ul.comments {
+    flex: 3;
   }
 }
 
@@ -106,4 +140,8 @@ section.song-content > ul {
       width: 100%;
     }
   }
+}
+
+ul.comments {
+
 }
