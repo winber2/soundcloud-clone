@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createSong } from '../../actions/song_actions';
-import Upload from './upload';
+import UploadForm from './upload_form';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Upload);
+)(UploadForm);

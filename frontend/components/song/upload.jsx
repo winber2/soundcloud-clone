@@ -1,10 +1,11 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import UploadFormContainer from './upload_form_container'
 
 class Upload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { route: 'upload' };
+    this.state = { route: 'upload', isActive: '', trackUrl: '' };
     this.toHome = this.toHome.bind(this);
     this.acceptFile = this.acceptFile.bind(this);
   }
@@ -14,11 +15,11 @@ class Upload extends React.Component {
   }
 
   acceptFile(files) {
-    this.setState({ route: 'input' })
+    this.setState({ route: 'input', isActive: 'active', trackUrl: files[0].preview })
   }
 
   selectRoute() {
-    if (this.state.route === '') {
+    if (this.state.route === 'upload') {
       return (
         <ul className='dropzone'>
           <Dropzone className='reset' onDrop={this.acceptFile}>
@@ -29,36 +30,7 @@ class Upload extends React.Component {
       )
     } else {
       return (
-        <ul className='upload-song'>
-          <h1>Song info</h1>
-          <ul className='upload-song-description'>
-            <li className='upload-image-box'>
-              <div id='upload-image-icon' />
-              <button className='upload-image'>Upload Image</button>
-            </li>
-            <ul className='upload-song-info'>
-              Title
-              <input></input>
-              Album <input></input>
-              <ul className='upload-song-detail'>
-                <li>
-                  Genre
-                  <input></input>
-                </li>
-                <li>
-                  Release Date
-                  <input type='date' className='date'></input>
-                </li>
-              </ul>
-              Description
-              <textarea rows='6'></textarea>
-            </ul>
-          </ul>
-          <div className='upload-buttons'>
-            <button className='login'>Cancel</button>
-            <button className='signup'>Save</button>
-          </div>
-        </ul>
+        <UploadFormContainer trackUrl={this.state.trackUrl}/>
       )
     }
   }
@@ -68,7 +40,7 @@ class Upload extends React.Component {
     return (
       <section className='upload-main'>
         <div className='upload-info' />
-          <div className='upload-box active'>
+          <div className={`upload-box ${this.state.isActive}`}>
             <ul>
               <h1>Upload to Vibe</h1>
             </ul>

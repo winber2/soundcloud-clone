@@ -23,6 +23,7 @@ section.upload-main {
     border-radius: 5px;
     background: white;
     border: 1px solid lavender;
+    transition: height 0.3s;
 
     ul {
       display: flex;
@@ -91,9 +92,15 @@ section.upload-main {
           background: gray;
 
           div.upload-image-icon {
+            position: absolute;
+            z-index: 10;
+            bottom: 10px;
+            left: 20px;
             background-image: asset-url('camera.png');
             background-size: contain;
             background-repeat: no-repeat;
+            height: 30px;
+            width: 30px;
 
           }
 
@@ -146,7 +153,7 @@ section.upload-main {
             input {
               flex-grow: 1;
 
-              &.date { padding: 1px 3px; }
+              &.upload-date { padding: 1px 3px; }
             }
 
 
