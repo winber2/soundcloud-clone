@@ -1,6 +1,6 @@
-class CreateApiComments < ActiveRecord::Migration[5.0]
+class CreateComment < ActiveRecord::Migration[5.0]
   def change
-    create_table :api_comments do |t|
+    create_table :comments do |t|
       t.integer :author_id, null: false
       t.integer :song_id, null: false
       t.string :body, null: false
