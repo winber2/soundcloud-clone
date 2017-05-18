@@ -61,6 +61,14 @@ class SongPage extends React.Component {
                 <li><p>Follow</p></li>
               </ul>
               <ul className='comments'>
+                <li className='song-description'>
+                  <p>song description song description song description song description song description song description song description song description song description
+                  song description song description song description song description song description song description song description song description </p>
+                </li>
+                <li className='song-comments'>
+                  <img src='http://res.cloudinary.com/winber1/image/upload/v1495075515/comment_lqle6o.png'/>
+                  <span>12 comments</span>
+                </li>
                 {comments}
               </ul>
             </ul>
@@ -70,7 +78,7 @@ class SongPage extends React.Component {
 
             </li>
             <li>
-              
+
             </li>
           </ul>
         </section>

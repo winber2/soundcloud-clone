@@ -8,7 +8,7 @@ class Comment extends React.Component {
   render() {
     let comment = this.props.comment || { user: {} };
     return (
-      <li>
+      <li className='single-comment'>
         <img src={comment.user.profile_image_url} />
         <ul>
           <li className='comment-user'>
