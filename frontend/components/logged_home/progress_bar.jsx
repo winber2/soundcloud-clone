@@ -9,22 +9,12 @@ class ProgressBar extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     let audio = this.props.audio;
-    console.log('help');
     if (this.props.audio.isPlaying) {
       audio.player.play();
       this.setState({ icon: 'assets/pause-button.png' });
     } else {
       audio.player.pause();
       this.setState({ icon: 'assets/play-button.png' });
-    }
-  }
-
-  changeIcon() {
-    let player = this.props.audio.player;
-    if (this.props.audio.isPlaying) {
-      this.state = { icon: 'assets/pause-button.png'};
-    } else {
-      this.state = { icon: 'assets/play-button.png'};
     }
   }
 
@@ -41,12 +31,10 @@ class ProgressBar extends React.Component {
 
     if (audio.isPlaying) {
       audio.isPlaying = false;
-      // player.pause();
-      this.setState({ icon: 'assets/play-button.png' });
+      this.setState({ icon: 'assets/pause-button.png' });
     } else {
       audio.isPlaying = true;
-      // player.play();
-      this.setState({ icon: 'assets/pause-button.png' });
+      this.setState({ icon: 'assets/play-button.png' });
     }
 
     this.props.receiveAudio(audio);
@@ -54,16 +42,10 @@ class ProgressBar extends React.Component {
 
   render() {
     let song = this.props.audio.song || { track_url: '' };
-    let icon;
-    if (this.props.audio.isPlaying) {
-      icon = 'assets/pause-button';
-    } else {
-      icon = 'assets/play-button';
-    }
     return (
       <footer id="music-player">
         <div className="inner">
-          <audio ref='audioPlayer' className="player" src={song.track_url} autoPlay/>
+          <audio ref='audioPlayer' className="player" src={song.track_url}/>
 
           <div className="controls">
             <img className="previous" src="assets/back-button.png"></img>

@@ -25,7 +25,7 @@ song2 = Song.create(
     genre: 'Future Funk',
     album: 'album',
     release_date: Date.new(2017,3,17),
-    image_url: 'http://res.cloudinary.com/winber1/image/upload/v1494889520/ditto_fag_qjnfcv.jpg',
+    image_url: 'http://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
     track_url: 'http://res.cloudinary.com/winber1/video/upload/v1495062337/02._%E9%81%BA%E3%82%B5%E3%83%AC%E3%82%BF%E5%A0%B4%E6%89%80_%E6%96%9C%E5%85%89_luvxlt.mp3'
     )
 
@@ -38,3 +38,8 @@ song3 = Song.create(
     image_url: 'http://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
     track_url: 'http://res.cloudinary.com/winber1/video/upload/v1495061844/15._Weight_of_the_World_English_Version_jbsja7.mp3'
     )
+
+comment1 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'sick wubs')
+comment2 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'LOVE YA')
+comment3 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'pure GENius bruh')
+comment4 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'lol im gay')

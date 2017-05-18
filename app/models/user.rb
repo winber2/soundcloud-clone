@@ -7,7 +7,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :songs
+  has_many :songs,
+    class_name: :Song,
+    foreign_key: :author_id,
+    primary_key: :id
 
   def password=(password)
     @password = password
