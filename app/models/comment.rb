@@ -7,4 +7,10 @@ class Comment < ApplicationRecord
     foreign_key: :song_id,
     primary_key: :id
 
+
+  belongs_to :user,
+    class_name: :User,
+    foreign_key: :author_id,
+    primary_key: :id
+
 end

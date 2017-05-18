@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from '../comments/comment';
 
 class SongPage extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class SongPage extends React.Component {
   componentDidMount() {
     let songId = this.props.match.params.songId;
     this.props.fetchSingleSong(songId);
+    this.props.fetchComments(songId);
   }
 
   render() {
@@ -38,9 +40,7 @@ class SongPage extends React.Component {
           </ul>
 
         </section>
-        <div className='comments'>
-
-        </div>
+        <Comment />
       </main>
     );
   }
