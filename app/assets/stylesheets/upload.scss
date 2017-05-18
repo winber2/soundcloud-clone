@@ -1,26 +1,13 @@
 @import 'colors';
 
 section.upload-main {
-  // position: relative;
-  // z-index: -2;
-
   width: 1100px;
   height: 800px;
   background-image: asset-url('upload-bg.jpg');
   background-size: cover;
   background-position: center;
   margin: 0 auto;
-  //
-  // div.upload-tint {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: -1;
-  //   background: indigo;
-  //   opacity: 0.5;
-  //   height: 100%;
-  //   width: 100%;
-  // }
+
 
   div.upload-info {
     width: 700px;
@@ -56,14 +43,133 @@ section.upload-main {
       }
     }
 
+    ul.dropzone {
+      margin-top: 90px;
+    }
+
     h1 {
-      padding: 30px 0 90px 0;
+      padding-top: 30px;
       font-weight: 400;
       font-size: 30px;
     }
+
+    div.upload-buttons {
+      display: flex;
+      width: 50%;
+      justify-content: flex-end;
+      align-self: flex-end;
+      margin: 10px 0;
+
+      button {
+        height: 30px;
+
+        &.signup { border: none }
+      }
+    }
+
+    ul.upload-song {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 30px;
+
+      h1 {
+        padding: 0 0 5px 0;
+        margin-bottom: 25px;
+        border-bottom: 1px solid lightgray;
+        font-size: 25px;
+      }
+
+      ul.upload-song-description {
+        display: flex;
+        justify-content: space-around;
+
+        li.upload-image-box {
+          position: relative;
+          height: 200px;
+          width: 200px;
+          background: gray;
+
+          div.upload-image-icon {
+            background-image: asset-url('camera.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+
+          }
+
+          button.upload-image {
+            position: absolute;
+            background: lightgray;
+            bottom: 10px;
+            left: 44px;
+            height: 25px;
+            opacity: 0.8;
+            font-size: 14px;
+            transition: background 0.2s;
+
+            &:hover { background: white; cursor: pointer }
+          }
+        }
+
+        ul.upload-song-info {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          margin-left: 30px;
+          font-size: 14px;
+
+          input {
+            margin: 5px 0;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            padding: 3px;
+            transition: border 0.3s;
+
+            &:focus{
+              outline: none;
+              border: 1px solid gray;
+            }
+          }
+
+          ul.upload-song-detail {
+            display: flex;
+            align-items: center;
+
+            li {
+              display: flex;
+              flex-direction: column;
+              flex-grow: 1;
+
+              &:first-child { margin-right: 10px;}
+            }
+
+            input {
+              flex-grow: 1;
+
+              &.date { padding: 1px 3px; }
+            }
+
+
+          }
+
+          textarea {
+            resize: none;
+            margin-top: 5px;
+            border-radius: 3px;
+            border: 1px solid lightgray;
+            transition: border 0.3s;
+
+            &:focus {
+              outline: none;
+              border: 1px solid gray;
+            }
+          }
+        }
+      }
+    }
   }
 
-}
-
-dropzone {
+  div.active {
+    height: 450px;
+  }
 }
