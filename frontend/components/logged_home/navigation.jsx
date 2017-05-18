@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this);
-    this.toHome = this.toHome.bind(this);
     this.toggleSettings = this.toggleSettings.bind(this);
+    this.toHome = this.toHome.bind(this);
     this.state = { isActive: '' }
   }
 
@@ -33,15 +33,15 @@ class Navigation extends React.Component {
     return (
       <nav className='navigation'>
         <ul>
-          <li className='loggedhome-logo'><img src='http://res.cloudinary.com/winber1/image/upload/v1495123529/vibe-logo_x2xsvo.png'/></li>
-          <li onClick={this.toHome} >Home</li>
+          <li onClick={this.toHome} className='loggedhome-logo'><img src='http://res.cloudinary.com/winber1/image/upload/v1495123529/vibe-logo_x2xsvo.png'/></li>
+          <li><NavLink to='/stream'>Home</NavLink></li>
         </ul>
         <ul className='searchbar'>
           <input className='home-search'></input>
         </ul>
         <ul>
-          <li>Upload</li>
-          <li>Settings</li>
+          <li><Link to='/upload'>Upload</Link></li>
+          <li><Link to='/stream'>Settings</Link></li>
           <li className={`nav-user ${this.state.isActive}`}>
             <p onClick={this.toggleSettings}>{this.props.currentUser.username}</p>
             <ul id='user-settings' className={this.state.isActive}>

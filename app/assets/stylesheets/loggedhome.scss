@@ -25,13 +25,25 @@ header.loggedhome-header {
 
     font-weight: 300;
 
+    ul li a {
+      text-decoration: none;
+      color: white;
+      margin: 0;
+      padding: 13px 30px;
+
+      &:hover {
+        text-shadow: 0 0 3px white;
+        cursor: pointer;
+      }
+    }
+
     ul {
       height: 44px;
     }
 
     li {
-      margin: 0px 15px 0 15px;
-      padding: 0 30px 0 15px;
+      margin: 0;
+      padding: 0;
       border-right: 1px solid black;
       display: flex;
       flex-direction: column;
@@ -40,17 +52,15 @@ header.loggedhome-header {
 
     ul:last-child {
       li {
-        margin: 0;
-        border: none;
-        padding: 15px 25px;
+          border: none;
+
+        a {
+          margin: 0;
+          padding: 13px 20px;
+        }
 
         &.nav-user { padding: 0 }
       }
-    }
-
-    li:hover {
-      text-shadow: 0 0 3px white;
-      cursor: pointer;
     }
 
     li.loggedhome-logo {
@@ -71,9 +81,13 @@ header.loggedhome-header {
       display: flex;
       flex-grow: 1;
       align-items: center;
+      margin: 5px 15px;
     }
   }
 
+  .active {
+    background: $almost-black;
+  }
 }
 
 li.nav-user {
@@ -84,6 +98,11 @@ li.nav-user {
     z-index: 1000;
     color: white;
     padding: 14px 25px;
+
+    &:hover {
+      text-shadow: 0 0 3px white;
+      cursor: pointer;
+    }
   }
 
   &.active ul#user-settings{ display: flex }
@@ -137,17 +156,21 @@ div.nav-space {
 input.home-search {
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 1px solid gray;
   border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
+  font-size: 14px;
+  background-color: rgb(240,240,240);
   background-image: asset-url('searchicon.png');
-  background-position: 5px 4px;
+  background-position: right 5px center;
+  background-size: contain;
   background-repeat: no-repeat;
-  padding: 5px 20px 6px 40px;
+  padding: 5px 20px 5px 10px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
   outline: none;
+  transition: background 0.5s;
+
+  &:focus{ background-color: white }
 }
 
 main.loggedhome-body {
