@@ -9,14 +9,12 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   songs: state.songs,
   song: state.songs[ownProps.match.params.songId],
-  audio: state.audio,
   comments: state.comments
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchSongs: () => dispatch(fetchSongs()),
   fetchSingleSong: (id) => dispatch(fetchSingleSong(id)),
-  receiveAudio: song => dispatch(receiveAudio(song)),
   fetchComments: (id) => dispatch(fetchComments(id))
 });
 

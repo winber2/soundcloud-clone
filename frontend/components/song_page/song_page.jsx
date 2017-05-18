@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from '../comments/comment';
 import { values } from 'lodash';
+import SongPlayButtonContainer from '../song/song_play_button_container';
 
 window.values = values;
 
@@ -29,7 +30,7 @@ class SongPage extends React.Component {
           <ul>
             <li className='song-page-info'>
               <ul className='song-header'>
-                <li><div className='play-image'></div></li>
+                <li><SongPlayButtonContainer song={this.props.song} /></li>
                 <li>
                   <ul className='song-title'>
                     <li>
