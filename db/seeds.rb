@@ -42,4 +42,4 @@ song3 = Song.create(
 comment1 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'sick wubs')
 comment2 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'LOVE YA')
 comment3 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'pure GENius bruh')
-comment4 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'lol im gay')
+comment4 = Comment.create(author_id: user2.id, song_id: song1.id, body: 'lol u succ')

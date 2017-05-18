@@ -17,7 +17,7 @@ header.loggedhome-header {
   z-index: 999;
 
   nav.navigation {
-    width: 1000px;
+    width: 1100px;
     margin: 0 auto;
     align-items: center;
     display: flex;
@@ -40,7 +40,9 @@ header.loggedhome-header {
 
     ul:last-child {
       li {
-        margin-right: 0;
+        margin: 0;
+        border: none;
+        padding: 15px 25px;
       }
     }
 
@@ -50,19 +52,16 @@ header.loggedhome-header {
     }
 
     li.loggedhome-logo {
-      height: 44px;
-      width: 55px;
+      height: 100%;
+      width: 93px;
       margin: 0;
-      padding: 0 15px 0 15px;
-      background: #ea6f17; /* Old browsers */
-      background: -webkit-linear-gradient(top, #ea6f17 0%,#f23a0c 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ea6f17 0%,#f23a0c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      padding: 0;
 
       display: flex;
       justify-content: center;
 
       img {
-        width: 50px;
+        width: 100%;
       }
     }
 
@@ -82,7 +81,7 @@ div.nav-space {
 }
 
 input.home-search {
-  width: 130px;
+  width: 100%;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -97,12 +96,8 @@ input.home-search {
   outline: none;
 }
 
-input.home-search:focus {
-    width: 100%;
-}
-
 main.loggedhome-body {
-  width: 1000px;
+  width: 1100px;
   margin: 0 auto;
   display: flex;
   position: relative;
@@ -125,10 +120,10 @@ main.loggedhome-body {
   div.nav-border {
     position: absolute;
     top: 62px;
-    left: 5px;
+    left: 20px;
     display: float;
     height: 1px;
-    width: 65%;
+    width: 63%;
     background-color: lavender;
   }
 
@@ -138,6 +133,7 @@ main.loggedhome-body {
     ul {
       display: flex;
       margin-top: 20px;
+      margin-left: 15px;
     }
 
 

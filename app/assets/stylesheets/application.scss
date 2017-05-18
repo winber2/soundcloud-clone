@@ -32,8 +32,8 @@ div.homepage-logo {
   left: 10px;
   background-image: asset-url('vibe.png');
   background-size: contain;
-  height: 45px;
-  width: 170px;
+  height: 90px;
+  width: 130px;
 }
 
 .ReactModal__Overlay {
@@ -185,7 +185,6 @@ button:focus { outline:0 }
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
   p {
     padding: 5px;
