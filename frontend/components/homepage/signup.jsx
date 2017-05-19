@@ -6,6 +6,7 @@ class Signup extends React.Component {
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -15,6 +16,15 @@ class Signup extends React.Component {
       password: this.state.password
     };
     this.props.signup(user);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    let user = {
+      username: 'darude',
+      password: 'sandstorm'
+    };
+    this.props.login(user);
   }
 
   update(prop) {
@@ -28,6 +38,12 @@ class Signup extends React.Component {
         <li>
           <h1>Sign up for Vibe</h1>
         </li>
+        <li><button onClick={this.demoLogin}>Demo login</button></li>
+        <ul>
+          <div></div>
+          <p>OR</p>
+          <div></div>
+        </ul>
         <li>
           {errors}
           <input onChange={this.update('username')} placeholder='Username'></input>

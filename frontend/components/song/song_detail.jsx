@@ -10,16 +10,22 @@ class SongDetail extends React.Component {
       <li className="song-detail">
         <ul>
             <li>
-              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/heart_zzt9wm.png" />
+              <div className='heart-icon'/>
+              <span>5</span>
             </li>
             <li>
-              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/repost_yyafrh.png" />
+              <div className='repost-icon'/>
+              <span>12</span>
+            </li>
+            <li>
+              <div className='ellipses-icon'/>
+              <span className='song-options'>More</span>
             </li>
         </ul>
         <ul>
             <li>
-              <img src="http://res.cloudinary.com/winber1/image/upload/v1495075515/comment_lqle6o.png" />
-              <span>17</span>
+              <div className='comment-icon'/>
+              <span>{this.props.comments}</span>
             </li>
         </ul>
       </li>

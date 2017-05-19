@@ -45,11 +45,10 @@ class HomePage extends React.Component {
       <div className='homepage'>
         <Modal overlayClassName="homepage-modal-overlay"
           className='homepage-modal'
+          onRequestClose={this.closeModal}
           isOpen={this.state.isOpen}
           contentLabel="Modal">
             {authRoute}
-            <br />
-            <button onClick={this.closeModal}>Back</button>
         </Modal>
         <main className='homepage-info'>
           <div className='homepage-overlay'>

@@ -1,0 +1,153 @@
+@import 'colors';
+
+ul.song-info {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+
+  ul.song-play-info {
+    display: flex;
+
+    div.song-play-icon {
+      background: $orange;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      margin-right: 5px;
+    }
+
+    div.song-play-icon:hover {
+      background: $dark-orange;
+    }
+
+    img {
+      height: 45px;
+      width: 45px;
+
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+
+  }
+}
+
+li.song-container {
+  display: flex;
+  height: 150px;
+  margin: 10px;
+  font-weight: 300;
+
+  img {
+    width: 150px;
+    margin-right: 10px;
+    background-size: cover;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 16px;
+    color: gray;
+  }
+
+  h3 {
+    line-height: 0.5;
+    font-weight: 400;
+    color: rgb(50, 50, 50);
+  }
+}
+
+li.song-detail {
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    display: flex;
+
+    li {
+      height: 17px;
+      width: 100%;
+
+      div.comment-icon {
+        height: 100%;
+        width: 17px;
+        background-image: asset-url('comment.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 3px;
+      }
+
+      div.heart-icon {
+        height: 100%;
+        width: 17px;
+        background-image: asset-url('heart-icon.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 3px;
+      }
+
+      div.repost-icon {
+        height: 16px;
+        width: 20px;
+        background-position: 0 -1px;
+        background-image: asset-url('repost.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 3px;
+      }
+
+      div.ellipses-icon {
+        height: 100%;
+        width: 25px;
+        background-position: 0 -3px;
+        background-image: asset-url('ellipses-icon.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 3px;
+      }
+
+      span {
+        font-size: 12px;
+
+        &.song-options {
+          color: black;
+          font-weight: 400;
+          margin-right: 2px;
+        }
+      }
+
+      display: flex;
+      align-items: center;
+      border: 1px solid lavender;
+      border-radius: 5px;
+      padding: 2px 3px;
+      margin: 3px;
+    }
+  }
+
+  ul:first-child li:hover {
+    border: 1px solid lightgray;
+    cursor: pointer;
+  }
+
+  ul:last-child li {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    color: gray;
+    align-items: center;
+
+    span {
+      font-size: 13px;
+    }
+
+    img {
+      margin-right: 0;
+    }
+  }
+}

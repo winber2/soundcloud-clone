@@ -20,11 +20,11 @@ class Song extends React.Component {
       <li className='song-container'>
         <img onClick={this.showSong} src={song.image_url}></img>
         <ul className='song-info'>
-          <SongPlay song={this.props.song} />
+          <SongPlay song={song} />
           <li>
             <span>waveform</span>
           </li>
-          <SongDetail />
+          <SongDetail comments={song.number_of_comments}/>
         </ul>
       </li>
     );

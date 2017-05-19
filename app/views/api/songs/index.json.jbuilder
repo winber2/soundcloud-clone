@@ -12,5 +12,6 @@
       json.author_id song.user.id
       json.profile_image_url song.user.profile_image_url
     end
+    json.number_of_comments song.comments.count
   end
 end

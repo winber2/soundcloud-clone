@@ -6,6 +6,7 @@ class Login extends React.Component {
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -13,6 +14,15 @@ class Login extends React.Component {
     let user = {
       username: this.state.username,
       password: this.state.password
+    };
+    this.props.login(user);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    let user = {
+      username: 'darude',
+      password: 'sandstorm'
     };
     this.props.login(user);
   }
@@ -28,6 +38,12 @@ class Login extends React.Component {
         <li>
           <h1>Sign in</h1>
         </li>
+        <li><button onClick={this.demoLogin}>Demo login</button></li>
+        <ul>
+          <div></div>
+          <p>OR</p>
+          <div></div>
+        </ul>
         <li>
           <p>{errors}</p>
           <input onChange={this.update('username')} placeholder='Username'></input>
