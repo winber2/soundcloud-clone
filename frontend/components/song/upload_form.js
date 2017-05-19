@@ -17,11 +17,18 @@ class UploadForm extends React.Component {
       release_date: '',
       author_id: this.props.currentUser.id,
       image_url: '',
-      track_url: this.props.trackUrl
+      track_url: this.props.trackUrl,
+      isActive: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.isActive === '') {
+      this.setState({ isActive: 'active' });
+    }
   }
 
   update(prop) {
@@ -69,7 +76,7 @@ class UploadForm extends React.Component {
 
   render() {
     return (
-      <ul className='upload-song'>
+      <ul className={`upload-song ${this.state.isActive}`} ref='uploadSong'>
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>
@@ -98,7 +105,7 @@ class UploadForm extends React.Component {
           </ul>
         </ul>
         <div className='upload-buttons'>
-          <button className='login'>Cancel</button>
+          <button onClick={this.props.back} className='login'>Cancel</button>
           <button onClick={this.handleSubmit} className='signup'>Save</button>
         </div>
       </ul>

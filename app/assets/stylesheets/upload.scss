@@ -73,6 +73,12 @@ section.upload-main {
       flex-direction: column;
       justify-content: center;
       margin: 0 30px;
+      opacity: 0;
+      transition: opacity 0.8s;
+
+      &.active {
+        opacity: 1;
+      }
 
       h1 {
         padding: 0 0 5px 0;

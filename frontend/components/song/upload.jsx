@@ -12,14 +12,19 @@ class Upload extends React.Component {
     this.state = { route: 'upload', isActive: '', trackUrl: '' };
     this.toHome = this.toHome.bind(this);
     this.acceptFile = this.acceptFile.bind(this);
+    this.back = this.back.bind(this);
   }
 
   toHome() {
-    window.location.hash = '/stream';
+    this.props.history.push('/stream');
   }
 
   acceptFile(files) {
-    this.setState({ route: 'input', isActive: 'active', trackUrl: files[0] })
+    this.setState({ isActive: 'active', route: 'input', trackUrl: files[0] });
+  }
+
+  back() {
+    this.setState({ route: 'upload', isActive: '' });
   }
 
   selectRoute() {
@@ -34,7 +39,7 @@ class Upload extends React.Component {
       )
     } else {
       return (
-        <UploadFormContainer trackUrl={this.state.trackUrl}/>
+        <UploadFormContainer back={this.back} trackUrl={this.state.trackUrl}/>
       )
     }
   }

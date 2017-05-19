@@ -28,7 +28,7 @@ class LoggedHome extends React.Component {
 
         <Switch>
           <Route exact path="/stream" render={(props) => <Stream songs={this.props.songs} {...props} /> } />
-          <Route exact path="/upload" component={Upload} />
+          <Route exact path="/upload" render={(props) => <Upload {...props} /> } />
           <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />
         </Switch>
 
