@@ -15,12 +15,12 @@ export const receiveSongs = (songs) => ({
 
 export const fetchSingleSong = id => dispatch => (
   APIUtil.fetchSingleSong(id)
-  .then(song => dispatch(receiveSong(song)))
+    .then(song => dispatch(receiveSong(song)))
 );
 
 export const createSong = (song) => dispatch => (
   APIUtil.createSong(song)
-  .then(newSong => dispatch(receiveSong(newSong)))
+    .then(newSong => dispatch(receiveSong(newSong)))
 );
 
 export const fetchSongs = () => dispatch => (

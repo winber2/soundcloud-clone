@@ -13,7 +13,7 @@ class Api::SongsController < ApplicationController
     @song = Song.new(song_params)
 
     if @song.save
-      render json: @song
+      render show: @song
     else
       render json: @song.errors.full_messages, status: 422
     end

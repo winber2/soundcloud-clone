@@ -1,5 +1,10 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+var superagent = require('superagent');
+
+const VIDEO_URL = 'https://api.cloudinary.com/v1_1/winber1/video/upload';
+const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
+const UPLOAD_PRESET = 'cgbryuxc';
 
 class UploadForm extends React.Component {
   constructor(props) {
@@ -24,13 +29,42 @@ class UploadForm extends React.Component {
   }
 
   uploadImage(files) {
-    this.setState({ image_url: files[0].preview });
+    this.setState({ image_url: files[0] });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    let imageFile = this.state.image_url;
+    let songFile = this.state.track_url;
+    let upload = this;
     this.state.release_date = new Date(this.state.release_date);
-    this.props.createSong(this.state);
+
+    let song = new FormData();
+    song.append('file', songFile);
+    song.append('upload_preset', UPLOAD_PRESET)
+
+    let image = new FormData();
+    image.append('file', imageFile);
+    image.append('upload_preset', UPLOAD_PRESET)
+
+    superagent.post(IMAGE_URL)
+      .send(image)
+      .end(function(err, res) {
+        if (res.body.secure_url !== '') {
+          debugger;
+          upload.state.image_url = res.body.secure_url;
+
+          superagent.post(VIDEO_URL)
+            .send(song)
+            .end(function(err, res) {
+              if (res.body.secure_url !== '') {
+                upload.state.track_url = res.body.secure_url;
+
+                upload.props.createSong(upload.state).then(upload.props.history.push('/stream'));
+              }
+            });
+        }
+      });
   }
 
   render() {
@@ -39,7 +73,7 @@ class UploadForm extends React.Component {
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>
-            <img src={this.state.image_url} />
+            <img src={this.state.image_url.preview} />
             <Dropzone onDrop={this.uploadImage} className='dropzone'>
               <button className='upload-image'>Upload Image</button>
             </Dropzone>

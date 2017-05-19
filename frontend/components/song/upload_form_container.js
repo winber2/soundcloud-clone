@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createSong } from '../../actions/song_actions';
 import UploadForm from './upload_form';
 
@@ -7,10 +8,12 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createSong: song => dispatch(creatSong(song))
+  createSong: song => dispatch(createSong(song))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UploadForm);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )
+(UploadForm));
