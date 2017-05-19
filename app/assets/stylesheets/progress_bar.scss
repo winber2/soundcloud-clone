@@ -7,8 +7,9 @@
   height: 35px;
   padding: 5px 10px;
   position: fixed;
-  bottom: 0;
+  bottom: -50px;
   z-index: 999;
+  transition: transform 1s;
 
   .inner {
     display: flex;
@@ -17,6 +18,10 @@
     padding: 0 10px;
     margin: 0 auto;
   }
+}
+
+#music-player.active {
+  transform: translateY(-50px);
 }
 
 .controls {
@@ -71,13 +76,14 @@
     color: gray;
     font-size: .8em;
     align-self: center;
+    margin: 0 5px
   }
 
   .bar-box{
-    padding: 5px;
+    padding: 5px 0;
     width: 100%;
     align-self: center;
-    margin: 0 5px;
+    margin: 0;
 
     .bar-bg { //Background of the progress bar
       background-color: silver;
@@ -85,7 +91,7 @@
       height: 1px;
 
       .progress { //Actual progress bar
-        background-color: orange;
+        background-color: $dark-orange;
         padding-top: 1px;
         border-radius: 10px;
         width: 0%;
