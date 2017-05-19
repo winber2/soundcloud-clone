@@ -91,17 +91,9 @@ section.upload-main {
           width: 200px;
           background: gray;
 
-          div.upload-image-icon {
-            position: absolute;
-            z-index: 10;
-            bottom: 10px;
-            left: 20px;
-            background-image: asset-url('camera.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 30px;
-            width: 30px;
-
+          img {
+            height: 100%;
+            overflow-x: hidden;
           }
 
           button.upload-image {

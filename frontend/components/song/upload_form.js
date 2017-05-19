@@ -29,7 +29,7 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.state.release_date = Date new(this.state.release_date);
+    this.state.release_date = new Date(this.state.release_date);
     this.props.createSong(this.state);
   }
 
@@ -39,7 +39,7 @@ class UploadForm extends React.Component {
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>
-            <div id='upload-image-icon' />
+            <img src={this.state.image_url} />
             <Dropzone onDrop={this.uploadImage} className='dropzone'>
               <button className='upload-image'>Upload Image</button>
             </Dropzone>
