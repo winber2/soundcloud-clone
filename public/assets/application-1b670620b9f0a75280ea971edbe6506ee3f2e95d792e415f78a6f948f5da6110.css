@@ -1,0 +1,1180 @@
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+div.loggedhome {
+  position: relative;
+}
+
+/* line 7, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header {
+  height: 45px;
+  width: 100%;
+  background: #363636;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+/* line 19, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation {
+  width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+}
+/* line 28, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul li a {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  padding: 13px 30px;
+}
+/* line 34, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul li a:hover {
+  text-shadow: 0 0 3px white;
+  cursor: pointer;
+}
+/* line 40, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul {
+  height: 100%;
+}
+/* line 44, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation li {
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* line 54, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul:last-child li {
+  border: none;
+}
+/* line 57, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul:last-child li a {
+  margin: 0;
+  padding: 13px 20px;
+}
+/* line 62, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul:last-child li.nav-user {
+  padding: 0;
+}
+/* line 66, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation li.loggedhome-logo {
+  height: 100%;
+  width: 93px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+/* line 75, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation li.loggedhome-logo:hover {
+  cursor: pointer;
+}
+/* line 77, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation li.loggedhome-logo img {
+  width: 100%;
+}
+/* line 82, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header nav.navigation ul.searchbar {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin: 0px 15px;
+}
+/* line 90, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+header.loggedhome-header .active {
+  background: #0f0f0f;
+}
+
+/* line 95, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user {
+  position: relative;
+}
+/* line 98, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user p {
+  position: relative;
+  z-index: 999;
+  color: white;
+  padding: 13px 25px;
+}
+/* line 104, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user p:hover {
+  text-shadow: 0 0 3px white;
+  cursor: pointer;
+}
+/* line 110, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user.active ul#user-settings {
+  display: flex;
+}
+/* line 111, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user.active {
+  background: #0f0f0f;
+}
+/* line 115, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user ul#user-settings {
+  position: absolute;
+  z-index: 0;
+  top: -250px;
+  left: 0;
+  flex-direction: column;
+  width: 100%;
+  height: 245px;
+  justify-content: flex-end;
+  background: #0f0f0f;
+  display: hidden;
+  transition: transform 0.3s;
+}
+/* line 130, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user ul#user-settings.active {
+  display: flex;
+  position: absolute;
+  transform: translateY(254px);
+  z-index: -99;
+}
+/* line 137, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user ul#user-settings li {
+  padding: 12px 15px 12px 10px;
+  background: #0f0f0f;
+  text-shadow: 0 0 0;
+  font-size: 13px;
+  height: 10px;
+}
+/* line 145, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+li.nav-user ul#user-settings li:hover {
+  background: gray;
+}
+
+/* line 152, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+div.nav-space {
+  height: 45px;
+  width: 100%;
+  background: transparent;
+}
+
+/* line 158, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+input.home-search {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  background-image: url(/assets/searchicon-6913ec2321ff75f572c92f662d90f61a65cec42e4fa5dd0f27c72c518aa14cb7.png);
+  background-position: right 5px center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 5px 20px 5px 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  outline: none;
+  transition: background 0.5s;
+}
+/* line 175, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+input.home-search:focus {
+  background-color: white;
+}
+
+/* line 178, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body {
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  background: white;
+}
+/* line 185, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body div.main-index {
+  flex: 5;
+}
+/* line 188, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body div.main-index p {
+  color: gray;
+  font-size: 16px;
+  margin: 20px;
+}
+/* line 195, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body aside.loggedhome-sidebar {
+  flex: 2;
+}
+/* line 199, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body div.nav-border {
+  position: absolute;
+  top: 62px;
+  left: 20px;
+  display: float;
+  height: 1px;
+  width: 63%;
+  background-color: lavender;
+}
+/* line 209, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body nav.content-nav {
+  padding: 5px;
+}
+/* line 212, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body nav.content-nav ul {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+/* line 219, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body nav.content-nav li {
+  padding: 5px;
+  margin-right: 15px;
+  font-size: 20px;
+  border-bottom: 1px solid lavender;
+}
+/* line 226, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome.scss */
+main.loggedhome-body nav.content-nav li:hover {
+  position: relative;
+  z-index: 999;
+  border-bottom: 1px solid #f75f1e;
+  cursor: pointer;
+}
+/* line 1, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome_aside.scss */
+aside.loggedhome-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid lavender;
+  margin: 20px;
+  padding: 0 20px;
+}
+/* line 8, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/loggedhome_aside.scss */
+aside.loggedhome-sidebar li.artist-suggestion, aside.loggedhome-sidebar li.song-suggestion {
+  display: flex;
+  flex-direction: column;
+}
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay {
+  display: hidden;
+}
+
+/* line 7, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(230, 230, 230, 0.8);
+  width: 100%;
+  height: 100%;
+  transition: background 0.5s;
+}
+/* line 16, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal {
+  width: 350px;
+  height: 430px;
+  background: white;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: transform 1s;
+}
+/* line 30, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -25px;
+}
+/* line 36, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth ul {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 30px 0 15px 0;
+}
+/* line 42, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth ul p {
+  color: gray;
+}
+/* line 46, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth ul div {
+  height: 1px;
+  width: 100%;
+  background: gray;
+  margin: 0 10px;
+  flex-grow: 1;
+}
+/* line 55, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth li {
+  width: 100%;
+  text-align: center;
+}
+/* line 60, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth h1 {
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+/* line 65, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth button {
+  margin-top: 20px;
+  width: 100%;
+  background: #f75f1e;
+  color: white;
+  border-radius: 5px;
+  font-weight: 300;
+  padding: 7px 15px 8px 15px;
+  font-size: 14px;
+  transition: text-shadow 0.3s;
+}
+/* line 77, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth button:hover {
+  text-shadow: 0 0 3px white;
+}
+/* line 81, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth input {
+  margin-top: 10px;
+  width: 280px;
+  height: 20px;
+  font-size: 16px;
+  border: 1px solid lightgray;
+  padding: 6px;
+  border-radius: 3px;
+  box-shadow: none;
+  transition: border 0.3s;
+}
+/* line 93, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth input:focus {
+  border: 1px solid gray;
+  outline: none;
+}
+/* line 98, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.ReactModal__Overlay .homepage-modal ul.homepage-auth input::-webkit-input-placeholder {
+  color: lightgray;
+  font-weight: 300;
+}
+
+/* line 107, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+div.ReactModal_Content--after-open {
+  transform: translate(0, 50px);
+}
+
+/* line 111, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/modal.scss */
+.homepage-modal:focus {
+  outline: 0;
+}
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+#music-player {
+  background-color: #e6e6e6;
+  border-top: 1px solid gray;
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+/* line 13, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+#music-player .inner {
+  display: flex;
+  position: relative;
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* line 22, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.controls {
+  width: 170px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+/* line 29, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar {
+  height: 35px;
+  margin-right: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+/* line 37, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content {
+  width: 220px;
+  height: 45px;
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* line 45, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.controls {
+  vertical-align: top;
+}
+/* line 48, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.controls img {
+  vertical-align: middle;
+  height: 25px;
+  width: 25px;
+  margin: 0 15px;
+}
+/* line 56, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.controls img.play-pause {
+  margin-top: 1px;
+  height: 23px;
+  width: 23px;
+}
+/* line 62, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.controls img:hover {
+  cursor: pointer;
+}
+
+/* line 70, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar span {
+  color: gray;
+  font-size: .8em;
+  align-self: center;
+}
+/* line 76, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar .bar-box {
+  padding: 5px;
+  width: 100%;
+  align-self: center;
+  margin: 0 5px;
+}
+/* line 82, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar .bar-box .bar-bg {
+  background-color: silver;
+  width: 100%;
+  height: 1px;
+}
+/* line 87, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar .bar-box .bar-bg .progress {
+  background-color: orange;
+  padding-top: 1px;
+  border-radius: 10px;
+  width: 0%;
+}
+/* line 96, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.play-bar .bar-box:hover {
+  cursor: pointer;
+}
+
+/* line 104, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content .user-info {
+  display: flex;
+  justify-content: flex-start;
+}
+/* line 108, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content .user-info .img-wrapper {
+  width: 30px;
+  margin-right: 12px;
+}
+/* line 113, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content .user-info .song-info {
+  padding: 0;
+  align-self: center;
+  margin-top: -10px;
+  text-align: left;
+}
+/* line 119, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content .user-info .song-info .artist {
+  display: inline-block;
+  color: gray;
+  font-size: .8em;
+  line-height: 1.2em;
+  display: block;
+}
+/* line 127, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/progress_bar.scss */
+.song-content .user-info .song-info .song {
+  color: lightgray;
+  font-size: .8em;
+  line-height: 1.2em;
+  display: block;
+}
+/* line 1, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/reset.scss */
+html, body, h1, h2, h3, h4, h5, h6, p, span, ul, li, a, div, main,
+section, aside, header, footer, nav {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: Open Sans;
+}
+
+/* line 10, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/reset.scss */
+ul, li {
+  list-style: none;
+}
+
+/* line 14, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/reset.scss */
+body {
+  background: #f0f0f7;
+}
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* line 8, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info ul.song-play-info {
+  display: flex;
+}
+/* line 11, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info ul.song-play-info div.song-play-icon {
+  background: #f75f1e;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+}
+/* line 19, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info ul.song-play-info div.song-play-icon:hover {
+  background: #f74809;
+}
+/* line 23, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info ul.song-play-info img {
+  height: 45px;
+  width: 45px;
+}
+/* line 29, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+ul.song-info ul.song-play-info img:hover {
+  cursor: pointer;
+}
+
+/* line 36, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-container {
+  display: flex;
+  height: 150px;
+  margin: 10px;
+  font-weight: 300;
+}
+/* line 42, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-container img {
+  width: 150px;
+  margin-right: 10px;
+  background-size: cover;
+}
+/* line 48, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-container img:hover {
+  cursor: pointer;
+}
+/* line 52, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-container span {
+  font-size: 16px;
+  color: gray;
+}
+/* line 57, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-container h3 {
+  line-height: 0.5;
+  font-weight: 400;
+  color: #323232;
+}
+
+/* line 64, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 68, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul {
+  display: flex;
+}
+/* line 71, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li {
+  height: 17px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid lavender;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 3px;
+}
+/* line 75, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li div.comment-icon {
+  height: 100%;
+  width: 17px;
+  background-image: url(/assets/comment-62238d7de45832c67575ba5e6b03bbb198bb85d4427f72c48668434aee8b2f19.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+/* line 84, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li div.heart-icon {
+  height: 100%;
+  width: 17px;
+  background-image: url(/assets/heart-icon-a46f0b4f0066e504822c0545f7dc4375430c9001521e19a8cdb6628ce7857a49.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+/* line 93, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li div.repost-icon {
+  height: 16px;
+  width: 20px;
+  background-position: 0 -1px;
+  background-image: url(/assets/repost-11470fa08831a2f2ff55099b78f5685439403a1ce540fa81a8064003b7d19683.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+/* line 103, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li div.ellipses-icon {
+  height: 100%;
+  width: 25px;
+  background-position: 0 -3px;
+  background-image: url(/assets/ellipses-icon-cf946806016ce0c15a19c5c5ab697cb2cd9cafbb280c635e81680fafbfee7eae.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+}
+/* line 113, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li span {
+  font-size: 12px;
+}
+/* line 116, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul li span.song-options {
+  color: black;
+  font-weight: 400;
+  margin-right: 2px;
+}
+/* line 132, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul:first-child li:hover {
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+/* line 137, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul:last-child li {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  color: gray;
+  align-items: center;
+}
+/* line 145, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul:last-child li span {
+  font-size: 13px;
+}
+/* line 149, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_container.scss */
+li.song-detail ul:last-child li img {
+  margin-right: 0;
+}
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100%;
+  width: 1100px;
+}
+/* line 11, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page section.song-page-bottom {
+  display: flex;
+  background: white;
+  margin-bottom: 50px;
+}
+/* line 16, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page section.song-page-bottom ul.song-page-bottom-main {
+  flex: 2.25;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+/* line 23, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page section.song-page-bottom ul.song-page-bottom-side {
+  flex: 1;
+  margin: 20px 0;
+  padding: 0 20px;
+  border-left: 1px solid lavender;
+}
+/* line 30, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page section.song-page-bottom div.comment-creation {
+  flex-grow: 1;
+  margin: 20px;
+  padding: 10px 0 20px 0;
+  border-bottom: 1px solid lavender;
+}
+/* line 36, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+main.song-page section.song-page-bottom div.comment-creation input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 5px;
+  outline: none;
+}
+
+/* line 50, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info {
+  display: flex;
+}
+/* line 53, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.artist-info {
+  flex: 1;
+  margin: 20px;
+}
+/* line 57, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.artist-info img {
+  border-radius: 50%;
+}
+/* line 62, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.comments {
+  flex: 3.5;
+}
+/* line 65, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.comments li.song-description {
+  height: 150px;
+  margin-right: 15px;
+}
+/* line 70, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.comments li.song-comments {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid lavender;
+}
+/* line 76, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+ul.song-page-bottom-info ul.comments li.song-comments img {
+  width: 30px;
+}
+
+/* line 83, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+li.single-comment {
+  display: flex;
+  height: 60px;
+}
+/* line 87, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+li.single-comment img {
+  width: 50px;
+  border-radius: 50%;
+  margin: 5px 15px 5px 5px;
+}
+
+/* line 95, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content {
+  display: flex;
+  width: 100%;
+  height: 380px;
+  background: #f2a965;
+  /* Old browsers */
+  background: -webkit-linear-gradient(left, #f2a965 0%, #ef4d13 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f2a965 0%, #ef4d13 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+/* line 105, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul {
+  display: flex;
+  height: 380px;
+  width: 100%;
+}
+/* line 110, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info {
+  flex: 1.95;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 15px;
+}
+/* line 117, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header {
+  display: flex;
+}
+/* line 120, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* line 125, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header > li div.song-play-icon {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  background: #f75f1e;
+}
+/* line 131, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header > li div.song-play-icon:hover {
+  background: #f74809;
+  cursor: pointer;
+}
+/* line 138, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header div.play-image:hover {
+  background: #f74809;
+  background-image: url(/white-play.ico);
+  background-size: contain;
+  cursor: pointer;
+}
+/* line 145, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header ul.song-title {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+/* line 150, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header ul.song-title li {
+  display: inline;
+  color: white;
+  margin: 5px;
+}
+/* line 155, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header ul.song-title li span {
+  display: inline;
+  padding: 2px 8px;
+  background: #363636;
+}
+/* line 163, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header ul.song-title li:last-child {
+  font-size: 24px;
+  line-height: 0.6;
+  margin: 10px 5px;
+  padding-top: 4px;
+}
+/* line 170, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-info ul.song-header ul.song-title li:first-child {
+  font-weight: 300;
+  font-size: 17px;
+}
+/* line 178, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-image {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 15px;
+}
+/* line 185, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/song_page.scss */
+section.song-content > ul li.song-page-image img {
+  height: 350px;
+  width: 350px;
+}
+/* line 3, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main {
+  width: 1100px;
+  height: 800px;
+  background-image: url(/assets/upload-bg-a5bc4f593ddf0ae46881872f7abeb7488d70016ae626ab4c1c9cf42d676fc318.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+}
+/* line 12, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-info {
+  width: 700px;
+  height: 100px;
+  margin: 0 auto;
+  background: transparent;
+}
+/* line 19, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box {
+  width: 750px;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: white;
+  border: 1px solid lavender;
+  transition: height 0.3s;
+}
+/* line 28, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul {
+  display: flex;
+  justify-content: center;
+}
+/* line 32, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul button {
+  margin: 0 5px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+}
+/* line 38, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul button:hover {
+  text-shadow: none;
+}
+/* line 41, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul button.login {
+  border: 1px solid lightgray;
+  color: #363636;
+}
+/* line 47, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.dropzone {
+  margin-top: 90px;
+}
+/* line 51, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box h1 {
+  padding-top: 30px;
+  font-weight: 400;
+  font-size: 30px;
+}
+/* line 57, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box div.upload-buttons {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin: 10px 0;
+}
+/* line 64, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box div.upload-buttons button {
+  height: 30px;
+}
+/* line 67, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box div.upload-buttons button.signup {
+  border: none;
+}
+/* line 71, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 30px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition-delay: 0.1s;
+}
+/* line 80, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song.active {
+  opacity: 1;
+}
+/* line 84, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song h1 {
+  padding: 0 0 5px 0;
+  margin-bottom: 25px;
+  border-bottom: 1px solid lightgray;
+  font-size: 25px;
+}
+/* line 91, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description {
+  display: flex;
+  justify-content: space-around;
+}
+/* line 95, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description li.upload-image-box {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background: gray;
+}
+/* line 101, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description li.upload-image-box img {
+  height: 100%;
+  overflow-x: hidden;
+}
+/* line 106, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description li.upload-image-box button.upload-image {
+  position: absolute;
+  background: lightgray;
+  bottom: 10px;
+  left: 44px;
+  height: 25px;
+  opacity: 0.8;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+/* line 116, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description li.upload-image-box button.upload-image:hover {
+  background: white;
+  cursor: pointer;
+}
+/* line 120, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 30px;
+  font-size: 14px;
+}
+/* line 127, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info input {
+  margin: 5px 0;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 3px;
+  transition: border 0.3s;
+}
+/* line 134, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info input:focus {
+  outline: none;
+  border: 1px solid gray;
+}
+/* line 140, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info ul.upload-song-detail {
+  display: flex;
+  align-items: center;
+}
+/* line 144, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info ul.upload-song-detail li {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+/* line 149, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info ul.upload-song-detail li:first-child {
+  margin-right: 10px;
+}
+/* line 152, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info ul.upload-song-detail input {
+  flex-grow: 1;
+}
+/* line 155, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info ul.upload-song-detail input.upload-date {
+  padding: 1px 3px;
+}
+/* line 161, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info textarea {
+  resize: none;
+  margin-top: 5px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  transition: border 0.3s;
+}
+/* line 168, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.upload-box ul.upload-song ul.upload-song-description ul.upload-song-info textarea:focus {
+  outline: none;
+  border: 1px solid gray;
+}
+/* line 178, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/upload.scss */
+section.upload-main div.active {
+  height: 450px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 20, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 25, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+div.homepage {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* line 30, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+div.homepage-logo {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  background-image: url(/assets/vibe-61c145fdfe93e322f2b4cbd61721741c9bf5f559489ba7edada2784c22e591eb.png);
+  background-size: contain;
+  height: 90px;
+  width: 130px;
+}
+
+/* line 40, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+.homepage-description {
+  display: flex;
+  height: 280px;
+  align-items: center;
+  justify-content: space-around;
+}
+/* line 46, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+.homepage-description span {
+  color: white;
+  font-size: 25px;
+}
+
+/* line 53, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+main.homepage-info {
+  background-image: url(/assets/homepage-8a88e120d67767b6800e95d99b4b731ebca3af5dc07bfec9ed2b30073841f915.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 360px;
+}
+
+/* line 60, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-spacing: 0;
+  font-family: Open Sans;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* line 70, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button:hover {
+  cursor: pointer;
+}
+
+/* line 74, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button.login {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-weight: 300;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: box-shadow 0.3s, text-shadow 0.3s;
+}
+
+/* line 84, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button.login:hover {
+  box-shadow: 0 0 5px white, 0 0 5px white inset;
+  border-radius: 5px;
+  text-shadow: 0 0 2px white;
+}
+
+/* line 90, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button.signup {
+  background: #f75f1e;
+  color: white;
+  border-radius: 5px;
+  font-weight: 300;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: text-shadow 0.3s;
+}
+
+/* line 100, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button.signup:hover {
+  text-shadow: 0 0 2px white;
+}
+
+/* line 104, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+button:focus {
+  outline: 0;
+}
+
+/* line 107, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+header {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 111, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+header p {
+  padding: 5px;
+}
+/* line 115, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+header ul {
+  display: flex;
+}
+/* line 118, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+header ul li {
+  padding: 5px;
+  margin: 5px;
+}
+
+/* line 125, /Users/appacademy/Desktop/vibe/app/assets/stylesheets/application.scss */
+p {
+  font-size: 14px;
+  color: darkgray;
+}
