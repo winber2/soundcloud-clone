@@ -19,7 +19,7 @@ header.loggedhome-header {
   nav.navigation {
     width: 1100px;
     margin: 0 auto;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
 
@@ -38,7 +38,7 @@ header.loggedhome-header {
     }
 
     ul {
-      height: 44px;
+      height: 100%;
     }
 
     li {
@@ -83,7 +83,7 @@ header.loggedhome-header {
       display: flex;
       flex-grow: 1;
       align-items: center;
-      margin: 5px 15px;
+      margin: 0px 15px;
     }
   }
 
@@ -97,9 +97,9 @@ li.nav-user {
 
   p {
     position: relative;
-    z-index: 1000;
+    z-index: 999;
     color: white;
-    padding: 14px 25px;
+    padding: 13px 25px;
 
     &:hover {
       text-shadow: 0 0 3px white;
@@ -110,15 +110,13 @@ li.nav-user {
   &.active ul#user-settings{ display: flex }
   &.active {
     background: $almost-black;
-    padding: 0
   }
 
   ul#user-settings {
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     top: -250px;
     left: 0;
-    display: flex;
     flex-direction: column;
 
     width: 100%;
@@ -131,7 +129,9 @@ li.nav-user {
 
     &.active {
       display: flex;
-      transform: translateY(252px);
+      position: absolute;
+      transform: translateY(254px);
+      z-index: -99;
     }
 
     li {
