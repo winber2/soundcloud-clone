@@ -1,19 +1,16 @@
 import { connect } from 'react-redux';
 import { deleteSong } from '../../actions/song_actions';
-import { receiveAudio } from '../../actions/audio_actions';
-import Song from './song';
+import SongDetail from './song_detail';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.session.currentUser,
-  audio: state.audio
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveAudio: song => dispatch(receiveAudio(song)),
   deleteSong: id => dispatch(deleteSong(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Song);
+)(SongDetail);

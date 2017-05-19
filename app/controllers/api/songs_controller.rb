@@ -19,7 +19,7 @@ class Api::SongsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @song = Song.find_by(id: params[:id])
     @song.destroy! if @song
     render json: @song

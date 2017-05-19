@@ -1,6 +1,6 @@
 import React from 'react';
 import SongPlay from './song_play';
-import SongDetail from './song_detail';
+import SongDetailContainer from './song_detail_container';
 
 class Song extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Song extends React.Component {
           <li>
             <span>waveform</span>
           </li>
-          <SongDetail comments={song.number_of_comments}/>
+          <SongDetailContainer song={this.props.song} />
         </ul>
       </li>
     );

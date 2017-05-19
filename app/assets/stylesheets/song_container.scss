@@ -71,6 +71,7 @@ li.song-detail {
     li {
       height: 17px;
       width: 100%;
+      position: relative;
 
       div.comment-icon {
         height: 100%;
@@ -108,6 +109,34 @@ li.song-detail {
         background-size: cover;
         background-repeat: no-repeat;
         margin-right: 3px;
+      }
+
+      ul.song-options-dropdown {
+        display: none;
+        position: absolute;
+        padding: 0;
+      }
+
+      ul.active {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border-radius: 3px;
+        border: 1px solid lavender;
+        top: 25px;
+        left: 10px;
+
+        li {
+          padding: 5px 10px;
+          border-radius: none;
+          font-size: 12px;
+
+          &:hover {
+            border: none;
+            border-radius: 3px;
+            background: lavender;
+          }
+        }
       }
 
       span {

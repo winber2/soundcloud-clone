@@ -99,6 +99,10 @@
     }
   }
 
+  span#time {
+    color: $orange;
+  }
+
   .bar-box:hover {
     cursor: pointer;
   }
