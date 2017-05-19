@@ -7,7 +7,6 @@ class Song extends React.Component {
     super(props);
     this.showSong = this.showSong.bind(this);
   }
-  
 
   showSong() {
     let song = this.props.song;
