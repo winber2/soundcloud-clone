@@ -23,22 +23,65 @@ aside.loggedhome-sidebar {
     span {
       color: gray;
       margin-top: 30px;
-      padding: 10px 10px 3px 10px;
+      padding: 0px 10px 5px 10px;
       border-bottom: 1px solid lavender;
       font-size: 15px;
+    }
+
+    span.follow {
+      background-image: asset-url('follower.png');
+      background-size: contain;
+      background-position: 0 -3px;
+      background-repeat: no-repeat;
+      padding-left: 25px;
     }
 
     li.sidebar-user {
       display: flex;
       align-items: center;
+      margin: 10px 0;
+
+      img {
+        margin: 5px;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+      }
 
       ul.sidebar-user-info {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
+
+        h4 {
+          font-weight: 400;
+        }
 
         ul.sidebar-user-options {
           display: flex;
           justify-content: space-between;
+          align-items: center;
+
+          li {
+            background-image: asset-url('follower.png');
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+            font-size: 12px;
+            color: gray;
+            padding-left: 20px;
+          }
+
+          button {
+            border: 1px solid $light-gray;
+            border-radius: 3px;
+            font-size: 12px;
+            color: darkgray;
+
+            &:hover {
+              border: 1px solid lightgray;
+            }
+          }
         }
       }
     }

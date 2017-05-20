@@ -28,7 +28,7 @@ class SideBar extends React.Component {
           <div className='chart-picture' />
         </div>
         <li className='artist-suggestion'>
-          <span>Who to follow</span>
+          <span className='follow'>Who to follow</span>
           <ul>
             {users}
           </ul>
