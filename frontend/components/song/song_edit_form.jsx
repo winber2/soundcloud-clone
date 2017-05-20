@@ -2,11 +2,10 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 var superagent = require('superagent');
 
-const VIDEO_URL = 'https://api.cloudinary.com/v1_1/winber1/video/upload';
 const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
 const UPLOAD_PRESET = 'cgbryuxc';
 
-class UploadForm extends React.Component {
+class SongEditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,10 +14,8 @@ class UploadForm extends React.Component {
       genre: '',
       description: '',
       release_date: '',
-      author_id: this.props.currentUser.id,
+      author_id: '',
       image_url: '',
-      track_url: this.props.trackUrl,
-      isActive: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -26,9 +23,19 @@ class UploadForm extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state.isActive === '') {
-      this.setState({ isActive: 'active' });
-    }
+    this.setState({
+      title: song.title,
+      album: song.album,
+      genre: song.genre,
+      description: song.description,
+      release_date: song.release_date,
+      author_id: song.user.id,
+      image_url: song.image_url,
+    })
+  }
+
+  toHome() {
+    this.props.history.push('/stream');
   }
 
   update(prop) {
@@ -41,15 +48,8 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let imageFile = this.state.image_url;
-    let songFile = this.state.track_url;
+
     let upload = this;
-    this.state.release_date = new Date(this.state.release_date);
-
-    let song = new FormData();
-    song.append('file', songFile);
-    song.append('upload_preset', UPLOAD_PRESET)
-
     let image = new FormData();
     image.append('file', imageFile);
     image.append('upload_preset', UPLOAD_PRESET)
@@ -59,17 +59,9 @@ class UploadForm extends React.Component {
       .end(function(err, res) {
         if (res.body.secure_url !== '') {
           upload.state.image_url = res.body.secure_url;
-
-          superagent.post(VIDEO_URL)
-            .send(song)
-            .end(function(err, res) {
-              if (res.body.secure_url !== '') {
-                upload.state.track_url = res.body.secure_url;
-
-                upload.props.createSong(upload.state).then(upload.props.history.push('/stream'));
-              }
-            });
         }
+
+        upload.props.editSong(upload.state).then(upload.props.history.push('/stream'));
       });
   }
 
@@ -104,7 +96,7 @@ class UploadForm extends React.Component {
           </ul>
         </ul>
         <div className='upload-buttons'>
-          <button onClick={this.props.back} className='login'>Cancel</button>
+          <button onClick={this.toHome} className='login'>Cancel</button>
           <button onClick={this.handleSubmit} className='signup'>Save</button>
         </div>
       </ul>
@@ -112,4 +104,4 @@ class UploadForm extends React.Component {
   }
 }
 
-export default UploadForm;
+export default SongEditForm;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SongDetail extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class SongDetail extends React.Component {
   }
 
   editSong() {
-    console.log('lol haha');
+
   }
 
   toggleOptions() {
@@ -26,6 +27,7 @@ class SongDetail extends React.Component {
   }
 
   render() {
+    let song = this.props.song;
     return (
       <li className="song-detail">
         <ul>
@@ -41,7 +43,9 @@ class SongDetail extends React.Component {
               <div className='ellipses-icon'/>
               <span className='song-options'>More</span>
               <ul className={`song-options-dropdown ${this.state.isActive}`} >
-                <li onClick={this.editSong}>Edit</li>
+                <Link to={`${song.user.username}/songs/${song.id}/edit`}>
+                  <li>Edit</li>
+                </Link>
                 <li onClick={this.deleteSong}>Delete</li>
               </ul>
             </li>

@@ -24,7 +24,7 @@ class Song extends React.Component {
           <li>
             <span>waveform</span>
           </li>
-          <SongDetailContainer song={this.props.song} />
+          <SongDetailContainer song={this.props.song} comments={song.number_of_comments} />
         </ul>
       </li>
     );
