@@ -43,10 +43,12 @@ class SongDetail extends React.Component {
               <div className='ellipses-icon'/>
               <span className='song-options'>More</span>
               <ul className={`song-options-dropdown ${this.state.isActive}`} >
-                <Link to={`${song.user.username}/songs/${song.id}/edit`}>
+                <Link className='song-options-item' to={`${song.user.username}/songs/${song.id}/edit`}>
                   <li>Edit</li>
                 </Link>
-                <li onClick={this.deleteSong}>Delete</li>
+                <a className='song-options-item'>
+                  <li onClick={this.deleteSong}>Delete</li>
+                </a>
               </ul>
             </li>
         </ul>

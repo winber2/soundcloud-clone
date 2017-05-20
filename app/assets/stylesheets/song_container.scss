@@ -126,15 +126,20 @@ li.song-detail {
         top: 25px;
         left: 10px;
 
-        li {
+        a.song-options-item {
           padding: 5px 10px;
-          border-radius: none;
+          border-radius: 0px 0 0 0;
           font-size: 12px;
+          text-decoration: none;
 
           &:hover {
             border: none;
-            border-radius: 3px;
+            border-radius: 0px;
             background: lavender;
+          }
+
+          li:hover{
+            border: none;
           }
         }
       }

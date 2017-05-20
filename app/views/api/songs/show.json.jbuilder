@@ -4,3 +4,4 @@ json.user do
   json.username @song.user.username
   json.profile_image_url @song.user.profile_image_url
 end
+json.number_of_comments @song.comments.count
