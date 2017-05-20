@@ -8,7 +8,7 @@ class SongPlay extends React.Component {
   }
 
   render() {
-    let song = this.props.song;
+    let song = this.props.song || { user: {} };
     return (
       <ul className='song-play-info'>
         <SongPlayButtonContainer song={song} />

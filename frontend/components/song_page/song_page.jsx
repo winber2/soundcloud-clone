@@ -61,8 +61,7 @@ class SongPage extends React.Component {
               </ul>
               <ul className='comments'>
                 <li className='song-description'>
-                  <p>song description song description song description song description song description song description song description song description song description
-                  song description song description song description song description song description song description song description song description </p>
+                  <p>{song.description}</p>
                 </li>
                 <li className='song-comments'>
                   <img src='http://res.cloudinary.com/winber1/image/upload/v1495075515/comment_lqle6o.png'/>

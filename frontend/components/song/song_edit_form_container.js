@@ -5,12 +5,11 @@ import SongEditForm from './song_edit_form';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  songs: state.songs,
   song: state.songs[ownProps.match.params.songId]
 });
 
 const mapDispatchToProps = dispatch => ({
-  editSong: song => dispatch(deleteSong(song)),
+  editSong: song => dispatch(editSong(song)),
   fetchSingleSong: id => dispatch(fetchSingleSong(id))
 });
 

@@ -39,4 +39,9 @@ export const fetchSongs = () => dispatch => (
     .then(songs => dispatch(receiveSongs(songs)))
 );
 
+export const editSong = song => dispatch => (
+  APIUtil.updateSong(song)
+    .then(editSong => dispatch(receiveSong(editSong)))
+);
+
 window.createSong = createSong;

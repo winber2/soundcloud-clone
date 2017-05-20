@@ -9,6 +9,7 @@ class SongEditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       title: '',
       album: '',
       genre: '',
@@ -22,22 +23,20 @@ class SongEditForm extends React.Component {
     this.uploadImage = this.uploadImage.bind(this);
   }
 
-  // componentWillReceiveProps() {
-  //   debugger;
-  //   let song = this.props.song;
-  //   this.setState({
-  //     title: song.title,
-  //     album: song.album,
-  //     genre: song.genre,
-  //     description: song.description,
-  //     release_date: song.release_date,
-  //     author_id: song.user.id,
-  //     image_url: song.image_url,
-  //   })
-  // }
-
   componentWillReceiveProps() {
-    debugger;
+    let song = this.props.song;
+    if (song !== undefined) {
+      this.setState({
+        id: song.id,
+        title: song.title,
+        album: song.album,
+        genre: song.genre,
+        description: song.description,
+        release_date: song.release_date,
+        author_id: song.user.id,
+        image_url: { preview: song.image_url },
+      })
+    }
   }
 
 
@@ -46,6 +45,7 @@ class SongEditForm extends React.Component {
   }
 
   toHome() {
+    debugger;
     this.props.history.push('/stream');
   }
 
@@ -59,9 +59,15 @@ class SongEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    let imageFile = this.state.image_url
     let upload = this;
     let image = new FormData();
+
+    if (imageFile.preview = this.props.song.image_url) {
+      this.props.editSong(this.state).then(upload.props.history.push('/stream'));
+      return;
+    }
+
     image.append('file', imageFile);
     image.append('upload_preset', UPLOAD_PRESET)
 

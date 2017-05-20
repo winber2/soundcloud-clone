@@ -6,6 +6,7 @@
     json.album song.album
     json.image_url song.image_url
     json.track_url song.track_url
+    json.description song.description
     json.release_date song.release_date
     json.user do
       json.username song.user.username
