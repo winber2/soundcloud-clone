@@ -75,7 +75,7 @@ class UploadForm extends React.Component {
 
   render() {
     return (
-      <ul className={`upload-song ${this.state.isActive}`} ref='uploadSong'>
+      <ul className={`upload-song ${this.state.isActive}`}>
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>

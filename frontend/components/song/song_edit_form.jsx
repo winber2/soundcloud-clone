@@ -22,16 +22,27 @@ class SongEditForm extends React.Component {
     this.uploadImage = this.uploadImage.bind(this);
   }
 
+  // componentWillReceiveProps() {
+  //   debugger;
+  //   let song = this.props.song;
+  //   this.setState({
+  //     title: song.title,
+  //     album: song.album,
+  //     genre: song.genre,
+  //     description: song.description,
+  //     release_date: song.release_date,
+  //     author_id: song.user.id,
+  //     image_url: song.image_url,
+  //   })
+  // }
+
+  componentWillReceiveProps() {
+    debugger;
+  }
+
+
   componentDidMount() {
-    this.setState({
-      title: song.title,
-      album: song.album,
-      genre: song.genre,
-      description: song.description,
-      release_date: song.release_date,
-      author_id: song.user.id,
-      image_url: song.image_url,
-    })
+    this.props.fetchSingleSong(this.props.match.params.songId);
   }
 
   toHome() {
@@ -67,39 +78,47 @@ class SongEditForm extends React.Component {
 
   render() {
     return (
-      <ul className={`upload-song ${this.state.isActive}`} ref='uploadSong'>
-        <h1>Song info</h1>
-        <ul className='upload-song-description'>
-          <li className='upload-image-box'>
-            <img src={this.state.image_url.preview} />
-            <Dropzone onDrop={this.uploadImage} className='dropzone'>
-              <button className='upload-image'>Upload Image</button>
-            </Dropzone>
-          </li>
-          <ul className='upload-song-info'>
-              Title
-              <input onChange={this.update('title')}></input>
-              Album
-              <input onChange={this.update('album')}></input>
-              <ul className='upload-song-detail'>
-            <li>
-              Genre
-              <input onChange={this.update('genre')}></input>
-            </li>
-            <li>
-              Release Date
-              <input onChange={this.update('release_date')} type='date'></input>
-            </li>
+      <section className='upload-main'>
+        <div className='upload-info' />
+        <div className='upload-box active'>
+          <ul>
+            <h1>Edit Song</h1>
           </ul>
-          Description
-          <textarea rows='6' onChange={this.update('description')}></textarea>
+          <ul className='upload-song active'>
+            <h1>Song info</h1>
+            <ul className='upload-song-description'>
+              <li className='upload-image-box'>
+                <img src={this.state.image_url.preview} />
+                <Dropzone onDrop={this.uploadImage} className='dropzone'>
+                  <button className='upload-image'>Upload Image</button>
+                </Dropzone>
+              </li>
+              <ul className='upload-song-info'>
+                  Title
+                  <input onChange={this.update('title')} value={this.state.title}></input>
+                  Album
+                  <input onChange={this.update('album')} value={this.state.album}></input>
+                  <ul className='upload-song-detail'>
+                <li>
+                  Genre
+                  <input onChange={this.update('genre')} value={this.state.genre}></input>
+                </li>
+                <li>
+                  Release Date
+                  <input onChange={this.update('release_date')} value={this.state.release_date} type='date'></input>
+                </li>
+              </ul>
+              Description
+              <textarea rows='6' onChange={this.update('description')} value={this.state.description}></textarea>
+              </ul>
+            </ul>
+            <div className='upload-buttons'>
+              <button onClick={this.toHome} className='login'>Cancel</button>
+              <button onClick={this.handleSubmit} className='signup'>Save</button>
+            </div>
           </ul>
-        </ul>
-        <div className='upload-buttons'>
-          <button onClick={this.toHome} className='login'>Cancel</button>
-          <button onClick={this.handleSubmit} className='signup'>Save</button>
         </div>
-      </ul>
+      </section>
     );
   }
 }
