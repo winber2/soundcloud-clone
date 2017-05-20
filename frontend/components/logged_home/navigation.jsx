@@ -43,7 +43,7 @@ class Navigation extends React.Component {
           <li><Link to='/upload'>Upload</Link></li>
           <li><Link to='/stream'>Settings</Link></li>
           <li className={`nav-user ${this.state.isActive}`}>
-            <p onClick={this.toggleSettings}>{this.props.currentUser.username}</p>
+            <p onClick={this.toggleSettings}>{this.props.currentUser.username}  ❯</p>
             <ul id='user-settings' className={this.state.isActive}>
               <li>Profile</li>
               <li>Likes</li>
