@@ -1,7 +1,7 @@
-export const fetchUser = id => (
+export const fetchUser = user => (
   $.ajax({
     method: 'GET',
-    url: api/users/`${id}`
+    url: `api/users/${user}`
   })
 );
 

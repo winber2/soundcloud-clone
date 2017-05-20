@@ -10,19 +10,12 @@ class UserPage extends React.Component {
   }
 
   componentDidMount() {
-    let songId = this.props.match.params.songId;
-    this.props.fetchSingleSong(songId);
-    this.props.fetchComments(songId);
+    let username = this.props.match.params.username;
+    this.props.fetchUser(username);
   }
 
   render() {
-    let song = this.props.song || { user: { username: '' }, title: '', image_url: '' };
-    let comments;
-    if (this.props.comments !== {} ) {
-      comments = values(this.props.comments).map( (comment) => (
-        <Comment comment={comment} key={comment.id} />
-      ));
-    }
+    let user = this.props.user || { user: { username: '' }, title: '', image_url: '' };
     return (
       <main className='user-page'>
         <section className='user-content'>
@@ -47,14 +40,14 @@ class UserPage extends React.Component {
           </div>
           <ul className='user-page-bottom-content'>
             <ul className='user-page-songs'>
-
+              {user.username}
             </ul>
 
             <ul className='user-page-bottom-side'>
               <ul className='user-info'>
 
               </ul>
-              <p clasName='user-description'></p>
+              <p className='user-description'></p>
               <ul className='user-favorites'>
 
               </ul>
