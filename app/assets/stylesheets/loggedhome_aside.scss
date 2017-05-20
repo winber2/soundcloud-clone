@@ -27,5 +27,20 @@ aside.loggedhome-sidebar {
       border-bottom: 1px solid lavender;
       font-size: 15px;
     }
+
+    li.sidebar-user {
+      display: flex;
+      align-items: center;
+
+      ul.sidebar-user-info {
+        display: flex;
+        flex-direction: column;
+
+        ul.sidebar-user-options {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
   }
 }

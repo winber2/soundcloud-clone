@@ -1,7 +1,7 @@
 import React from 'react';
 import { values } from 'lodash';
 import SongContainer from '../song/song_container';
-import SideBar from './sidebar';
+import SideBarContainer from '../sidebar/sidebar_container';
 
 class Stream extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Stream extends React.Component {
             {songs}
           </ul>
         </div>
-        <SideBar />
+        <SideBarContainer />
       </main>
     );
   }

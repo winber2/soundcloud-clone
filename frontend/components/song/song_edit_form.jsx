@@ -62,7 +62,7 @@ class SongEditForm extends React.Component {
     let imageFile = this.state.image_url
 
     if (imageFile.preview === this.props.song.image_url) {
-      this.props.editSong(this.state).then(upload.props.history.push('/stream'));
+      this.props.editSong(this.state).then(this.props.history.push('/stream'));
       return;
     }
 
