@@ -1,3 +1,5 @@
+@import 'colors';
+
 aside.loggedhome-sidebar {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,25 @@ aside.loggedhome-sidebar {
   margin: 20px;
   padding: 0 20px;
 
+  div.chart-box {
+    border: 1px solid lightgray;
+    background: $light-gray;
+    border-radius: 2px;
+    height: 200px;
+    width: 100%;
+  }
+
+
   li.artist-suggestion, li.song-suggestion {
     display: flex;
     flex-direction: column;
+
+    span {
+      color: gray;
+      margin-top: 30px;
+      padding: 10px 10px 3px 10px;
+      border-bottom: 1px solid lavender;
+      font-size: 15px;
+    }
   }
 }

@@ -14,7 +14,7 @@ const App = () =>(
       <ProtectedRoute exact path="/upload" component={LoggedHomeContainer} />
       <ProtectedRoute path="/:username/songs/:songId" component={LoggedHomeContainer} />
       <ProtectedRoute path="/:username" component={LoggedHomeContainer} />
-      <Route path="/" component={() => <h1>ERROR</h1>} />
+      <Route path="/" component={() => <h1>ERROR, DARUDE SANDSTORMING ALONG</h1>} />
     </Switch>
   </div>
 );
