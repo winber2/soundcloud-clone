@@ -72,3 +72,53 @@ main.user-page {
     }
   }
 }
+
+section.user-page-bottom {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  height: 100%;
+
+  div.user-page-nav {
+    display: flex;
+    padding: 10px;
+    position: relative;
+
+    div.user-nav-border {
+      height: 1px;
+      width: 95%;
+      background: lavender;
+      position: absolute;
+      top: 54px;
+      left: 20px;
+    }
+
+    li {
+      padding: 10px 0;
+      margin: 0 10px;
+      font-size: 18px;
+      position: relative;
+
+      &:hover {
+        z-index: 10;
+        border-bottom: 1px solid orange;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ul.user-page-bottom-content {
+    display: flex;
+    min-height: 500px;
+
+    ul.user-page-songs {
+      flex: 2.3;
+    }
+
+    ul.user-page-bottom-side {
+      flex: 1;
+      border-left: 1px solid lavender;
+      margin: 20px 0;
+    }
+  }
+}
