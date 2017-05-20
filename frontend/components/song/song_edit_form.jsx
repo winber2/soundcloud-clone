@@ -21,6 +21,7 @@ class SongEditForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+    this.toHome = this.toHome.bind(this);
   }
 
   componentWillReceiveProps() {
@@ -45,7 +46,6 @@ class SongEditForm extends React.Component {
   }
 
   toHome() {
-    debugger;
     this.props.history.push('/stream');
   }
 
@@ -60,14 +60,14 @@ class SongEditForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let imageFile = this.state.image_url
-    let upload = this;
-    let image = new FormData();
 
-    if (imageFile.preview = this.props.song.image_url) {
+    if (imageFile.preview === this.props.song.image_url) {
       this.props.editSong(this.state).then(upload.props.history.push('/stream'));
       return;
     }
 
+    let upload = this;
+    let image = new FormData();
     image.append('file', imageFile);
     image.append('upload_preset', UPLOAD_PRESET)
 
