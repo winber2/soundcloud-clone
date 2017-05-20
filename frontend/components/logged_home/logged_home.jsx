@@ -3,7 +3,7 @@ import { values } from 'lodash';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './navigation';
 import ProgressBarContainer from './progress_bar_container';
-import Stream from './stream';
+import StreamContainer from './stream_container';
 import SongPageContainer from '../song_page/song_page_container';
 import Upload from '../song/upload';
 import SongEditFormContainer from '../song/song_edit_form_container';
@@ -14,12 +14,7 @@ class LoggedHome extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchSongs();
-  }
-
   render() {
-
     return (
       <div className='loggedhome'>
         <header className='loggedhome-header'>
@@ -29,7 +24,7 @@ class LoggedHome extends React.Component {
         <div className='nav-space' />
 
         <Switch>
-          <Route exact path="/stream" render={(props) => <Stream songs={this.props.songs} {...props} /> } />
+          <Route exact path="/stream" render={(props) => <StreamContainer {...props} /> } />
           <Route exact path="/upload" render={(props) => <Upload {...props} /> } />
           <Route path="/:username/songs/:songId/edit" render={(props) => <SongEditFormContainer {...props} /> } />
           <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />

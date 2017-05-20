@@ -8,6 +8,10 @@ ul.song-info {
   ul.song-play-info {
     display: flex;
 
+    span:hover {
+      cursor: pointer;
+    }
+
     div.song-play-icon {
       background: $orange;
       border-radius: 50%;
@@ -36,7 +40,7 @@ ul.song-info {
 li.song-container {
   display: flex;
   height: 150px;
-  margin: 10px;
+  margin: 40px 20px;
   font-weight: 300;
 
   img {
@@ -54,10 +58,15 @@ li.song-container {
     color: gray;
   }
 
-  h3 {
-    line-height: 0.5;
+  span.song-title {
     font-weight: 400;
     color: rgb(50, 50, 50);
+    font-size: 20px;
+    line-height: 0.6;
+
+    &:hover {
+      cursor:pointer;
+    }
   }
 }
 

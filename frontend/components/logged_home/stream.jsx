@@ -8,6 +8,10 @@ class Stream extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchSongs();
+  }
+
   render() {
     let songs = values(this.props.songs).map( (song,idx) => (
       <SongContainer key={idx} song={song} />

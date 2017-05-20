@@ -5,6 +5,13 @@ import SongPlayButtonContainer from './song_play_button_container';
 class SongPlay extends React.Component {
   constructor(props) {
     super(props);
+    this.showUser = this.showUser.bind(this);
+  }
+
+  showUser() {
+    let user = this.props.song.user.username;
+    let songId = this.props.song.id;
+    window.location.hash = `${user}`;
   }
 
   render() {
@@ -14,10 +21,10 @@ class SongPlay extends React.Component {
         <SongPlayButtonContainer song={song} />
         <ul>
           <li>
-            <span>{song.user.username}</span>
+            <span onClick={this.showUser}>{song.user.username}</span>
           </li>
           <li>
-            <h3>{song.title}</h3>
+            <span className='song-title' onClick={this.props.showSong}>{song.title}</span>
           </li>
         </ul>
       </ul>

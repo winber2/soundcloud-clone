@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FavoriteIcon from '../icons/favorite';
 
 class SongDetail extends React.Component {
   constructor(props) {
@@ -31,26 +32,23 @@ class SongDetail extends React.Component {
     return (
       <li className="song-detail">
         <ul>
-            <li>
-              <div className='heart-icon'/>
-              <span>5</span>
-            </li>
-            <li>
-              <div className='repost-icon'/>
-              <span>12</span>
-            </li>
-            <li onClick={this.toggleOptions} >
-              <div className='ellipses-icon'/>
-              <span className='song-options'>More</span>
-              <ul className={`song-options-dropdown ${this.state.isActive}`} >
-                <Link className='song-options-item' to={`${song.user.username}/songs/${song.id}/edit`}>
-                  <li>Edit</li>
-                </Link>
-                <a className='song-options-item'>
-                  <li onClick={this.deleteSong}>Delete</li>
-                </a>
-              </ul>
-            </li>
+          <FavoriteIcon />
+          <li>
+            <div className='repost-icon'/>
+            <span>12</span>
+          </li>
+          <li onClick={this.toggleOptions} >
+            <div className='ellipses-icon'/>
+            <span className='song-options'>More</span>
+            <ul className={`song-options-dropdown ${this.state.isActive}`} >
+              <Link className='song-options-item' to={`${song.user.username}/songs/${song.id}/edit`}>
+                <li>Edit</li>
+              </Link>
+              <a className='song-options-item'>
+                <li onClick={this.deleteSong}>Delete</li>
+              </a>
+            </ul>
+          </li>
         </ul>
         <ul>
             <li>

@@ -14,7 +14,7 @@ main.song-page {
     margin-bottom: 50px;
 
     ul.song-page-bottom-main {
-      flex: 2.25;
+      flex: 2.5;
       display: flex;
       flex-direction: column;
       padding: 15px;
@@ -25,24 +25,6 @@ main.song-page {
       margin: 20px 0;
       padding: 0 20px;
       border-left: 1px solid lavender;
-    }
-
-    div.comment-creation {
-      flex-grow: 1;
-      margin: 20px;
-      padding: 10px 0 20px 0;
-      border-bottom: 1px solid lavender;
-
-      input {
-        width: 100%;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        background-color: white;
-        padding: 5px;
-        outline: none;
-      }
     }
   }
 }
@@ -60,7 +42,7 @@ ul.song-page-bottom-info {
   }
 
   ul.comments {
-    flex: 3.5;
+    flex: 4;
 
     li.song-description {
       height: 150px;
@@ -116,6 +98,7 @@ section.song-content > ul {
 
     ul.song-header {
       display: flex;
+      margin: 20px;
 
       > li {
         display: flex;
@@ -187,8 +170,4 @@ section.song-content > ul {
       width: 350px;
     }
   }
-}
-
-ul.comments {
-
 }

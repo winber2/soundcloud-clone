@@ -65,7 +65,7 @@ header.loggedhome-header {
 
     li.loggedhome-logo {
       height: 100%;
-      width: 93px;
+      width: 94px;
       margin: 0;
       padding: 0;
 
@@ -188,7 +188,7 @@ main.loggedhome-body {
     p {
       color: gray;
       font-size: 16px;
-      margin: 20px;
+      margin: 35px;
     }
   }
 
@@ -198,16 +198,16 @@ main.loggedhome-body {
 
   div.nav-border {
     position: absolute;
-    top: 62px;
-    left: 20px;
-    display: float;
+    top: 67px;
+    left: 30px;
     height: 1px;
-    width: 63%;
+    width: 62%;
     background-color: lavender;
   }
 
   nav.content-nav {
-    padding: 5px;
+    margin: 15px;
+    margin-top: 30px;
 
     ul {
       display: flex;

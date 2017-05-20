@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { receiveAudio } from '../../ations/audio_actions';
+import { fetchSongs } from '../../actions/song_actions';
 import Stream from './stream';
 
 const mapStateToProps = (state) => ({
-  audio: state.audio
+  audio: state.audio,
+  songs: state.songs
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveAudio: song => dispatch(receiveAudio(song))
+  fetchSongs: () => dispatch(fetchSongs())
 });
 
 export default connect(

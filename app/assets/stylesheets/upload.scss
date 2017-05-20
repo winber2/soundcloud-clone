@@ -91,12 +91,13 @@ section.upload-main {
       ul.upload-song-description {
         display: flex;
         justify-content: space-around;
+        overflow: hidden;
 
         li.upload-image-box {
           position: relative;
           height: 200px;
           width: 200px;
-          background: gray;
+          background: $light-gray;
 
           img {
             height: 100%;
@@ -176,6 +177,7 @@ section.upload-main {
   }
 
   div.active {
-    height: 450px;
+    height: 470px;
+    overflow-y: hidden;
   }
 }

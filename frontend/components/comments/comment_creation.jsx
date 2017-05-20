@@ -1,8 +1,10 @@
 import React from 'react';
+import FavoriteIcon from '../icons/favorite';
 
 class CommentCreation extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { };
     this.handleKey = this.handleKey.bind(this)
   }
 
@@ -22,7 +24,17 @@ class CommentCreation extends React.Component {
   render() {
     return (
       <div className='comment-creation'>
-        <input onKeyPress={this.handleKey} className='comment-input'></input>
+        <div className='comment-input'>
+          <img className='comment-user' src={this.props.currentUser.profile_image_url} />
+          <input placeholder='Write a comment' onKeyPress={this.handleKey} className='comment-input'></input>
+        </div>
+        <ul className='comment-options'>
+          <FavoriteIcon />
+          <li>
+            <div className='repost-icon'/>
+            <span>12</span>
+          </li>
+        </ul>
       </div>
     );
   }

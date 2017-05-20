@@ -1,0 +1,111 @@
+@import 'colors';
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+div.homepage {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+div.homepage-logo {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  background-image: asset-url('vibe.png');
+  background-size: contain;
+  height: 90px;
+  width: 130px;
+}
+
+.homepage-description {
+  display: flex;
+  height: 280px;
+  align-items: center;
+  justify-content: space-around;
+
+  span {
+    color: white;
+    font-size: 25px;
+  }
+}
+
+
+main.homepage-info {
+  background-image: asset-url('homepage.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 360px;
+}
+
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-spacing: 0;
+  font-family: Open Sans;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.login {
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-weight: 300;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: box-shadow 0.3s, text-shadow 0.3s;
+}
+
+button.login:hover {
+  box-shadow: 0 0 5px white, 0 0 5px white inset;
+  border-radius: 5px;
+  text-shadow: 0 0 2px white;
+}
+
+button.signup {
+  background: $orange;
+  color: white;
+  border-radius: 5px;
+  font-weight: 300;
+  padding: 5px 15px 6px 15px;
+  font-size: 14px;
+  transition: text-shadow 0.3s;
+}
+
+button.signup:hover {
+  text-shadow: 0 0 2px white;
+}
+
+button:focus { outline:0 }
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    padding: 5px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+}
+
+p {
+  font-size: 14px;
+  color: darkgray;
+}
