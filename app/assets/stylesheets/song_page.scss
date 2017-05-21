@@ -68,6 +68,11 @@ ul.song-page-bottom-info {
     li.song-description {
       min-height: 100px;
       margin-right: 15px;
+
+      p {
+        color: black;
+        margin: 0 10px;
+      }
     }
 
     li.song-comments {
@@ -179,7 +184,7 @@ section.song-content > ul {
         background: $dark-orange;
         background-image: asset-url('white-play.ico');
         background-size: contain;
-        cursor: pointer
+        cursor: pointer;
       }
 
       ul.song-title {
@@ -196,7 +201,6 @@ section.song-content > ul {
             display: inline;
             padding: 2px 8px;
             background: $dark-gray;
-
           }
         }
 
@@ -210,6 +214,15 @@ section.song-content > ul {
         li:first-child {
           font-weight: 300;
           font-size: 17px;
+
+          span {
+            color: lavender;
+          }
+
+          span:hover {
+            color: white;
+            cursor: pointer;
+          }
         }
       }
     }

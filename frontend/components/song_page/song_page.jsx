@@ -8,6 +8,11 @@ import SongPageBottomContainer from './song_page_bottom_container';
 class SongPage extends React.Component {
   constructor(props) {
     super(props);
+    this.showUser = this.showUser.bind(this);
+  }
+
+  showUser() {
+    window.location.hash = `/${this.props.song.user.username}`;
   }
 
   componentDidMount() {
@@ -28,7 +33,7 @@ class SongPage extends React.Component {
                 <li>
                   <ul className='song-title'>
                     <li>
-                      <span>{song.user.username}</span>
+                      <span onClick={this.showUser} >{song.user.username}</span>
                     </li>
                     <li>
                       <span>{song.title}</span>
