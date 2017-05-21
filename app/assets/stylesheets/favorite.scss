@@ -27,4 +27,9 @@ li.favorite {
       margin-right: 2px;
     }
   }
+
+  &:hover {
+    border: 1px solid lightgray;
+    cursor: pointer;
+  }
 }

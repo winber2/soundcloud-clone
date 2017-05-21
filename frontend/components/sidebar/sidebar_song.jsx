@@ -11,6 +11,7 @@ class SidebarSong extends React.Component {
       <li className='sidebar-song'>
         <img src={this.props.song.image_url} />
         <ul className='sidebar-song-info'>
+          <p>{this.props.song.user.username}</p>
           <h4>{this.props.song.title}</h4>
           <ul className='sidebar-song-options'>
             <li>444</li>

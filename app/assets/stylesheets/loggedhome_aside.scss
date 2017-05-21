@@ -23,6 +23,14 @@ aside.loggedhome-sidebar {
     padding-left: 25px;
   }
 
+  span.like {
+    background-image: asset-url('gray-heart.png');
+    background-size: contain;
+    background-position: 0 -2px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+  }
+
   div.chart-box {
     border: 1px solid lightgray;
     background: $light-gray;
@@ -42,6 +50,7 @@ aside.loggedhome-sidebar {
 
       img {
         margin: 5px;
+        margin-right: 10px;
         height: 55px;
         width: 55px;
         border-radius: 50%;
@@ -92,6 +101,7 @@ aside.loggedhome-sidebar {
 
       img {
         margin: 5px;
+        margin-right: 10px;
         height: 55px;
         width: 55px;
       }
@@ -103,13 +113,29 @@ aside.loggedhome-sidebar {
 
         h4 {
           font-weight: 400;
+          line-height: 1.4;
+        }
+
+        p {
+          font-family: Hind;
+          line-height: 1;
         }
 
         ul.sidebar-song-options {
+          margin-top: -8px;
           align-items: center;
           display: flex;
           justify-content: space-between;
 
+          li:first-child {
+            background-image: asset-url('gray-heart.png');
+            background-size: contain;
+            background-position: left;
+            background-repeat: no-repeat;
+            font-size: 12px;
+            color: gray;
+            padding-left: 20px;
+          }
         }
       }
     }

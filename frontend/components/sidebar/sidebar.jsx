@@ -34,7 +34,7 @@ class SideBar extends React.Component {
           </ul>
         </li>
         <li className='song-suggestion'>
-          <span>Song Suggestions</span>
+          <span className='like'>Related Tracks</span>
           <ul>
             {songs}
           </ul>
