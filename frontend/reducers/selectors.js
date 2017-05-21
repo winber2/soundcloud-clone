@@ -9,4 +9,5 @@ export const selectUser = (state, ownProps) => {
       return state.users[key];
     }
   };
+  return {};
 };
