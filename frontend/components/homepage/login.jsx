@@ -7,15 +7,12 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.handleKey = this.handleKey.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      username: this.state.username,
-      password: this.state.password
-    };
-    this.props.login(user);
+    this.props.login(this.state);
   }
 
   demoLogin(e) {
@@ -29,6 +26,12 @@ class Login extends React.Component {
 
   update(prop) {
     return e => this.setState({ [prop]: e.target.value });
+  }
+
+  handleKey(e) {
+    if (e.key === 'Enter') {
+      this.props.login(this.state);
+    }
   }
 
   render() {
@@ -46,10 +49,10 @@ class Login extends React.Component {
         </ul>
         <li>
           <p>{errors}</p>
-          <input onChange={this.update('username')} placeholder='Username'></input>
+          <input onKeyPress={this.handleKey} onChange={this.update('username')} placeholder='Username'></input>
         </li>
         <li>
-          <input onChange={this.update('password')} type='password' placeholder='Password'></input>
+          <input onKeyPress={this.handleKey} onChange={this.update('password')} type='password' placeholder='Password'></input>
         </li>
         <li>
           <button onClick={this.handleSubmit}>Continue</button>
