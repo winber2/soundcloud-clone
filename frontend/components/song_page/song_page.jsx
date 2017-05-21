@@ -3,6 +3,7 @@ import Comment from '../comments/comment';
 import { values } from 'lodash';
 import SongPlayButtonContainer from '../song/song_play_button_container';
 import CommentCreationContainer from '../comments/comment_creation_container';
+import SideBarContainer from '../sidebar/sidebar_container';
 
 window.values = values;
 
@@ -71,14 +72,7 @@ class SongPage extends React.Component {
               </ul>
             </ul>
           </ul>
-          <ul className='song-page-bottom-side'>
-            <li>
-
-            </li>
-            <li>
-
-            </li>
-          </ul>
+          <SideBarContainer />
         </section>
       </main>
     );

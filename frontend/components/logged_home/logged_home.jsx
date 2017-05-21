@@ -22,7 +22,7 @@ class LoggedHome extends React.Component {
         </header>
 
         <div className='nav-space' />
-
+        
         <Switch>
           <Route exact path="/stream" render={(props) => <StreamContainer {...props} /> } />
           <Route exact path="/upload" render={(props) => <Upload {...props} /> } />
