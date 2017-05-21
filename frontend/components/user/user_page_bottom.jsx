@@ -2,6 +2,7 @@ import React from 'react';
 import { values } from 'lodash';
 import SidebarContainer from '../sidebar/sidebar_container';
 import SongContainer from '../song/song_container';
+import { NavLink } from 'react-router-dom';
 
 class UserPageBottom extends React.Component {
   constructor(props) {
@@ -22,12 +23,11 @@ class UserPageBottom extends React.Component {
     });
     return (
       <section className='user-page-bottom'>
-        <div className='user-page-nav'>
-          <div className='user-nav-border' />
-          <li>Tracks</li>
-          <li>Playlists</li>
-          <li>Reposts</li>
-        </div>
+        <ul className='user-page-nav'>
+          <li><NavLink exact to={`/${this.props.user.username}`}>Tracks</NavLink></li>
+          <li><NavLink to={`/${this.props.user.username}/tracks`}>Playlists</NavLink></li>
+          <li><NavLink to={`/${this.props.user.username}/tracks`}>Reposts</NavLink></li>
+        </ul>
         <ul className='user-page-bottom-content'>
           <ul className='user-page-songs'>
             {songs}

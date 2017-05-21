@@ -1,6 +1,6 @@
 import React from 'react';
 import { values } from 'lodash';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -23,10 +23,10 @@ class Stream extends React.Component {
           <nav className='content-nav'>
             <ul>
               <li>
-                <Link to='/stream'>Stream</Link>
+                <NavLink to='/stream'>Stream</NavLink>
               </li>
-              <li><Link to='/stream'>Charts</Link></li>
-              <li><Link to='/stream'>Discover</Link></li>
+              <li><NavLink to='/charts'>Charts</NavLink></li>
+              <li><NavLink to='/discover'>Discover</NavLink></li>
             </ul>
           </nav>
           <div className='nav-border' />

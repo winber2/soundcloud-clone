@@ -31,9 +31,14 @@ header.loggedhome-header {
       margin: 0;
       padding: 13px 30px;
 
+      &.active {
+        border-bottom: none;
+      }
+
       &:hover {
         text-shadow: 0 0 3px white;
         cursor: pointer;
+        border-bottom: 0;
       }
     }
 
@@ -209,7 +214,8 @@ main.loggedhome-body {
 
     li {
       float: left;
-      padding: 0px 5px;
+      padding: 0 0 5px 0;
+      margin: 0 15px -1px 0px;
       margin-right: 15px;
       margin-bottom: -1px;
       font-size: 20px;
@@ -217,15 +223,7 @@ main.loggedhome-body {
     }
 
     a {
-      text-decoration: none;
-      color: black;
-    }
-
-    a:hover {
-      position: relative;
-      z-index: 999;
-      border-bottom: 1px solid $orange;
-      cursor: pointer;
+      padding-bottom: 5px
     }
   }
 }

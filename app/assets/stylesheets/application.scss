@@ -21,3 +21,20 @@ h4 {
   color: $almost-black;
   display: inline;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a.active {
+  border-bottom: 1px solid $orange;
+  color: $orange;
+}
+
+a:hover {
+  position: relative;
+  z-index: 999;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}

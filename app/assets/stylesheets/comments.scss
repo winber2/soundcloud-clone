@@ -2,7 +2,7 @@
 
 div.comment-creation {
   margin: 20px;
-  padding: 10px 0 20px 0;
+  padding: 10px 0 5px 0;
   border-bottom: 1px solid lavender;
 
   div.comment-input {
@@ -11,6 +11,13 @@ div.comment-creation {
     align-items: center;
     background: $light-gray;
     border: 1px solid lavender;
+    margin-bottom: 8px;
+
+    img {
+      min-width: 40px;
+      max-width: 40px;
+      height: 100%;
+    }
 
     input {
       height: 30px;
