@@ -20,8 +20,8 @@ class SongPlay extends React.Component {
       <ul className='song-play-info'>
         <SongPlayButtonContainer song={song} />
         <ul className='song-play-name'>
-          <span className='song-artist' onClick={this.showUser}>{song.user.username}</span>
-          <span className='song-title' onClick={this.props.showSong}>{song.title}</span>
+          <li><span className='song-artist' onClick={this.showUser}>{song.user.username}</span></li>
+          <li><span className='song-title' onClick={this.props.showSong}>{song.title}</span></li>
         </ul>
         <span className='song-genre'>#{song.genre}</span>
       </ul>
