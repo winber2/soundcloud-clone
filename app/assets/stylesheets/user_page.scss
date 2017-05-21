@@ -107,7 +107,7 @@ section.user-page-bottom {
       width: 95%;
       background: lavender;
       position: absolute;
-      top: 54px;
+      top: 55px;
       left: 20px;
     }
 
@@ -116,6 +116,7 @@ section.user-page-bottom {
       margin: 0 10px;
       font-size: 18px;
       position: relative;
+      border-bottom: 1px solid lavender;
 
       &:hover {
         z-index: 10;

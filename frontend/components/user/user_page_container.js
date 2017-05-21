@@ -6,7 +6,7 @@ import { selectUser } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  user: selectUser(state, ownProps)
+  user: selectUser(state, ownProps),
 });
 
 const mapDispatchToProps = dispatch => ({

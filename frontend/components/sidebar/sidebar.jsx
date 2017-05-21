@@ -11,7 +11,22 @@ class SideBar extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
-    // this.props.fetchSongs();
+  }
+
+  chartBox() {
+    return(
+      <div className='chart-box'>
+        <div className='chart-picture' />
+      </div>
+    )
+  }
+
+  userDescription() {
+    return(
+      <div className='user-description'>
+        <p>DESCRIPTION for days plaosfosjgosjgkjsg</p>
+      </div>
+    )
   }
 
   render() {
@@ -26,16 +41,8 @@ class SideBar extends React.Component {
     return (
       <aside className='loggedhome-sidebar'>
         <Switch>
-          <Route path='/stream' component={() => (
-              <div className='chart-box'>
-                <div className='chart-picture' />
-              </div>
-            )} />
-          <Route path='/:username' component={() => (
-              <div className='user-description'>
-                <p>DESCRIPTION for days plaosfosjgosjgkjsg</p>
-              </div>
-          )} />
+          <Route exact path='/stream' component={() => this.chartBox()} />
+          <Route exact path='/:username' component={() => this.userDescription()} />
         </Switch>
         <li className='artist-suggestion'>
           <span className='follow'>Who to follow</span>

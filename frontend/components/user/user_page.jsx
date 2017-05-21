@@ -4,6 +4,7 @@ import { values } from 'lodash';
 import SongPlayButtonContainer from '../song/song_play_button_container';
 import CommentCreationContainer from '../comments/comment_creation_container';
 import SidebarContainer from '../sidebar/sidebar_container';
+import SongContainer from '../song/song_container';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -17,6 +18,10 @@ class UserPage extends React.Component {
 
   render() {
     let user = this.props.user || { user: { username: '' }, title: '', image_url: '' };
+    let songs = values(user.songs).map( song => {
+      song.user = user;
+      return(<SongContainer key={song.id} song={song} />);
+    });
     return (
       <main className='user-page'>
         <section className='user-content'>
@@ -41,7 +46,7 @@ class UserPage extends React.Component {
           </div>
           <ul className='user-page-bottom-content'>
             <ul className='user-page-songs'>
-              {user.username}
+              {songs}
             </ul>
 
             <SidebarContainer />
