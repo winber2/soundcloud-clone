@@ -39,6 +39,11 @@ aside.loggedhome-sidebar {
     width: auto;
   }
 
+  div.user-description {
+    width: 300px;
+    min-height: 100px;
+  }
+
 
   li.artist-suggestion, li.song-suggestion {
     display: flex;

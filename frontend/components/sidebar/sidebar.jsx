@@ -2,7 +2,7 @@ import React from 'react';
 import SidebarSongContainer from './sidebar_song_container';
 import SidebarUserContainer from './sidebar_user_container';
 import { values } from 'lodash';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class SideBar extends React.Component {
   constructor (props) {
@@ -25,11 +25,18 @@ class SideBar extends React.Component {
     })
     return (
       <aside className='loggedhome-sidebar'>
-        <Route path='/stream' component={() => (
-            <div className='chart-box'>
-              <div className='chart-picture' />
-            </div>
+        <Switch>
+          <Route path='/stream' component={() => (
+              <div className='chart-box'>
+                <div className='chart-picture' />
+              </div>
+            )} />
+          <Route path='/:username' component={() => (
+              <div className='user-description'>
+                <p>DESCRIPTION for days plaosfosjgosjgkjsg</p>
+              </div>
           )} />
+        </Switch>
         <li className='artist-suggestion'>
           <span className='follow'>Who to follow</span>
           <ul>

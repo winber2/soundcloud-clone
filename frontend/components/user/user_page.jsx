@@ -3,6 +3,7 @@ import Comment from '../comments/comment';
 import { values } from 'lodash';
 import SongPlayButtonContainer from '../song/song_play_button_container';
 import CommentCreationContainer from '../comments/comment_creation_container';
+import SidebarContainer from '../sidebar/sidebar_container';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -43,18 +44,7 @@ class UserPage extends React.Component {
               {user.username}
             </ul>
 
-            <ul className='user-page-bottom-side'>
-              <ul className='user-info'>
-
-              </ul>
-              <p className='user-description'></p>
-              <ul className='user-favorites'>
-
-              </ul>
-              <ul className='user-following'>
-
-              </ul>
-            </ul>
+            <SidebarContainer />
           </ul>
         </section>
       </main>
