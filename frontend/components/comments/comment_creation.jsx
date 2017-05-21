@@ -1,5 +1,6 @@
 import React from 'react';
 import FavoriteIcon from '../icons/favorite';
+import RepostIcon from '../icons/repost';
 
 class CommentCreation extends React.Component {
   constructor(props) {
@@ -30,10 +31,7 @@ class CommentCreation extends React.Component {
         </div>
         <ul className='comment-options'>
           <FavoriteIcon />
-          <li>
-            <div className='repost-icon'/>
-            <span>12</span>
-          </li>
+          <RepostIcon />
         </ul>
       </div>
     );

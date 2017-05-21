@@ -55,6 +55,10 @@ aside.loggedhome-sidebar {
         height: 55px;
         width: 55px;
         border-radius: 50%;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       ul.sidebar-user-info {
@@ -64,6 +68,12 @@ aside.loggedhome-sidebar {
 
         h4 {
           font-weight: 400;
+
+          &:hover {
+            cursor: pointer;
+            color: black;
+            text-shadow: 0 0 0 black;
+          }
         }
 
         ul.sidebar-user-options {
@@ -105,6 +115,10 @@ aside.loggedhome-sidebar {
         margin-right: 10px;
         height: 55px;
         width: 55px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       ul.sidebar-song-info {
@@ -115,11 +129,22 @@ aside.loggedhome-sidebar {
         h4 {
           font-weight: 400;
           line-height: 1.4;
+
+          &:hover {
+            cursor: pointer;
+            color: black;
+            text-shadow: 0 0 0 black;
+          }
         }
 
         p {
           font-family: Hind;
           line-height: 1;
+
+          &:hover {
+            cursor: pointer;
+            color: gray;
+          }
         }
 
         ul.sidebar-song-options {

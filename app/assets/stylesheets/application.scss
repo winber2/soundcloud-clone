@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
+@import 'colors';
+
 
 h4 {
   font-family: Hind;
+  color: $almost-black;
+  display: inline;
 }

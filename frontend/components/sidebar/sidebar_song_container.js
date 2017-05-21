@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { deleteSong } from '../../actions/song_actions';
 import SidebarSong from './sidebar_song';
 
@@ -9,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SidebarSong);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SidebarSong));
