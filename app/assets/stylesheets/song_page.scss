@@ -11,7 +11,7 @@ main.song-page {
   section.song-page-bottom {
     display: flex;
     background: white;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 
     ul.song-page-bottom-main {
       flex: 2.5;
@@ -32,24 +32,55 @@ ul.song-page-bottom-info {
     img {
       border-radius: 50%;
     }
+
+    span {
+      margin-left: 3px;
+    }
+
+    p {
+      background-image: asset-url('follower.png');
+      background-size: 20px 20px;
+      background-repeat: no-repeat;
+      background-position: 0px 0px;
+      padding-left: 25px;
+      margin: 5px 0;
+    }
+
+    button {
+      border: 1px solid lavender;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
+      background: $orange;
+      color: white;
+      margin: 0;
+    }
   }
 
   ul.comments {
     flex: 4;
 
     li.song-description {
-      height: 150px;
+      min-height: 100px;
       margin-right: 15px;
     }
 
     li.song-comments {
+      align-items: center;
       margin-bottom: 15px;
       margin-right: 15px;
       padding-bottom: 5px;
       border-bottom: 1px solid lavender;
 
-      img {
-        width: 30px;
+
+      span {
+        background-image: asset-url('comment.png');
+        background-size: 28px 28px;
+        background-repeat: no-repeat;
+        background-position: 0px -3px;
+        padding-left: 30px;
+        margin: 5px 0;
+        color: gray;
       }
     }
   }
@@ -57,12 +88,32 @@ ul.song-page-bottom-info {
 
 li.single-comment {
   display: flex;
-  height: 60px;
+  align-items: center;
+
+  &:hover button {
+    visibility: visible;
+  }
 
   img {
-    width: 50px;
+    min-width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin: 5px 15px 5px 5px;
+  }
+
+
+  ul {
+    margin-bottom: 5px;
+    flex-grow: 1;
+  }
+
+  button {
+    visibility: hidden;
+    align-self: center;
+    border: 1px solid lavender;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 12px;
   }
 
 }

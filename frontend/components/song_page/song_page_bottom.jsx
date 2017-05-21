@@ -23,7 +23,9 @@ class SongPageBottom extends React.Component {
     let comments;
     if (this.props.comments !== {} ) {
       comments = values(this.props.comments).map( (comment) => (
-        <Comment comment={comment} key={comment.id} />
+        <Comment comment={comment}
+          deleteComment={this.props.deleteComment}
+          key={comment.id} />
       ));
     }
     return (
@@ -32,16 +34,16 @@ class SongPageBottom extends React.Component {
         <ul className='song-page-bottom-info'>
           <ul className='artist-info'>
             <li><img src={song.user.profile_image_url} /></li>
-            <li><p>{song.user.username}</p></li>
-            <li><p>Follow</p></li>
+            <li><span>{song.user.username}</span></li>
+            <li><p>54</p></li>
+            <button>Follow</button>
           </ul>
           <ul className='comments'>
             <li className='song-description'>
               <p>{song.description}</p>
             </li>
             <li className='song-comments'>
-              <img src='http://res.cloudinary.com/winber1/image/upload/v1495075515/comment_lqle6o.png'/>
-              <span>12 comments</span>
+              <span>{this.props.song.number_of_comments} comments</span>
             </li>
             {comments}
           </ul>

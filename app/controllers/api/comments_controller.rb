@@ -9,14 +9,14 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      render :show 
+      render :show
     else
       render json: @comment.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(id: params[:id])
     @comment.destroy! if @comment
     render json: @comment
   end
