@@ -7,7 +7,7 @@ class SidebarUser extends React.Component {
   }
 
   showUser() {
-    this.props.history.push(`${this.props.user.username}`)
+    window.location.hash = `${this.props.user.username}`;
   }
 
   render() {

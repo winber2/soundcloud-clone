@@ -10,11 +10,11 @@ class SidebarSong extends React.Component {
 
   showSong() {
     let user = this.props.song.user.username;
-    this.props.history.push(`${user}/songs/${this.props.song.id}`)
+    window.location.hash = `${user}/songs/${this.props.song.id}`;
   }
 
   showUser() {
-    this.props.history.push(`${this.props.song.user.username}`)
+    window.location.hash = `${this.props.song.user.username}`;
   }
 
   render() {
