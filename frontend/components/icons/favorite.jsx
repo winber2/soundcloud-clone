@@ -8,9 +8,9 @@ class FavoriteIcon extends React.Component {
 
   render() {
     return (
-      <li>
+      <li className='favorite'>
         <div className='heart-icon'/>
-        <span>5</span>
+        <span className='favorite'>5</span>
       </li>
     );
   }

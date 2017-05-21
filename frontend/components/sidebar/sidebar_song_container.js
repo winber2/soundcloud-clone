@@ -7,7 +7,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteSong: id => dispatch(deleteSong(id))
 });
 
 export default connect(

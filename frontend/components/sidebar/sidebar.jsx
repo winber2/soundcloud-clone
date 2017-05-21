@@ -1,5 +1,5 @@
 import React from 'react';
-// import SidebarSongContainer from './sidebar_song_container';
+import SidebarSongContainer from './sidebar_song_container';
 import SidebarUserContainer from './sidebar_user_container';
 import { vales } from 'lodash';
 
@@ -15,9 +15,9 @@ class SideBar extends React.Component {
 
   render() {
     let users = []
-    // let songs = values(this.props.songs).map( song => (
-    //   <SidebarSongContainer song={song} key={song.id} />
-    // ));
+    let songs = values(this.props.songs).map( song => (
+      <SidebarSongContainer song={song} key={song.id} />
+    ));
     values(this.props.users).forEach( user => {
       if (user.id === this.props.currentUser.id) return;
       users.push(<SidebarUserContainer user={user} key={user.id}/>);
@@ -36,9 +36,7 @@ class SideBar extends React.Component {
         <li className='song-suggestion'>
           <span>Song Suggestions</span>
           <ul>
-            <li>asdf</li>
-            <li>asdf</li>
-            <li>asdf</li>
+            {songs}
           </ul>
         </li>
       </aside>

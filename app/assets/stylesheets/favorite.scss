@@ -1,0 +1,30 @@
+li.favorite {
+  height: 17px;
+  display: flex;
+  align-items: center;
+  border: 1px solid lavender;
+  border-radius: 5px;
+  padding: 2px 3px;
+  margin: 3px;
+
+  div.heart-icon {
+    height: 100%;
+    width: 17px;
+    background-image: asset-url('heart-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 3px;
+  }
+
+  span.favorite {
+    font-size: 12px;
+    padding: 0 0 1px 0;
+    margin: 0;
+
+    &.song-options {
+      color: black;
+      font-weight: 400;
+      margin-right: 2px;
+    }
+  }
+}

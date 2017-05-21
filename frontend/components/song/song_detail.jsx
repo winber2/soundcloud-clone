@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '../icons/favorite';
+import RepostIcon from '../icons/repost';
 
 class SongDetail extends React.Component {
   constructor(props) {
@@ -33,10 +34,7 @@ class SongDetail extends React.Component {
       <li className="song-detail">
         <ul>
           <FavoriteIcon />
-          <li>
-            <div className='repost-icon'/>
-            <span>12</span>
-          </li>
+          <RepostIcon />
           <li onClick={this.toggleOptions} >
             <div className='ellipses-icon'/>
             <span className='song-options'>More</span>
