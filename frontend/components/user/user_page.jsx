@@ -26,7 +26,7 @@ class UserPage extends React.Component {
           </div>
           <ul className='user-page-info'>
             <li>
-              <span>user</span>
+              <span>{user.username}</span>
             </li>
             <span>Upload header image</span>
           </ul>

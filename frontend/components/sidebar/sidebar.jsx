@@ -1,7 +1,7 @@
 import React from 'react';
 import SidebarSongContainer from './sidebar_song_container';
 import SidebarUserContainer from './sidebar_user_container';
-import { vales } from 'lodash';
+import { values } from 'lodash';
 import { Route } from 'react-router-dom';
 
 class SideBar extends React.Component {
