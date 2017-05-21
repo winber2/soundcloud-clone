@@ -81,3 +81,7 @@ semi-professional level.
 
 **Objective:** Add favorites functionality for songs, and follower
 functionality for artists.
+
+```
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='Winber Xu'; GIT_AUTHOR_EMAIL='winber1@gmail.com'; GIT_COMMITTER_NAME='Winber Xu'; GIT_COMMITTER_EMAIL='winber1@gmail.com';" HEAD
+```
