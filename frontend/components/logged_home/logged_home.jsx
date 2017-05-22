@@ -8,6 +8,7 @@ import SongPageContainer from '../song_page/song_page_container';
 import Upload from '../song/upload';
 import SongEditFormContainer from '../song/song_edit_form_container';
 import UserPageContainer from '../user/user_page_container';
+import UserEditFormContainer from '../user/user_edit_form_container';
 
 class LoggedHome extends React.Component {
   constructor(props) {
@@ -22,12 +23,13 @@ class LoggedHome extends React.Component {
         </header>
 
         <div className='nav-space' />
-        
+
         <Switch>
           <Route exact path="/stream" render={(props) => <StreamContainer {...props} /> } />
           <Route exact path="/upload" render={(props) => <Upload {...props} /> } />
           <Route path="/:username/songs/:songId/edit" render={(props) => <SongEditFormContainer {...props} /> } />
           <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />
+          <Route path="/:username/edit" render={(props) => <UserEditFormContainer {...props} /> } />
           <Route path="/:username" render={(props) => <UserPageContainer {...props} /> } />
         </Switch>
 

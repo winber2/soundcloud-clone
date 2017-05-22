@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
-import UserPageBottom from './user_page_bottom';
 import { selectUser } from '../../reducers/selectors';
+import UserEditForm from './user_edit_form';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
@@ -17,4 +17,4 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-)(UserPageBottom));
+)(UserEditForm));
