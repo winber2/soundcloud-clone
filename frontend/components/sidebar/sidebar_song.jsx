@@ -1,5 +1,5 @@
 import React from 'react';
-import FavoriteIcon from '../icons/favorite'
+import FavoriteIconContainer from '../icons/favorite_container';
 
 class SidebarSong extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class SidebarSong extends React.Component {
           <li><h4 onClick={this.showSong}>{this.props.song.title}</h4></li>
           <ul className='sidebar-song-options'>
             <li>444</li>
-            <FavoriteIcon />
+            <FavoriteIconContainer favoritable={this.props.song}/>
           </ul>
         </ul>
       </li>

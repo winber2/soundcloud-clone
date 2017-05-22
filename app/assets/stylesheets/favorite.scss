@@ -32,4 +32,8 @@ li.favorite {
     border: 1px solid lightgray;
     cursor: pointer;
   }
+
+  &.active {
+    border: 1px solid orange;
+  }
 }

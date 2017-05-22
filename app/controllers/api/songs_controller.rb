@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = Song.all.includes(:user, :comments)
+    @songs = Song.all.includes(:user, :comments, :favorites)
     render :index
   end
 

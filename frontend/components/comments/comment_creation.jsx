@@ -1,12 +1,12 @@
 import React from 'react';
-import FavoriteIcon from '../icons/favorite';
+import FavoriteIconContainer from '../icons/favorite_container';
 import RepostIcon from '../icons/repost';
 
 class CommentCreation extends React.Component {
   constructor(props) {
     super(props);
     this.state = { };
-    this.handleKey = this.handleKey.bind(this)
+    this.handleKey = this.handleKey.bind(this);
   }
 
   handleKey(e) {
@@ -16,7 +16,7 @@ class CommentCreation extends React.Component {
         song_id: this.props.song.id,
         body: e.target.value,
         user: this.props.currentUser
-      }
+      };
       this.props.createComment(comment);
       e.target.value = '';
     }
@@ -30,7 +30,7 @@ class CommentCreation extends React.Component {
           <input placeholder='Write a comment' onKeyPress={this.handleKey} className='comment-input'></input>
         </div>
         <ul className='comment-options'>
-          <FavoriteIcon />
+          <FavoriteIconContainer favoritable={this.props.song}/>
           <RepostIcon />
         </ul>
       </div>

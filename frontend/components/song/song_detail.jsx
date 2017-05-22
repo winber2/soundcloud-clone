@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FavoriteIcon from '../icons/favorite';
+import FavoriteIconContainer from '../icons/favorite_container';
 import RepostIcon from '../icons/repost';
 
 class SongDetail extends React.Component {
@@ -22,9 +22,9 @@ class SongDetail extends React.Component {
 
   toggleOptions() {
     if (this.state.isActive === 'active') {
-      this.setState({ isActive: '' })
+      this.setState({ isActive: '' });
     } else {
-      this.setState({ isActive: 'active' })
+      this.setState({ isActive: 'active' });
     }
   }
 
@@ -33,7 +33,7 @@ class SongDetail extends React.Component {
     return (
       <li className="song-detail">
         <ul>
-          <FavoriteIcon />
+          <FavoriteIconContainer favoritable={song}/>
           <RepostIcon />
           <li onClick={this.toggleOptions} >
             <div className='ellipses-icon'/>
