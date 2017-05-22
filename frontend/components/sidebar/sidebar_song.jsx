@@ -25,7 +25,7 @@ class SidebarSong extends React.Component {
           <p onClick={this.showUser}>{this.props.song.user.username}</p>
           <li><h4 onClick={this.showSong}>{this.props.song.title}</h4></li>
           <ul className='sidebar-song-options'>
-            <li>444</li>
+            <li>{this.props.song.favorites.length}</li>
             <FavoriteIconContainer favoritable={this.props.song}/>
           </ul>
         </ul>
