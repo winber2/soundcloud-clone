@@ -5,7 +5,7 @@ var superagent = require('superagent');
 const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
 const UPLOAD_PRESET = 'cgbryuxc';
 
-class SongEditForm extends React.Component {
+class UserEditForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,7 +70,8 @@ class SongEditForm extends React.Component {
           if (res.body.secure_url !== '') {
             upload.state.header_image_url = res.body.secure_url;
           }
-          upload.props.editUser(this.state)
+          upload.state.profile_image_url = upload.state.profile_image_url.preview;
+          upload.props.editUser(upload.state)
             .then(upload.props.history.push(`/${upload.props.user.username}`));
         });
     }
@@ -86,17 +87,18 @@ class SongEditForm extends React.Component {
           if (res.body.secure_url !== '') {
             upload.state.profie_image_url = res.body.secure_url;
           }
-          upload.props.editUser(this.state)
+          upload.state.header_image_url = upload.state.header_image_url.preview;
+          upload.props.editUser(upload.state)
             .then(upload.props.history.push(`/${upload.props.user.username}`));
         });
-      }
-
-      if (profile.preview === this.props.user.profile_image_url &&
-      header.preview === this.props.user.header_image_url) {
-        upload.props.editUser(this.state)
-          .then(upload.props.history.push(`/${upload.props.user.username}`));
-      }
     }
+
+    if (profile.preview === this.props.user.profile_image_url &&
+    header.preview === this.props.user.header_image_url) {
+      upload.props.editUser(this.state)
+        .then(upload.props.history.push(`/${upload.props.user.username}`));
+    }
+  }
 
   render() {
     return (
@@ -136,4 +138,4 @@ class SongEditForm extends React.Component {
   }
 }
 
-export default SongEditForm;
+export default UserEditForm;

@@ -6,6 +6,10 @@ import UserPageBottomContainer from './user_page_bottom_container';
 class UserPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      profileImage: '',
+      headerImage: ''
+    }
   }
 
   componentDidMount() {
@@ -18,8 +22,10 @@ class UserPage extends React.Component {
     return (
       <main className='user-page'>
         <section className='user-content'>
+          <img src={this.props.user.header_image_url} />
           <div className='user-avatar-box'>
             <div className='user-avatar' >
+              <img src={this.props.user.profile_image_url} />
               <span>Upload image</span>
             </div>
           </div>
