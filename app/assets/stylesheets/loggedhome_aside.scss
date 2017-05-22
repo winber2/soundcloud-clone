@@ -95,17 +95,6 @@ aside.loggedhome-sidebar {
             color: gray;
             padding-left: 20px;
           }
-
-          button {
-            border: 1px solid $light-gray;
-            border-radius: 3px;
-            font-size: 12px;
-            color: darkgray;
-
-            &:hover {
-              border: 1px solid lightgray;
-            }
-          }
         }
       }
     }
@@ -170,5 +159,21 @@ aside.loggedhome-sidebar {
         }
       }
     }
+  }
+}
+
+button.follow {
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+  font-size: 12px;
+  color: darkgray;
+
+  &:hover {
+    border: 1px solid lightgray;
+  }
+
+  &.active {
+    border: 1px solid orange;
+    color: orange;
   }
 }

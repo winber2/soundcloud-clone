@@ -51,9 +51,10 @@ class Follow extends React.Component {
 
 
   render() {
+    let follow = this.state.isFollowed ? 'Followed' : 'Follow';
     return (
       <button onClick={this.addFollow} className={`follow ${this.state.isActive}`}>
-        Follow
+        {follow}
       </button>
     );
   }

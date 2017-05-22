@@ -14,3 +14,7 @@ json.songs do
     end
   end
 end
+json.followers user.followers.each do |follower|
+  json.id follower.id
+  json.username follower.username
+end
