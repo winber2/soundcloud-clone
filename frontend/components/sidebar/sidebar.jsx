@@ -23,13 +23,12 @@ class SideBar extends React.Component {
 
   userDescription() {
     let users = this.props.users;
-    let user = this.props.match.params.username;
+    let user = {};
+    let name = this.props.match.params.username;
     for (let key in users) {
-      if (users[key].username === user) {
+      if (users[key].username === name) {
         user = users[key];
-        break;
       }
-      user = {}
     };
     return (
       <div className='user-description'>

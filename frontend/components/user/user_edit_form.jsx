@@ -67,8 +67,10 @@ class UserEditForm extends React.Component {
       .send(image)
       .end(function(err, res) {
         if (res.body.secure_url !== '') {
-          upload.props.editUser({ header_image_url: res.body.secure_url, id: upload.state.id })
-            .then(upload.props.history.push(`/${upload.props.user.username}`));
+          upload.props.editUser({
+            header_image_url: res.body.secure_url,
+            id: upload.state.id
+          });
         }
       });
   }
@@ -85,8 +87,10 @@ class UserEditForm extends React.Component {
       .send(image)
       .end(function(err, res) {
         if (res.body.secure_url !== '') {
-          upload.props.editUser({ profile_image_url: res.body.secure_url, id: upload.state.id })
-            .then(upload.props.history.push(`/${upload.props.user.username}`));
+          upload.props.editUser({
+            profile_image_url: res.body.secure_url,
+            id: upload.state.id
+          });
         }
       });
   }

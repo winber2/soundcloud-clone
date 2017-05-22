@@ -8,6 +8,7 @@ class Navigation extends React.Component {
     this.toggleSettings = this.toggleSettings.bind(this);
     this.toHome = this.toHome.bind(this);
     this.state = { isActive: '' }
+    this.showProfile = this.showProfile.bind(this);
   }
 
   toHome() {
@@ -19,6 +20,10 @@ class Navigation extends React.Component {
 
     this.props.logout();
     window.location.hash = '';
+  }
+
+  showProfile() {
+    window.location.hash = `/${this.props.currentUser.username}`
   }
 
   toggleSettings() {
@@ -41,15 +46,28 @@ class Navigation extends React.Component {
         </ul>
         <ul>
           <li><Link to='/upload'>Upload</Link></li>
-          <li><Link to='/stream'>Settings</Link></li>
-          <li className={`nav-user ${this.state.isActive}`}>
-            <p onClick={this.toggleSettings}>{this.props.currentUser.username}  ❯</p>
-            <ul id='user-settings' className={this.state.isActive}>
-              <li>Profile</li>
-              <li>Likes</li>
-              <li>Playlists</li>
-              <li>Following</li>
-              <li>Tracks</li>
+          <li>
+            <Link to='/stream'>Settings</Link>
+          </li>
+          <li className={`nav-user`}>
+            <p onClick={this.toggleSettings}
+              className={`user ${this.state.isActive}`}>{this.props.currentUser.username}  ❯</p>
+            <ul onMouseLeave={this.toggleSettings} id='user-settings' className={this.state.isActive}>
+              <li onClick={this.showProfile}>
+                <Link to={`/${this.props.currentUser.username}`}>Profile</Link>
+              </li>
+              <li>
+                <Link to={`/${this.props.currentUser.username}`}>Likes</Link>
+              </li>
+              <li>
+                <Link to={`/${this.props.currentUser.username}`}>Playlists</Link>
+              </li>
+              <li>
+                <Link to={`/${this.props.currentUser.username}`}>Following</Link>
+              </li>
+              <li>
+                <Link to={`/${this.props.currentUser.username}`}>Tracks</Link>
+              </li>
               <li id='signout' onClick={this.logout}>Sign out</li>
             </ul>
           </li>

@@ -6,8 +6,50 @@ img {
 }
 
 div.homepage {
-  width: 1000px;
+  width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  section.homepage-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px;
+    background: white;
+
+    h1 {
+      font-weight: 400;
+      color: $almost-black;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 80%;
+      margin: auto;
+      font-size: 16px;
+      padding: 15px 20px;
+      margin: 50px 0;
+      border: none;
+      border-radius: 5px;
+      background: $light-gray;
+      color: gray;
+      font-weight: 300;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    ul.homepage-songs {
+      display: flex;
+
+      li {
+        max-width: 20%;
+        margin: 10px;
+      }
+    }
+  }
 }
 
 div.homepage-logo {
@@ -22,13 +64,24 @@ div.homepage-logo {
 
 .homepage-description {
   display: flex;
-  height: 280px;
+  height: 100%;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    font-weight: 300;
+    font-size: 34px;
+    margin: 10px;
+    color: white;
+  }
 
   span {
     color: white;
-    font-size: 25px;
+    font-family: Source Sans Pro;
+    font-size: 18px;
+    width: 400px;
   }
 }
 
@@ -37,7 +90,10 @@ main.homepage-info {
   background-image: asset-url('homepage.jpg');
   background-size: cover;
   background-position: center;
-  height: 360px;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 button {

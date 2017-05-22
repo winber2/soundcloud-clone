@@ -16,7 +16,7 @@ main.user-page {
     background: -webkit-linear-gradient(-45deg, #518489 0%,#343a59 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, #518489 0%,#343a59 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     position: relative;
-    z-index: -2;
+    z-index: 0;
 
     img {
       position: absolute;
@@ -43,6 +43,11 @@ main.user-page {
         background: -webkit-linear-gradient(-45deg, #518489 0%,#343a59 100%); /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(135deg, #518489 0%,#343a59 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         position: relative;
+
+        div.dropzone {
+          padding: 5px 0;
+          z-index: 10;
+        }
 
         img {
           border-radius: 50%;
@@ -85,6 +90,12 @@ main.user-page {
       flex: 3.5;
       align-items: baseline;
       justify-content: space-between;
+
+
+      div.dropzone {
+        padding: 5px 0;
+        margin-right: 20px;
+      }
 
       li {
         background: $almost-black;
@@ -129,8 +140,12 @@ section.user-page-bottom {
 
       a:hover {
         z-index: 10;
-        border-bottom: 1px solid orange;
+        border-bottom: 1px solid black;
         cursor: pointer;
+      }
+
+      a.active:hover {
+        border-bottom: 1px solid $orange;
       }
     }
   }

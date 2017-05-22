@@ -2,6 +2,8 @@ import React from 'react';
 import Modal from 'react-modal';
 import Login from './login';
 import Signup from './signup';
+import { values } from 'lodash';
+import SongShow from '../song/song_show';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class HomePage extends React.Component {
 
   componentWillMount() {
     Modal.setAppElement('body');
+    this.props.fetchSongs();
   }
 
   openSignIn(e) {
@@ -41,6 +44,10 @@ class HomePage extends React.Component {
     } else {
       authRoute = <Signup errors={this.props.errors} signup={this.props.signup}/>;
     }
+
+    let songs = values(this.props.songs).map( song => (
+      <SongShow song={song} key={song.id} />
+    ))
     return (
       <div className='homepage'>
         <Modal overlayClassName="homepage-modal-overlay"
@@ -65,12 +72,19 @@ class HomePage extends React.Component {
             </ul>
           </header>
           <div className='homepage-description'>
-            <span>Block of text</span>
+            <h1>Connect on Vibe</h1>
+            <span>Discover, stream, and share a constantly expanding mix of music from emerging and major artists around the world.</span>
           </div>
           <span className='homepage-scroll'>dot dot</span>
         </main>
-        <section className="homepage-songs">
+        <section className="homepage-bottom">
+          <input className="song-search" placeholder='Search for artists, bands, tracks'>
 
+          </input>
+          <h1>Here's what's trending for free in the Vibe Community</h1>
+          <ul className='homepage-songs'>
+            {songs}
+          </ul>
         </section>
         <section>
 
