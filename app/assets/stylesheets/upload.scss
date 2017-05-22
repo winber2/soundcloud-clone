@@ -68,6 +68,19 @@ section.upload-main {
       }
     }
 
+    button.upload-image {
+      position: absolute;
+      background: lightgray;
+      bottom: 10px;
+      left: 44px;
+      height: 25px;
+      opacity: 0.8;
+      font-size: 14px;
+      transition: background 0.2s;
+
+      &:hover { background: white; cursor: pointer }
+    }
+
     ul.upload-song {
       display: flex;
       flex-direction: column;
@@ -102,19 +115,6 @@ section.upload-main {
           img {
             height: 100%;
             overflow-x: hidden;
-          }
-
-          button.upload-image {
-            position: absolute;
-            background: lightgray;
-            bottom: 10px;
-            left: 44px;
-            height: 25px;
-            opacity: 0.8;
-            font-size: 14px;
-            transition: background 0.2s;
-
-            &:hover { background: white; cursor: pointer }
           }
         }
 
@@ -183,24 +183,54 @@ section.upload-main {
 }
 
 div.header-image {
-  height: 150px;
+  height: 180px;
   width: 100%;
   background: $light-gray;
+  margin-top: 20px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 li.profile-image {
-  height: 170px;
-  width: 170px;
+  height: 160px;
+  width: 160px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
   background: $light-gray;
-  margin: 30px 10px 10px 0px;
+  margin: 30px 0px 9px 0px;
   position: relative;
+}
+
+div.user-edit.active.upload-box {
+  height: 540px;
+
+  button.upload-header {
+    position: absolute;
+    background: lightgray;
+    bottom: 10px;
+    right: 5px;
+    height: 30px;
+    opacity: 0.8;
+    font-size: 14px;
+    transition: background 0.2s;
+
+    &:hover { background: white; cursor: pointer }
+  }
 
   button.upload-image {
     position: absolute;
     background: lightgray;
-    bottom: 10px;
-    left: 44px;
-    height: 25px;
+    bottom: 5px;
+    left: 25px;
+    height: 30px;
     opacity: 0.8;
     font-size: 14px;
     transition: background 0.2s;
