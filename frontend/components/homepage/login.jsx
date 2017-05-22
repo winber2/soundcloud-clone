@@ -48,7 +48,7 @@ class Login extends React.Component {
           <div></div>
         </ul>
         <li>
-          <p>{errors}</p>
+          <p className='auth-errors'>{errors}</p>
           <input onKeyPress={this.handleKey} onChange={this.update('username')} placeholder='Username'></input>
         </li>
         <li>

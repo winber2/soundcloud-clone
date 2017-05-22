@@ -35,7 +35,9 @@ class Signup extends React.Component {
   }
 
   render() {
-    let errors = this.props.errors.map( (error, idx) => <p key={idx}>{error}</p>);
+    let errors = this.props.errors.map( (error, idx) => (
+      <p className='auth-errors' key={idx}>{error}</p>
+    ));
     return (
       <ul className='homepage-auth'>
         <li>
