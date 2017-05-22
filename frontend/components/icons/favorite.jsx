@@ -7,15 +7,6 @@ class FavoriteIcon extends React.Component {
     this.addFavorite = this.addFavorite.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   let favorite = this.props.favoritable;
-  //   if (favorite.track_url !== undefined) {
-  //     this.props.favoritable.type = 'Song';
-  //   } else if (favorite.songs !== undefined) {
-  //     this.props.favoritable.type = 'Playlist';
-  //   }
-  // }
-
   findUserFavorite(array, user) {
     for (let i = 0; i < array.length; i++) {
       if (array[i].user_id === user.id) {
@@ -25,13 +16,17 @@ class FavoriteIcon extends React.Component {
     return false;
   }
 
+  componentWillReceiveProps(nextProps) {
+    let favorite = nextProps.favoritable;
+    if (this.findUserFavorite(favorite.favorites, nextProps.currentUser)) {
+      this.setState({ isFavorited: 1, isActive: 'active' });
+    } else {
+      this.setState({ isFavorited: 0, isActive: '' });
+    }
+  }
+
   componentDidMount() {
     let favorite = this.props.favoritable;
-    // if (favorite.track_url !== undefined) {
-    //   favorite.type = 'Song';
-    // } else if (favorite.songs !== undefined) {
-    //   favorite.type = 'Playlist';
-    // }
     if (this.findUserFavorite(favorite.favorites, this.props.currentUser)) {
       this.setState({ isFavorited: 1, isActive: 'active' });
     }
@@ -51,24 +46,14 @@ class FavoriteIcon extends React.Component {
       this.props.createFavorite(user, favoritable)
         .then(() => this.props.fetchSingleSong(this.props.favoritable.id));
     }
-
-    this.toggleFavorite();
-  }
-
-  toggleFavorite() {
-    if (this.state.isFavorited === 0) {
-      this.setState({ isFavorited: 1, isActive: 'active' });
-    } else {
-      this.setState({ isFavorited: 0, isActive: '' });
-    }
   }
 
 
   render() {
     return (
       <li onClick={this.addFavorite} className={`favorite ${this.state.isActive}`}>
-        <div className='heart-icon'/>
-        <span className='favorite'>
+        <div className={`heart-icon ${this.state.isActive}`}/>
+        <span className={`favorite ${this.state.isActive}`}>
           {`${this.props.favoritable.favorites.length}`}
         </span>
       </li>
