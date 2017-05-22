@@ -42,9 +42,9 @@ class SongEditForm extends React.Component {
   // }
 
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.match.params.songId);
-  }
+  // componentDidMount() {
+  //   this.props.fetchUser(this.props.match.params.songId);
+  // }
 
   toHome() {
     this.props.history.push('/stream');
@@ -99,7 +99,7 @@ class SongEditForm extends React.Component {
               </Dropzone>
             </div>
             <ul className='upload-song-description'>
-              <li className='upload-image-box'>
+              <li className='profile-image'>
                 <img src={this.state.image_url.preview} />
                 <Dropzone onDrop={this.uploadImage} className='dropzone'>
                   <button className='upload-image'>Upload Image</button>
@@ -107,7 +107,7 @@ class SongEditForm extends React.Component {
               </li>
               <ul className='upload-song-info'>
               Profile Description
-              <textarea rows='10' onChange={this.update('description')} value={this.state.description}></textarea>
+              <textarea rows='11' onChange={this.update('description')} value={this.state.description}></textarea>
               </ul>
             </ul>
             <div className='upload-buttons'>

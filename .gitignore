@@ -21,7 +21,6 @@ bundle.js
 bundle.js.map
 .DS_Store
 npm-debug.log
-public/
 
 # Ignore application configuration
 /config/application.yml

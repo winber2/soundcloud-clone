@@ -181,3 +181,30 @@ section.upload-main {
     overflow-y: hidden;
   }
 }
+
+div.header-image {
+  height: 150px;
+  width: 100%;
+  background: $light-gray;
+}
+
+li.profile-image {
+  height: 170px;
+  width: 170px;
+  background: $light-gray;
+  margin: 30px 10px 10px 0px;
+  position: relative;
+
+  button.upload-image {
+    position: absolute;
+    background: lightgray;
+    bottom: 10px;
+    left: 44px;
+    height: 25px;
+    opacity: 0.8;
+    font-size: 14px;
+    transition: background 0.2s;
+
+    &:hover { background: white; cursor: pointer }
+  }
+}
