@@ -1,6 +1,8 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import { merge } from 'lodash';
 var superagent = require('superagent');
+
 
 const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
 const UPLOAD_PRESET = 'cgbryuxc';
@@ -53,51 +55,64 @@ class UserEditForm extends React.Component {
     this.setState({ profile_image_url: files[0] });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let profile = this.state.profile_image_url;
-    let header = this.state.header_image_url;
+  submitHeader() {
+    let header = this.state.header_image_url
     let upload = this;
 
-    if (header.preview !== this.props.user.header_image_url) {
-      let image = new FormData();
-      image.append('file', header);
-      image.append('upload_preset', UPLOAD_PRESET);
+    let image = new FormData();
+    image.append('file', header);
+    image.append('upload_preset', UPLOAD_PRESET);
 
-      superagent.post(IMAGE_URL)
-        .send(image)
-        .end(function(err, res) {
-          if (res.body.secure_url !== '') {
-            upload.state.header_image_url = res.body.secure_url;
-          }
-          upload.state.profile_image_url = upload.state.profile_image_url.preview;
-          upload.props.editUser(upload.state)
+    superagent.post(IMAGE_URL)
+      .send(image)
+      .end(function(err, res) {
+        if (res.body.secure_url !== '') {
+          upload.props.editUser({ header_image_url: res.body.secure_url, id: upload.state.id })
             .then(upload.props.history.push(`/${upload.props.user.username}`));
-        });
-    }
+        }
+      });
+  }
 
-    if (profile.preview !== this.props.user.profile_image_url) {
-      let image = new FormData();
-      image.append('file', profile);
-      image.append('upload_preset', UPLOAD_PRESET);
+  submitProfile() {
+    let profile = this.state.profile_image_url
+    let upload = this;
 
-      superagent.post(IMAGE_URL)
-        .send(image)
-        .end(function(err, res) {
-          if (res.body.secure_url !== '') {
-            upload.state.profie_image_url = res.body.secure_url;
-          }
-          upload.state.header_image_url = upload.state.header_image_url.preview;
-          upload.props.editUser(upload.state)
+    let image = new FormData();
+    image.append('file', profile);
+    image.append('upload_preset', UPLOAD_PRESET);
+
+    superagent.post(IMAGE_URL)
+      .send(image)
+      .end(function(err, res) {
+        if (res.body.secure_url !== '') {
+          upload.props.editUser({ profile_image_url: res.body.secure_url, id: upload.state.id })
             .then(upload.props.history.push(`/${upload.props.user.username}`));
-        });
-    }
+        }
+      });
+  }
 
-    if (profile.preview === this.props.user.profile_image_url &&
+  handleSubmit(e) {
+    e.preventDefault();
+    let profile = this.state.profile_image_url
+    let header = this.state.header_image_url
+
+    if (profile.preview !== this.props.user.profile_image_url &&
     header.preview === this.props.user.header_image_url) {
-      upload.props.editUser(this.state)
-        .then(upload.props.history.push(`/${upload.props.user.username}`));
+      this.submitProfile();
+
+    } else if (profile.preview === this.props.user.profile_image_url &&
+    header.preview !== this.props.user.header_image_url) {
+      this.submitHeader();
+
+    } else if (profile.preview !== this.props.user.profile_image_url &&
+    header.preview !== this.props.user.header_image_url) {
+      this.submitHeader();
+      this.submitProfile();
     }
+
+    let description = { description: this.state.description, id: this.state.id };
+    this.props.editUser(description)
+      .then(this.props.history.push(`/${this.props.user.username}`));
   }
 
   render() {
