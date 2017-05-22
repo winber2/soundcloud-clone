@@ -7,4 +7,6 @@ class Song < ApplicationRecord
     primary_key: :id
 
   has_many :comments
+
+  has_many :favorites, as: :favoritable
 end

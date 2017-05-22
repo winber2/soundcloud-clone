@@ -42,12 +42,15 @@ class HomePage extends React.Component {
     if (this.state.authRoute === 'signin') {
       authRoute = <Login errors={this.props.errors} login={this.props.login}/>;
     } else {
-      authRoute = <Signup errors={this.props.errors} signup={this.props.signup}/>;
+      authRoute = <Signup errors={this.props.errors}
+        signup={this.props.signup}
+        login = {this.props.login}/>;
     }
 
     let songs = values(this.props.songs).map( song => (
       <SongShow song={song} key={song.id} />
-    ))
+    ));
+    
     return (
       <div className='homepage'>
         <Modal overlayClassName="homepage-modal-overlay"
