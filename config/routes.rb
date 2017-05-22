@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: {format: :json} do
+    resources :favorites, only: [:create, :destroy]
     resources :users, except: [:new, :edit]
     resources :songs, except: [:new, :edit] do
       resources :comments, only: [:create, :destroy, :index]

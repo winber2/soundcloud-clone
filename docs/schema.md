@@ -48,6 +48,7 @@ body        | string    | not null
 column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
+user_id          | integer   | not null, foreign key (references users), indexed
 favoritable_id   | integer   | not null, foreign key (references songs), indexed, unique [favoritable_type, favoritable_id]
 favoratiable_type| string    | not null, foreign key (references playlists)
 
