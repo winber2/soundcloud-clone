@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import { createFavorite, deleteFavorite } from '../../util/favorite_api_util';
-import { fetchSingleSong } from '../../actions/song_actions';
-import Favorite from './favorite';
+import { followUser, unfollowUser } from '../../util/follow_api_util';
+import { fetchUser } from '../../actions/user_actions';
+import Follow from './follow';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  createFavorite: (user, favoritable) => createFavorite(user, favoritable),
-  deleteFavorite: id => deleteFavorite(id),
-  fetchSingleSong: id => dispatch(fetchSingleSong(id))
+  followUser: (currentUser, user) => followUser(currentUser, user),
+  unfollowUser: id => unfollowUser(id),
+  fetchUser: id => dispatch(fetchUser(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Favorite);
+)(Follow);
