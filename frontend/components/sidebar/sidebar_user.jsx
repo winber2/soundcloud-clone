@@ -19,7 +19,7 @@ class SidebarUser extends React.Component {
           <li><h4 onClick={this.showUser}>{this.props.user.username}</h4></li>
           <ul className='sidebar-user-options'>
             <li>444</li>
-            <FollowContainer user={this.props.user} />
+            <FollowContainer user={this.props.user} key={this.props.user.id}/>
           </ul>
         </ul>
       </li>

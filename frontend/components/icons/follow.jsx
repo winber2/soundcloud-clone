@@ -10,7 +10,7 @@ class Follow extends React.Component {
   findUserFollow(followers, currentUser) {
     if (followers === undefined) return false;
     for (let i = 0; i < followers.length; i++) {
-      if (followers[i].follower_id === currentUser.id) {
+      if (followers[i].id === currentUser.id) {
         return true;
       }
     }
@@ -39,13 +39,13 @@ class Follow extends React.Component {
 
     if (this.state.isFollowed === true) {
       let follow = this.props.user.followers.find( fol => (
-        fol.follower_id === currentUser.id
+        fol.id === currentUser.id
       ));
-      this.props.unfollowUser(follow.id)
-        .then(() => this.props.fetchUser(this.props.user.id));
+      this.props.unfollowUser(follow.follow_id)
+        .then(() => this.props.fetchUser(this.props.user.username));
     } else {
       this.props.followUser(currentUser, user)
-        .then(() => this.props.fetchUser(this.props.user.id));
+        .then(() => this.props.fetchUser(this.props.user.username));
     }
   }
 
