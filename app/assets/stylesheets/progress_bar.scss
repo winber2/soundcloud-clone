@@ -14,8 +14,8 @@
   .inner {
     display: flex;
     position: relative;
-    max-width: 1000px;
-    padding: 0 10px;
+    max-width: 1100px;
+    padding: 0;
     margin: 0 auto;
   }
 }
@@ -117,30 +117,41 @@
 
     .img-wrapper { //Song cover image
       width: 30px;
-      margin-right: 12px;
+      height: 30px;
+      margin-top: 2px;
+      margin-right: 10px;
     }
 
     .song-info { //Song information text
       padding: 0;
       align-self: center;
-      margin-top: -10px;
+      margin-top: -13px;
       text-align: left;
 
       .artist {
         display: inline-block;
-        color: gray;
+        color: $gray;
         font-size: .8em;
-        line-height: 1.2em;
+        line-height: 1.2;
         display: block;
+
+        &:hover {
+          color: gray;
+          cursor: pointer;
+        }
       }
 
       .song {
-        color: lightgray;
+        color: $almost-black;
         font-size: .8em;
-        line-height: 1.2em;
+        line-height: 1.2;
         display: block;
-      }
 
+        &:hover {
+          text-shadow: 0 0 0 black;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 
 const _defaultState = {
   id: undefined,
-  track_url: ''
+  track_url: '',
+  user: { followers: [] }
 };
 
 const SongReducer = (state = {}, action) => {

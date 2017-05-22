@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(username: 'darude', password: 'sandstorm', profile_image_url: 'http://res.cloudinary.com/winber1/image/upload/v1494889520/ditto_fag_qjnfcv.jpg')
+user1 = User.create(username: 'darude', password: 'sandstorm', profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495486745/ramipf5zx0trf7dtqhyv.jpg')
 user2 = User.create(username: 'winber1', password: 'password', profile_image_url: 'http://res.cloudinary.com/winber1/image/upload/v1494889520/ditto_fag_qjnfcv.jpg')
 
 song1 = Song.create(

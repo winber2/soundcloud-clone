@@ -20,7 +20,8 @@ class SongPageBottom extends React.Component {
   }
 
   render() {
-    let song = this.props.song || { user: { username: '' }, title: '', image_url: '' };
+    let song = this.props.song;
+    song.user.followers = song.user.followers || [];
     let comments;
     if (this.props.comments !== {} ) {
       comments = values(this.props.comments).map( (comment) => (
@@ -36,7 +37,7 @@ class SongPageBottom extends React.Component {
           <ul className='artist-info'>
             <li><img src={song.user.profile_image_url} /></li>
             <li><Link to={`/${song.user.username}`}>{song.user.username}</Link></li>
-            <li><p>54</p></li>
+            <li><p>{song.user.followers.length}</p></li>
             <button>Follow</button>
           </ul>
           <ul className='comments'>

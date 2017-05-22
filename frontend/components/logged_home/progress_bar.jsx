@@ -10,6 +10,8 @@ class ProgressBar extends React.Component {
     };
     this.togglePlay = this.togglePlay.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.showUser = this.showUser.bind(this);
+    this.showSong = this.showSong.bind(this);
   }
 
   convertTime(currentTime) {
@@ -91,7 +93,6 @@ class ProgressBar extends React.Component {
       if (width >= 100) {
         bar.style.width = '0%';
         clearInterval(progressBar.state.progress);
-        clearInterval(progrssBar.state.timer);
       } else {
         width += widthChange;
         bar.style.width = width + '%';
@@ -107,11 +108,21 @@ class ProgressBar extends React.Component {
   handleSelect(e) {
     let point = e.nativeEvent.offsetX;
     let player = this.props.audio.player;
-    player.currentTime = point / 495 * player.duration;
+    let width = e.nativeEvent.srcElement.clientWidth;
+    player.currentTime = point / width * player.duration;
+  }
+
+  showUser() {
+    window.location.hash = `/${this.props.audio.song.user.username}`;
+  }
+
+  showSong() {
+    let song = this.props.audio.song;
+    window.location.hash = `/${song.user.usename}/songs/${song.id}`;
   }
 
   render() {
-    let song = this.props.audio.song || { track_url: '' };
+    let song = this.props.audio.song;
     let player = this.props.audio.player || {};
     if (this.props.audio.isPlaying) this.updatePlayer();
     let currentTime = this.convertTime(player.currentTime);
@@ -142,12 +153,12 @@ class ProgressBar extends React.Component {
             <div className="user-info">
 
               <div className="img-wrapper">
-                <a className='user-info' />
+                <img src={song.image_url} />
               </div>
 
               <div className="song-info">
-                <span className="artist">Artist Name</span>
-                <span className="song">Song Name</span>
+                <span onClick={this.showUser} className="artist">{song.user.username}</span>
+                <span onClick={this.showSong} className="song">{song.title}</span>
               </div>
             </div>
 

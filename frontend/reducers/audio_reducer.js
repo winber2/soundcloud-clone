@@ -2,7 +2,7 @@ import { RECEIVE_AUDIO, RECEIVE_PLAYER } from "../actions/audio_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {
-  song: { track_url: undefined, id: undefined },
+  song: { track_url: undefined, id: undefined, user: {} },
   player: null,
   isPlaying: false
 };

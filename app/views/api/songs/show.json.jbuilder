@@ -3,6 +3,12 @@ json.user do
   json.author_id @song.user.id
   json.username @song.user.username
   json.profile_image_url @song.user.profile_image_url
+  json.followers @song.user.followings.each do |following|
+    json.id following.follower.id
+    json.follow_id following.id
+    json.username following.follower.username
+  end
+
 end
 json.number_of_comments @song.comments.count
 json.favorites @song.favorites.each do |favorite|
