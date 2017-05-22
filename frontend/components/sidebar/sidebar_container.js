@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchUsers } from '../../actions/user_actions';
 import { fetchSOngs } from '../../actions/song_actions';
 import SideBar from './sidebar';
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SideBar);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SideBar));

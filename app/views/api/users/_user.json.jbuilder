@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :profile_image_url, :header_image_url
+json.extract! user, :id, :username, :profile_image_url, :header_image_url, :description
 json.songs do
   user.songs.each do |song|
     json.set! song.id do

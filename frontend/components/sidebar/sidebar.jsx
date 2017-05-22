@@ -14,7 +14,7 @@ class SideBar extends React.Component {
   }
 
   chartBox() {
-    return(
+    return (
       <div className='chart-box'>
         <div className='chart-picture' />
       </div>
@@ -22,9 +22,18 @@ class SideBar extends React.Component {
   }
 
   userDescription() {
-    return(
+    let users = this.props.users;
+    let user = this.props.match.params.username;
+    for (let key in users) {
+      if (users[key].username === user) {
+        user = users[key];
+        break;
+      }
+      user = {}
+    };
+    return (
       <div className='user-description'>
-        <p>DESCRIPTION for days plaosfosjgosjgkjsg</p>
+        <p>{user.description}</p>
       </div>
     )
   }

@@ -12,8 +12,7 @@ class SongEditForm extends React.Component {
       id: '',
       description: '',
       profile_image_url: { preview: '' },
-      header_image_url: { preview: '' },
-      isUpdated: false
+      header_image_url: { preview: '' }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -31,15 +30,6 @@ class SongEditForm extends React.Component {
         profile_image_url: { preview: user.profile_image_url },
         header_image_url: { preview: user.header_image_url }
       })
-    }
-  }
-
-  componentWillUpdate() {
-    if (this.state.isUpdated) {
-      let user = this.state;
-      delete user['isUpdated'];
-      this.props.editUser(user)
-        .then(this.props.history.push(`/${this.props.user.username}`);
     }
   }
 
@@ -72,7 +62,7 @@ class SongEditForm extends React.Component {
     if (header.preview !== this.props.user.header_image_url) {
       let image = new FormData();
       image.append('file', header);
-      image.append('upload_preset', UPLOAD_PRESET)
+      image.append('upload_preset', UPLOAD_PRESET);
 
       superagent.post(IMAGE_URL)
         .send(image)
@@ -80,14 +70,15 @@ class SongEditForm extends React.Component {
           if (res.body.secure_url !== '') {
             upload.state.header_image_url = res.body.secure_url;
           }
-          if !(upload.state.isUpdated) upload.setState({ isUpdated: true });
+          upload.props.editUser(this.state)
+            .then(upload.props.history.push(`/${upload.props.user.username}`));
         });
     }
 
     if (profile.preview !== this.props.user.profile_image_url) {
       let image = new FormData();
       image.append('file', profile);
-      image.append('upload_preset', UPLOAD_PRESET)
+      image.append('upload_preset', UPLOAD_PRESET);
 
       superagent.post(IMAGE_URL)
         .send(image)
@@ -95,8 +86,15 @@ class SongEditForm extends React.Component {
           if (res.body.secure_url !== '') {
             upload.state.profie_image_url = res.body.secure_url;
           }
-          if !(upload.state.isUpdated) upload.setState({ isUpdated: true });
+          upload.props.editUser(this.state)
+            .then(upload.props.history.push(`/${upload.props.user.username}`));
         });
+      }
+
+      if (profile.preview === this.props.user.profile_image_url &&
+      header.preview === this.props.user.header_image_url) {
+        upload.props.editUser(this.state)
+          .then(upload.props.history.push(`/${upload.props.user.username}`));
       }
     }
 
