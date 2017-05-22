@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522210026) do
+ActiveRecord::Schema.define(version: 20170522212224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20170522210026) do
     t.datetime "updated_at",       null: false
     t.integer  "user_id",          null: false
     t.index ["favoritable_type", "favoritable_id", "user_id"], name: "favorites_index", unique: true, using: :btree
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id", null: false
+    t.integer  "artist_id",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["follower_id", "artist_id"], name: "index_follows_on_follower_id_and_artist_id", unique: true, using: :btree
   end
 
   create_table "songs", force: :cascade do |t|

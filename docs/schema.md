@@ -56,5 +56,5 @@ favoratiable_type| string    | not null, foreign key (references playlists)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-follower_id | integer   | not null, foreign key (references songs), indexed, unique [song_id, playlist_id]
-artist_id   | integer   | not null, foreign key (references playlists), indexed
+follower_id | integer   | not null, foreign key (references users), indexed
+artist_id   | integer   | not null, foreign key (references users), indexed

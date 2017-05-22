@@ -8,6 +8,7 @@ class FavoriteIcon extends React.Component {
   }
 
   findUserFavorite(array, user) {
+    if (array === undefined) return false;
     for (let i = 0; i < array.length; i++) {
       if (array[i].user_id === user.id) {
         return true;
@@ -50,11 +51,12 @@ class FavoriteIcon extends React.Component {
 
 
   render() {
+    let favorites = this.props.favoritable.favorites || [];
     return (
       <li onClick={this.addFavorite} className={`favorite ${this.state.isActive}`}>
         <div className={`heart-icon ${this.state.isActive}`}/>
         <span className={`favorite ${this.state.isActive}`}>
-          {`${this.props.favoritable.favorites.length}`}
+          {`${favorites.length}`}
         </span>
       </li>
     );
