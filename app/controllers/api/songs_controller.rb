@@ -2,14 +2,22 @@ class Api::SongsController < ApplicationController
   def index
     if params[:query] == 'display'
       @songs = Song
-      .left_joins(:favorites)
-      .group('songs.id, favorites.id')
-      .order('COUNT (favorites.favoritable_id) DESC')
-      .limit(10)
-      .select('songs.*')
-      .includes(:comments, :user)
+        .left_joins(:favorites)
+        .group('songs.id, favorites.id')
+        .order('COUNT (favorites.favoritable_id) DESC')
+        .limit(10)
+        .select('songs.*')
+        .includes(:comments, :user)
 
       render :index
+    elsif params[:query] != nil
+      @songs = Song
+        .left_joins(:follows)
+        .group('songs.id, follow.id')
+        .order('COUNT (favorites.favoritable_id) DESC')
+        .limit(10)
+        .select('songs.*')
+        .includes(:comments, :user)
     else
       @songs = Song.all.includes(:user, :comments, :favorites)
       render :index

@@ -6,7 +6,8 @@ class ProgressBar extends React.Component {
     this.state = {
       icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075515/play-button_fp3mtc.png',
       progress: undefined,
-      activePlayer: ''
+      activePlayer: '',
+      duration: 0
     };
     this.togglePlay = this.togglePlay.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -37,11 +38,11 @@ class ProgressBar extends React.Component {
     let audio = this.props.audio;
     if (audio.isPlaying) {
       this.activatePlayer();
-      audio.player.play();
+      setTimeout(() => audio.player.play(), 25);
       this.setState({
         icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075515/pause-button_c63tuy.png'
       });
-    } else {
+    } else if (audio.isPlaying === false) {
       audio.player.pause();
       this.setState({
         icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075515/play-button_fp3mtc.png'
@@ -78,6 +79,17 @@ class ProgressBar extends React.Component {
     clearInterval(this.state.progress);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.state.progress);
+    this.props.audio.song.track_url = '';
+    this.setState({ activePlayer: '' });
+    this.props.receiveAudio({
+      song: { track_url: undefined, id: undefined, user: {} },
+      player: null,
+      isPlaying: false
+    });
+  }
+
   updatePlayer() {
     clearInterval(this.state.progress);
 
@@ -109,7 +121,10 @@ class ProgressBar extends React.Component {
     let point = e.nativeEvent.offsetX;
     let player = this.props.audio.player;
     let width = e.nativeEvent.srcElement.clientWidth;
+    let bar = this.refs.progress;
     player.currentTime = point / width * player.duration;
+    bar.style.width = point / width * 100 + '%';
+    this.updatePlayer();
   }
 
   showUser() {
@@ -130,7 +145,7 @@ class ProgressBar extends React.Component {
     return (
       <footer id="music-player" className={this.state.activePlayer}>
         <div className="inner">
-          <audio ref='audioPlayer' className="player" src={song.track_url} autoPlay/>
+          <audio ref='audioPlayer' className="player" src={song.track_url}/>
 
           <div className="controls">
             <img className="previous" src="https://res.cloudinary.com/winber1/image/upload/v1495075514/back-button_aibqnf.png"></img>
