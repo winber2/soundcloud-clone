@@ -11,11 +11,4 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
   end
-
-  namespace :search, defaults: { format: :json } do
-    resources :songs, only: [:index, :show]
-    resources :users, only: [:index, :show]
-  end
-
-  get 'homepage/display', to: 'search/songs#display', defaults: { format: :json }
 end

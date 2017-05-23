@@ -1,7 +1,19 @@
 class Api::SongsController < ApplicationController
   def index
-    @songs = Song.all.includes(:user, :comments, :favorites)
-    render :index
+    if params[:query] == 'display'
+      @songs = Song
+      .left_joins(:favorites)
+      .group('songs.id, favorites.id')
+      .order('COUNT (favorites.favoritable_id) DESC')
+      .limit(10)
+      .select('songs.*')
+      .includes(:comments, :user)
+
+      render :index
+    else
+      @songs = Song.all.includes(:user, :comments, :favorites)
+      render :index
+    end
   end
 
   def show

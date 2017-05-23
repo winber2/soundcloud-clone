@@ -17,6 +17,8 @@ div.homepage {
     align-items: center;
     padding: 0px 50px;
     background: white;
+    height: 100%;
+    padding-bottom: 50px;
 
     h1 {
       font-weight: 400;
@@ -43,12 +45,37 @@ div.homepage {
 
     ul.homepage-songs {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
-      li {
-        max-width: 20%;
+      li.song-show {
+        max-width: 170px;
+        min-width: 170px;
         margin: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        img {
+          width: 100%;
+          height: 170px;
+        }
       }
     }
+  }
+}
+
+li.song-show {
+
+  span:hover {
+    text-shadow: 0 0 0 black;
+    cursor: pointer;
+  }
+
+  p:hover {
+    color: gray;
+    cursor: pointer;
   }
 }
 

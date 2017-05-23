@@ -1,32 +1,32 @@
-user1 = User.create(
+user1 = User.create!(
   username: 'darude',
   password: 'sandstorm',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495486745/ramipf5zx0trf7dtqhyv.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513488/darude_crppxl.jpg'
   )
 
-user2 = User.create(
+user2 = User.create!(
   username: 'cametek',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513485/cametek_igiyiy.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513489/cametek_bg_srvjjs.jpg'
   )
 
-user3 = User.create(
+user3 = User.create!(
   username: 'Billain',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513488/billain_tsprra.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513489/billain_bg_wnrwx0.jpg'
   )
 
-user4 = User.create(
+user4 = User.create!(
   username: 'YUC\'e',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495516981/yuce_ikcl5g.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513486/galaxy_bjq8qh.jpg'
   )
 
-user5 = User.create(
+user5 = User.create!(
   username: 'RockNetwork',
   password: 'password',
   profile_image_url: 'http://res.cloudinary.com/winber1/image/upload/v1495513488/dog_faofh9.jpg',
@@ -34,35 +34,35 @@ user5 = User.create(
   )
 
 
-user6 = User.create(
+user6 = User.create!(
   username: 'NierAutomata',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495517575/nier_hacoif.jpg'
   )
 
-user7 = User.create(
+user7 = User.create!(
   username: 'Aiobahn',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513485/izumi_wmzb2y.jpg',
   header_image_url: 'http://res.cloudinary.com/winber1/image/upload/v1495517356/sagiri_zvbxwp.png'
   )
 
-user8 = User.create(
+user8 = User.create!(
   username: 'Dj Leanrock',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513487/leanrock_py25hz.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513487/leanrockbg_ni7n4b.jpg'
   )
 
-user9 = User.create(
+user9 = User.create!(
   username: 'Jesus',
   password: 'password',
   profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513486/senpai_a3grjr.jpg',
   header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513485/sunset-anime-girl-1366x768_hnl6yq.jpg'
   )
 
-song1 = Song.create(
+song1 = Song.create!(
   title: 'Weight of the World',
   author_id: user6.id,
   genre: 'OST',
@@ -72,7 +72,7 @@ song1 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495061844/15._Weight_of_the_World_English_Version_jbsja7.mp3',
   )
 
-song2 = Song.create(
+song2 = Song.create!(
   title: '崩壊ノ虚妄',
   author_id: user6.id,
   genre: 'OST',
@@ -82,7 +82,7 @@ song2 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062148/03._崩壊ノ虚妄_cufozg.mp3',
   )
 
-song3 = Song.create(
+song3 = Song.create!(
   title: '美シキ歌',
   author_id: user6.id,
   genre: 'OST',
@@ -92,7 +92,7 @@ song3 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062300/08._美シキ歌_w77ouv.mp3',
   )
 
-song4 = Song.create(
+song4 = Song.create!(
   title: '遺サレタ場所斜光',
   author_id: user6.id,
   genre: 'OST',
@@ -102,7 +102,7 @@ song4 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062337/02._遺サレタ場所_斜光_luvxlt.mp3',
   )
 
-song5 = Song.create(
+song5 = Song.create!(
   title: 'オバアチャン',
   author_id: user6.id,
   genre: 'OST',
@@ -112,7 +112,7 @@ song5 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062322/10._オバアチャン_破壊_tnfsk6.mp3',
   )
 
-song6 = Song.create(
+song6 = Song.create!(
   title: 'Love Ya',
   author_id: user1.id,
   genre: 'Future Funk',
@@ -122,7 +122,7 @@ song6 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1494889475/05_-_Love_Ya_ei2alj.mp3',
   )
 
-song7 = Song.create(
+song7 = Song.create!(
   title: 'Psycho',
   author_id: user5.id,
   genre: 'Rock',
@@ -132,7 +132,7 @@ song7 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513504/03_Psycho_grz2rt.mp3',
   )
 
-song8 = Song.create(
+song8 = Song.create!(
   title: 'some dope ass shizz',
   author_id: user8.id,
   genre: 'Breaks',
@@ -142,7 +142,7 @@ song8 = Song.create(
   track_url: 'http://res.cloudinary.com/winber1/video/upload/v1495513506/Dj_Lean_Rock_-_Lord_Of_The_Drums__mp3.pm_atzqnr.mp3',
   )
 
-song9 = Song.create(
+song9 = Song.create!(
   title: 'STARship CONNECTION',
   author_id: user8.id,
   genre: 'Breaks',
@@ -152,7 +152,7 @@ song9 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513504/Dj_Lean_Rock_-_Starship_Connection_-_I_m_Original__mp3.pm_ljtnpc.mp3',
   )
 
-song10 = Song.create(
+song10 = Song.create!(
   title: 'Collider',
   author_id: user3.id,
   genre: 'Drum n\' Bass',
@@ -162,7 +162,7 @@ song10 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513506/noisia_-_collider_outer_edges_v0rxlm.mp3',
   )
 
-song11 = Song.create(
+song11 = Song.create!(
   title: 'Specialist',
   author_id: user3.id,
   genre: 'Neurofunk',
@@ -172,7 +172,7 @@ song11 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513515/billain_-_specialist_ktewj1.mp3',
   )
 
-song12 = Song.create(
+song12 = Song.create!(
   title: 'Caramell Dansen (Ryu Remix)',
   author_id: user9.id,
   genre: 'Remix',
@@ -182,7 +182,7 @@ song12 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513506/Nightcore_-_CaramellDansen_DJ_Ryu_Re_qa2965.mp3',
   )
 
-song13 = Song.create(
+song13 = Song.create!(
   title: 'Railgun Roulette',
   author_id: user2.id,
   genre: 'Dubstep',
@@ -192,7 +192,7 @@ song13 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Railgun_Roulette_wik6sy.mp3',
   )
 
-song14 = Song.create(
+song14 = Song.create!(
   title: "Amber's love was like a marble",
   author_id: user3.id,
   genre: 'Neurofunk',
@@ -202,7 +202,7 @@ song14 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Rawtekk_-_Amber_s_Love_Was_Like_A_Marble_Billain_Remix_crdyju.mp3',
   )
 
-song15 = Song.create(
+song15 = Song.create!(
   title: "CHiLD-error-",
   author_id: user5.id,
   genre: 'Metal',
@@ -212,7 +212,7 @@ song15 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513511/MY_FIRST_STORY_-_CHiLD-error-_Official_Video_yidqrb.mp3',
   )
 
-song16 = Song.create(
+song16 = Song.create!(
   title: "!!FEVERTIME!!",
   author_id: user2.id,
   genre: 'UK Hardcore',
@@ -222,7 +222,7 @@ song16 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513522/04_-_FEVERTIME_o1o1ud.mp3',
   )
 
-song17 = Song.create(
+song17 = Song.create!(
   title: "Fastest Crash",
   author_id: user2.id,
   genre: 'Hardcore',
@@ -232,7 +232,7 @@ song17 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Camellia_-_Fastest_Crash_sywme5.mp3',
   )
 
-song18 = Song.create(
+song18 = Song.create!(
   title: "Fastest Crash",
   author_id: user2.id,
   genre: 'Hardcore',
@@ -242,7 +242,7 @@ song18 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Camellia_-_Fastest_Crash_sywme5.mp3',
   )
 
-song19 = Song.create(
+song19 = Song.create!(
   title: "Dance on Mars",
   author_id: user2.id,
   genre: 'Dubstep',
@@ -252,7 +252,7 @@ song19 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513521/Camellia_-_Dance_On_The_Mars_asrefa.mp3',
   )
 
-song20 = Song.create(
+song20 = Song.create!(
   title: "Find That Somone feat. Richard Judge",
   author_id: user4.id,
   genre: 'Future Funk',
@@ -262,7 +262,7 @@ song20 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513514/Televisor_-_Find_That_Someone_feat._Richard_Judge_Monstercat_Official_Music_Video_y6er56.mp3',
   )
 
-song21 = Song.create(
+song21 = Song.create!(
   title: "King for a Day",
   author_id: user5.id,
   genre: 'Metal',
@@ -272,7 +272,7 @@ song21 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513519/Pierce_the_Veil_-_King_for_a_Day_a6gzwg.mp3',
   )
 
-song22 = Song.create(
+song22 = Song.create!(
   title: "Come and Get it",
   author_id: user4.id,
   genre: 'Drumstep',
@@ -282,7 +282,7 @@ song22 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513519/Nightstep_Come_Get_It_Krewella_kcvkom.mp3',
   )
 
-song23 = Song.create(
+song23 = Song.create!(
   title: "The Beginning",
   author_id: user5.id,
   genre: 'Rock',
@@ -292,7 +292,7 @@ song23 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513521/ONE_OK_ROCK_-_The_Beginning_ihy7xf.mp3',
   )
 
-song24 = Song.create(
+song24 = Song.create!(
   title: "Aiobahn - Electric Heart (ft. PRYVT RYN)",
   author_id: user7.id,
   genre: 'Electric Heart',
@@ -302,12 +302,12 @@ song24 = Song.create(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495520766/Aiobahn_-_Electric_Heart_ft._PRYVT_RYN_Fated_Records_Extended_Mix_kwco8b.mp3',
   )
 
-song25 = Song.create(
+song25 = Song.create!(
   title: "Sandstorm",
   author_id: user1.id,
   genre: 'Sandstorm',
   description: "Sandstorming onwards.",
   release_date: Date.new(2016,11,12),
-  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495520845/aiobahn_istpjq.jpg',
-  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495520766/Aiobahn_-_Electric_Heart_ft._PRYVT_RYN_Fated_Records_Extended_Mix_kwco8b.mp3',
+  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495568823/Sandstorm_single_wyc1sm.jpg',
+  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495557993/Darude-Sandstorm_zg0ouz.mp3',
   )

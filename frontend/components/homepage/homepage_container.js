@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
   login: (user) => dispatch(login(user)),
   signup: (user) => dispatch(signup(user)),
   clearErrors: () => dispatch(clearErrors()),
-  fetchSongs: () => dispatch(fetchSongs())
+  fetchSongs: (query) => dispatch(fetchSongs(query))
 });
 
 export default connect(

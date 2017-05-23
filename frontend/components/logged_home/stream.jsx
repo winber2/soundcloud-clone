@@ -15,7 +15,6 @@ class Stream extends React.Component {
   }
 
   handleInfiniteLoad() {
-    debugger;
   }
 
   render() {

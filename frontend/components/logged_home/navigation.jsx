@@ -9,6 +9,7 @@ class Navigation extends React.Component {
     this.toHome = this.toHome.bind(this);
     this.state = { isActive: '' };
     this.showProfile = this.showProfile.bind(this);
+    this.closeSettings = this.closeSettings.bind(this);
   }
 
   toHome() {
@@ -34,6 +35,16 @@ class Navigation extends React.Component {
     }
   }
 
+  closeSettings() {
+    setTimeout(() => {
+      if (this.state.isActive === '') {
+        this.setState({ isActive: 'active' });
+      } else {
+        this.setState({ isActive: '' });
+      }
+    }, 75)
+  }
+
   render() {
     return (
       <nav className='navigation'>
@@ -50,10 +61,10 @@ class Navigation extends React.Component {
             <Link to='/stream'>Settings</Link>
           </li>
           <li className={`nav-user`}>
-            <p tabIndex='0' onBlur={this.toggleSettings} onClick={this.toggleSettings}
+            <p tabIndex='0' onBlur={this.closeSettings} onClick={this.toggleSettings}
               className={`user ${this.state.isActive}`}>{this.props.currentUser.username}  ❯</p>
             <ul id='user-settings' className={this.state.isActive}>
-              <li onClick={this.showProfile}>
+              <li>
                 <Link to={`/${this.props.currentUser.username}`}>Profile</Link>
               </li>
               <li>
