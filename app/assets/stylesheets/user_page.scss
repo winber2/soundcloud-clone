@@ -148,6 +148,26 @@ section.user-page-bottom {
         border-bottom: 1px solid $orange;
       }
     }
+
+    li.user-page-options {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+      margin-right: 0;
+      padding-right: 0;
+
+      button.user-page-edit {
+        border: 1px solid $light-gray;
+        border-radius: 3px;
+        font-size: 12px;
+        color: darkgray;
+        margin-right: 10px;
+
+        &:hover {
+          border: 1px solid lightgray;
+        }
+      }
+    }
   }
 
   ul.user-page-bottom-content {

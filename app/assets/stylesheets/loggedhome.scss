@@ -117,6 +117,10 @@ li.nav-user {
       cursor: pointer;
     }
 
+    &:focus {
+      outline: none;
+    }
+
   }
 
   p.active.user {

@@ -8,16 +8,11 @@ class SongDetail extends React.Component {
     super(props);
     this.state = { isActive: '' };
     this.deleteSong = this.deleteSong.bind(this);
-    this.editSong = this.editSong.bind(this);
     this.toggleOptions = this.toggleOptions.bind(this);
   }
 
   deleteSong() {
     this.props.deleteSong(this.props.song.id);
-  }
-
-  editSong() {
-
   }
 
   toggleOptions() {
@@ -35,7 +30,7 @@ class SongDetail extends React.Component {
         <ul>
           <FavoriteIconContainer favoritable={song}/>
           <RepostIcon />
-          <li onClick={this.toggleOptions} >
+          <li tabIndex='0' onBlur={this.toggleOptions} className='more-options' onClick={this.toggleOptions} >
             <div className='ellipses-icon'/>
             <span className='song-options'>More</span>
             <ul className={`song-options-dropdown ${this.state.isActive}`} >

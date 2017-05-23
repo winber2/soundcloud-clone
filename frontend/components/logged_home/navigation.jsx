@@ -7,7 +7,7 @@ class Navigation extends React.Component {
     this.logout = this.logout.bind(this);
     this.toggleSettings = this.toggleSettings.bind(this);
     this.toHome = this.toHome.bind(this);
-    this.state = { isActive: '' }
+    this.state = { isActive: '' };
     this.showProfile = this.showProfile.bind(this);
   }
 
@@ -23,7 +23,7 @@ class Navigation extends React.Component {
   }
 
   showProfile() {
-    window.location.hash = `/${this.props.currentUser.username}`
+    window.location.hash = `/${this.props.currentUser.username}`;
   }
 
   toggleSettings() {
@@ -50,9 +50,9 @@ class Navigation extends React.Component {
             <Link to='/stream'>Settings</Link>
           </li>
           <li className={`nav-user`}>
-            <p onClick={this.toggleSettings}
+            <p tabIndex='0' onBlur={this.toggleSettings} onClick={this.toggleSettings}
               className={`user ${this.state.isActive}`}>{this.props.currentUser.username}  ❯</p>
-            <ul onMouseLeave={this.toggleSettings} id='user-settings' className={this.state.isActive}>
+            <ul id='user-settings' className={this.state.isActive}>
               <li onClick={this.showProfile}>
                 <Link to={`/${this.props.currentUser.username}`}>Profile</Link>
               </li>

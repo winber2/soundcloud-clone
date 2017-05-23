@@ -1,0 +1,17 @@
+li.more-options {
+  padding: 2px 5px 2px 3px;
+
+  div.ellipses-icon {
+    height: 100%;
+    width: 25px;
+    background-position: 0 -4px;
+    background-image: asset-url('ellipses-icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 3px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -87,7 +87,7 @@ class UserPage extends React.Component {
             </Dropzone>
           </ul>
         </section>
-        <UserPageBottomContainer />
+        <UserPageBottomContainer currentUser={this.props.currentUser} />
       </main>
     );
   }

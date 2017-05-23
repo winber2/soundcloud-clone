@@ -106,24 +106,17 @@ li.song-detail {
       align-items: center;
       border: 1px solid lavender;
       border-radius: 5px;
-      padding: 2px 3px;
       margin: 3px;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       div.comment-icon {
         height: 100%;
         width: 17px;
         background-image: asset-url('comment.png');
         background-size: contain;
-        background-repeat: no-repeat;
-        margin-right: 3px;
-      }
-
-      div.ellipses-icon {
-        height: 100%;
-        width: 25px;
-        background-position: 0 -3px;
-        background-image: asset-url('ellipses-icon.png');
-        background-size: cover;
         background-repeat: no-repeat;
         margin-right: 3px;
       }
