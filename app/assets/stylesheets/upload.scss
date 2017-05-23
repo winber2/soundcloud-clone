@@ -125,6 +125,15 @@ section.upload-main {
           margin-left: 30px;
           font-size: 14px;
 
+          > ul {
+            justify-content: space-between;
+          }
+
+          li.upload-errors {
+            font-size: 13px;
+            color: red;
+          }
+
           input {
             margin: 5px 0;
             border: 1px solid lightgray;

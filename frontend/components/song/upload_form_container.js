@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createSong } from '../../actions/song_actions';
-import UploadForm from './upload_form';
+import UploadForm from './upload_form.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,

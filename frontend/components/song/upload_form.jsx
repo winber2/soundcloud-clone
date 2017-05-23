@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 var superagent = require('superagent');
+import Modal from 'react-modal';
 
 const VIDEO_URL = 'https://api.cloudinary.com/v1_1/winber1/video/upload';
 const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
@@ -19,11 +20,16 @@ class UploadForm extends React.Component {
       image_url: '',
       track_url: this.props.trackUrl,
       isActive: '',
-      errors: ''
+      errors: '',
+      modalState: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
   }
 
   componentDidMount() {
@@ -40,12 +46,22 @@ class UploadForm extends React.Component {
     this.setState({ image_url: files[0] });
   }
 
+  disableForm() {
+    this.setState({ modalState: true });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
     if (this.state.title === '' || this.state.genre === '') {
       this.setState({ errors: 'Please fill the starred information'});
+      return;
+    } else if (this.state.image_url === '') {
+      this.setState({ errors: 'Image cannot be blank' });
+      return;
     }
+
+    this.disableForm();
 
     let imageFile = this.state.image_url;
     let songFile = this.state.track_url;
@@ -82,6 +98,12 @@ class UploadForm extends React.Component {
   render() {
     return (
       <ul className={`upload-song ${this.state.isActive}`}>
+        <Modal contentLabel='Modal'
+          isOpen={this.state.modalState}
+          className='upload-modal'>
+          <div className='loader'></div>
+          <div>Uploading Song</div>
+        </Modal>
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>
@@ -91,14 +113,14 @@ class UploadForm extends React.Component {
             </Dropzone>
           </li>
           <ul className='upload-song-info'>
-              <ul>
-                <li>Title*</li>
-                <li>{this.state.errors}</li>
-              </ul>
-              <input onChange={this.update('title')}></input>
-              Album
-              <input onChange={this.update('album')}></input>
-              <ul className='upload-song-detail'>
+            <ul>
+              <li>Title*</li>
+              <li className='upload-errors'>{this.state.errors}</li>
+            </ul>
+            <input onChange={this.update('title')}></input>
+            Album
+            <input onChange={this.update('album')}></input>
+            <ul className='upload-song-detail'>
             <li>
               Genre*
               <input onChange={this.update('genre')}></input>
