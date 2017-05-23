@@ -20,7 +20,11 @@ class Upload extends React.Component {
   }
 
   acceptFile(files) {
-    this.setState({ isActive: 'active', route: 'input', trackUrl: files[0] });
+    if (files[0].type !== 'audio/mp3') {
+      alert('Sorry, we currently only accept mp3 files as audio files!');
+    } else {
+      this.setState({ isActive: 'active', route: 'input', trackUrl: files[0] });
+    }
   }
 
   back() {

@@ -18,8 +18,9 @@ class UploadForm extends React.Component {
       author_id: this.props.currentUser.id,
       image_url: '',
       track_url: this.props.trackUrl,
-      isActive: ''
-    }
+      isActive: '',
+      errors: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
@@ -32,7 +33,7 @@ class UploadForm extends React.Component {
   }
 
   update(prop) {
-    return e => this.setState({ [prop]: e.target.value})
+    return e => this.setState({ [prop]: e.target.value});
   }
 
   uploadImage(files) {
@@ -41,6 +42,11 @@ class UploadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    if (this.state.title === '' || this.state.genre === '') {
+      this.setState({ errors: 'Please fill the starred information'});
+    }
+
     let imageFile = this.state.image_url;
     let songFile = this.state.track_url;
     let upload = this;
@@ -48,11 +54,11 @@ class UploadForm extends React.Component {
 
     let song = new FormData();
     song.append('file', songFile);
-    song.append('upload_preset', UPLOAD_PRESET)
+    song.append('upload_preset', UPLOAD_PRESET);
 
     let image = new FormData();
     image.append('file', imageFile);
-    image.append('upload_preset', UPLOAD_PRESET)
+    image.append('upload_preset', UPLOAD_PRESET);
 
     superagent.post(IMAGE_URL)
       .send(image)
@@ -85,13 +91,16 @@ class UploadForm extends React.Component {
             </Dropzone>
           </li>
           <ul className='upload-song-info'>
-              Title
+              <ul>
+                <li>Title*</li>
+                <li>{this.state.errors}</li>
+              </ul>
               <input onChange={this.update('title')}></input>
               Album
               <input onChange={this.update('album')}></input>
               <ul className='upload-song-detail'>
             <li>
-              Genre
+              Genre*
               <input onChange={this.update('genre')}></input>
             </li>
             <li>
