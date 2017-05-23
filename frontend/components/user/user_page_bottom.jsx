@@ -28,7 +28,8 @@ class UserPageBottom extends React.Component {
       song.user = this.props.user;
       return(<SongContainer key={song.id} song={song} />);
     });
-    let edit = this.props.currentUser.id !== this.props.user.id ? '' :
+    let option = this.props.currentUser.id !== this.props.user.id ?
+        <FollowContainer user={this.props.user} /> :
         <button onClick={this.editUser} className='user-page-edit'>Edit</button>;
     return (
       <section className='user-page-bottom'>
@@ -37,8 +38,7 @@ class UserPageBottom extends React.Component {
           <li><NavLink to={`/${this.props.user.username}/tracks`}>Playlists</NavLink></li>
           <li><NavLink to={`/${this.props.user.username}/tracks`}>Reposts</NavLink></li>
           <li className='user-page-options'>
-            {edit}
-            <FollowContainer user={this.props.user} />
+            {option}
           </li>
         </ul>
         <ul className='user-page-bottom-content'>

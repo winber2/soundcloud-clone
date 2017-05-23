@@ -50,7 +50,10 @@ class HomePage extends React.Component {
         login = {this.props.login}/>;
     }
     let songs = values(this.props.songs).map( song => (
-        <SongShow song={song} key={song.id} />
+        <SongShow home={true}
+          openSignIn={this.openSignIn}
+          song={song}
+          key={song.id} />
     ));
 
     return (

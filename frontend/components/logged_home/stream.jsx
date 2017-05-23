@@ -15,6 +15,7 @@ class Stream extends React.Component {
   }
 
   handleInfiniteLoad() {
+    console.log('adsf');
   }
 
   render() {

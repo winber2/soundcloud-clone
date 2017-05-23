@@ -65,6 +65,16 @@ class UserPage extends React.Component {
   }
 
   render() {
+    let image = '';
+    let header = '';
+    if (this.props.user.id === this.props.currentUser.id) {
+      image = (<Dropzone className='dropzone' onDrop={this.uploadProfile}>
+                <span>Upload image</span>
+              </Dropzone>);
+      header = (<Dropzone className='dropzone' onDrop={this.uploadHeader}>
+                  <span>Upload header image</span>
+                </Dropzone>);
+    }
     let user = this.props.user || { user: { username: '' }, title: '', image_url: '' };
     return (
       <main className='user-page'>
@@ -73,18 +83,14 @@ class UserPage extends React.Component {
           <div className='user-avatar-box'>
             <div className='user-avatar' >
               <img src={this.props.user.profile_image_url} />
-              <Dropzone className='dropzone' onDrop={this.uploadProfile}>
-                <span>Upload image</span>
-              </Dropzone>
+              {image}
             </div>
           </div>
           <ul className='user-page-info'>
             <li>
               <span>{user.username}</span>
             </li>
-            <Dropzone className='dropzone' onDrop={this.uploadHeader}>
-              <span>Upload header image</span>
-            </Dropzone>
+            {header}
           </ul>
         </section>
         <UserPageBottomContainer currentUser={this.props.currentUser} />
