@@ -42,7 +42,7 @@ class Navigation extends React.Component {
       } else {
         this.setState({ isActive: '' });
       }
-    }, 65);
+    }, 70);
   }
 
   render() {

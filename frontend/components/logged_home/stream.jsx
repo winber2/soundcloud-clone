@@ -8,14 +8,27 @@ import Infinite from 'react-infinite';
 class Stream extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { songOffset: 0 };
+    this.handleInfiniteLoad = this.handleInfiniteLoad.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchSongs();
+    this.props.fetchSongs({
+      user: this.props.currentUser.id,
+      offset: this.state.songOffset
+    });
   }
 
   handleInfiniteLoad() {
-    console.log('adsf');
+    if (this.state.songOffset !== 0) {
+      this.state.songOffset += 5;
+      this.props.fetchMoreSongs({
+        user: this.props.currentUser.id,
+        offset: this.state.songOffset
+      });
+    } else {
+      this.state.songOffset += 5;
+    }
   }
 
   render() {
@@ -39,7 +52,7 @@ class Stream extends React.Component {
           <ul className='loggedhome-songs'>
             <Infinite
               elementHeight={200}
-              infiniteLoadBeginEdgeOffset={800}
+              infiniteLoadBeginEdgeOffset={200}
               onInfiniteLoad={this.handleInfiniteLoad}
               useWindowAsScrollContainer>
               {songs}

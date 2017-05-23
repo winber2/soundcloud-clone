@@ -22,6 +22,12 @@ class HomePage extends React.Component {
     this.props.fetchSongs('display');
   }
 
+  componentWillReceiveProps() {
+    if (Object.keys(this.props.songs).length > 10) {
+      this.props.fetchSongs('display');
+    }
+  }
+
   openSignIn(e) {
     e.preventDefault();
 

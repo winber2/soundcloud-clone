@@ -1,4 +1,4 @@
-import { RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG } from "../actions/song_actions";
+import { RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, APPEND_SONGS } from "../actions/song_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {
@@ -20,6 +20,12 @@ const SongReducer = (state = {}, action) => {
 
     case REMOVE_SONG:
       delete newState[action.song.id];
+      return newState;
+
+    case APPEND_SONGS:
+      for (let key in action.songs) {
+        newState[key] = action.songs[key];
+      }
       return newState;
 
     default:

@@ -3,6 +3,7 @@ import * as APIUtil from '../util/song_api_util';
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const REMOVE_SONG = "REMOVE_SONG";
+export const APPEND_SONGS = "APPEND_SONGS";
 
 export const receiveSong = (song) => ({
   type: RECEIVE_SONG,
@@ -17,6 +18,11 @@ export const receiveSongs = (songs) => ({
 export const removeSong = song => ({
   type: REMOVE_SONG,
   song
+})
+
+export const appendSongs = songs => ({
+  type: APPEND_SONGS,
+  songs
 })
 
 export const deleteSong = id => dispatch => (
@@ -37,6 +43,11 @@ export const createSong = (song) => dispatch => (
 export const fetchSongs = (query) => dispatch => (
   APIUtil.fetchSongs(query)
     .then(songs => dispatch(receiveSongs(songs)))
+);
+
+export const fetchMoreSongs = (query) => dispatch => (
+  APIUtil.fetchSongs(query)
+    .then(songs => dispatch(appendSongs(songs)))
 );
 
 export const editSong = song => dispatch => (

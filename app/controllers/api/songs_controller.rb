@@ -12,12 +12,26 @@ class Api::SongsController < ApplicationController
       render :index
     elsif params[:query] != nil
       @songs = Song
-        .left_joins(:follows)
-        .group('songs.id, follow.id')
-        .order('COUNT (favorites.favoritable_id) DESC')
-        .limit(10)
+        .joins('LEFT JOIN users ON users.id = songs.author_id')
+        .joins('JOIN follows ON follows.artist_id = users.id')
+        .where('follows.follower_id = ?', params[:query][:user])
+        .limit(5)
+        .offset(params[:query][:offset])
         .select('songs.*')
-        .includes(:comments, :user)
+
+      if @songs.length < 5
+        @songs += Song
+          .joins('LEFT JOIN users ON users.id = songs.author_id')
+          .joins('FULL JOIN follows ON follows.artist_id = users.id')
+          .where('follows.follower_id != ? OR follows IS NULL', params[:query][:user])
+          .limit(5 - @songs.length)
+          .offset(params[:query][:offset])
+          .select('songs.*')
+      end
+
+      debugger
+
+      render :index
     else
       @songs = Song.all.includes(:user, :comments, :favorites)
       render :index
