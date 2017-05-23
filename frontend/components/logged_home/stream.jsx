@@ -3,6 +3,7 @@ import { values } from 'lodash';
 import { NavLink } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
+import Infinite from 'react-infinite';
 
 class Stream extends React.Component {
   constructor(props) {
@@ -11,6 +12,10 @@ class Stream extends React.Component {
 
   componentDidMount() {
     this.props.fetchSongs();
+  }
+
+  handleInfiniteLoad() {
+    debugger;
   }
 
   render() {
@@ -32,7 +37,13 @@ class Stream extends React.Component {
           <div className='nav-border' />
           <p>Hear the latest posts from the people you're following</p>
           <ul className='loggedhome-songs'>
-            {songs}
+            <Infinite
+              elementHeight={200}
+              infiniteLoadBeginEdgeOffset={800}
+              onInfiniteLoad={this.handleInfiniteLoad}
+              useWindowAsScrollContainer>
+              {songs}
+            </Infinite>
           </ul>
         </div>
         <SideBarContainer />

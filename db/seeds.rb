@@ -51,8 +51,8 @@ user7 = User.create(
 user8 = User.create(
   username: 'Dj Leanrock',
   password: 'password',
-  profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513485/izumi_wmzb2y.jpg',
-  header_image_url: 'http://res.cloudinary.com/winber1/image/upload/v1495517356/sagiri_zvbxwp.png'
+  profile_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513487/leanrock_py25hz.jpg',
+  header_image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513487/leanrockbg_ni7n4b.jpg'
   )
 
 user9 = User.create(
@@ -294,9 +294,19 @@ song23 = Song.create(
 
 song24 = Song.create(
   title: "Aiobahn - Electric Heart (ft. PRYVT RYN)",
-  author_id: user5.id,
+  author_id: user7.id,
   genre: 'Electric Heart',
   description: "God this is really beautiful. Stunning Vocals. Bringing me tears tbh.",
+  release_date: Date.new(2016,11,12),
+  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495520845/aiobahn_istpjq.jpg',
+  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495520766/Aiobahn_-_Electric_Heart_ft._PRYVT_RYN_Fated_Records_Extended_Mix_kwco8b.mp3',
+  )
+
+song25 = Song.create(
+  title: "Sandstorm",
+  author_id: user1.id,
+  genre: 'Sandstorm',
+  description: "Sandstorming onwards.",
   release_date: Date.new(2016,11,12),
   image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495520845/aiobahn_istpjq.jpg',
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495520766/Aiobahn_-_Electric_Heart_ft._PRYVT_RYN_Fated_Records_Extended_Mix_kwco8b.mp3',
