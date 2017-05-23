@@ -4,6 +4,10 @@
   display: hidden;
 }
 
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
 .ReactModal__Overlay {
   position: fixed;
   top: 0;
