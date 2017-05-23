@@ -13,12 +13,25 @@ class SideBar extends React.Component {
     this.props.fetchUsers();
   }
 
+  // randomSongs() {
+  //   let songs = values(this.props.songs);
+  //   let randomSongs = [];
+  //
+  //   if (songs.length === 0) return [];
+  //
+  //   for (var i = 0; i < 3; i++) {
+  //     randomSongs.push(songs[Math.floor(Math.random() * songs.length)]);
+  //   }
+  //
+  //   return randomSongs;
+  // }
+
   chartBox() {
     return (
       <div className='chart-box'>
         <div className='chart-picture' />
       </div>
-    )
+    );
   }
 
   userDescription() {
@@ -29,23 +42,23 @@ class SideBar extends React.Component {
       if (users[key].username === name) {
         user = users[key];
       }
-    };
+    }
     return (
       <div className='user-description'>
         <p>{user.description}</p>
       </div>
-    )
+    );
   }
 
   render() {
-    let users = []
-    let songs = values(this.props.songs).map( song => (
+    let users = [];
+    let songs = values(this.props.songs).slice(0,3).map( song => (
       <SidebarSongContainer song={song} key={song.id} />
     ));
     values(this.props.users).forEach( user => {
       if (user.id === this.props.currentUser.id) return;
       users.push(<SidebarUserContainer user={user} key={user.id}/>);
-    })
+    });
     return (
       <aside className='loggedhome-sidebar'>
         <Switch>
