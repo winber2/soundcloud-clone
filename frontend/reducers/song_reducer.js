@@ -24,7 +24,11 @@ const SongReducer = (state = {}, action) => {
 
     case APPEND_SONGS:
       for (let key in action.songs) {
-        newState[key] = action.songs[key];
+        if (key === 'order') {
+          newState[key] = newState[key].concat(action.songs[key]);
+        } else {
+          newState[key] = action.songs[key];
+        }
       }
       return newState;
 
