@@ -13,6 +13,8 @@ class ProgressBar extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.showUser = this.showUser.bind(this);
     this.showSong = this.showSong.bind(this);
+    this.nextSong = this.nextSong.bind(this);
+    this.prevSong = this.prevSong.bind(this);
   }
 
   convertTime(currentTime) {
@@ -105,6 +107,7 @@ class ProgressBar extends React.Component {
       if (width >= 100) {
         bar.style.width = '0%';
         clearInterval(progressBar.state.progress);
+        progressBar.nextSong();
       } else {
         width += widthChange;
         bar.style.width = width + '%';
@@ -136,6 +139,38 @@ class ProgressBar extends React.Component {
     window.location.hash = `/${song.user.usename}/songs/${song.id}`;
   }
 
+  prevSong() {
+    let order = this.props.songs.order;
+    let prevSongId = undefined;
+    for (let i = 0; i < order.length; i++) {
+      if (order[i] === this.props.audio.song.id) {
+        prevSongId = order[i - 1];
+      }
+    }
+    if (prevSongId === undefined) {
+      prevSongId = order[0];
+    }
+    let audio = this.props.audio;
+    audio.song = this.props.songs[prevSongId];
+    this.props.receiveAudio(audio);
+  }
+
+  nextSong() {
+    let order = this.props.songs.order;
+    let nextSongId = undefined;
+    for (let i = 0; i < order.length; i++) {
+      if (order[i] === this.props.audio.song.id) {
+        nextSongId = order[i + 1];
+      }
+    }
+    if (nextSongId === undefined) {
+      nextSongId = order[0];
+    }
+    let audio = this.props.audio;
+    audio.song = this.props.songs[nextSongId];
+    this.props.receiveAudio(audio);
+  }
+
   render() {
     let song = this.props.audio.song;
     let player = this.props.audio.player || {};
@@ -148,9 +183,9 @@ class ProgressBar extends React.Component {
           <audio ref='audioPlayer' className="player" src={song.track_url}/>
 
           <div className="controls">
-            <img className="previous" src="https://res.cloudinary.com/winber1/image/upload/v1495075514/back-button_aibqnf.png"></img>
+            <img onClick={this.prevSong} className="previous" src="https://res.cloudinary.com/winber1/image/upload/v1495075514/back-button_aibqnf.png"></img>
             <img onClick={this.togglePlay} className="play-pause" src={this.state.icon}></img>
-            <img className="next" src="https://res.cloudinary.com/winber1/image/upload/v1495075515/skip-button_fy0rmx.png"></img>
+            <img onClick={this.nextSong} className="next" src="https://res.cloudinary.com/winber1/image/upload/v1495075515/skip-button_fy0rmx.png"></img>
           </div>
 
           <div className="play-bar">

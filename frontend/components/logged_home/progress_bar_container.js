@@ -4,6 +4,7 @@ import ProgressBar from './progress_bar';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser,
+  songs: state.songs,
   audio: state.audio
 });
 

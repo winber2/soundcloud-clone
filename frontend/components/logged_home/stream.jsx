@@ -67,7 +67,7 @@ class Stream extends React.Component {
           <p>Hear the latest posts from the people you're following</p>
           <ul className='loggedhome-songs'>
             <Infinite
-              elementHeight={150}
+              elementHeight={200}
               infiniteLoadBeginEdgeOffset={100}
               onInfiniteLoad={this.handleInfiniteLoad}
               useWindowAsScrollContainer>
