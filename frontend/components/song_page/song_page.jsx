@@ -16,7 +16,10 @@ class SongPage extends React.Component {
   }
 
   componentWillReceiveProps() {
-    window.scrollTo(0, 0)
+    let song = this.props.song || {};
+    if (this.props.match.params.songId != song.id && song.id !== undefined) {
+      window.scrollTo(0, 0)
+    }
   }
 
   componentDidMount() {
@@ -53,7 +56,7 @@ class SongPage extends React.Component {
           </ul>
         </section>
         <section className='song-page-bottom'>
-          <SongPageBottomContainer song={song} />
+          <SongPageBottomContainer song={song} currentUser={this.currentUser} />
           <SideBarContainer />
         </section>
       </main>

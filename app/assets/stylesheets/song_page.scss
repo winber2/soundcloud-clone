@@ -115,23 +115,63 @@ li.single-comment {
     }
   }
 
-  p:hover {
+  p { font-size: 13px }
+
+  p:first-child:hover {
     color: gray;
     cursor: pointer;
   }
 
-  ul {
+  span { font-size: 14px }
+
+  ul.comment-body {
     margin-bottom: 5px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    max-width: 400px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+
+    li.comment-user {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input {
+      flex-grow: 1;
+      border: 1px solid lightgray;
+      padding: 1px;
+      border-radius: 3px;
+      font-size: 13px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  ul:last-child {
+    display: flex;
+    flex-direction: column;
   }
 
   button {
     visibility: hidden;
     align-self: center;
+    width: 55px;
     border: 1px solid lavender;
     border-radius: 3px;
-    padding: 3px 10px;
     font-size: 12px;
+
+    &:first-child {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      border: 1px solid $gray;
+    }
   }
 
 }

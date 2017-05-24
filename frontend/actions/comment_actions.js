@@ -19,6 +19,11 @@ export const removeComment = comment => ({
   comment
 })
 
+export const editComment = comment => dispatch => (
+  APIUtil.editComment(comment)
+    .then(editComment => dispatch(receiveComment(editComment)))
+);
+
 export const createComment = comment => dispatch => (
   APIUtil.createComment(comment)
     .then(newComment => dispatch(receiveComment(newComment)))

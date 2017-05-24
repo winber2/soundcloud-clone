@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
   fetchComments: (id) => dispatch(fetchComments(id))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SongPage);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SongPage));

@@ -221,16 +221,6 @@ song17 = Song.create!(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Camellia_-_Fastest_Crash_sywme5.mp3',
   )
 
-song18 = Song.create!(
-  title: "Fastest Crash",
-  author_id: user2.id,
-  genre: 'Hardcore',
-  description: "Speedy song. Hardcore style. Let's go.",
-  release_date: Date.new(2016,11,12),
-  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513486/danceonmars_kodzzw.jpg',
-  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513513/Camellia_-_Fastest_Crash_sywme5.mp3',
-  )
-
 song19 = Song.create!(
   title: "Dance on Mars",
   author_id: user2.id,

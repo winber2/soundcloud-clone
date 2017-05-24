@@ -5,7 +5,6 @@ import RepostIcon from '../icons/repost';
 class CommentCreation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
     this.handleKey = this.handleKey.bind(this);
   }
 

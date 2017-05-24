@@ -5,6 +5,16 @@ class Api::CommentsController < ApplicationController
     render :index
   end
 
+  def update
+    @comment = Comment.find_by(id: params[:id])
+
+    if @comment.update_attributes(comment_params)
+      render :show
+    else
+      render json: @comments.errors.full_messages, status: 422
+    end
+  end
+
   def create
     @comment = Comment.new(comment_params)
 

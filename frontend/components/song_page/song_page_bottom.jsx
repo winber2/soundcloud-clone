@@ -25,7 +25,9 @@ class SongPageBottom extends React.Component {
     let comments;
     if (this.props.comments !== {} ) {
       comments = values(this.props.comments).map( (comment) => (
-        <Comment comment={comment}
+        <Comment currentUser={this.props.currentUser}
+          editComment={this.props.editComment}
+          comment={comment}
           deleteComment={this.props.deleteComment}
           key={comment.id} />
       ));

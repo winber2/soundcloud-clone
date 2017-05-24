@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :follows, only: [:create, :destroy]
     resources :users, except: [:new, :edit]
     resources :songs, except: [:new, :edit] do
-      resources :comments, only: [:create, :destroy, :index]
+      resources :comments, only: [:create, :destroy, :index, :update]
     end
     resource :session, only: [:create, :destroy]
   end

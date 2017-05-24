@@ -19,10 +19,6 @@ class UserPage extends React.Component {
     this.uploadHeader = this.uploadHeader.bind(this);
   }
 
-  componentWillReceiveProps() {
-    window.scrollTo(0, 0)
-  }
-
   uploadProfile(files) {
     let profile = files[0];
     let upload = this;
@@ -64,6 +60,7 @@ class UserPage extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     let username = this.props.match.params.username;
     this.props.fetchUser(username);
   }
