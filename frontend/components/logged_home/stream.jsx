@@ -21,7 +21,7 @@ class Stream extends React.Component {
   }
 
   componentWillUnmount() {
-    this.state.songOffset = 0;
+    this.setState({ songOffset: 0, scroll: false, order: [] });
   }
 
   handleInfiniteLoad() {
@@ -39,9 +39,13 @@ class Stream extends React.Component {
   render() {
     let songs = [];
     if (this.props.songs.order !== undefined) {
-      this.props.songs.order.forEach( id => { this.state.order.push(id) } )
+      this.props.songs.order.forEach( id => {
+        if (!this.state.order.includes(id)) this.state.order.push(id);
+      });
       this.state.order.forEach( id => {
-        songs.push(this.props.songs[id]);
+        if (this.props.songs[id] !== undefined) {
+          songs.push(this.props.songs[id]);
+        }
       });
     }
     songs = songs.map( (song,idx) => (
@@ -63,8 +67,8 @@ class Stream extends React.Component {
           <p>Hear the latest posts from the people you're following</p>
           <ul className='loggedhome-songs'>
             <Infinite
-              elementHeight={200}
-              infiniteLoadBeginEdgeOffset={50}
+              elementHeight={150}
+              infiniteLoadBeginEdgeOffset={100}
               onInfiniteLoad={this.handleInfiniteLoad}
               useWindowAsScrollContainer>
               {songs}
