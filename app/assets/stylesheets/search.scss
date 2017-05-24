@@ -1,0 +1,18 @@
+@import 'colors';
+
+div.search-page {
+  width: 1100px;
+  min-height: 600px;
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+
+  h1 {
+    line-height: 1;
+    font-weight: 300;
+    font-size: 30px;
+    font-family: Hind;
+    border-bottom: 1px solid lavender;
+  }
+}

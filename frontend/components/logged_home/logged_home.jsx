@@ -28,7 +28,7 @@ class LoggedHome extends React.Component {
         <Switch>
           <Route exact path="/stream" render={(props) => <StreamContainer {...props} /> } />
           <Route exact path="/upload" render={(props) => <Upload {...props} /> } />
-          <Route path="/search?query=:query" render={(props) => <SearchContainer {...props} /> } />
+          <Route path="/search" render={(props) => <SearchContainer {...props} /> } />
           <Route path="/:username/songs/:songId/edit" render={(props) => <SongEditFormContainer {...props} /> } />
           <Route path="/:username/songs/:songId" render={(props) => <SongPageContainer receiveAudio={this.props.receiveAudio} songs={this.props.songs} {...props} /> } />
           <Route path="/:username/edit" render={(props) => <UserEditFormContainer {...props} /> } />

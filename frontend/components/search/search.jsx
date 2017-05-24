@@ -6,11 +6,10 @@ class Search extends React.Component {
   }
 
   render() {
-    debugger;
     return (
-      <div className='search container'>
+      <div className='search-page'>
         <h1>Search results for {this.props.match.params.query}</h1>
-
+        <ul className='search-results'></ul>
       </div>
     );
   }
