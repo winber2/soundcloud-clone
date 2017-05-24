@@ -1,7 +1,13 @@
 class Api::UsersController < ApplicationController
 
   def index
-    if params[:query] != nil
+    if params[:search] != nil
+      @users = User
+        .select('*')
+        .where("users.username LIKE ?", "%#{params[:search]}%")
+
+      render :index
+    elsif params[:query] != nil
       @users = User.includes(:songs)
         .select('*')
         .order('RANDOM()')

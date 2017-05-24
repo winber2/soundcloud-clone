@@ -29,7 +29,7 @@ class Navigation extends React.Component {
 
   toSearch(e) {
     if (e.key === 'Enter' && e.target.value !== '') {
-      window.location.hash = `/search?query=${e.target.value}`
+      window.location.hash = `/search?q=${e.target.value}`
     }
   }
 

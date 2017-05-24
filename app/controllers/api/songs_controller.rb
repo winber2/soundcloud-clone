@@ -1,7 +1,20 @@
 class Api::SongsController < ApplicationController
 
+
+Song.joins(:user).where("UPPER(title) LIKE UPPER('%speciali%') OR UPPER(users.username) LIKE UPPER('%cam%')").as_json
   def index
-    if params[:query] == 'display'
+    if params[:search] != nil
+      @songs = Song
+        .select('*')
+        .joins(:user)
+        .where(
+          "UPPER(title) LIKE UPPER(?) OR UPPER(users.username) LIKE UPPER(?)",
+          "%#{params[:search]}%",
+          "%#{params[:search]}%"
+        )
+
+      render :index
+    elsif params[:query] == 'display'
       @songs = Song
         .left_joins(:favorites)
         .group('songs.id, favorites.id')

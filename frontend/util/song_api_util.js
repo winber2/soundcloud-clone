@@ -2,7 +2,10 @@ export const fetchSongs = (query) => (
   $.ajax({
     method: 'GET',
     url: 'api/songs',
-    data: {query}
+    data: {
+      query: query
+      search: query
+    }
   })
 );
 

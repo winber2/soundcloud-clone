@@ -1,21 +1,21 @@
-import { RANDOM_SONGS, RANDOM_USERS } from "../actions/random_actions";
+import { RECEIVE_USER_DATA, RECEIVE_SONG_DATA } from "../actions/random_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {
-  users: [],
-  songs: []
+  users: {},
+  songs: {}
 };
 
 const RandomReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
-    case RANDOM_SONGS:
-      newState.songs = action.songs;
+    case RECEIVE_USER_DATA:
+      newState.users = actions.users;
       return newState;
 
-    case RANDOM_USERS:
-      newState.users = action.users;
+    case RECEIVE_SONG_DATA:
+      newState.songs = action.songs;
       return newState;
 
     default:
