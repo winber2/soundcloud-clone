@@ -3,7 +3,7 @@ import { values, merge} from 'lodash';
 import { NavLink } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
-import Infinite from 'react-infinite';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class Stream extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Stream extends React.Component {
     this.props.fetchSongs({
       user: this.props.currentUser.id,
       offset: this.state.songOffset
-    });
+    }).then(() => this.setState({ scroll: true }));
   }
 
   componentWillUnmount() {
@@ -25,14 +25,14 @@ class Stream extends React.Component {
   }
 
   handleInfiniteLoad() {
-    if (this.state.scroll === true) {
+    if (this.state.songOffset > 100) {
+      this.setState({ scroll: false })
+    } else if (this.state.scroll === true) {
       this.state.songOffset += 5;
       this.props.fetchMoreSongs({
         user: this.props.currentUser.id,
         offset: this.state.songOffset
       });
-    } else {
-      this.state.scroll = true;
     }
   }
 
@@ -66,13 +66,15 @@ class Stream extends React.Component {
           <div className='nav-border' />
           <p>Hear the latest posts from the people you're following</p>
           <ul className='loggedhome-songs'>
-            <Infinite
-              elementHeight={200}
-              infiniteLoadBeginEdgeOffset={100}
-              onInfiniteLoad={this.handleInfiniteLoad}
-              useWindowAsScrollContainer>
+            <InfiniteScroll
+              pageStart={0}
+              threshold={50}
+              hasMore={this.state.scroll}
+              loadMore={this.handleInfiniteLoad}
+              loader={<div className="infinite-load">Loading ...</div>}
+              useWindow={true}>
               {songs}
-            </Infinite>
+            </InfiniteScroll>
           </ul>
         </div>
         <SideBarContainer />

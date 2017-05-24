@@ -136,6 +136,7 @@ li.song-detail {
       ul.active {
         display: flex;
         flex-direction: column;
+        width: 100px;
         background: white;
         border-radius: 3px;
         border: 1px solid lavender;
