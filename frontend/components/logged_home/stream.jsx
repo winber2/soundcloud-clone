@@ -15,8 +15,10 @@ class Stream extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchSongs({
-      user: this.props.currentUser.id,
-      offset: this.state.songOffset
+      query: {
+        user: this.props.currentUser.id,
+        offset: this.state.songOffset
+      }
     }).then(() => this.setState({ scroll: true }));
   }
 

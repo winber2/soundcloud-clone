@@ -19,12 +19,12 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSongs('display');
+    this.props.fetchSongs({ query: 'display' });
   }
 
   componentWillReceiveProps() {
     if (Object.keys(this.props.songs).length > 10) {
-      this.props.fetchSongs('display');
+      this.props.fetchSongs({ query: 'display' });
     }
   }
 

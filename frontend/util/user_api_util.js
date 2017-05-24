@@ -5,16 +5,17 @@ export const fetchUser = user => (
   })
 );
 
-export const fetchUsers = query => (
-  $.ajax({
+export const fetchUsers = query => {
+  if (query === undefined) query = {};
+  return $.ajax({
     method: 'GET',
     url: `api/users`,
     data: {
-      query: query,
-      search: query
+      query: query.query,
+      search: query.search
     }
   })
-)
+};
 
 export const updateUser = user => (
   $.ajax({

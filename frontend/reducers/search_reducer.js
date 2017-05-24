@@ -1,4 +1,4 @@
-import { RECEIVE_USER_DATA, RECEIVE_SONG_DATA } from "../actions/random_actions";
+import { RECEIVE_USER_DATA, RECEIVE_SONG_DATA } from "../actions/search_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {
@@ -6,7 +6,7 @@ const _defaultState = {
   songs: {}
 };
 
-const RandomReducer = (state = _defaultState, action) => {
+const SearchReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
@@ -23,4 +23,4 @@ const RandomReducer = (state = _defaultState, action) => {
   }
 };
 
-export default RandomReducer;
+export default SearchReducer;

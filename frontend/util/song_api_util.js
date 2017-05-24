@@ -1,13 +1,14 @@
-export const fetchSongs = (query) => (
-  $.ajax({
+export const fetchSongs = (query) => {
+  if (query === undefined) query = {};
+  return $.ajax({
     method: 'GET',
     url: 'api/songs',
     data: {
-      query: query
-      search: query
+      query: query.query,
+      search: query.search
     }
   })
-);
+};
 
 export const fetchSingleSong = (id) => (
   $.ajax({

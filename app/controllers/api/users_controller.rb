@@ -6,6 +6,7 @@ class Api::UsersController < ApplicationController
         .select('*')
         .where("users.username LIKE ?", "%#{params[:search]}%")
 
+
       render :index
     elsif params[:query] != nil
       @users = User.includes(:songs)

@@ -3,7 +3,7 @@ import SongReducer from './song_reducer';
 import AudioReducer from './audio_reducer';
 import CommentReducer from './comment_reducer';
 import UserReducer from './user_reducer';
-import RandomReducer from './random_reducer';
+import SearchReducer from './search_reducer';
 import {combineReducers} from 'redux';
 
 
@@ -12,7 +12,8 @@ const rootReducer = combineReducers({
   songs: SongReducer,
   audio: AudioReducer,
   comments: CommentReducer,
-  users: UserReducer
+  users: UserReducer,
+  search: SearchReducer
 });
 
 export default rootReducer;
