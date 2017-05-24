@@ -84,7 +84,7 @@ class ProgressBar extends React.Component {
   componentWillUnmount() {
     clearInterval(this.state.progress);
     this.props.audio.song.track_url = '';
-    this.setState({ activePlayer: '' });
+    this.state.activePlayer = '';
     this.props.receiveAudio({
       song: { track_url: undefined, id: undefined, user: {} },
       player: null,

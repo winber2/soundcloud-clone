@@ -27,6 +27,12 @@ class Navigation extends React.Component {
     window.location.hash = `/${this.props.currentUser.username}`;
   }
 
+  toSearch(e) {
+    if (e.key === 'Enter' && e.target.value !== '') {
+      window.location.hash = `/search?query=${e.target.value}`
+    }
+  }
+
   toggleSettings() {
     if (this.state.isActive === '') {
       this.setState({ isActive: 'active' });
@@ -37,14 +43,8 @@ class Navigation extends React.Component {
 
   closeSettings() {
     setTimeout(() => {
-      if (this.state.isActive === 'active') {
-        this.setState({ isActive: '' });
-      }
+      this.setState({ isActive: '' });
     }, 80);
-  }
-
-  beginClose() {
-    this.toggleSettings
   }
 
   render() {
@@ -55,13 +55,10 @@ class Navigation extends React.Component {
           <li><NavLink to='/stream'>Home</NavLink></li>
         </ul>
         <ul className='searchbar'>
-          <input className='home-search'></input>
+          <input onKeyPress={this.toSearch} className='home-search'></input>
         </ul>
         <ul>
           <li><Link to='/upload'>Upload</Link></li>
-          <li>
-            <Link to='/stream'>Settings</Link>
-          </li>
           <li className={`nav-user`}>
             <p tabIndex='0' onBlur={this.closeSettings}
               onClick={this.toggleSettings}
