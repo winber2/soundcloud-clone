@@ -55,11 +55,20 @@ class HomePage extends React.Component {
         signup={this.props.signup}
         login = {this.props.login}/>;
     }
-    let songs = values(this.props.songs).map( song => (
-        <SongShow home={true}
-          openSignIn={this.openSignIn}
-          song={song}
-          key={song.id} />
+
+    let songs = [];
+    if (this.props.songs.order !== undefined) {
+      this.props.songs.order.forEach( id => {
+        if (this.props.songs[id] !== undefined) {
+          songs.push(this.props.songs[id]);
+        }
+      });
+    }
+    songs = songs.map( (song,idx) => (
+      <SongShow home={true}
+        openSignIn={this.openSignIn}
+        song={song}
+        key={song.id} />
     ));
 
     return (
