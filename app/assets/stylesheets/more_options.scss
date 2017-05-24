@@ -1,5 +1,58 @@
 li.more-options {
   padding: 2px 5px 2px 3px;
+  height: 17px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid lavender;
+  border-radius: 5px;
+  margin: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  span.song-options {
+    font-size: 13px ;
+    color: black;
+    padding-bottom: 1px;
+  }
+
+  ul.song-options-dropdown {
+    display: none;
+    position: absolute;
+    padding: 0;
+  }
+
+  ul.active {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid lavender;
+    top: 25px;
+    left: 10px;
+
+    a.song-options-item {
+      padding: 5px 10px;
+      border-radius: 0px 0 0 0;
+      font-size: 12px;
+      text-decoration: none;
+
+      &:hover {
+        border: none;
+        border-radius: 0px;
+        background: lavender;
+      }
+
+      li:hover{
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
 
   div.ellipses-icon {
     height: 100%;
@@ -9,6 +62,12 @@ li.more-options {
     background-size: cover;
     background-repeat: no-repeat;
     margin-right: 3px;
+  }
+
+  span.song-options {
+    font-size: 13px ;
+    color: black;
+    padding-bottom: 1px;
   }
 
   &:focus {

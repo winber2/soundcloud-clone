@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FavoriteIconContainer from '../icons/favorite_container';
-import RepostIcon from '../icons/repost';
-import MoreOptionsContainer from '../icons/more_options_container';
 
-class SongDetail extends React.Component {
+class MoreOptions extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isActive: '' };
@@ -58,21 +55,13 @@ class SongDetail extends React.Component {
       );
     }
     return (
-      <li className="song-detail">
-        <ul>
-          <FavoriteIconContainer favoritable={song}/>
-          <RepostIcon />
-          <MoreOptionsContainer song={this.props.song} />
-        </ul>
-        <ul>
-            <li>
-              <div className='comment-icon'/>
-              <span>{this.props.comments}</span>
-            </li>
-        </ul>
+      <li tabIndex='0' onBlur={this.closeOptions} className='more-options' onClick={this.toggleOptions} >
+        <div className='ellipses-icon'/>
+        <span className='song-options'>More</span>
+        {options}
       </li>
     );
   }
 }
 
-export default SongDetail;
+export default MoreOptions;
