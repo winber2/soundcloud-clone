@@ -12,7 +12,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   fetchSongs: query => dispatch(fetchSongs(query)),
   fetchUsers: query => dispatch(fetchSongs(query))
-
 });
 
 export default connect(

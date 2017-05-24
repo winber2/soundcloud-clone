@@ -3,16 +3,16 @@ import React from 'react';
 class SongPlayButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico' };
+    this.state = { icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico' };
     this.playAudio = this.playAudio.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     let songId = this.props.audio.song.id;
     if (this.props.audio.isPlaying && songId === this.props.song.id) {
-      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png'});
+      this.setState({ icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png'});
     } else {
-      this.setState({ icon: 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico'});
+      this.setState({ icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico'});
     }
   }
 
@@ -41,9 +41,9 @@ class SongPlayButton extends React.Component {
     let audio = this.props.audio;
     let icon;
     if (audio.isPlaying && audio.song.id === this.props.song.id) {
-      icon = 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png';
+      icon = 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png';
     } else {
-      icon = 'http://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico';
+      icon = 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico';
     }
     return(
       <div className='song-play-icon'>
