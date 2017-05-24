@@ -1,7 +1,4 @@
 class Api::SongsController < ApplicationController
-
-
-Song.joins(:user).where("UPPER(title) LIKE UPPER('%speciali%') OR UPPER(users.username) LIKE UPPER('%cam%')").as_json
   def index
     if params[:search] != nil
       @songs = Song

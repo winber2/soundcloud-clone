@@ -16,6 +16,8 @@ const SearchReducer = (state = _defaultState, action) => {
 
     case RECEIVE_SONG_DATA:
       newState.songs = action.songs;
+      delete newState.songs['random'];
+      delete newState.songs['order'];
       return newState;
 
     default:

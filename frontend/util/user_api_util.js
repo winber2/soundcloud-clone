@@ -7,6 +7,7 @@ export const fetchUser = user => (
 
 export const fetchUsers = query => {
   if (query === undefined) query = {};
+  debugger;
   return $.ajax({
     method: 'GET',
     url: `api/users`,

@@ -1,11 +1,11 @@
 class Api::UsersController < ApplicationController
 
   def index
+    debuggKer
     if params[:search] != nil
       @users = User
         .select('*')
         .where("users.username LIKE ?", "%#{params[:search]}%")
-
 
       render :index
     elsif params[:query] != nil
