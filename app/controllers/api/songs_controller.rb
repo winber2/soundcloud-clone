@@ -11,25 +11,36 @@ class Api::SongsController < ApplicationController
 
       render :index
     elsif params[:query] != nil
+      # @songs = Song
+      #   .joins('LEFT JOIN users ON users.id = songs.author_id')
+      #   .joins('JOIN follows ON follows.artist_id = users.id')
+      #   .where('follows.follower_id = ?', params[:query][:user])
+      #   .limit(5) +
+      #
+      #
+      #   .offset(params[:query][:offset])
+      #   .select('songs.*')
+      #
+      # if @songs.length < 5
+      #   debugger
+      #   @songs += Song
+      #     .joins('LEFT JOIN users ON users.id = songs.author_id')
+      #     .joins('FULL JOIN follows ON follows.artist_id = users.id')
+      #     .where('follows.follower_id != ? OR follows IS NULL', params[:query][:user])
+      #     .limit(5 - @songs.length)
+      #     .offset(params[:query][:offset])
+      #     .select('songs.*')
+      # end
+
+      id = params[:query][:user]
+
       @songs = Song
-        .joins('LEFT JOIN users ON users.id = songs.author_id')
-        .joins('JOIN follows ON follows.artist_id = users.id')
-        .where('follows.follower_id = ?', params[:query][:user])
-        .limit(5)
-        .offset(params[:query][:offset])
-        .select('songs.*')
-
-      if @songs.length < 5
-        @songs += Song
-          .joins('LEFT JOIN users ON users.id = songs.author_id')
-          .joins('FULL JOIN follows ON follows.artist_id = users.id')
-          .where('follows.follower_id != ? OR follows IS NULL', params[:query][:user])
-          .limit(5 - @songs.length)
-          .offset(params[:query][:offset])
-          .select('songs.*')
-      end
-
-      debugger
+      .joins('LEFT JOIN users ON users.id = songs.author_id')
+      .joins('FULL JOIN follows ON follows.artist_id = users.id')
+      .where('follows.follower_id = ? OR follows.follower_id != ? OR follows.follower_id IS NULL', id, id)
+      .offset(params[:query][:offset])
+      .limit(5)
+      .select('songs.*')
 
       render :index
     else

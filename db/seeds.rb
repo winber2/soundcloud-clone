@@ -72,26 +72,6 @@ song1 = Song.create!(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495061844/15._Weight_of_the_World_English_Version_jbsja7.mp3',
   )
 
-song2 = Song.create!(
-  title: '崩壊ノ虚妄',
-  author_id: user6.id,
-  genre: 'OST',
-  description: 'To be honest, I don\'t know what the title even says, but this song it still really cool :). Oh, by the way, did I mention how amazing this game is? You haven\'t lived if you have\'t played it, just so you know. PLAY IT NOW!!',
-  release_date: Date.new(2017,3,17),
-  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
-  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062148/03._崩壊ノ虚妄_cufozg.mp3',
-  )
-
-song3 = Song.create!(
-  title: '美シキ歌',
-  author_id: user6.id,
-  genre: 'OST',
-  description: 'GOOSBUMPS ALL DAY. SIMONE BOSS BATTLE MUSIC. ONE OF THE BEST SPINECHILLING OST\'s OUT THERE. YOU GOTTA PLAY THIS GAME NOW. LITERALLY LIFE CHANGING FOR EVERYONE. PLAY NIER NOW!!',
-  release_date: Date.new(2017,3,17),
-  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
-  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062300/08._美シキ歌_w77ouv.mp3',
-  )
-
 song4 = Song.create!(
   title: '遺サレタ場所斜光',
   author_id: user6.id,
@@ -100,16 +80,6 @@ song4 = Song.create!(
   release_date: Date.new(2017,3,17),
   image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062337/02._遺サレタ場所_斜光_luvxlt.mp3',
-  )
-
-song5 = Song.create!(
-  title: 'オバアチャン',
-  author_id: user6.id,
-  genre: 'OST',
-  description: 'Godly performance. Godly game.',
-  release_date: Date.new(2017,3,17),
-  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
-  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062322/10._オバアチャン_破壊_tnfsk6.mp3',
   )
 
 song6 = Song.create!(
@@ -162,6 +132,16 @@ song10 = Song.create!(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513506/noisia_-_collider_outer_edges_v0rxlm.mp3',
   )
 
+song3 = Song.create!(
+title: '美シキ歌',
+author_id: user6.id,
+genre: 'OST',
+description: 'GOOSBUMPS ALL DAY. SIMONE BOSS BATTLE MUSIC. ONE OF THE BEST SPINECHILLING OST\'s OUT THERE. YOU GOTTA PLAY THIS GAME NOW. LITERALLY LIFE CHANGING FOR EVERYONE. PLAY NIER NOW!!',
+release_date: Date.new(2017,3,17),
+image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
+track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062300/08._美シキ歌_w77ouv.mp3',
+)
+
 song11 = Song.create!(
   title: 'Specialist',
   author_id: user3.id,
@@ -212,6 +192,15 @@ song15 = Song.create!(
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513511/MY_FIRST_STORY_-_CHiLD-error-_Official_Video_yidqrb.mp3',
   )
 
+  song2 = Song.create!(
+  title: '崩壊ノ虚妄',
+  author_id: user6.id,
+  genre: 'OST',
+  description: 'To be honest, I don\'t know what the title even says, but this song it still really cool :). Oh, by the way, did I mention how amazing this game is? You haven\'t lived if you have\'t played it, just so you know. PLAY IT NOW!!',
+  release_date: Date.new(2017,3,17),
+  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
+  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062148/03._崩壊ノ虚妄_cufozg.mp3',
+  )
 song16 = Song.create!(
   title: "!!FEVERTIME!!",
   author_id: user2.id,
@@ -290,6 +279,16 @@ song23 = Song.create!(
   release_date: Date.new(2016,11,12),
   image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495513487/mymfirststory_qepvpf.jpg',
   track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495513521/ONE_OK_ROCK_-_The_Beginning_ihy7xf.mp3',
+  )
+
+  song5 = Song.create!(
+  title: 'オバアチャン',
+  author_id: user6.id,
+  genre: 'OST',
+  description: 'Godly performance. Godly game.',
+  release_date: Date.new(2017,3,17),
+  image_url: 'https://res.cloudinary.com/winber1/image/upload/v1495061726/nier_n4nkb5.png',
+  track_url: 'https://res.cloudinary.com/winber1/video/upload/v1495062322/10._オバアチャン_破壊_tnfsk6.mp3',
   )
 
 song24 = Song.create!(

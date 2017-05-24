@@ -1,4 +1,6 @@
+song_order = []
 @songs.each do |song|
+  song_order << song.id
   json.set! song.id do
     json.id song.id
     json.type song.type
@@ -21,3 +23,4 @@
     end
   end
 end
+json.order song_order

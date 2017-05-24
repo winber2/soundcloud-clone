@@ -1,5 +1,5 @@
 import React from 'react';
-import { values } from 'lodash';
+import { values, merge} from 'lodash';
 import { NavLink } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
@@ -8,31 +8,43 @@ import Infinite from 'react-infinite';
 class Stream extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { songOffset: 0 };
+    this.state = { songOffset: 0, scroll: false, order: [] };
     this.handleInfiniteLoad = this.handleInfiniteLoad.bind(this);
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     this.props.fetchSongs({
       user: this.props.currentUser.id,
       offset: this.state.songOffset
     });
   }
 
+  componentWillUnmount() {
+    this.state.songOffset = 0;
+  }
+
   handleInfiniteLoad() {
-    if (this.state.songOffset !== 0) {
+    if (this.state.scroll === true) {
       this.state.songOffset += 5;
       this.props.fetchMoreSongs({
         user: this.props.currentUser.id,
         offset: this.state.songOffset
       });
     } else {
-      this.state.songOffset += 5;
+      this.state.scroll = true;
     }
   }
 
   render() {
-    let songs = values(this.props.songs).map( (song,idx) => (
+    let songs = [];
+    if (this.props.songs.order !== undefined) {
+      this.props.songs.order.forEach( id => { this.state.order.push(id) } )
+      this.state.order.forEach( id => {
+        songs.push(this.props.songs[id]);
+      });
+    }
+    songs = songs.map( (song,idx) => (
       <SongContainer key={idx} song={song} />
     ));
     return (
@@ -52,7 +64,7 @@ class Stream extends React.Component {
           <ul className='loggedhome-songs'>
             <Infinite
               elementHeight={200}
-              infiniteLoadBeginEdgeOffset={200}
+              infiniteLoadBeginEdgeOffset={50}
               onInfiniteLoad={this.handleInfiniteLoad}
               useWindowAsScrollContainer>
               {songs}
