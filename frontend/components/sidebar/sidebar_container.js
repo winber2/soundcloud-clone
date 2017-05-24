@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchUsers } from '../../actions/user_actions';
-import { fetchSOngs } from '../../actions/song_actions';
+import { fetchRandomUsers } from '../../actions/user_actions';
+import { fetchRandomSongs } from '../../actions/song_actions';
 import SideBar from './sidebar';
 
 const mapStateToProps = (state) => ({
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchSongs: () => dispatch(fetchSongs()),
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchRandomSongs: (query) => dispatch(fetchRandomSongs(query)),
+  fetchRandomUsers: (query) => dispatch(fetchRandomUsers(query))
 });
 
 export default withRouter(

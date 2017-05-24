@@ -15,9 +15,9 @@ class SongPage extends React.Component {
     window.location.hash = `/${this.props.song.user.username}`;
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     let song = this.props.song || {};
-    if (this.props.match.params.songId != song.id && song.id !== undefined) {
+    if (nextProps.match.params.songId != song.id) {
       window.scrollTo(0, 0)
     }
   }

@@ -59,6 +59,13 @@ class UserPage extends React.Component {
       });
   }
 
+  componentWillReceiveProps(nextProps) {
+    let user = this.props.user || {};
+    if (nextProps.match.params.username != user.username) {
+      window.scrollTo(0, 0)
+    }
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0)
     let username = this.props.match.params.username;

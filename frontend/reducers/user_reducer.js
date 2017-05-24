@@ -1,4 +1,4 @@
-import { RECEIVE_USER, RECEIVE_USERS } from '../actions/user_actions';
+import { RECEIVE_USER, RECEIVE_USERS, RANDOM_USERS } from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 
@@ -15,6 +15,12 @@ const UserReducer = (state = {}, action) => {
         newState[key] = action.users[key];
       }
       return newState;
+    // 
+    // case RANDOM_USERS:
+    //   for (let key in action.users) {
+    //     newState[key] = action.users[key];
+    //   }
+    //   return newState;
 
     default:
       return state;

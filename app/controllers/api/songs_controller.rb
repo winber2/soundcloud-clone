@@ -1,4 +1,5 @@
 class Api::SongsController < ApplicationController
+
   def index
     if params[:query] == 'display'
       @songs = Song
@@ -10,28 +11,15 @@ class Api::SongsController < ApplicationController
         .includes(:comments, :user)
 
       render :index
-    elsif params[:query] != nil
-      # @songs = Song
-      #   .joins('LEFT JOIN users ON users.id = songs.author_id')
-      #   .joins('JOIN follows ON follows.artist_id = users.id')
-      #   .where('follows.follower_id = ?', params[:query][:user])
-      #   .limit(5) +
-      #
-      #
-      #   .offset(params[:query][:offset])
-      #   .select('songs.*')
-      #
-      # if @songs.length < 5
-      #   debugger
-      #   @songs += Song
-      #     .joins('LEFT JOIN users ON users.id = songs.author_id')
-      #     .joins('FULL JOIN follows ON follows.artist_id = users.id')
-      #     .where('follows.follower_id != ? OR follows IS NULL', params[:query][:user])
-      #     .limit(5 - @songs.length)
-      #     .offset(params[:query][:offset])
-      #     .select('songs.*')
-      # end
+    elsif params[:query] =~ /\d/
+      @songs = Song
+        .select('*')
+        .order('RANDOM()')
+        .limit(3)
+        .offset(params[:query].to_i)
 
+      render :index
+    elsif params[:query] != nil
       id = params[:query][:user]
 
       @songs = Song

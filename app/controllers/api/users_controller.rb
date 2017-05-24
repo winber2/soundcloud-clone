@@ -1,8 +1,18 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.all.limit(3)
-    render :index
+    if params[:query] != nil
+      @users = User.includes(:songs)
+        .select('*')
+        .order('RANDOM()')
+        .limit(3)
+        .offset(params[:query].to_i)
+
+      render :index
+    else
+      @users = User.includes(:songs).all.limit(20)
+      render :index
+    end
   end
 
   def create
