@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/song_actions';
+import { deleteSong } from '../../actions/song_actions';
 import MoreOptions from './more_options';
 
 const mapStateToProps = (state) => ({

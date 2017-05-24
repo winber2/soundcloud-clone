@@ -5,6 +5,7 @@ import SongPlayButtonContainer from '../song/song_play_button_container';
 import CommentCreationContainer from '../comments/comment_creation_container';
 import SideBarContainer from '../sidebar/sidebar_container';
 import { Link } from 'react-router-dom';
+import FollowContainer from '../icons/follow_container';
 
 class SongPageBottom extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class SongPageBottom extends React.Component {
     let song = this.props.song;
     song.user.followers = song.user.followers || [];
     let comments;
+    let follow = '';
     if (this.props.comments !== {} ) {
       comments = values(this.props.comments).map( (comment) => (
         <Comment currentUser={this.props.currentUser}
@@ -32,15 +34,20 @@ class SongPageBottom extends React.Component {
           key={comment.id} />
       ));
     }
+    if (this.props.currentUser !== this.props.song.author_id) {
+      follow = <FollowContainer user={this.props.user} key={this.props.user.id}/>
+    }
     return (
       <ul className='song-page-bottom-main'>
-        <CommentCreationContainer song={this.props.song} />
+        <CommentCreationContainer song={song} />
         <ul className='song-page-bottom-info'>
           <ul className='artist-info'>
-            <li><img src={song.user.profile_image_url} /></li>
+            <li><Link to={`/${song.user.username}`}>
+              <img src={song.user.profile_image_url} />
+            </Link></li>
             <li><Link to={`/${song.user.username}`}>{song.user.username}</Link></li>
             <li><p>{song.user.followers.length}</p></li>
-            <button>Follow</button>
+            {follow}
           </ul>
           <ul className='comments'>
             <li className='song-description'>

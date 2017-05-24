@@ -39,7 +39,7 @@ class MoreOptions extends React.Component {
         </a>
       </ul>
     );
-    if (this.props.currentUser.id === song.user.id) {
+    if (this.props.currentUser.id === song.user.author_id) {
       options = (
         <ul className={`song-options-dropdown ${this.state.isActive}`} >
           <a className='song-options-item'>

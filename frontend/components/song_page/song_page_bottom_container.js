@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchComments, deleteComment, editComment } from '../../actions/comment_actions';
 import { fetchSingleSong } from '../../actions/song_actions';
+import { selectUser } from '../../reducers/selectors';
 import SongPageBottom from './song_page_bottom';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
+  user: selectUser(state, ownProps),
   comments: state.comments
 });
 
