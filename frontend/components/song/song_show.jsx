@@ -29,7 +29,7 @@ class SongShow extends React.Component {
 
   render() {
     return (
-      <li className='song-show'>
+      <li className='song-show search-show'>
         <img onClick={this.showSong} src={this.props.song.image_url} />
         <span onClick={this.showSong}>{this.props.song.title}</span>
         <p onClick={this.showUser}>{this.props.song.user.username}</p>

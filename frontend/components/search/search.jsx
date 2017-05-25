@@ -16,7 +16,7 @@ class Search extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.search !== this.props.location.search) {
-      let query = this.props.location.search.slice(3);
+      let query = nextProps.location.search.slice(3);
       this.props.fetchUsers({ search: query });
       this.props.fetchSongs({ search: query });
     }
@@ -29,7 +29,6 @@ class Search extends React.Component {
     let songs = values(this.props.search.songs).map( song => (
       <SongShow song={song} key={song.id} />
     ))
-    debugger;
     return (
       <div className='search-page'>
         <h1>Search results for {`"${this.props.location.search.slice(3)}"`}</h1>

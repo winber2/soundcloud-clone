@@ -2,10 +2,10 @@ class Api::SongsController < ApplicationController
   def index
     if params[:search] != nil
       @songs = Song
-        .select('*')
+        .select('songs.*')
         .joins(:user)
         .where(
-          "UPPER(title) LIKE UPPER(?) OR UPPER(users.username) LIKE UPPER(?)",
+          "UPPER(songs.title) LIKE UPPER(?) OR UPPER(users.username) LIKE UPPER(?)",
           "%#{params[:search]}%",
           "%#{params[:search]}%"
         )

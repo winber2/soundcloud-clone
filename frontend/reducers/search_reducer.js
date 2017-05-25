@@ -11,7 +11,7 @@ const SearchReducer = (state = _defaultState, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_USER_DATA:
-      newState.users = actions.users;
+      newState.users = action.users;
       return newState;
 
     case RECEIVE_SONG_DATA:

@@ -18,8 +18,8 @@ class UserShow extends React.Component {
 
   render() {
     return (
-      <li className='song-show'>
-        <img onClick={this.showSong} src={this.props.user.profile_image_url} />
+      <li className='search-show'>
+        <img onClick={this.showUser} src={this.props.user.profile_image_url} />
         <span onClick={this.showUser}>{this.props.user.username}</span>
       </li>
     );
