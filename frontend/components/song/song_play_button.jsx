@@ -37,8 +37,8 @@ class SongPlayButton extends React.Component {
   }
 
   render() {
-    let song = this.props.song;
-    let audio = this.props.audio;
+    let song = this.props.song || {};
+    let audio = this.props.audio || { song: {} };
     let icon;
     if (audio.isPlaying && audio.song.id === this.props.song.id) {
       icon = 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png';
