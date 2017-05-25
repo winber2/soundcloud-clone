@@ -30,13 +30,19 @@ class Search extends React.Component {
     let songs = values(this.props.search.songs).map( song => (
       <SongShow song={song} key={song.id} />
     ));
-    return (
-      <div className='search-page'>
-        <h1>Search results for {`"${this.props.location.search.slice(3)}"`}</h1>
+    let results = <p>We couldn't find anything :(</p>;
+    if (users.length !== 0 || songs.length !== 0) {
+      results = (
         <ul className='search-results'>
           {songs}
           {users}
         </ul>
+      );
+    }
+    return (
+      <div className='search-page'>
+        <h1>Search results for {`"${this.props.location.search.slice(3)}"`}</h1>
+        {results}
       </div>
     );
   }

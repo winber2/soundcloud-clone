@@ -49,12 +49,20 @@ class Collection extends React.Component {
     let category = this.props.location.pathname.slice(12);
 
     if (category === 'likes') {
+      let results = values(this.props.search.songs);
+      if (results.length === 0) return (
+        <p>You haven't liked anything yet!</p>
+      );
       return values(this.props.search.songs).map( song => (
         <SongShow song={song} key={song.id} />
       ));
     } else if (category === 'playlists') {
       console.log('fuck');
     } else if (category === 'following') {
+      let results = values(this.props.search.songs);
+      if (results.length === 0) return (
+        <p>You haven't followed anyone yet!</p>
+      );
       return values(this.props.search.users).map( user => (
         <UserShow user={user} key={user.id} />
       ));

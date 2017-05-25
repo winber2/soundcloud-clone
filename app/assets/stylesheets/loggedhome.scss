@@ -25,7 +25,7 @@ header.loggedhome-header {
     margin: 0 auto;
     align-items: flex-start;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     font-weight: 300;
 
@@ -50,7 +50,6 @@ header.loggedhome-header {
       height: 100%;
 
       &:first-child li {
-        width: 100px;
         text-align: center;
       }
     }
@@ -58,6 +57,8 @@ header.loggedhome-header {
     li {
       margin: 0;
       padding: 0;
+      text-align: center;
+      width: 94px;
       border-right: 1px solid black;
       display: flex;
       flex-direction: column;
@@ -68,13 +69,13 @@ header.loggedhome-header {
       li {
           border: none;
           width: 100%;
+          display: flex;
+          flex-direction: inherit;
 
         a {
           margin: 0;
           padding: 13px 20px;
         }
-
-        &.nav-user { padding: 0 }
       }
     }
 
@@ -96,7 +97,7 @@ header.loggedhome-header {
 
     ul.searchbar {
       display: flex;
-      flex-grow: 1;
+      flex: 1;
       align-items: center;
       margin: 0px 15px;
     }
@@ -109,16 +110,16 @@ header.loggedhome-header {
 
 li.nav-user {
   position: relative;
-  max-width: 120px;
-  // white-space: nowrap;
 
   p.user {
     position: relative;
+    width: 100%;
     z-index: 999;
     color: white;
     padding: 13px 20px;
     transition: background 0.3s;
     background: rgb(54, 54, 54);
+    white-space: nowrap;
 
     &:hover {
       text-shadow: 0 0 3px white;
@@ -156,7 +157,7 @@ ul#user-settings {
   &.active {
     display: flex;
     position: absolute;
-    transform: translateY(254px);
+    transform: translateY(219px);
     z-index: -100;
   }
 
@@ -164,8 +165,10 @@ ul#user-settings {
     padding: 12px 15px 12px 10px;
     background: $almost-black;
     text-shadow: 0 0 0;
+    text-align: left;
     font-size: 13px;
     height: 10px;
+    width: initial;
 
     a {
       padding: 0;
@@ -179,7 +182,7 @@ ul#user-settings {
 }
 
 div.nav-space {
-  height: 45px;
+  height: 44px;
   width: 100%;
   background: transparent;
 }

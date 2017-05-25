@@ -70,7 +70,7 @@ class Navigation extends React.Component {
                 <Link to={`/${this.props.currentUser.username}`}>Profile</Link>
               </li>
               <li>
-                <Link to={`/collection/likes}`}>Likes</Link>
+                <Link to={`/collection/likes`}>Likes</Link>
               </li>
               <li>
                 <Link to={`/collection/playlists`}>Playlists</Link>
