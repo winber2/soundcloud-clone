@@ -47,7 +47,7 @@ class Api::SongsController < ApplicationController
 
       @songs = Song
       .joins('LEFT JOIN users ON users.id = songs.author_id')
-      .joins('FULL JOIN follows ON follows.artist_id = users.id')
+      .joins('LEFT JOIN follows ON follows.artist_id = users.id')
       .where('follows.follower_id = ? OR follows.follower_id != ? OR follows.follower_id IS NULL', id, id)
       .offset(params[:query][:offset])
       .limit(5)

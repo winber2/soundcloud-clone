@@ -12,9 +12,10 @@ export const fetchUsers = query => {
     url: `api/users`,
     data: {
       query: query.query,
+      user_id: query.user_id,
       search: query.search
     }
-  })
+  });
 };
 
 export const updateUser = user => (

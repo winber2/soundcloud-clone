@@ -9,9 +9,9 @@ class Api::UsersController < ApplicationController
     elsif params[:query] != nil
       @users = User.includes(:songs)
         .select('*')
+        .where("users.id != ?", params[:query].to_i)
         .order('RANDOM()')
         .limit(3)
-        .offset(params[:query].to_i)
 
       render :index
     else

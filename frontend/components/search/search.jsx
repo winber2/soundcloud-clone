@@ -9,6 +9,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     let query = this.props.location.search.slice(3);
     this.props.fetchUsers({ search: query });
     this.props.fetchSongs({ search: query });
@@ -25,10 +26,10 @@ class Search extends React.Component {
   render() {
     let users = values(this.props.search.users).map( user => (
       <UserShow user={user} key={user.id} />
-    ))
+    ));
     let songs = values(this.props.search.songs).map( song => (
       <SongShow song={song} key={song.id} />
-    ))
+    ));
     return (
       <div className='search-page'>
         <h1>Search results for {`"${this.props.location.search.slice(3)}"`}</h1>

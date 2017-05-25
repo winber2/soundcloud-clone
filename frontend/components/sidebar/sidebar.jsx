@@ -7,12 +7,12 @@ import { Route, Switch } from 'react-router-dom';
 class SideBar extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { offset: 0, userIds: [], songIds: [] }
+    this.state = { offset: 0, userIds: [], songIds: [] };
   }
 
   componentDidMount() {
     let sidebar = this;
-    this.props.fetchRandomUsers({ query: this.state.offset })
+    this.props.fetchRandomUsers({ query: this.props.currentUser.id })
       .then((action) => sidebar.setState({ userIds: Object.keys(action.users) }));
     this.props.fetchRandomSongs({ query: this.state.offset })
       .then((action) => sidebar.setState({ songIds: Object.keys(action.songs) }));
