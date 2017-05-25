@@ -18,7 +18,7 @@ div.search-page, div.collection-page {
     margin-bottom: 16px;
   }
 
-  p {
+  p.nothing {
     font-size: 16px;
     margin-left: 10px;
   }
@@ -34,6 +34,8 @@ div.search-page, div.collection-page {
       width: 168px;
       height: 240px;
       margin: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       img {
         width: 100%;

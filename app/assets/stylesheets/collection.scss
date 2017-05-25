@@ -14,7 +14,14 @@ div.collection-page {
 
   ul.collection-results {
 
-    p {
+    span {
+      width: 168px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    p.nothing {
       font-size: 16px;
       margin-left: 10px;
     }

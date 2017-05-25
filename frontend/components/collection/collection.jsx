@@ -61,7 +61,7 @@ class Collection extends React.Component {
     } else if (category === 'following') {
       let results = values(this.props.search.songs);
       if (results.length === 0) return (
-        <p>You haven't followed anyone yet!</p>
+        <p className='nothing'>You haven't followed anyone yet!</p>
       );
       return values(this.props.search.users).map( user => (
         <UserShow user={user} key={user.id} />
