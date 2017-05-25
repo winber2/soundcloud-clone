@@ -1,5 +1,5 @@
 import React from 'react';
-import { values, merge} from 'lodash';
+import { values, merge } from 'lodash';
 import { NavLink } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
@@ -13,7 +13,7 @@ class Stream extends React.Component {
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     this.props.fetchSongs({
       query: {
         user: this.props.currentUser.id,
@@ -28,7 +28,7 @@ class Stream extends React.Component {
 
   handleInfiniteLoad() {
     if (this.state.songOffset > 100) {
-      this.setState({ scroll: false })
+      this.setState({ scroll: false });
     } else if (this.state.scroll === true) {
       this.state.songOffset += 5;
       this.props.fetchMoreSongs({

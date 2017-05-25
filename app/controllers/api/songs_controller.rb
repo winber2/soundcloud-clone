@@ -21,7 +21,7 @@ class Api::SongsController < ApplicationController
         .includes(:comments, :user)
 
       render :index
-    elsif params[:user] != nil
+    elsif params[:user_id] != nil
       @songs = Song
         .where(author_id: params[:user].to_i)
 

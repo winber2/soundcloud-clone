@@ -1,5 +1,5 @@
 import React from 'react';
-import { values } from 'lodash';
+import { values, merge } from 'lodash';
 import SidebarContainer from '../sidebar/sidebar_container';
 import SongContainer from '../song/song_container';
 import { NavLink } from 'react-router-dom';
@@ -15,7 +15,7 @@ class UserPageBottom extends React.Component {
     if (nextProps.user.id !== this.props.user.id) {
       let username = nextProps.match.params.username;
       this.props.fetchUser(username);
-      this.props.fetchUserSongs(nextProps.user.id);
+      this.props.fetchUserSongs({ user_id: nextProps.user.id });
     }
   }
 
@@ -26,7 +26,7 @@ class UserPageBottom extends React.Component {
 
   render() {
     let user = this.props.user;
-    let songsToConvert = this.props.songs;
+    let songsToConvert = merge({}, this.props.songs);
     delete songsToConvert['random'];
     delete songsToConvert['order'];
     let songs = values(songsToConvert).map( song => {
@@ -53,7 +53,7 @@ class UserPageBottom extends React.Component {
           <SidebarContainer />
         </ul>
       </section>
-    )
+    );
   }
 }
 
