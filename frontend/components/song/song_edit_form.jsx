@@ -24,25 +24,22 @@ class SongEditForm extends React.Component {
     this.toHome = this.toHome.bind(this);
   }
 
-  componentWillReceiveProps() {
-    let song = this.props.song;
-    if (song !== undefined) {
-      this.setState({
-        id: song.id,
-        title: song.title,
-        album: song.album,
-        genre: song.genre,
-        description: song.description,
-        release_date: song.release_date,
-        author_id: song.user.id,
-        image_url: { preview: song.image_url },
-      })
-    }
-  }
-
-
   componentDidMount() {
-    this.props.fetchSingleSong(this.props.match.params.songId);
+    let edit = this;
+    this.props.fetchSingleSong(this.props.match.params.songId)
+      .then(fetchSong => {
+        let song = fetchSong.song;
+        edit.setState({
+          id: song.id,
+          title: song.title,
+          album: song.album,
+          genre: song.genre,
+          description: song.description,
+          release_date: song.release_date,
+          author_id: song.user.id,
+          image_url: { preview: song.image_url },
+        })
+      });
   }
 
   toHome() {

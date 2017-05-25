@@ -3,6 +3,7 @@ song_order = []
   song_order << song.id
   json.set! song.id do
     json.id song.id
+    json.author_id song.author_id
     json.type song.type
     json.title song.title
     json.genre song.genre

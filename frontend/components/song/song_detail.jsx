@@ -8,30 +8,7 @@ class SongDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isActive: '' };
-    // this.deleteSong = this.deleteSong.bind(this);
-    // this.toggleOptions = this.toggleOptions.bind(this);
-    // this.closeOptions = this.closeOptions.bind(this);
   }
-
-  // deleteSong() {
-  //   this.props.deleteSong(this.props.song.id);
-  // }
-  //
-  // toggleOptions() {
-  //   if (this.state.isActive === 'active') {
-  //     this.setState({ isActive: '' });
-  //   } else {
-  //     this.setState({ isActive: 'active' });
-  //   }
-  // }
-  //
-  // closeOptions() {
-  //   setTimeout(() => {
-  //     if (this.state.isActive === 'active') {
-  //       this.setState({ isActive: '' });
-  //     }
-  //   }, 80);
-  // }
 
   render() {
     let song = this.props.song;

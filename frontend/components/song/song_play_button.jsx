@@ -8,8 +8,9 @@ class SongPlayButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    let song = this.props.song || {};
     let songId = this.props.audio.song.id;
-    if (this.props.audio.isPlaying && songId === this.props.song.id) {
+    if (this.props.audio.isPlaying && songId === song.id) {
       this.setState({ icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png'});
     } else {
       this.setState({ icon: 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico'});
@@ -40,7 +41,7 @@ class SongPlayButton extends React.Component {
     let song = this.props.song || {};
     let audio = this.props.audio || { song: {} };
     let icon;
-    if (audio.isPlaying && audio.song.id === this.props.song.id) {
+    if (audio.isPlaying && audio.song.id === song.id) {
       icon = 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-pause_swxfgv.png';
     } else {
       icon = 'https://res.cloudinary.com/winber1/image/upload/v1495075516/white-play_dbuj1t.ico';

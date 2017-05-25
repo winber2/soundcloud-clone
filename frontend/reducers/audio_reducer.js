@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 
 const _defaultState = {
   song: { track_url: undefined, id: undefined, user: {} },
-  player: null,
+  player: undefined,
   isPlaying: false
 };
 

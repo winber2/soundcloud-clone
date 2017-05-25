@@ -37,6 +37,7 @@ class FavoriteIcon extends React.Component {
     let user = this.props.currentUser;
     let favoritable = this.props.favoritable;
 
+    debugger;
     if (this.state.isFavorited === 1) {
       let favorite = this.props.favoritable.favorites.find( fav => (
         fav.user_id === this.props.currentUser.id

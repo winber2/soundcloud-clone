@@ -24,8 +24,9 @@ class UserPageBottom extends React.Component {
   }
 
   render() {
+    let user = this.props.user
     let songs = values(this.props.user.songs).map( song => {
-      song.user = this.props.user;
+      song.user = user;
       return(<SongContainer key={song.id} song={song} />);
     });
     let option = this.props.currentUser.id !== this.props.user.id ?
