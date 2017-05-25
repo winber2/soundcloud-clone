@@ -43,7 +43,7 @@ class SongPageBottom extends React.Component {
         </p>
       ));
     }
-    if (this.props.currentUser !== this.props.song.author_id) {
+    if (this.props.currentUser.id !== this.props.song.author_id) {
       follow = <FollowContainer
         user={this.props.user}
         key={this.props.user.id}/>;
