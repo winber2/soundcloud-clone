@@ -88,7 +88,10 @@ class UploadForm extends React.Component {
               if (res.body.secure_url !== '') {
                 upload.state.track_url = res.body.secure_url;
 
-                upload.props.createSong(upload.state).then(upload.props.history.push('/stream'));
+                upload.props.createSong(upload.state)
+                .then(action => upload.props.history.push(
+                  `/${action.song.user.username}/songs/${action.song.id}`
+                ));
               }
             });
         }

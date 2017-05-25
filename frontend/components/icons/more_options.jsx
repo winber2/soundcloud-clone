@@ -12,6 +12,9 @@ class MoreOptions extends React.Component {
 
   deleteSong() {
     this.props.deleteSong(this.props.song.id);
+    if (this.props.match.params.songId !== undefined) {
+      window.location.hash = `/${this.props.song.user.username}`;
+    }
   }
 
   toggleOptions() {
