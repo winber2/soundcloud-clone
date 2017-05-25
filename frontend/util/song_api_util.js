@@ -6,9 +6,12 @@ export const fetchSongs = (query) => {
     data: {
       query: query.query,
       search: query.search,
-      user: query.user
+      user: query.user,
+      user_id: query.user_id,
+      offset: query.offset,
+      username: query.username
     }
-  })
+  });
 };
 
 export const fetchSingleSong = (id) => (

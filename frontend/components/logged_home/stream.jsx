@@ -32,8 +32,10 @@ class Stream extends React.Component {
     } else if (this.state.scroll === true) {
       this.state.songOffset += 5;
       this.props.fetchMoreSongs({
-        user: this.props.currentUser.id,
-        offset: this.state.songOffset
+        query: {
+          user: this.props.currentUser.id,
+          offset: this.state.songOffset
+        }
       });
     }
   }

@@ -21,9 +21,17 @@ class Api::SongsController < ApplicationController
         .includes(:comments, :user)
 
       render :index
+    elsif params[:username] != nil
+      @songs = Song
+        .select('songs.*')
+        .joins(:user)
+        .where("users.username = ?", params[:username])
+
+      render :index
+
     elsif params[:user_id] != nil
       @songs = Song
-        .where(author_id: params[:user].to_i)
+        .where(author_id: params[:user_id].to_i)
 
       render :index
     elsif params[:query] =~ /\d/
@@ -34,7 +42,7 @@ class Api::SongsController < ApplicationController
         .offset(params[:query].to_i)
 
       render :index
-    elsif params[:query] != nil
+    elsif params[:query][:offset] != nil
       id = params[:query][:user]
 
       @songs = Song

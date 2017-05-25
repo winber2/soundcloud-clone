@@ -11,8 +11,14 @@ class UserPageBottom extends React.Component {
     this.editUser = this.editUser.bind(this);
   }
 
+  componentDidMount() {
+    let username = this.props.match.params.username;
+    this.props.fetchUser(username);
+    this.props.fetchUserSongs({ username: username });
+  }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user.id !== this.props.user.id) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
       let username = nextProps.match.params.username;
       this.props.fetchUser(username);
       this.props.fetchUserSongs({ user_id: nextProps.user.id });
