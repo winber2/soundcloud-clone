@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
     if params[:search] != nil
       @users = User
         .select('*')
-        .where("users.username LIKE ?", "%#{params[:search]}%")
+        .where("UPPER(users.username) LIKE UPPER(?)", "%#{params[:search]}%")
 
       render :index
     elsif params[:query] != nil

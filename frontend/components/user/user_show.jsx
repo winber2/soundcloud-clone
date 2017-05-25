@@ -7,12 +7,12 @@ class UserShow extends React.Component {
   }
 
   showUser() {
-    let object = {}
+    let object = {};
     object.preventDefault = function() {};
     if (this.props.home) {
       this.props.openSignIn(object);
     } else {
-      window.location.hash = `/${this.props.song.user.usename}`;
+      window.location.hash = `/${this.props.user.username}`;
     }
   }
 

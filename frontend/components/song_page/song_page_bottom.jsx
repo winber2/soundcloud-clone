@@ -25,6 +25,7 @@ class SongPageBottom extends React.Component {
     song.user.followers = song.user.followers || [];
     let comments;
     let follow = '';
+    let description ;
     if (this.props.comments !== {} ) {
       comments = values(this.props.comments).map( (comment) => (
         <Comment currentUser={this.props.currentUser}
@@ -32,6 +33,14 @@ class SongPageBottom extends React.Component {
           comment={comment}
           deleteComment={this.props.deleteComment}
           key={comment.id} />
+      ));
+    }
+    if (description !== undefined) {
+      description = song.description.split("\n").map( (item,idx) => (
+        <p key={idx}>
+          {item}
+          <br />
+        </p>
       ));
     }
     if (this.props.currentUser !== this.props.song.author_id) {
@@ -51,7 +60,7 @@ class SongPageBottom extends React.Component {
           </ul>
           <ul className='comments'>
             <li className='song-description'>
-              <p>{song.description}</p>
+              {description}
             </li>
             <li className='song-comments'>
               <span>{this.props.song.number_of_comments} comments</span>

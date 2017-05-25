@@ -1,4 +1,4 @@
-json.extract! @song, :id, :title, :genre, :album, :description, :image_url, :track_url, :release_date, :type
+json.extract! @song, :id, :title, :author_id, :genre, :album, :description, :image_url, :track_url, :release_date, :type
 json.user do
   json.id @song.user.id
   json.username @song.user.username

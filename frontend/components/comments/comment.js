@@ -6,7 +6,7 @@ window.moment = moment;
 class Comment extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isEditing: false }
+    this.state = { isEditing: false };
     this.deleteComment = this.deleteComment.bind(this);
     this.showUser = this.showUser.bind(this);
     this.enableEdit = this.enableEdit.bind(this);
@@ -46,10 +46,12 @@ class Comment extends React.Component {
     let comment = this.props.comment || { user: {} };
     let body = <li>{comment.body}</li>;
     let edit = '';
+    let del = '';
     if (this.state.isEditing) {
       body = <input onKeyPress={this.handleKey} defaultValue={comment.body}></input>
     } else if (comment.user.id === this.props.currentUser.id) {
-      edit = (<button onClick={this.enableEdit}>Edit</button>);
+      edit = <button onClick={this.enableEdit}>Edit</button>;
+      del = <button onClick={this.deleteComment}>Delete</button>;
     }
     return (
       <li className='single-comment'>
@@ -57,13 +59,13 @@ class Comment extends React.Component {
           <ul className='comment-body'>
             <li className='comment-user'>
               <p onClick={this.showUser} >{comment.user.username}</p>
-              <p>{moment(comment.created_at).fromNow()}</p>
             </li>
             {body}
           </ul>
           <ul>
+            <p>{moment(comment.created_at).fromNow()}</p>
             {edit}
-            <button onClick={this.deleteComment}>Delete</button>
+            {del}
           </ul>
       </li>
     );

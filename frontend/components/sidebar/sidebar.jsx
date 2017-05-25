@@ -35,9 +35,18 @@ class SideBar extends React.Component {
         user = users[key];
       }
     }
+    if (user.description === undefined) {
+      return <div className='user-description'></div>;
+    }
+    let description = user.description.split("\n").map( (item,idx) => (
+      <p key={idx}>
+        {item}
+        <br />
+      </p>
+    ));
     return (
       <div className='user-description'>
-        <p>{user.description}</p>
+        {description}
       </div>
     );
   }
@@ -47,7 +56,7 @@ class SideBar extends React.Component {
     let users = [];
     this.state.songIds.forEach( id => {
       songs.push(this.props.songs.random[id]);
-    })
+    });
     this.state.userIds.forEach( id => {
       users.push(this.props.users[id]);
     });

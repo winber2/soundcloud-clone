@@ -117,11 +117,6 @@ li.single-comment {
 
   p { font-size: 13px }
 
-  p:first-child:hover {
-    color: gray;
-    cursor: pointer;
-  }
-
   span { font-size: 14px }
 
   ul.comment-body {
@@ -134,6 +129,11 @@ li.single-comment {
     text-overflow: ellipsis;
     overflow-x: hidden;
 
+    p:hover {
+      color: gray;
+      cursor: pointer;
+    }
+
     li.comment-user {
       display: flex;
       justify-content: space-between;
@@ -141,10 +141,12 @@ li.single-comment {
 
     input {
       flex-grow: 1;
-      border: 1px solid lightgray;
-      padding: 1px;
+      border: none;
+      border-bottom: 1px solid lightgray;
+      padding: 0 0 3px 0px;
       border-radius: 3px;
-      font-size: 13px;
+      font-size: 16px;
+      font-family: Open Sans;
 
       &:focus {
         outline: none;
@@ -152,21 +154,16 @@ li.single-comment {
     }
   }
 
-  ul:last-child {
-    display: flex;
-    flex-direction: column;
-  }
-
   button {
     visibility: hidden;
     align-self: center;
-    width: 55px;
+    width: 45px;
     border: 1px solid lavender;
     border-radius: 3px;
-    font-size: 12px;
+    font-size: 10px;
 
-    &:first-child {
-      margin-bottom: 5px;
+    &:last-child {
+      margin-left: 3px;
     }
 
     &:hover {
