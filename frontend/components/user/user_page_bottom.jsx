@@ -15,6 +15,7 @@ class UserPageBottom extends React.Component {
     if (nextProps.user.id !== this.props.user.id) {
       let username = nextProps.match.params.username;
       this.props.fetchUser(username);
+      this.props.fetchUserSongs(username);
     }
   }
 
@@ -24,9 +25,11 @@ class UserPageBottom extends React.Component {
   }
 
   render() {
-    let user = this.props.user
-    let songs = values(this.props.user.songs).map( song => {
-      song.user = user;
+    let user = this.props.user;
+    let songsToConvert = this.props.songs;
+    delete songsToConvert['random'];
+    delete songsToConvert['order'];
+    let songs = values(songsToConvert).map( song => {
       return(<SongContainer key={song.id} song={song} />);
     });
     let option = this.props.currentUser.id !== this.props.user.id ?

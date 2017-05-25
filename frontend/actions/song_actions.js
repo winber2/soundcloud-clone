@@ -61,6 +61,10 @@ export const fetchMoreSongs = (query) => dispatch => (
     .then(songs => dispatch(appendSongs(songs)))
 );
 
+export const fetchUserSongs = user => dispatch => (
+  APIUtil.fetchSongs({ user: user })
+    .then(songs => dispatch(appendSongs(songs)))
+);
 
 export const editSong = song => dispatch => (
   APIUtil.updateSong(song)

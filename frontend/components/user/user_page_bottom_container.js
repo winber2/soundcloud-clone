@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
+import { fetchUserSongs } from '../../actions/song_actions';
 import UserPageBottom from './user_page_bottom';
 import { selectUser } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  user: selectUser(state, ownProps)
+  user: selectUser(state, ownProps),
+  songs: state.songs
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchUserSongs: user => dispatch(fetchUserSongs(user)),
   fetchUser: user => dispatch(fetchUser(user)),
 });
 

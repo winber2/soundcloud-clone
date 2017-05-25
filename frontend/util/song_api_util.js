@@ -5,7 +5,8 @@ export const fetchSongs = (query) => {
     url: 'api/songs',
     data: {
       query: query.query,
-      search: query.search
+      search: query.search,
+      user: query.user
     }
   })
 };
