@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createFavorite, deleteFavorite } from '../../util/favorite_api_util';
-import { fetchSelectedRandomSong } from '../../actions/song_actions';
+import { fetchSelectedRandomSong, fetchSingleSong } from '../../actions/song_actions';
 import Favorite from './favorite';
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
   createFavorite: (user, favoritable) => createFavorite(user, favoritable),
   deleteFavorite: id => deleteFavorite(id),
-  fetchSelectedRandomSong: id => dispatch(fetchSelectedRandomSong(id))
+  fetchSelectedRandomSong: id => dispatch(fetchSelectedRandomSong(id)),
+  fetchSingleSong: id => dispatch(fetchSingleSong(id))
 });
 
 export default connect(

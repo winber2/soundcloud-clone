@@ -42,6 +42,9 @@ const SongReducer = (state = _defaultState, action) => {
 
     case RANDOM_SONG:
       newState.random[action.song.id] = action.song;
+      if (newState[action.song.id] !== undefined) {
+        newState[action.song.id] = action.song;
+      }
       return newState;
 
     case RANDOM_SONGS:

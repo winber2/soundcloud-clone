@@ -36,11 +36,12 @@ class FavoriteIcon extends React.Component {
   addFavorite() {
     let user = this.props.currentUser;
     let favoritable = this.props.favoritable;
-    
+
     if (this.state.isFavorited === 1) {
       let favorite = this.props.favoritable.favorites.find( fav => (
         fav.user_id === this.props.currentUser.id
       ));
+
       this.props.deleteFavorite(favorite.id)
         .then(() => this.props.fetchSelectedRandomSong(this.props.favoritable.id));
     } else {
