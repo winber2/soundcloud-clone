@@ -15,12 +15,6 @@ const UserReducer = (state = {}, action) => {
         newState[key] = action.users[key];
       }
       return newState;
-    // 
-    // case RANDOM_USERS:
-    //   for (let key in action.users) {
-    //     newState[key] = action.users[key];
-    //   }
-    //   return newState;
 
     default:
       return state;

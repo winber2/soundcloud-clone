@@ -15,9 +15,7 @@ class SideBar extends React.Component {
     this.props.fetchRandomUsers({ query: this.state.offset })
       .then((action) => sidebar.setState({ userIds: Object.keys(action.users) }));
     this.props.fetchRandomSongs({ query: this.state.offset })
-      .then((action) => {
-        return sidebar.setState({ songIds: Object.keys(action.songs) })
-      });
+      .then((action) => sidebar.setState({ songIds: Object.keys(action.songs) }));
   }
 
   chartBox() {

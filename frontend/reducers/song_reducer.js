@@ -1,13 +1,9 @@
 import { RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, APPEND_SONGS, RANDOM_SONGS } from "../actions/song_actions";
 import merge from 'lodash/merge';
 
-const _defaultState = {
-  id: undefined,
-  track_url: '',
-  user: { followers: [] }
-};
+const _defaultState = {};
 
-const SongReducer = (state = {}, action) => {
+const SongReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch (action.type) {
@@ -31,9 +27,16 @@ const SongReducer = (state = {}, action) => {
       return newState;
 
     case APPEND_SONGS:
+    debugger;
       for (let key in action.songs) {
         if (key === 'order') {
-          newState[key] = newState[key].concat(action.songs[key]);
+          if (newState[key] === undefined) {
+            newState[key] = action.songs[key];
+          } else {
+            newState[key] = newState[key].concat(action.songs[key]);
+          }
+        } else if (key === 'random') {
+          continue
         } else {
           newState[key] = action.songs[key];
         }
@@ -41,9 +44,10 @@ const SongReducer = (state = {}, action) => {
       return newState;
 
     case RANDOM_SONGS:
-      delete action.songs['order'];
-      newState.random = action.songs
-      return newState;
+      debugger;
+      newState['random'] = action.songs;
+      delete newState.random['order'];
+      return { random: action.songs};
 
     default:
       return state;

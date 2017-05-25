@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserSongs: user => dispatch(fetchUserSongs(user)),
+  fetchUserSongs: id => dispatch(fetchUserSongs(id)),
   fetchUser: user => dispatch(fetchUser(user)),
 });
 

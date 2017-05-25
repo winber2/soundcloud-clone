@@ -61,8 +61,8 @@ export const fetchMoreSongs = (query) => dispatch => (
     .then(songs => dispatch(appendSongs(songs)))
 );
 
-export const fetchUserSongs = user => dispatch => (
-  APIUtil.fetchSongs({ user: user })
+export const fetchUserSongs = id => dispatch => (
+  APIUtil.fetchSongs({ user: id })
     .then(songs => dispatch(appendSongs(songs)))
 );
 
@@ -71,4 +71,4 @@ export const editSong = song => dispatch => (
     .then(editSong => dispatch(receiveSong(editSong)))
 );
 
-window.createSong = createSong;
+window.fetchRandomSongs = fetchRandomSongs;

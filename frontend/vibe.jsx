@@ -4,11 +4,6 @@ import configureStore from './store/store';
 
 import Root from './components/root';
 
-const path = require('path');
-
-window.path = path;
-
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {

@@ -15,7 +15,7 @@ class UserPageBottom extends React.Component {
     if (nextProps.user.id !== this.props.user.id) {
       let username = nextProps.match.params.username;
       this.props.fetchUser(username);
-      this.props.fetchUserSongs(username);
+      this.props.fetchUserSongs(nextProps.user.id);
     }
   }
 
