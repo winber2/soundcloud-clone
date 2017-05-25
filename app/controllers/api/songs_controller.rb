@@ -11,6 +11,12 @@ class Api::SongsController < ApplicationController
         )
 
       render :index
+    elsif params[:liker] != nil
+      @songs = Song.includes(:user)
+        .joins("INNER JOIN favorites ON favorites.favoritable_type = songs.type AND favorites.favoritable_id = songs.id")
+        .where('favorites.user_id = ?', params[:liker].to_i)
+
+      render :index
     elsif params[:query] == 'display'
       @songs = Song
         .left_joins(:favorites)

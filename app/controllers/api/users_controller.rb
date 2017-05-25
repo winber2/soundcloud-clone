@@ -14,6 +14,13 @@ class Api::UsersController < ApplicationController
         .limit(3)
 
       render :index
+    elsif params[:follower] != nil
+      @users = User.includes(:songs)
+        .select('DISTINCT users.*')
+        .joins('INNER JOIN follows ON follows.artist_id = users.id')
+        .where('follows.follower_id = ?', params[:follower].to_i)
+
+      render :index
     else
       @users = User.includes(:songs).all.limit(20)
       render :index

@@ -9,7 +9,8 @@ export const fetchSongs = (query) => {
       user: query.user,
       user_id: query.user_id,
       offset: query.offset,
-      username: query.username
+      username: query.username,
+      liker: query.liker
     }
   });
 };

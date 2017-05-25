@@ -16,9 +16,7 @@ export const receiveSongData = songs => ({
 
 export const fetchSongs = query => dispatch => (
   SongUtil.fetchSongs(query)
-    .then(songs => {
-      return dispatch(receiveSongData(songs))}
-    )
+    .then(songs => dispatch(receiveSongData(songs)))
 );
 
 export const fetchUsers = query => dispatch => (

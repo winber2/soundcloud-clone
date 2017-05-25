@@ -33,7 +33,7 @@ header.loggedhome-header {
       text-decoration: none;
       color: white;
       margin: 0;
-      padding: 13px 30px;
+      padding: 13px 10px;
 
       &.active {
         border-bottom: none;
@@ -48,6 +48,11 @@ header.loggedhome-header {
 
     ul {
       height: 100%;
+
+      &:first-child li {
+        width: 100px;
+        text-align: center;
+      }
     }
 
     li {
@@ -62,6 +67,7 @@ header.loggedhome-header {
     ul:last-child {
       li {
           border: none;
+          width: 100%;
 
         a {
           margin: 0;
@@ -103,12 +109,14 @@ header.loggedhome-header {
 
 li.nav-user {
   position: relative;
+  max-width: 120px;
+  // white-space: nowrap;
 
   p.user {
     position: relative;
     z-index: 999;
     color: white;
-    padding: 13px 25px;
+    padding: 13px 20px;
     transition: background 0.3s;
     background: rgb(54, 54, 54);
 

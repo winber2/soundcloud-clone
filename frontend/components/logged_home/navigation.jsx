@@ -54,6 +54,7 @@ class Navigation extends React.Component {
         <ul>
           <li onClick={this.toHome} className='loggedhome-logo'><img src='https://res.cloudinary.com/winber1/image/upload/v1495123529/vibe-logo_x2xsvo.png'/></li>
           <li><NavLink to='/stream'>Home</NavLink></li>
+          <li><NavLink to='/collection/likes'>Collection</NavLink></li>
         </ul>
         <ul className='searchbar'>
           <input onKeyPress={this.toSearch} className='home-search'></input>
@@ -63,22 +64,19 @@ class Navigation extends React.Component {
           <li className={`nav-user`}>
             <p tabIndex='0' onBlur={this.closeSettings}
               onClick={this.toggleSettings}
-              className={`user ${this.state.isActive}`}>{this.props.currentUser.username}  ❯</p>
+              className={`user ${this.state.isActive}`}>{this.props.currentUser.username} ❯</p>
             <ul id='user-settings' className={this.state.isActive}>
               <li>
                 <Link to={`/${this.props.currentUser.username}`}>Profile</Link>
               </li>
               <li>
-                <Link to={`/${this.props.currentUser.username}`}>Likes</Link>
+                <Link to={`/collection/likes}`}>Likes</Link>
               </li>
               <li>
-                <Link to={`/${this.props.currentUser.username}`}>Playlists</Link>
+                <Link to={`/collection/playlists`}>Playlists</Link>
               </li>
               <li>
-                <Link to={`/${this.props.currentUser.username}`}>Following</Link>
-              </li>
-              <li>
-                <Link to={`/${this.props.currentUser.username}`}>Tracks</Link>
+                <Link to={`/collection/following`}>Following</Link>
               </li>
               <li id='signout' onClick={this.logout}>Sign out</li>
             </ul>

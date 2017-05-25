@@ -1,6 +1,6 @@
 @import 'colors';
 
-div.search-page {
+div.search-page, div.collection-page {
   width: 1000px;
   min-height: 600px;
   height: 100%;
@@ -18,14 +18,14 @@ div.search-page {
     margin-bottom: 10px;
   }
 
-  ul.search-results {
+  ul.search-results, ul.collection-results {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 0px;
     margin-right: 0;
 
-    li.search-show {
+    li.search-show, li.collection-show {
       width: 168px;
       height: 240px;
       margin: 15px;
@@ -37,6 +37,13 @@ div.search-page {
         &:hover {
           cursor: pointer;
         }
+      }
+
+      span {
+        width: 168px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       span:hover {

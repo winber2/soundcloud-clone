@@ -13,7 +13,8 @@ export const fetchUsers = query => {
     data: {
       query: query.query,
       user_id: query.user_id,
-      search: query.search
+      search: query.search,
+      follower: query.follower
     }
   });
 };
