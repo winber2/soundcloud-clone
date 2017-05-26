@@ -17,26 +17,16 @@ class Song extends React.Component {
   }
 
   componentWillReceiveProps() {
-    // clearInterval(this.state.progress);
-    // if (this.props.audio.isPlaying === false) {
-    //   return;
-    // } else if (this.props.audio.song.id === this.props.song.id &&
-    // this.props.audio.song.id !== undefined) {
-    //   this.setState({ pos: this.state.player.currentTime });
-    //   this.refs.wavesurfer.props.playPause;
-    // }
+    let audio = this.props.audio;
+    if (audio.isPlaying === false) {
+      this.state.wavesurfer.pause();
+    } else if (audio.song.id === this.props.song.id &&
+    audio.song.id !== undefined) {
+      this.state.wavesurfer.play(audio.player.currentTime);
+    }
   }
 
   componentDidMount() {
-    // this.refs.wavesurfer.props.mute;
-    // if (this.props.audio.song.id === this.props.song.id) {
-    //   this.setState({
-    //     player: this.props.audio.player,
-    //     pos: this.props.audio.player.currentTime
-    //   });
-    // } else {
-    //   this.setState({ player: this.props.audio.player });
-    // }
     let style = {
       container: `#waveform-${this.props.song.id}`,
       maxCanvasWidth: 500,
@@ -53,7 +43,20 @@ class Song extends React.Component {
     };
     var wavesurfer = WaveSurfer.create(style);
     wavesurfer.load(this.props.song.track_url);
-    this.setState({ wavesurfer: wavesurfer});
+    wavesurfer.setMute(true);
+    wavesurfer.unAll();
+    wavesurfer.on('seek', (int) => this.selectTime(int));
+    this.setState({
+      wavesurfer: wavesurfer,
+      player: this.props.audio.player
+    });
+  }
+
+  selectTime(int) {
+    
+    let player = this.state.player;
+    let time = player.duration * int;
+    player.currentTime = time;
   }
 
   componentWillUnmount() {
