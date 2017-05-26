@@ -18,7 +18,7 @@ class Collection extends React.Component {
     if (category === 'likes') {
       this.props.fetchSongs({ liker: this.props.currentUser.id });
     } else if (category === 'playlists') {
-      console.log('fuck');
+      console.log('asdf');
     } else if (category === 'following') {
       this.props.fetchUsers({
         follower: this.props.currentUser.id
@@ -27,16 +27,15 @@ class Collection extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let category = this.props.location.pathname.slice(12);
-
+    let category = nextProps.location.pathname.slice(12);
+    window.scrollTo(0, 0);
     if (category === '') this.props.history.push('/collection/likes');
 
     if (nextProps.location.pathname !== this.props.location.pathname) {
-
       if (category === 'likes') {
         this.props.fetchSongs({ liker: this.props.currentUser.id });
       } else if (category === 'playlists') {
-        console.log('fuck');
+        console.log('asdf');
       } else if (category === 'following') {
         this.props.fetchUsers({
           follower: this.props.currentUser.id
@@ -59,7 +58,7 @@ class Collection extends React.Component {
     } else if (category === 'playlists') {
       console.log('fuck');
     } else if (category === 'following') {
-      let results = values(this.props.search.songs);
+      let results = values(this.props.search.users);
       if (results.length === 0) return (
         <p className='nothing'>You haven't followed anyone yet!</p>
       );
