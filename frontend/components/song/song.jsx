@@ -7,22 +7,27 @@ class Song extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pos: 0,
-      playing: false,
-      progress: undefined,
+      wavesurfer: undefined,
       player: undefined
     };
     this.showSong = this.showSong.bind(this);
-    this.handlePosChange = this.handlePosChange.bind(this);
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    let nextAudio = nextProps.audio;
     let audio = this.props.audio;
     if (audio.isPlaying === false) {
       this.state.wavesurfer.pause();
+    // } else if (nextAudio.song.id !== this.props.song.id &&
+    // audio.song.id !== undefined) {
+    //   let duration = audio.player.duration || 0;
+    //   this.state.wavesurfer.play(audio.player.currentTime * duration);
     } else if (audio.song.id === this.props.song.id &&
     audio.song.id !== undefined) {
       this.state.wavesurfer.play(audio.player.currentTime);
+    } else if (audio.song.id !== this.props.song.id &&
+    audio.song.id !== undefined) {
+      this.state.wavesurfer.pause();
     }
   }
 
@@ -53,41 +58,25 @@ class Song extends React.Component {
   }
 
   selectTime(int) {
-    
-    let player = this.state.player;
-    let time = player.duration * int;
-    player.currentTime = time;
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.state.progress);
+    let audio = this.props.audio;
+    if (this.props.song.id === audio.song.id) {
+      let player = this.state.player;
+      let time = player.duration * int;
+      player.currentTime = time;
+      audio.isPlaying = true;
+      this.props.receiveAudio(audio);
+    } else {
+      audio.song = this.props.song;
+      audio.isPlaying = true;
+      audio.player.currentTime = 0;
+      this.props.receiveAudio(audio);
+    }
   }
 
   showSong() {
     let song = this.props.song;
     let user = song.user.username;
     window.location.hash = `/${user}/songs/${song.id}`;
-  }
-
-  playPause() {
-    WaveSurfer.playPause();
-  }
-
-  mute() {
-    WaveSurfer.setMute(true);
-  }
-
-  togglePlay() {
-    this.setState({
-      playing: true
-    });
-  }
-
-  handlePosChange(e) {
-    this.setState({
-      pos: e.originalArgs[0]
-    });
-    this.props.audio.player.currentTime = e.originalArgs[0];
   }
 
   render() {

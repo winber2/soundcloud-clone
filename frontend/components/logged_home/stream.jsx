@@ -27,7 +27,7 @@ class Stream extends React.Component {
   }
 
   handleInfiniteLoad() {
-    if (this.state.songOffset > 100) {
+    if (this.state.songOffset > 50) {
       this.setState({ scroll: false });
     } else if (this.state.scroll === true) {
       this.state.songOffset += 5;

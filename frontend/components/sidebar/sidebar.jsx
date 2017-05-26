@@ -71,7 +71,8 @@ class SideBar extends React.Component {
       <aside className='loggedhome-sidebar'>
         <Switch>
           <Route exact path='/stream' component={() => this.chartBox()} />
-          <Route path='/:username/' component={() => this.userDescription()} />
+          <Route exact path='/:username' component={() => this.userDescription()} />
+          <Route exact path='/:username/:whatever' component={() => this.userDescription()} />
         </Switch>
         <li className='artist-suggestion'>
           <span className='follow'>Who to follow</span>
