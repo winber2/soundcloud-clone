@@ -128,6 +128,7 @@ class ProgressBar extends React.Component {
     player.currentTime = point / width * player.duration;
     bar.style.width = point / width * 100 + '%';
     this.updatePlayer();
+    this.props.receiveAudio(this.props.audio);
   }
 
   showUser() {

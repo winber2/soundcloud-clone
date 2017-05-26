@@ -1,44 +1,6 @@
-import React from 'react';
+var AV = require('./aurora.js');
+require('mp3.js');
 
-class Waveform extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { wavesurfer: undefined };
-  }
+var asset = AV.Asset.fromURL('https://res.cloudinary.com/winber1/video/upload/v1495061844/15._Weight_of_the_World_English_Version_jbsja7.mp3');
 
-  componentDidMount() {
-    var wavesurfer = WaveSurfer.create({
-      container: '#waveform',
-      waveColor: 'gray',
-      progressColor: 'orange',
-      maxCanvasWidth: 500
-    });
-    this.setState({ wavesurfer: wavesurfer });
-  }
-
-
-  render() {
-    return (
-      <li className='waveform-box'>
-        <div ref='waveform' id='waveform'>
-        </div>
-      </li>
-    );
-  }
-}
-
-export default Waveform;
-
-
-
-<div className='waveform-box'>
-  <Wavesurfer ref='wavesurfer'
-    audioFile={trackUrl}
-    pos={this.state.pos}
-    options={style}
-    mute={this.mute}
-    playPause={this.playPause}
-    onPosChange={this.handlePosChange}
-    playing={this.state.playing}
-    />
-</div>
+export default asset;

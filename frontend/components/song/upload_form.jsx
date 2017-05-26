@@ -2,6 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 var superagent = require('superagent');
 import Modal from 'react-modal';
+// var pcm = require('pcm');
 
 const VIDEO_URL = 'https://api.cloudinary.com/v1_1/winber1/video/upload';
 const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
@@ -36,6 +37,18 @@ class UploadForm extends React.Component {
     if (this.state.isActive === '') {
       this.setState({ isActive: 'active' });
     }
+
+    pcm.getPcmData(this.state.track_url, { stereo: true, sampleRate: 44100 },
+      function(sample, channel) {
+        // Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
+        debugger;
+      },
+      function(err, output) {
+        if (err)
+          throw new Error(err);
+        console.log('asdf');
+      }
+    );
   }
 
   update(prop) {
