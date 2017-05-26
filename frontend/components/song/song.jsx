@@ -50,10 +50,6 @@ class Song extends React.Component {
 
     if (audio.isPlaying === false ) {
       this.state.wavesurfer.pause();
-    // } else if (nextAudio.song.id !== this.props.song.id &&
-    // audio.song.id !== undefined) {
-    //   let duration = audio.player.duration || 0;
-    //   this.state.wavesurfer.play(audio.player.currentTime * duration);
     } else if (audio.song.id === this.props.song.id &&
     audio.song.id !== undefined) {
       this.state.wavesurfer.play(this.props.audio.player.currentTime);

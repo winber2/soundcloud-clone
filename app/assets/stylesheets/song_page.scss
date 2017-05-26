@@ -195,6 +195,10 @@ section.song-content > ul {
     justify-content: space-between;
     margin: 15px;
 
+    div.song-waveform-box {
+      margin: 20px;
+    }
+
     ul.song-header {
       display: flex;
       margin: 20px;

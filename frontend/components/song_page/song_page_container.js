@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   songs: state.songs,
   song: state.songs[ownProps.match.params.songId],
+  audio: state.audio,
   comments: state.comments
 });
 
