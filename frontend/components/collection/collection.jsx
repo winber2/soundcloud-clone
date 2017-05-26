@@ -56,7 +56,7 @@ class Collection extends React.Component {
         <SongShow song={song} key={song.id} />
       ));
     } else if (category === 'playlists') {
-      console.log('fuck');
+      return (<p>Sorry, playlists have not been implemented yet!</p>);
     } else if (category === 'following') {
       let results = values(this.props.search.users);
       if (results.length === 0) return (

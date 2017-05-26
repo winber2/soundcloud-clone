@@ -32,6 +32,7 @@ class SongPlayButton extends React.Component {
       }
     } else {
       audio.song = this.props.song;
+      audio.player.currentTime = 0;
       audio.isPlaying = true;
       this.props.receiveAudio(audio);
     }

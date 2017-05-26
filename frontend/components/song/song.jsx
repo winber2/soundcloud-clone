@@ -60,7 +60,6 @@ class Song extends React.Component {
     } else if (audio.song.id !== this.props.song.id &&
     audio.song.id !== undefined) {
       this.state.wavesurfer.pause();
-      this.setState({ currentTime: audio.player.currentTime});
     }
   }
 
