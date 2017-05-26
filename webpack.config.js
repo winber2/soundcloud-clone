@@ -40,6 +40,10 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: require.resolve("wavesurfer.js"),
+        loader: "expose-loader?WaveSurfer"
       }
     ]
   },

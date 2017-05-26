@@ -12,28 +12,6 @@ class SongDetail extends React.Component {
 
   render() {
     let song = this.props.song;
-    // let options = (
-    //   <ul className={`song-options-dropdown ${this.state.isActive}`}>
-    //     <a className='song-options-item'>
-    //       <li>Add to Playlist</li>
-    //     </a>
-    //   </ul>
-    // );
-    // if (this.props.currentUser.id === song.user.author_id) {
-    //   options = (
-    //     <ul className={`song-options-dropdown ${this.state.isActive}`} >
-    //       <a className='song-options-item'>
-    //         <li>Add to Playlist</li>
-    //       </a>
-    //       <Link className='song-options-item' to={`${song.user.username}/songs/${song.id}/edit`}>
-    //         <li>Edit</li>
-    //       </Link>
-    //       <a className='song-options-item'>
-    //         <li onClick={this.deleteSong}>Delete</li>
-    //       </a>
-    //     </ul>
-    //   );
-    // }
     return (
       <li className="song-detail">
         <ul>
