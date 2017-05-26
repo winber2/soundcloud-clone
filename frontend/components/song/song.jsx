@@ -3,30 +3,61 @@ import SongPlay from './song_play';
 import SongDetailContainer from './song_detail_container';
 import Wavesurfer from 'react-wavesurfer';
 
-const style = {
-  maxCanvasWidth: 500,
-  waveColor: 'gray',
-  progressColor: 'orange',
-  barWidth: 3,
-  minPxPerSec: 5,
-  hideScrollbar: true,
-  height: 66,
-  pixelRatio: 1
-};
-
 class Song extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pos: 0, playing: false }
+    this.state = {
+      pos: 0,
+      playing: false,
+      progress: undefined,
+      player: undefined
+    };
     this.showSong = this.showSong.bind(this);
-    this.handleTogglePlay = this.handleTogglePlay.bind(this);
     this.handlePosChange = this.handlePosChange.bind(this);
   }
 
   componentWillReceiveProps() {
-    if (this.props.audio.isPlaying) {
-      this.handleTogglePlay();
-    }
+    // clearInterval(this.state.progress);
+    // if (this.props.audio.isPlaying === false) {
+    //   return;
+    // } else if (this.props.audio.song.id === this.props.song.id &&
+    // this.props.audio.song.id !== undefined) {
+    //   this.setState({ pos: this.state.player.currentTime });
+    //   this.refs.wavesurfer.props.playPause;
+    // }
+  }
+
+  componentDidMount() {
+    // this.refs.wavesurfer.props.mute;
+    // if (this.props.audio.song.id === this.props.song.id) {
+    //   this.setState({
+    //     player: this.props.audio.player,
+    //     pos: this.props.audio.player.currentTime
+    //   });
+    // } else {
+    //   this.setState({ player: this.props.audio.player });
+    // }
+    let style = {
+      container: `#waveform-${this.props.song.id}`,
+      maxCanvasWidth: 500,
+      waveColor: 'gray',
+      progressColor: 'orangered',
+      barWidth: 2,
+      barHeight: 0.95,
+      minPxPerSec: 0,
+      hideScrollbar: true,
+      height: 66,
+      pixelRatio: 1,
+      backend: 'MediaElement',
+      cursorWidth: 0
+    };
+    var wavesurfer = WaveSurfer.create(style);
+    wavesurfer.load(this.props.song.track_url);
+    this.setState({ wavesurfer: wavesurfer});
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.progress);
   }
 
   showSong() {
@@ -35,9 +66,17 @@ class Song extends React.Component {
     window.location.hash = `/${user}/songs/${song.id}`;
   }
 
-  handleTogglePlay() {
+  playPause() {
+    WaveSurfer.playPause();
+  }
+
+  mute() {
+    WaveSurfer.setMute(true);
+  }
+
+  togglePlay() {
     this.setState({
-      playing: !this.state.playing
+      playing: true
     });
   }
 
@@ -45,6 +84,7 @@ class Song extends React.Component {
     this.setState({
       pos: e.originalArgs[0]
     });
+    this.props.audio.player.currentTime = e.originalArgs[0];
   }
 
   render() {
@@ -55,13 +95,10 @@ class Song extends React.Component {
         <img onClick={this.showSong} src={song.image_url}></img>
         <ul className='song-info'>
           <SongPlay song={song} showSong={this.showSong}/>
-          <Wavesurfer
-            audioFile={trackUrl}
-            pos={this.state.pos}
-            options={style}
-            onPosChange={this.handlePosChange}
-            playing={this.state.playing}
-            />
+          <div className='waveform-box'>
+            <div id={`waveform-${this.props.song.id}`}>
+            </div>
+          </div>
           <SongDetailContainer song={song} comments={song.number_of_comments} />
         </ul>
       </li>

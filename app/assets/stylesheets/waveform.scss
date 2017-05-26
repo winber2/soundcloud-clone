@@ -6,6 +6,13 @@ li.waveform {
   justify-content: center;
   position: relative;
 
+
+  div.waveform-box {
+    width: 480px;
+    height: 66px;
+    margin: 15px 0;
+  }
+
   div.waveform-background{
     position: relative;
 
@@ -28,3 +35,9 @@ li.waveform {
     }
   }
 }
+
+  div.waveform-box {
+    width: 500px;
+    height: 66px;
+    margin: 10px 0px 10px 10px;
+  }

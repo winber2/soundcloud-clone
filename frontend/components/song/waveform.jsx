@@ -18,12 +18,6 @@ class Waveform extends React.Component {
 
 
   render() {
-    if (this.props.song.track_url !== undefined &&
-      this.state.wavesurfer !== undefined &&
-      Boolean(this.refs.waveform)) {
-      this.state.wavesurfer.load('https://res.cloudinary.com/winber1/video/upload/v1495513521/ONE_OK_ROCK_-_The_Beginning_ihy7xf.mp3');
-    }
-
     return (
       <li className='waveform-box'>
         <div ref='waveform' id='waveform'>
@@ -34,3 +28,17 @@ class Waveform extends React.Component {
 }
 
 export default Waveform;
+
+
+
+<div className='waveform-box'>
+  <Wavesurfer ref='wavesurfer'
+    audioFile={trackUrl}
+    pos={this.state.pos}
+    options={style}
+    mute={this.mute}
+    playPause={this.playPause}
+    onPosChange={this.handlePosChange}
+    playing={this.state.playing}
+    />
+</div>
