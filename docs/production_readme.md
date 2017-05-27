@@ -119,8 +119,8 @@ componentWillReceiveProps(nextProps) {
 }
 ```
 
-![image of song feed](docs/playbar1.png)
-![image of song page](docs/playbar2.png)
+![image of song feed](/playbar1.png)
+![image of song page](/playbar2.png)
 
 The playbar feature does not just include real-time updating of state, but also the ability to scroll through a list of songs for an endless playing experience. This was done by adding another key to the songs slice of state, in addition to the sidebar songs:
 
