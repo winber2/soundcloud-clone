@@ -45,8 +45,8 @@ class UserPageBottom extends React.Component {
       <section className='user-page-bottom'>
         <ul className='user-page-nav'>
           <li><NavLink exact to={`/${this.props.user.username}`}>Tracks</NavLink></li>
-          <li><NavLink to={`/${this.props.user.username}/tracks`}>Playlists</NavLink></li>
-          <li><NavLink to={`/${this.props.user.username}/tracks`}>Reposts</NavLink></li>
+          <li><NavLink to={`/${this.props.user.username}/playlists`}>Playlists</NavLink></li>
+          <li><NavLink to={`/${this.props.user.username}/reposts`}>Reposts</NavLink></li>
           <li className='user-page-options'>
             {option}
           </li>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { values, merge } from 'lodash';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import SongContainer from '../song/song_container';
 import SideBarContainer from '../sidebar/sidebar_container';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -63,8 +63,8 @@ class Stream extends React.Component {
               <li>
                 <NavLink to='/stream'>Stream</NavLink>
               </li>
-              <li><NavLink to='/charts'>Charts</NavLink></li>
-              <li><NavLink to='/discover'>Discover</NavLink></li>
+              <li><Link to='/stream'>Charts</Link></li>
+              <li><Link to='/stream'>Discover</Link></li>
             </ul>
           </nav>
           <div className='nav-border' />

@@ -1,64 +1,158 @@
 # Vibe
 
-[Vibe live][heroku] **NB:** This should be a link to your production site
-
-[heroku]: http://www.herokuapp.com
+[Vibe live][https://vibemusic.herokuapp.com/]
 
 Vibe is a full-stack web application inspired by Soundcloud.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.  
 
 ## Features & Implementation
 
-### Home Page and Account Creation
+### Sidebar (Songs and Users state)
 
-  As for any web application, there will be a user authentication that will redirect a user to either their own personal homepage or the root homepage, determined by whether they are logged in or logged out, respectively. The homepage will have basic information about the site as well as an index of songs from which to grab the user's attention. Instead of having a separate page for account creation or login, the homepage will have a pop-up form which the user will fill-in, making the experience more fluid.
+  Song information are all stored in one table in the database, which contains basic song information such as the `artist`, `title`, `genre`, and vice versa. Upon logging in, the user will be directed to his or her personal homepage which will show a list of songs from artists that the user follows, or just random songs from the database if the user follows no one or follows too little people.
 
-### Songs and Songs Show Page
+  Each song is created by some user, which is stored in the database as the song's `author_id`. Of course, this relationship in the database was not hard to create, but passing the information properly, quickly, and responsively took a little effort, especially when it came to passing down the information to the right components.
 
-  Song information are all stored in one table in the database, which contains basic song information such as the `artist`, `title`, `genre`, and vice versa. Upon logging in, the user will be directed to his or her personal homepage which will show a list of songs from artists that the user follows. 
+  The sidebar was a tough feature to implemented properly, because in order for favorites and follows to work fluidly, both the sidebar and the main song index needed to be updated when a follow or favorite was created or destroyed. There was also the added problem of sending the correct user and song information to it from the state. The solution to this problem was through adding a nested key inside my songs slice of state, and adding a separate component state which kept track of which songs and users needed to be updated and passed down.
 
-  not done yet below is jsut copy pasted
+```
+{
+  songs: {
+    1: {
+      title: "Sandstorm",
+      artist: "darude",
+      author_id: 1,
+      genre: "Sandstorm",
+      image_url: 'google.com/pictures',
+      track_urlL: 'soundcloud.com/song',
+      Album: "Memes and Giggles",
+      favorites: {
+        1: {
+          id: 5,
+          username: "Janice"
+        }
+      }
+      user: {
+        id: 1,
+        username: 'darude'
+      }
+    }
+    2: {
+      ...
+    }
 
-  On the database side, the notes are stored in one table in the database, which contains columns for `id`, `user_id`, `content`, and `updated_at`.  Upon login, an API call is made to the database which joins the user table and the note table on `user_id` and filters by the current user's `id`.  These notes are held in the `NoteStore` until the user's session is destroyed.  
+    ...etc
+    random: {
+      1: {
+        title: "Still Echoes",
+        artist: "Lamb of God",
+        author_id: 1,
+        genre: "Metal",
+        image_url: 'google.com/pictures',
+        track_urlL: 'soundcloud.com/song',
+        Album: "VII: Sturm und Drang",
+        favorites: {
+          1: {
+            id: 5,
+            username: "Janice"
+          }
+        }
+        user: {
+          id: 2,
+          username: 'Ranelle'
+        }
+      }
 
-  Notes are rendered in two different components: the `CondensedNote` components, which show the title and first few words of the note content, and the `ExpandedNote` components, which are editable and show all note text.  The `NoteIndex` renders all of the `CondensedNote`s as subcomponents, as well as one `ExpandedNote` component, which renders based on `NoteStore.selectedNote()`. The UI of the `NoteIndex` is taken directly from Evernote for a professional, clean look:  
-
-![image of notebook index](wireframes/home-logged-in.png)
-
-Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
-
-### Notebooks
-
-Implementing Notebooks started with a notebook table in the database.  The `Notebook` table contains two columns: `title` and `id`.  Additionally, a `notebook_id` column was added to the `Note` table.  
-
-The React component structure for notebooks mirrored that of notes: the `NotebookIndex` component renders a list of `CondensedNotebook`s as subcomponents, along with one `ExpandedNotebook`, kept track of by `NotebookStore.selectedNotebook()`.  
-
-`NotebookIndex` render method:
-
-```javascript
-render: function () {
-  return ({this.state.notebooks.map(function (notebook) {
-    return <CondensedNotebook notebook={notebook} />
+      ...etc
+    }
   }
-  <ExpandedNotebook notebook={this.state.selectedNotebook} />)
+```
+```js
+class SideBar extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { offset: 0, userIds: [], songIds: [] };
+  }
 }
 ```
 
-### Tags
+A tricky problem getting this sidebar to work was the fact that either the follow button or favorite button would not update both the sidebar and the index, or if implemented incorrectly, favoriting a song would add an extra song onto the song listing. Using this method, despite having separate components render the song listings and the sidebar listings, users and songs would be updated on both components upon receiving some kind of prop without altering the songs or users that were already fetched for that state.
 
-As with notebooks, tags are stored in the database through a `tag` table and a join table.  The `tag` table contains the columns `id` and `tag_name`.  The `tagged_notes` table is the associated join table, which contains three columns: `id`, `tag_id`, and `note_id`.  
+### Playbar and Waveforms
 
-Tags are maintained on the frontend in the `TagStore`.  Because creating, editing, and destroying notes can potentially affect `Tag` objects, the `NoteIndex` and the `NotebookIndex` both listen to the `TagStore`.  It was not necessary to create a `Tag` component, as tags are simply rendered as part of the individual `Note` components.  
+The playbar was quite a challenging feature to build from scratch. Albeit seemingly simple to function, it requires a lot of attention to detail to pass around the audio information to different components completely unrealted to the playbar. The easiest solution was to create another slice of state solely dedicated to the audio that was playing. This would keep track of the song that was playing, whether or not the song is currently playing, and the audio player html element that was used to play the music.
 
-![tag screenshot](wireframes/tag-search.png)
+```
+{
+  audio: {
+    song: {
+      id: 1,
+      title: 'Love Ya',
+      author_id: 3,
+      etc...
+    },
+    player: 'Audio Element',
+    isPlaying: false
+  }
+}
+```
+
+In addition to this, there required many conditional renderings for the element to maintain that the correct indicators would still be showing for a given song on different pages. A succinct way to accomplish this was by making the play bar the one true state of the audio playing. Similar to how the store is the one true state of the web app, by making the playbar the one true state for the audio, all other elements which would have to conditionally render could base its own state on the playbar (e.g. whether or not its own song prop was the same as the audio playing). This allowed state to be transferred between different components and different routes.
+
+In this way, whenever the audio slice of state changed, this would get passed to the playbar and it would know exactly how to respond. On a similar note, waveform scrolling acted upon this audio slice of state to update itself in accordance with the audio.
+
+```js
+componentWillReceiveProps(nextProps) {
+  let audio = this.props.audio;
+  if (audio.isPlaying) {
+    this.activatePlayer();
+    audio.player.play();
+    this.setState({
+      icon: 'pause-button.png'
+    });
+  } else if (audio.isPlaying === false) {
+    audio.player.pause();
+    this.setState({
+      icon: 'play-button.png'
+    });
+    this.pausePlayer();
+  }
+}
+```
+
+![image of song feed](/playbar1.png)
+![image of song page](/playbar2.png)
+
+The playbar feature does not just include real-time updating of state, but also the ability to scroll through a list of songs for an endless playing experience. This was done by adding another key to the songs slice of state, in addition to the sidebar songs:
+
+```
+{
+  songs: {
+    1: {
+      ...
+    }
+    2: {
+      ...
+    }
+    random: {
+      ...
+    }
+    order: [
+      songId1,
+      songId2,
+      songId3,
+      ...
+    ]
+  }
+```
+
+Everytime a song was passed into the state, its `id` would be pushed into the order array. Wheter you skip or let the song pass by itself, when a song ended, the playbar would find the song it was currently playing inside the order array and correctly choose the next song to play. This not only solves the problem continuous play, but also solves the problem of correctly order the songs on the main index when rendering more songs for infinite scroll. Furthermore, sometimes songs would be added to the state for fetching other data for the user, and this organization prevents this new data from affecting the proper order of songs.
 
 ## Future Directions for the Project
 
-In addition to the features already implemented, I plan to continue work on this project.  The next steps for Vibe are outlined below.
+### Playlists and Reposts
 
-### Search
+Playlists are a core functionality for music sharing sites, but because of limitations in time there was not time to flesh out playlists bug-free and with fluid navigation. Reposts would be nice to have as an addition to the song feed.
 
-Searching notes is a standard feature of Evernote.  I plan to utilize the Fuse.js library to create a fuzzy search of notes and notebooks.  This search will look go through tags, note titles, notebook titles, and note content.  
+### Smarter feed and Suggestions
 
-### Direct Messaging
-
-Although this is less essential functionality, I also plan to implement messaging between Vibe users.  To do this, I will use WebRTC so that notifications of messages happens seamlessly.  
+For a better functioning site, the algorithms for the suggestions and the feed would need to be more appealing for the user. Of course, this is more trivial when it comes to the functionality of the site.
