@@ -24,11 +24,11 @@ class SideBar extends React.Component {
         <div className="author">
           <figure className="github">
             <a href="https://github.com/winber2"></a>
-            <span>Github</span>
+            <a className="page" href="https://github.com/winber2">Github</a>
           </figure>
           <figure className="linkedin">
             <a href="https://www.linkedin.com/in/winber/"></a>
-            <span>Linkedin</span>
+            <a className="page" href="https://github.com/winber2">Linkedin</a>
           </figure>
         </div>
       </div>
