@@ -194,13 +194,13 @@ p {
   color: darkgray;
 }
 
-footer {
+footer.author {
   background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   div.author {
     display: flex;
     justify-content: space-between;

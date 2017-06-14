@@ -52,12 +52,14 @@
 
 .controls {
   vertical-align: top;
+  display: flex;
+  justify-content: space-around;
 
   img {
     vertical-align: middle;
     height: 25px;
     width: 25px;
-    margin: 0 15px;
+    margin: 0 10px;
 
   }
 

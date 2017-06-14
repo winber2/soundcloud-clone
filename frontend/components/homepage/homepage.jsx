@@ -109,7 +109,7 @@ class HomePage extends React.Component {
             {songs}
           </ul>
         </section>
-        <footer>
+        <footer className="author">
           <div className="author">
             <figure className="github">
               <a href="https://github.com/winber2"></a>
