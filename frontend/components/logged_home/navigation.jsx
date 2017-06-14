@@ -45,7 +45,7 @@ class Navigation extends React.Component {
   closeSettings() {
     setTimeout(() => {
       this.setState({ isActive: '' });
-    }, 100);
+    }, 200);
   }
 
   render() {
