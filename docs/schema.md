@@ -58,3 +58,10 @@ column name | data type | details
 id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users), indexed
 artist_id   | integer   | not null, foreign key (references users), indexed
+
+## reposts
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+reposter_id | integer   | not null, foreign key (references users), indexed
+song_id     | integer   | not null, foreign key (references songs), indexed
