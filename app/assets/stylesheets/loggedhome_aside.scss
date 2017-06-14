@@ -33,10 +33,57 @@ aside.loggedhome-sidebar {
   }
 
   div.chart-box {
-    border: 1px solid lightgray;
-    background: $light-gray;
-    height: 200px;
+    // border: 1px solid lightgray;
+    // background: $light-gray;
+    // height: 200px;
     width: auto;
+
+    div.author {
+      display: flex;
+      flex-direction: column;
+
+      figure {
+        margin: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        width: 150px;
+        margin: 5px;
+        align-items: center;
+
+        a {
+          display: block;
+          width: 30px;
+          height: 30px;
+          background: transparent;
+
+          &:hover {
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      figure.github {
+        background-image: asset-url('github-icon.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      figure.linkedin {
+        background-image: asset-url('linkedin.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    span {
+      color: black;
+      margin: 0 0 0 10px;
+      padding: 0;
+      border: none;
+    }
+
   }
 
   div.user-description {
