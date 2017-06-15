@@ -143,7 +143,6 @@ class Song extends React.Component {
   selectTime(int) {
     let audio = this.props.audio;
 
-    debugger;
     if (this.props.song.id === audio.song.id) {
       let player = this.state.player;
       let time = player.duration * int;
