@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteIconContainer from '../icons/favorite_container';
-import RepostIcon from '../icons/repost';
+import RepostIconContainer from '../icons/repost_container';
 import MoreOptionsContainer from '../icons/more_options_container';
 
 class SongDetail extends React.Component {

@@ -3,13 +3,14 @@ import React from 'react';
 class RepostIcon extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isReposted: false, isActive: '' }
+    this.state = { isReposted: false, isActive: '' };
+    this.addRepost = this.addRepost.bind(this);
   }
 
-  findUserFollow(followers, currentUser) {
-    if (followers === undefined) return false;
-    for (let i = 0; i < followers.length; i++) {
-      if (followers[i].id === currentUser.id) {
+  repostedByUser(reposts, currentUser) {
+    if (reposts === undefined) return false;
+    for (let i = 0; i < reposts.length; i++) {
+      if (reposts[i].id === currentUser.id) {
         return true;
       }
     }
@@ -17,43 +18,44 @@ class RepostIcon extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let user = nextProps.user;
-    if (this.findUserFollow(user.followers, nextProps.currentUser)) {
-      this.setState({ isFollowed: true, isActive: 'active' });
+    let song = nextProps.song;
+    if (this.repostedByUser(song.reposts, nextProps.currentUser)) {
+      this.setState({ isReposted: true, isActive: 'active' });
     } else {
-      this.setState({ isFollowed: false, isActive: '' });
+      this.setState({ isReposted: false, isActive: '' });
     }
   }
 
   componentDidMount() {
-    let user = this.props.user;
-    if (this.findUserFollow(user.followers, this.props.currentUser)) {
-      this.setState({ isFollowed: true, isActive: 'active' });
+    let song = this.props.song;
+    if (this.repostedByUser(song.reposts, this.props.currentUser)) {
+      this.setState({ isReposted: true, isActive: 'active' });
     }
   }
 
   addRepost() {
     let currentUser = this.props.currentUser;
-    let user = this.props.user;
+    let song = this.props.song;
 
-    if (this.state.isFollowed === true) {
-      let follow = this.props.user.followers.find( fol => (
-        fol.id === currentUser.id
+    if (this.state.isReposted === true) {
+      let repost = this.props.song.reposts.find( rep => (
+        rep.id === currentUser.id
       ));
-      this.props.unfollowUser(follow.follow_id)
-        .then(() => this.props.fetchUser(this.props.user.username));
+      this.props.deleteRepost(repost.id)
+        .then(() => this.props.fetchSingleSong(song.id));
     } else {
-      this.props.followUser(currentUser, user)
-        .then(() => this.props.fetchUser(this.props.user.username));
+      this.props.repostSong(currentUser, song.id)
+        .then(() => this.props.fetchSingleSong(song.id));
     }
   }
 
   render() {
+    let reposts = this.props.song.reposts || [];
     return (
       <li className='repost'>
         <div className={`repost-icon ${this.state.isActive}`}/>
         <span className={`favorite ${this.state.isActive}`}>
-
+          {reposts.length}
         </span>
       </li>
     );
