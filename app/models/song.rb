@@ -10,6 +10,11 @@ class Song < ApplicationRecord
 
   has_many :comments
 
+  has_many :reposts,
+    class_name: :Repost,
+    foreign_key: :song_id,
+    primary_key: :id
+
   has_many :favorites, as: :favoritable
 
   def ensure_type

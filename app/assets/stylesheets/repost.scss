@@ -15,6 +15,10 @@ li.repost {
     background-size: cover;
     background-repeat: no-repeat;
     margin-right: 3px;
+
+    &.active {
+      background-image: asset-url('orange-repost.png');
+    }
   }
 
   span.repost {
@@ -27,10 +31,18 @@ li.repost {
       font-weight: 400;
       margin-right: 2px;
     }
+
+    &.active {
+      color: orange;
+    }
   }
 
   &:hover {
     border: 1px solid lightgray;
     cursor: pointer;
+  }
+
+  &.active {
+    border: 1px solid orange;
   }
 }

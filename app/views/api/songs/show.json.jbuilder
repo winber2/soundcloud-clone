@@ -9,8 +9,13 @@ json.user do
     json.username following.follower.username
   end
 end
-json.number_of_comments @song.comments.count
+json.number_of_comments @song.comments.length
 json.favorites @song.favorites.each do |favorite|
   json.id favorite.id
   json.user_id favorite.user_id
+end
+json.reposts @song.reposts.each do |repost|
+  json.id repost.id
+  json.reposter_id repost.reposter_id
+  json.song_id repost.song_id
 end

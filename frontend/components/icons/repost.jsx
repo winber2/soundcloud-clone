@@ -44,7 +44,7 @@ class RepostIcon extends React.Component {
       this.props.deleteRepost(repost.id)
         .then(() => this.props.fetchSingleSong(song.id));
     } else {
-      this.props.repostSong(currentUser, song.id)
+      this.props.repostSong(currentUser.id, song.id)
         .then(() => this.props.fetchSingleSong(song.id));
     }
   }
@@ -52,9 +52,9 @@ class RepostIcon extends React.Component {
   render() {
     let reposts = this.props.song.reposts || [];
     return (
-      <li className='repost'>
+      <li onClick={this.addRepost} className={`repost ${this.state.isActive}`}>
         <div className={`repost-icon ${this.state.isActive}`}/>
-        <span className={`favorite ${this.state.isActive}`}>
+        <span className={`repost ${this.state.isActive}`}>
           {reposts.length}
         </span>
       </li>

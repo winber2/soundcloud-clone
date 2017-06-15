@@ -1,8 +1,13 @@
-export const repostSong = (repost) => (
+export const repostSong = (userId, songId) => (
   $.ajax({
     method: 'POST',
     url: 'api/reposts',
-    data: { repost }
+    data: {
+      repost: {
+        reposter_id: userId,
+        song_id: songId
+      }
+    }
   })
 );
 

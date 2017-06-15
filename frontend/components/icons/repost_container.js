@@ -9,9 +9,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  repostSong: (currentUser, user) => repostSong(currentUser, user),
+  repostSong: (userId, songId) => repostSong(userId, songId),
   deleteRepost: id => deleteRepost(id),
   fetchSingleSong: id => dispatch(fetchSingleSong(id))
+
 });
 
 export default connect(

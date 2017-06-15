@@ -15,13 +15,13 @@ class SongDetail extends React.Component {
     return (
       <li className="song-detail">
         <ul>
-          <FavoriteIconContainer favoritable={song}/>
-          <RepostIcon />
+          <FavoriteIconContainer favoritable={song} />
+          <RepostIconContainer song={this.props.song} />
           <MoreOptionsContainer song={this.props.song} />
         </ul>
         <ul>
             <li>
-              <div className='comment-icon'/>
+              <div className='comment-icon' />
               <span>{this.props.comments}</span>
             </li>
         </ul>
