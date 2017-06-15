@@ -23,7 +23,7 @@ class Stream extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({ songOffset: 0, scroll: false, order: [] });
+    this.state = { songOffset: 0, scroll: false, order: [] };
   }
 
   handleInfiniteLoad() {

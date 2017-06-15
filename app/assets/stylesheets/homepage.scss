@@ -193,3 +193,57 @@ p {
   font-size: 14px;
   color: darkgray;
 }
+
+footer.author {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div.author {
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+    padding-bottom: 20px;
+
+    figure {
+      margin: 0;
+      width: 50px;
+      height: 50px;
+
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+
+        &:hover {
+          border: none;
+        }
+      }
+    }
+
+    figure.github {
+      background-image: asset-url('github-icon.png');
+      background-size: contain;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    figure.linkedin {
+      background-image: asset-url('linkedin.png');
+      background-size: contain;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  span.author-name {
+    color: black;
+  }
+}

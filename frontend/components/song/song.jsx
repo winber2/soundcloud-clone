@@ -5,7 +5,7 @@ import SongDetailContainer from './song_detail_container';
 var WaveformData = require('waveform-data');
 var AV = require('./aurora.js');
 require('mp3.js');
-const context = new AudioContext();
+// const context = new AudioContext();
 
 // const a = new AudioContext();
 // window.a = a;
@@ -142,6 +142,7 @@ class Song extends React.Component {
 
   selectTime(int) {
     let audio = this.props.audio;
+
     if (this.props.song.id === audio.song.id) {
       let player = this.state.player;
       let time = player.duration * int;

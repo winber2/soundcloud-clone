@@ -21,7 +21,16 @@ class SideBar extends React.Component {
   chartBox() {
     return (
       <div className='chart-box'>
-        <div className='chart-picture' />
+        <div className="author">
+          <figure className="github">
+            <a href="https://github.com/winber2"></a>
+            <a className="page" href="https://github.com/winber2">Github</a>
+          </figure>
+          <figure className="linkedin">
+            <a href="https://www.linkedin.com/in/winber/"></a>
+            <a className="page" href="https://github.com/winber2">Linkedin</a>
+          </figure>
+        </div>
       </div>
     );
   }

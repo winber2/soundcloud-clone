@@ -109,9 +109,16 @@ class HomePage extends React.Component {
             {songs}
           </ul>
         </section>
-        <section>
-
-        </section>
+        <footer className="author">
+          <div className="author">
+            <figure className="github">
+              <a href="https://github.com/winber2"></a>
+            </figure>
+            <figure className="linkedin">
+              <a href="https://www.linkedin.com/in/winber/"></a>
+            </figure>
+          </div>
+        </footer>
       </div>
     );
   }
