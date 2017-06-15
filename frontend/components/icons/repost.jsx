@@ -10,7 +10,7 @@ class RepostIcon extends React.Component {
   repostedByUser(reposts, currentUser) {
     if (reposts === undefined) return false;
     for (let i = 0; i < reposts.length; i++) {
-      if (reposts[i].id === currentUser.id) {
+      if (reposts[i].reposter_id === currentUser.id) {
         return true;
       }
     }
@@ -39,7 +39,7 @@ class RepostIcon extends React.Component {
 
     if (this.state.isReposted === true) {
       let repost = this.props.song.reposts.find( rep => (
-        rep.id === currentUser.id
+        rep.reposter_id === currentUser.id
       ));
       this.props.deleteRepost(repost.id)
         .then(() => this.props.fetchSingleSong(song.id));
