@@ -17,7 +17,7 @@ export const receiveUsers = users => ({
 export const receiveRandomUsers = users => ({
   type: RANDOM_USERS,
   users
-})
+});
 
 export const fetchUsers = () => dispatch => (
   APIUtil.fetchUsers()
