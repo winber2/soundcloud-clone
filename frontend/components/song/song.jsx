@@ -1,7 +1,6 @@
 import React from 'react';
 import SongPlay from './song_play';
 import SongDetailContainer from './song_detail_container';
-// import Wavesurfer from 'react-wavesurfer';
 var WaveformData = require('waveform-data');
 var AV = require('./aurora.js');
 require('mp3.js');
