@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoriteIconContainer from '../icons/favorite_container';
-import RepostIcon from '../icons/repost';
+import RepostIconContainer from '../icons/repost_container';
 import MoreOptionsContainer from '../icons/more_options_container';
 
 class CommentCreation extends React.Component {
@@ -30,9 +30,9 @@ class CommentCreation extends React.Component {
           <input placeholder='Write a comment' onKeyPress={this.handleKey} className='comment-input'></input>
         </div>
         <ul className='comment-options'>
-          <FavoriteIconContainer favoritable={this.props.song}/>
-          <RepostIcon />
-          <MoreOptionsContainer song={this.props.song}/>
+          <FavoriteIconContainer favoritable={this.props.song} />
+          <RepostIconContainer song={this.props.song} />
+          <MoreOptionsContainer song={this.props.song} />
         </ul>
       </div>
     );

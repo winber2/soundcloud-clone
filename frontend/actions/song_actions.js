@@ -6,6 +6,7 @@ export const REMOVE_SONG = "REMOVE_SONG";
 export const APPEND_SONGS = "APPEND_SONGS";
 export const RANDOM_SONGS = "RANDOM_SONGS";
 export const RANDOM_SONG = "RANDOM_SONG";
+export const RECEIVE_REPOSTS = "RECEIVE_REPOSTS";
 
 export const receiveSong = (song) => ({
   type: RECEIVE_SONG,
@@ -35,6 +36,11 @@ export const receiveRandomSongs = songs => ({
 export const receiveSingleRandomSong = song => ({
   type: RANDOM_SONG,
   song
+});
+
+export const receiveReposts = songs => ({
+  type: RECEIVE_REPOSTS,
+  songs
 });
 
 export const deleteSong = id => dispatch => (
@@ -75,6 +81,11 @@ export const fetchMoreSongs = (query) => dispatch => (
 export const fetchUserSongs = id => dispatch => (
   APIUtil.fetchSongs(id)
     .then(songs => dispatch(receiveSongs(songs)))
+);
+
+export const fetchReposts = id => dispatch => (
+  APIUtil.fetchSongs(id)
+    .then(songs => dispatch(receiveReposts(songs)))
 );
 
 export const editSong = song => dispatch => (

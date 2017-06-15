@@ -41,7 +41,7 @@ class SongPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     let song = this.props.song || {};
     if (nextProps.match.params.songId != song.id) {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
     }
 
     if (song.id === undefined || this.props.audio === undefined) return;

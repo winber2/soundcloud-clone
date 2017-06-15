@@ -1,4 +1,4 @@
-import { RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, APPEND_SONGS, RANDOM_SONGS, RANDOM_SONG } from "../actions/song_actions";
+import { RECEIVE_SONGS, RECEIVE_SONG, REMOVE_SONG, APPEND_SONGS, RANDOM_SONGS, RANDOM_SONG, RECEIVE_REPOSTS } from "../actions/song_actions";
 import merge from 'lodash/merge';
 
 const _defaultState = {};
@@ -51,7 +51,7 @@ const SongReducer = (state = _defaultState, action) => {
       newState['random'] = action.songs;
       delete newState.random['order'];
       return newState;
-
+      
     default:
       return state;
   }

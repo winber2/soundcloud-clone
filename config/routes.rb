@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :favorites, only: [:create, :destroy]
+    resources :reposts, only: [:create, :destroy]
     resources :follows, only: [:create, :destroy]
     resources :users, except: [:new, :edit]
     resources :songs, except: [:new, :edit] do

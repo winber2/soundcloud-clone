@@ -40,6 +40,15 @@ class User < ApplicationRecord
     through: :follows,
     source: :artist
 
+  has_many :reposts,
+    class_name: :Repost,
+    foreign_key: :reposter_id,
+    primary_key: :id
+
+  has_many :reposted_songs,
+    through: :reposts,
+    source: :song
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
