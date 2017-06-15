@@ -10,13 +10,20 @@ class SongDetail extends React.Component {
     this.state = { isActive: '' };
   }
 
+  showRepost() {
+    let path = this.props.location.pathname;
+    if (path.slice(path.length - 7) !== 'reposts') {
+      return <RepostIconContainer song={this.props.song} />;
+    }
+  }
+
   render() {
     let song = this.props.song;
     return (
       <li className="song-detail">
         <ul>
           <FavoriteIconContainer favoritable={song} />
-          <RepostIconContainer song={this.props.song} />
+          {this.showRepost()}
           <MoreOptionsContainer song={this.props.song} />
         </ul>
         <ul>
