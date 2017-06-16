@@ -40,14 +40,13 @@ aside.loggedhome-sidebar {
 
     div.author {
       display: flex;
-      flex-direction: column;
 
       figure {
+        flex: 1;
         margin: 0;
         width: 30px;
         height: 30px;
         display: flex;
-        width: 150px;
         margin: 5px;
         align-items: center;
 
