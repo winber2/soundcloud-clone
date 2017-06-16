@@ -24,7 +24,7 @@ class Api::SongsController < ApplicationController
         .order('COUNT (favorites.favoritable_id) DESC')
         .limit(10)
         .select('songs.*')
-        .includes(:comments, :user)
+        .includes(:comments, :user, :reposts, :favorites)
 
       render :index
     elsif params[:username] != nil
@@ -58,6 +58,7 @@ class Api::SongsController < ApplicationController
       .offset(params[:query][:offset])
       .limit(5)
       .select('songs.*')
+      .includes(:user, :comments, :reposts, :favorites)
 
       render :index
     else

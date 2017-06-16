@@ -68,7 +68,7 @@ class HomePage extends React.Component {
       <SongShow home={true}
         openSignIn={this.openSignIn}
         song={song}
-        key={song.id} />
+        key={idx} />
     ));
 
     return (
