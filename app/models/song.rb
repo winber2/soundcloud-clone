@@ -3,6 +3,12 @@ class Song < ApplicationRecord
   validates :type, presence: true
   validate :ensure_type
 
+  has_attached_file :image_url,
+    default_url: "https://s3-us-west-1.amazonaws.com/fuckcloudinary/1111111111111111111111111111111111111111111.jpg",
+    s3_protocol: :https
+  validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\Z/,
+
+
   belongs_to :user,
     class_name: :User,
     foreign_key: :author_id,
