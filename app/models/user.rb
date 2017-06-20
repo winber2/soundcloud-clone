@@ -3,6 +3,14 @@ class User < ApplicationRecord
   validates :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, message: 'must be at least 6 characters'}, allow_nil: true
 
+  has_attached_file :profile_image_url,
+    default_url: "https://s3-us-west-1.amazonaws.com/fuckcloudinary/1111111111111111111111111111111111111111111.jpg",
+    s3_protocol: :https
+  has_attached_file :header_image_url,
+    s3_protocol: :https
+  validates_attachment_content_type :profile_image_url, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :header_image_url, content_type: /\Aimage\/.*\Z/
+
   attr_reader :password
 
   after_initialize :ensure_session_token
