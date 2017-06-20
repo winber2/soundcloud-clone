@@ -1,4 +1,6 @@
 json.extract! user, :id, :username, :profile_image_url, :header_image_url, :description
+json.profile_image_url user.profile_image_url.url
+json.header_image_url user.header_image_url.url
 json.songs do
   user.songs.each do |song|
     json.set! song.id do
@@ -7,8 +9,8 @@ json.songs do
       json.title song.title
       json.genre song.genre
       json.album song.album
-      json.image_url song.image_url
-      json.track_url song.track_url
+      json.image_url song.image_url.url
+      json.track_url song.track_url.url
       json.description song.description
       json.release_date song.release_date
       json.number_of_comments song.comments.length
@@ -28,8 +30,8 @@ json.reposts do
       json.title song.title
       json.genre song.genre
       json.album song.album
-      json.image_url song.image_url
-      json.track_url song.track_url
+      json.image_url song.image_url.url
+      json.track_url song.track_url.url
       json.description song.description
       json.release_date song.release_date
       json.number_of_comments song.comments.length
