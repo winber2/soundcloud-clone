@@ -9,7 +9,7 @@ const UPLOAD_PRESET = 'cgbryuxc';
 class Upload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { route: 'upload', isActive: '', trackUrl: '' };
+    this.state = { route: 'upload', isActive: '', trackFile: '' };
     this.toHome = this.toHome.bind(this);
     this.acceptFile = this.acceptFile.bind(this);
     this.back = this.back.bind(this);
@@ -23,7 +23,7 @@ class Upload extends React.Component {
     if (files[0].type !== 'audio/mp3') {
       alert('Sorry, we currently only accept mp3 files as audio files!');
     } else {
-      this.setState({ isActive: 'active', route: 'input', trackUrl: files[0] });
+      this.setState({ isActive: 'active', route: 'input', trackFile: files[0] });
     }
   }
 
@@ -40,11 +40,11 @@ class Upload extends React.Component {
           </Dropzone>
           <button onClick={this.toHome} className='login'>Back to home page</button>
         </ul>
-      )
+      );
     } else {
       return (
-        <UploadFormContainer back={this.back} trackUrl={this.state.trackUrl}/>
-      )
+        <UploadFormContainer back={this.back} trackFile={this.state.trackFile}/>
+      );
     }
   }
 
