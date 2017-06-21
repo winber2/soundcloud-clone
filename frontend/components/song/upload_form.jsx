@@ -89,27 +89,6 @@ class UploadForm extends React.Component {
     .then(action => upload.props.history.push(
       `/${action.song.user.username}/songs/${action.song.id}`
     ));
-
-    // superagent.post(IMAGE_URL)
-    //   .send(image)
-    //   .end(function(err, res) {
-    //     if (res.body.secure_url !== '') {
-    //       upload.state.image_url = res.body.secure_url;
-    //
-    //       superagent.post(VIDEO_URL)
-    //         .send(song)
-    //         .end(function(err, res) {
-    //           if (res.body.secure_url !== '') {
-    //             upload.state.track_url = res.body.secure_url;
-    //
-    //             upload.props.createSong(upload.state)
-    //             .then(action => upload.props.history.push(
-    //               `/${action.song.user.username}/songs/${action.song.id}`
-    //             ));
-    //           }
-    //         });
-    //     }
-    //   });
   }
 
   render() {

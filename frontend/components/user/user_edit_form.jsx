@@ -56,49 +56,49 @@ class UserEditForm extends React.Component {
   }
 
   submitHeader() {
-    let header = this.state.header_image_url
+    let header = this.state.header_image_url;
     let upload = this;
 
     let image = new FormData();
     image.append('file', header);
     image.append('upload_preset', UPLOAD_PRESET);
 
-    superagent.post(IMAGE_URL)
-      .send(image)
-      .end(function(err, res) {
-        if (res.body.secure_url !== '') {
-          upload.props.editUser({
-            header_image_url: res.body.secure_url,
-            id: upload.state.id
-          });
-        }
-      });
+    // superagent.post(IMAGE_URL)
+    //   .send(image)
+    //   .end(function(err, res) {
+    //     if (res.body.secure_url !== '') {
+    //       upload.props.editUser({
+    //         header_image_url: res.body.secure_url,
+    //         id: upload.state.id
+    //       });
+    //     }
+    //   });
   }
 
   submitProfile() {
-    let profile = this.state.profile_image_url
+    let profile = this.state.profile_image_url;
     let upload = this;
 
     let image = new FormData();
     image.append('file', profile);
     image.append('upload_preset', UPLOAD_PRESET);
 
-    superagent.post(IMAGE_URL)
-      .send(image)
-      .end(function(err, res) {
-        if (res.body.secure_url !== '') {
-          upload.props.editUser({
-            profile_image_url: res.body.secure_url,
-            id: upload.state.id
-          });
-        }
-      });
+    // superagent.post(IMAGE_URL)
+    //   .send(image)
+    //   .end(function(err, res) {
+    //     if (res.body.secure_url !== '') {
+    //       upload.props.editUser({
+    //         profile_image_url: res.body.secure_url,
+    //         id: upload.state.id
+    //       });
+    //     }
+    //   });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let profile = this.state.profile_image_url
-    let header = this.state.header_image_url
+    let profile = this.state.profile_image_url;
+    let header = this.state.header_image_url;
 
     if (profile.preview !== this.props.user.profile_image_url &&
     header.preview === this.props.user.header_image_url) {

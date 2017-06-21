@@ -44,19 +44,20 @@ class UserPage extends React.Component {
     let upload = this;
 
     let image = new FormData();
-    image.append('file', header);
-    image.append('upload_preset', UPLOAD_PRESET);
+    image.append('user[header_image_url]', header);
 
-    superagent.post(IMAGE_URL)
-      .send(image)
-      .end(function(err, res) {
-        if (res.body.secure_url !== '') {
-          upload.props.editUser({
-            header_image_url: res.body.secure_url,
-            id: upload.props.user.id
-          });
-        }
-      });
+    this.props.editUser(image)
+
+    // superagent.post(IMAGE_URL)
+    //   .send(image)
+    //   .end(function(err, res) {
+    //     if (res.body.secure_url !== '') {
+    //       upload.props.editUser({
+    //         header_image_url: res.body.secure_url,
+    //         id: upload.props.user.id
+    //       });
+    //     }
+    //   });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -73,6 +74,7 @@ class UserPage extends React.Component {
   }
 
   render() {
+    debugger;
     let image = '';
     let header = '';
     if (this.props.user.id === this.props.currentUser.id) {
