@@ -8,14 +8,14 @@ song_order = []
     json.title song.title
     json.genre song.genre
     json.album song.album
-    json.image_url song.image_url
-    json.track_url song.track_url
+    json.image_url song.image_url.url
+    json.track_url song.track_url.url
     json.description song.description
     json.release_date song.release_date
     json.user do
       json.username song.user.username
       json.author_id song.user.id
-      json.profile_image_url song.user.profile_image_url
+      json.profile_image_url song.user.profile_image_url.url
     end
     json.number_of_comments song.comments.length
     json.favorites song.favorites.each do |favorite|

@@ -159,6 +159,7 @@ class ProgressBar extends React.Component {
   nextSong() {
     let order = this.props.songs.order;
     let nextSongId = undefined;
+    if (order === undefined) return;
     for (let i = 0; i < order.length; i++) {
       if (order[i] === this.props.audio.song.id) {
         nextSongId = order[i + 1];
@@ -166,6 +167,9 @@ class ProgressBar extends React.Component {
     }
     if (nextSongId === undefined) {
       nextSongId = order[0];
+    }
+    if (nextSongId === undefined) {
+      nextSongId = Object.keys(this.props.songs)[0];
     }
     let audio = this.props.audio;
     audio.song = this.props.songs[nextSongId];

@@ -2,8 +2,8 @@
   json.set! user.id do
     json.id user.id
     json.username user.username
-    json.profile_image_url user.profile_image_url
-    json.header_image_url user.header_image_url
+    json.profile_image_url user.profile_image_url.url
+    json.header_image_url user.header_image_url.url
     json.description user.description
     json.followers user.followings.each do |following|
       json.id following.follower.id

@@ -34,7 +34,7 @@ export const fetchUser = id => dispatch => (
     .then(user => dispatch(receiveUser(user)))
 );
 
-export const editUser = user => dispatch => (
-  APIUtil.updateUser(user)
-    .then(editUser => dispatch(receiveUser(editUser)))
+export const editUser = (user, id) => dispatch => (
+  APIUtil.updateUser(user, id)
+    .then(editedUser => dispatch(receiveUser(editedUser)))
 );

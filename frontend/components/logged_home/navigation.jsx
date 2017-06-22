@@ -45,7 +45,7 @@ class Navigation extends React.Component {
   closeSettings() {
     setTimeout(() => {
       this.setState({ isActive: '' });
-    }, 200);
+    }, 250);
   }
 
   render() {
@@ -54,7 +54,7 @@ class Navigation extends React.Component {
         <ul>
           <li onClick={this.toHome} className='loggedhome-logo'><img src='https://res.cloudinary.com/winber1/image/upload/v1495123529/vibe-logo_x2xsvo.png'/></li>
           <li><NavLink to='/stream'>Home</NavLink></li>
-          <li><NavLink to='/collection/likes'>Collection</NavLink></li>
+          <li><NavLink to='/collection'>Collection</NavLink></li>
         </ul>
         <ul className='searchbar'>
           <input onKeyPress={this.toSearch} className='home-search'></input>

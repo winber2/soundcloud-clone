@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615165659) do
+ActiveRecord::Schema.define(version: 20170620193323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,29 +49,41 @@ ActiveRecord::Schema.define(version: 20170615165659) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "title",                         null: false
+    t.string   "title",                                   null: false
     t.date     "release_date"
-    t.string   "genre",                         null: false
+    t.string   "genre",                                   null: false
     t.string   "album"
-    t.string   "image_url",                     null: false
-    t.string   "track_url",                     null: false
-    t.integer  "author_id",                     null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.integer  "author_id",                               null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.text     "description"
-    t.string   "type",         default: "Song"
+    t.string   "type",                   default: "Song"
+    t.string   "image_url_file_name"
+    t.string   "image_url_content_type"
+    t.integer  "image_url_file_size"
+    t.datetime "image_url_updated_at"
+    t.string   "track_url_file_name"
+    t.string   "track_url_content_type"
+    t.integer  "track_url_file_size"
+    t.datetime "track_url_updated_at"
     t.index ["author_id"], name: "index_songs_on_author_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                                                                                                            null: false
-    t.string   "password_digest",                                                                                                     null: false
-    t.string   "session_token",                                                                                                       null: false
-    t.string   "profile_image_url", default: "https://res.cloudinary.com/winber1/image/upload/v1495410946/defaultProfile_c7fuwg.png"
-    t.datetime "created_at",                                                                                                          null: false
-    t.datetime "updated_at",                                                                                                          null: false
-    t.string   "header_image_url"
-    t.text     "description",       default: ""
+    t.string   "username",                                    null: false
+    t.string   "password_digest",                             null: false
+    t.string   "session_token",                               null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.text     "description",                    default: ""
+    t.string   "profile_image_url_file_name"
+    t.string   "profile_image_url_content_type"
+    t.integer  "profile_image_url_file_size"
+    t.datetime "profile_image_url_updated_at"
+    t.string   "header_image_url_file_name"
+    t.string   "header_image_url_content_type"
+    t.integer  "header_image_url_file_size"
+    t.datetime "header_image_url_updated_at"
     t.index ["session_token"], name: "index_users_on_session_token", using: :btree
     t.index ["username"], name: "index_users_on_username", using: :btree
   end

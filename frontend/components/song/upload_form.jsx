@@ -17,8 +17,9 @@ class UploadForm extends React.Component {
       description: '',
       release_date: '',
       author_id: this.props.currentUser.id,
-      image_url: '',
-      track_url: this.props.trackUrl,
+      image_file: null,
+      image_url: null,
+      track_file: this.props.trackFile,
       isActive: '',
       errors: '',
       modalState: false
@@ -43,7 +44,13 @@ class UploadForm extends React.Component {
   }
 
   uploadImage(files) {
-    this.setState({ image_url: files[0] });
+    let file = files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ image_file: file, image_url: fileReader.result});
+    };
+
+    fileReader.readAsDataURL(file);
   }
 
   disableForm() {
@@ -63,39 +70,25 @@ class UploadForm extends React.Component {
 
     this.disableForm();
 
-    let imageFile = this.state.image_url;
-    let songFile = this.state.track_url;
+    let imageFile = this.state.image_file;
+    let songFile = this.state.track_file;
     let upload = this;
     this.state.release_date = new Date(this.state.release_date);
 
     let song = new FormData();
-    song.append('file', songFile);
-    song.append('upload_preset', UPLOAD_PRESET);
+    song.append("song[image_url]", imageFile);
+    song.append("song[track_url]", songFile);
+    song.append("song[title]", this.state.title);
+    song.append("song[album]", this.state.album);
+    song.append("song[genre]", this.state.genre);
+    song.append("song[description]", this.state.description);
+    song.append("song[release_date]", this.state.release_date);
+    song.append("song[author_id]", this.state.author_id);
 
-    let image = new FormData();
-    image.append('file', imageFile);
-    image.append('upload_preset', UPLOAD_PRESET);
-
-    superagent.post(IMAGE_URL)
-      .send(image)
-      .end(function(err, res) {
-        if (res.body.secure_url !== '') {
-          upload.state.image_url = res.body.secure_url;
-
-          superagent.post(VIDEO_URL)
-            .send(song)
-            .end(function(err, res) {
-              if (res.body.secure_url !== '') {
-                upload.state.track_url = res.body.secure_url;
-
-                upload.props.createSong(upload.state)
-                .then(action => upload.props.history.push(
-                  `/${action.song.user.username}/songs/${action.song.id}`
-                ));
-              }
-            });
-        }
-      });
+    this.props.createSong(song)
+    .then(action => upload.props.history.push(
+      `/${action.song.user.username}/songs/${action.song.id}`
+    ));
   }
 
   render() {
@@ -110,7 +103,7 @@ class UploadForm extends React.Component {
         <h1>Song info</h1>
         <ul className='upload-song-description'>
           <li className='upload-image-box'>
-            <img src={this.state.image_url.preview} />
+            <img src={this.state.image_url} />
             <Dropzone onDrop={this.uploadImage} className='dropzone'>
               <button className='upload-image'>Upload Image</button>
             </Dropzone>

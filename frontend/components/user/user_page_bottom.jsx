@@ -55,12 +55,6 @@ class UserPageBottom extends React.Component {
 
   render() {
     let user = this.props.user;
-    // let songsToConvert = merge({}, this.props.songs);
-    // delete songsToConvert['random'];
-    // delete songsToConvert['order'];
-    // let songs = values(songsToConvert).map( song => {
-    //   return(<SongContainer key={song.id} song={song} />);
-    // });
     let option = this.props.currentUser.id !== this.props.user.id ?
         <FollowContainer user={this.props.user} /> :
         <button onClick={this.editUser} className='user-page-edit'>Edit</button>;
