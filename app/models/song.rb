@@ -7,7 +7,7 @@ class Song < ApplicationRecord
     s3_protocol: :https
   validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :track_url, content_type: /\Aaudio\/.*\Z/
-
+  
   validates :image_url, :track_url, :title, :author_id, :genre, presence: true
   validates :type, presence: true
   validate :ensure_type
