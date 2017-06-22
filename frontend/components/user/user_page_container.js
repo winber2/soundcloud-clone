@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: user => dispatch(fetchUser(user)),
-  editUser: user => dispatch(editUser(user))
+  editUser: (user, id) => dispatch(editUser(user, id))
 });
 
 export default withRouter(

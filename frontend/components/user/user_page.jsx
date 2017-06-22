@@ -14,39 +14,38 @@ class UserPage extends React.Component {
     this.state = {
       profileImage: '',
       headerImage: ''
-    }
+    };
     this.uploadProfile = this.uploadProfile.bind(this);
     this.uploadHeader = this.uploadHeader.bind(this);
   }
 
   uploadProfile(files) {
     let profile = files[0];
-    let upload = this;
 
     let image = new FormData();
-    image.append('file', profile);
-    image.append('upload_preset', UPLOAD_PRESET);
+    image.append('user[profile_image_url]', profile);
 
-    superagent.post(IMAGE_URL)
-      .send(image)
-      .end(function(err, res) {
-        if (res.body.secure_url !== '') {
-          upload.props.editUser({
-            profile_image_url: res.body.secure_url,
-            id: upload.props.user.id
-          });
-        }
-      });
+    this.props.editUser(image, this.props.user.id);
+    // superagent.post(IMAGE_URL)
+    //   .send(image)
+    //   .end(function(err, res) {
+    //     if (res.body.secure_url !== '') {
+    //       upload.props.editUser({
+    //         profile_image_url: res.body.secure_url,
+    //         id: upload.props.user.id
+    //       });
+    //     }
+    //   });
   }
 
   uploadHeader(files) {
     let header = files[0];
-    let upload = this;
-
+    // let upload = this;
+    // debugger;
     let image = new FormData();
     image.append('user[header_image_url]', header);
-
-    this.props.editUser(image)
+    debugger;
+    this.props.editUser(image, this.props.user.id);
 
     // superagent.post(IMAGE_URL)
     //   .send(image)
@@ -74,7 +73,6 @@ class UserPage extends React.Component {
   }
 
   render() {
-    debugger;
     let image = '';
     let header = '';
     if (this.props.user.id === this.props.currentUser.id) {

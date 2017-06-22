@@ -1,11 +1,6 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { merge } from 'lodash';
-var superagent = require('superagent');
-
-
-const IMAGE_URL = 	'https://api.cloudinary.com/v1_1/winber1/image/upload';
-const UPLOAD_PRESET = 'cgbryuxc';
 
 class UserEditForm extends React.Component {
   constructor(props) {
@@ -44,7 +39,7 @@ class UserEditForm extends React.Component {
   }
 
   update(prop) {
-    return e => this.setState({ [prop]: e.target.value})
+    return e => this.setState({ [prop]: e.target.value});
   }
 
   uploadHeader(files) {
@@ -57,42 +52,16 @@ class UserEditForm extends React.Component {
 
   submitHeader() {
     let header = this.state.header_image_url;
-    let upload = this;
-
     let image = new FormData();
-    image.append('file', header);
-    image.append('upload_preset', UPLOAD_PRESET);
-
-    // superagent.post(IMAGE_URL)
-    //   .send(image)
-    //   .end(function(err, res) {
-    //     if (res.body.secure_url !== '') {
-    //       upload.props.editUser({
-    //         header_image_url: res.body.secure_url,
-    //         id: upload.state.id
-    //       });
-    //     }
-    //   });
+    image.append('user[header_image_url]', header);
+    this.props.editUser(image, this.state.id);
   }
 
   submitProfile() {
     let profile = this.state.profile_image_url;
-    let upload = this;
-
     let image = new FormData();
-    image.append('file', profile);
-    image.append('upload_preset', UPLOAD_PRESET);
-
-    // superagent.post(IMAGE_URL)
-    //   .send(image)
-    //   .end(function(err, res) {
-    //     if (res.body.secure_url !== '') {
-    //       upload.props.editUser({
-    //         profile_image_url: res.body.secure_url,
-    //         id: upload.state.id
-    //       });
-    //     }
-    //   });
+    image.append('user[profile_image_url]', profile);
+    this.props.editUser(image, this.state.id);
   }
 
   handleSubmit(e) {
@@ -113,9 +82,9 @@ class UserEditForm extends React.Component {
       this.submitHeader();
       this.submitProfile();
     }
-
-    let description = { description: this.state.description, id: this.state.id };
-    this.props.editUser(description)
+    let description = new FormData();
+    description.append('user[description]', this.state.description);
+    this.props.editUser(description, this.state.id)
       .then(this.props.history.push(`/${this.props.user.username}`));
   }
 
