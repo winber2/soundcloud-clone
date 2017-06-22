@@ -30,7 +30,7 @@ class MoreOptions extends React.Component {
       if (this.state.isActive === 'active') {
         this.setState({ isActive: '' });
       }
-    }, 80);
+    }, 200);
   }
 
   render() {
@@ -48,7 +48,7 @@ class MoreOptions extends React.Component {
           <a className='song-options-item'>
             <li>Add to Playlist</li>
           </a>
-          <Link className='song-options-item' to={`${song.user.username}/songs/${song.id}/edit`}>
+          <Link className='song-options-item' to={`/${song.user.username}/songs/${song.id}/edit`}>
             <li>Edit</li>
           </Link>
           <a className='song-options-item'>
