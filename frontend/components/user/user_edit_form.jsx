@@ -10,7 +10,7 @@ class UserEditForm extends React.Component {
       description: '',
       profile_image_url: { preview: '' },
       header_image_url: { preview: '' }
-    }
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
@@ -26,7 +26,7 @@ class UserEditForm extends React.Component {
         description: user.description,
         profile_image_url: { preview: user.profile_image_url },
         header_image_url: { preview: user.header_image_url }
-      })
+      });
     }
   }
 
