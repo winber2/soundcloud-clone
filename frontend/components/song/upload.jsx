@@ -1,10 +1,6 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import UploadFormContainer from './upload_form_container';
-var superagent = require('superagent');
-
-const VIDEO_URL = 'https://api.cloudinary.com/v1_1/winber1/video/upload';
-const UPLOAD_PRESET = 'cgbryuxc';
 
 class Upload extends React.Component {
   constructor(props) {
