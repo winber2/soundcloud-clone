@@ -4,15 +4,14 @@ class Song < ApplicationRecord
     s3_protocol: :https
   has_attached_file :track_url,
     default_url: "https://s3-us-west-1.amazonaws.com/fuckcloudinary/ONE+OK++ROCK+-+The+Beginning.mp3",
-    s3_protocol: :https
+    s3_protocol: :https,
+    validate_media_type: false
   validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :track_url, content_type: /\Aaudio\/.*\Z/
-  
+
   validates :image_url, :track_url, :title, :author_id, :genre, presence: true
   validates :type, presence: true
   validate :ensure_type
-
-
 
   belongs_to :user,
     class_name: :User,
