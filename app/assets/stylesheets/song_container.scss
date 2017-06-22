@@ -175,6 +175,10 @@ li.song-detail {
     color: gray;
     align-items: center;
 
+    &:hover {
+      cursor: default;
+    }
+
     span {
       font-size: 12px;
     }
